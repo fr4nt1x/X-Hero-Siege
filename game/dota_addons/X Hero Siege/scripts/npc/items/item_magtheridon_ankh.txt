@@ -1,0 +1,74 @@
+"item_magtheridon_ankh" 
+{
+    	"ID"           "1105"
+    	"BaseClass"    "item_datadriven"
+    	"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    	"Model"        "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl" 
+    	"Effect"       "particles/generic_gameplay/dropped_item.vpcf"
+    	"ItemCost"     "500"
+    	"ItemKillable" "1" 
+    	"ItemSellable" "1"
+    	"ItemPurchasable" "1"
+    "ItemDroppable" "1"
+    "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    "AbilityTextureName" "item_aegis"
+
+    "SideShop"     "0" 
+    "SecretShop"   "0"
+
+    "ItemShopTags"					"artifact"
+	"ItemQuality"					"artifact"
+    
+    "ItemStackable" "0"
+    "ItemInitialCharges"			"1"
+    "ItemPermanent" "0"
+    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"      "FIELD_FLOAT"
+            "reincarnation_time"    	"3.0"
+        }
+    }
+    "Modifiers"
+    {
+    	"modifier_reincarnation"
+    	{
+    		"Passive"			"1"
+    		"IsHidden"			"1"
+    		"IsDebuff"			"0"
+    		"OnTakeDamage"
+    		{
+    			"RunScript"
+    			{
+    				"ScriptFile"	"items/Ankh_Magtheridon/magtheridon.lua"
+    				"Function"		"reincarnation"
+    			}
+    		}
+    	}
+        "modifier_delete_door"
+        {
+            "Passive"           "0"
+            "IsHidden"          "0"
+            "IsDebuff"          "0"
+            "OnDeath"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"    "items/Ankh_Magtheridon/magtheridon.lua"
+                    "Function"      "delete_door"
+                }
+            }
+        }
+    }
+
+    "precache"
+    {
+    	"particle"  "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl"
+    	"particle"	"particles/generic_gameplay/dropped_item.vpcf"
+    	"particle"	"particles/items_fx/aegis_respawn.vpcf"
+    	"particle"	"particles/generic_hero_status/death_tombstone_alt.vpcf"
+    }   
+}      

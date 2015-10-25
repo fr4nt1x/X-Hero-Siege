@@ -1,0 +1,1054 @@
+"DOTAAbilities"
+{
+	//ankh
+	"item_ankh" 
+	{
+	    	"ID"           "1102"
+	    	"BaseClass"    "item_datadriven"
+	    	"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	    	"Model"        "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl" 
+	    	"Effect"       "particles/generic_gameplay/dropped_item.vpcf"
+	    	"ItemCost"     "500"
+	    	"ItemKillable" "1" 
+	    	"ItemSellable" "1"
+	    	"ItemPurchasable" "1"
+	    "ItemDroppable" "1"
+	    "ItemShareability" "ITEM_FULLY_SHAREABLE"
+	    "AbilityTextureName" "item_aegis"
+	
+	    "SideShop"     "1" 
+	    "SecretShop"   "0"
+	
+	    "ItemShopTags"					"artifact"
+		"ItemQuality"					"artifact"
+	    
+	    "ItemStackable" "0"
+	    "ItemInitialCharges"			"3"
+	    "ItemPermanent" "0"
+	    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+	
+	    "AbilitySpecial"
+	    {
+	        "01"
+	        {
+	            "var_type"      "FIELD_FLOAT"
+	            "reincarnation_time"    	"10.0"
+	        }
+	    }
+	    "Modifiers"
+	    {
+	    	"modifier_reincarnation"
+	    	{
+	    		"Passive"			"1"
+	    		"IsHidden"			"1"
+	    		"IsDebuff"			"0"
+	
+	            "OnDeath"
+	            {
+	                "RunScript"
+	                {
+	                    "ScriptFile"    "items/Ankh/ankh.lua"
+	                    "Function"      "reincarnation"
+	                }
+	            
+	    	   }
+	        }
+	    }
+	
+	    "precache"
+	    {
+	    	"particle"  "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl"
+	    	"particle"	"particles/generic_gameplay/dropped_item.vpcf"
+	    	"particle"	"particles/items_fx/aegis_respawn.vpcf"
+	    	"particle"	"particles/generic_hero_status/death_tombstone_alt.vpcf"
+	    }   
+	}
+	"item_boots_of_speed" 
+	{
+	    "ID"           "1113"
+	    "BaseClass"    "item_datadriven"
+	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT"
+	    "Model"        "item_power_treads" 
+	    "Effect"       "item_power_treads"
+	    "ItemCost"     "1000"
+	    "ItemKillable" "1" 
+	    "ItemSellable" "1"
+	    "ItemCastOnPickup" "0"
+	    "ItemPurchasable" "1"
+	    "ItemDroppable" "1"
+	    "ItemShareability" "ITEM_FULLY_SHAREABLE"
+	    "AbilityTextureName" "item_power_treads"
+	    "AbilityCastPoint"   "0.5"
+	    "AbilityCastRange"        "900"
+	    "AbilityCooldown"        "10"
+	    "AbilityManaCost"        "100"
+	
+	    "SideShop"     "1" 
+	    "SecretShop"   "0"
+	
+	    "ItemShopTags"					"artifact"
+		   "ItemQuality"					"artifact"
+	    
+	    "ItemStackable" "0"
+	    "ItemPermanent" "1"
+	    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+	    "AbilitySpecial"
+	    {
+	    }
+	
+	    "precache"
+	    {
+	      "particle"  "particles/econ/events/nexon_hero_compendium_2014/blink_dagger_end_nexon_hero_cp_2014.vpcf"
+	    }
+	    "OnSpellStart"
+	    {
+	        "FireEffect"
+	        {
+	            "EffectName"        "particles/econ/events/nexon_hero_compendium_2014/blink_dagger_end_nexon_hero_cp_2014.vpcf"
+	            "EffectAttachType" "follow_origin"
+	            "Target"            "CASTER"
+	        }
+	        "RunScript"
+	        {
+	          "ScriptFile"  "items/Blink/blink.lua"
+	          "Function"    "blink"
+	          "Target"      "POINT"
+	        }
+	
+	    }
+	    "Modifiers"
+	    {
+	        "modifier_boots"
+	        { 
+	          "Passive"       "1"
+	          "IsHidden"      "0"
+	          "IsPurgable"    "0"
+	          "IsBuff"        "1"
+	          "Properties"
+	          {
+	              "MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE" "522" 
+	          }
+	        }
+	    }
+	}  
+	//Healing Pot
+	"item_healing_pot" 
+	{
+	    	"ID"           "1100"
+	    	"BaseClass"    "item_datadriven"
+	    	"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_IMMEDIATE" 
+	    	"Model"        "models/props_gameplay/salve.vmdl" 
+	    	"Effect"       "particles/generic_gameplay/dropped_item.vpcf"
+	    	"ItemCost"     "10"
+	    	"ItemKillable" "1" 
+	    	"ItemSellable" "1"
+	    	"ItemPurchasable" "1"
+	    "ItemDroppable" "1"
+	    "ItemShareability" "ITEM_FULLY_SHAREABLE"
+	    "AbilityTextureName" "item_flask2"
+	
+	    "SideShop"     "1" 
+	    "SecretShop"   "0"
+	
+	    "ItemShopTags"					"consumable"
+		"ItemQuality"					"consumable"
+	    
+	    "ItemStackable" "0"
+	    "ItemInitialCharges"			"15"
+	    "ItemPermanent" "0"
+	    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+	    "AbilityCastAnimation"      "ACT_DOTA_DISABLED"
+		"AbilityCastPoint"				"0.0"
+	    "AbilitySpecial"
+	    {
+	        "01"
+	        {
+	            "var_type"      "FIELD_INTEGER"
+	            "heal"    	"3000"
+	        }
+	    }
+	    "OnSpellStart"
+	    {
+	    	"Heal"
+	    	{
+	    		"Target"        "CASTER"
+	    		"HealAmount"	"%heal"
+	    	}
+	    	"SpendCharge"
+			{}
+	    }
+	    "precache"
+	    {
+	    	"particle"  "particles/generic_gameplay/dropped_item.vpcf"
+	    }    
+	}
+	"item_key_of_the_three_moons" 
+	{
+	    "ID"           "1110"
+	    "BaseClass"    "item_datadriven"
+	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	    "Model"        "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl" 
+	    "Effect"       "particles/generic_gameplay/dropped_item.vpcf"
+	    "ItemCost"     "500"
+	    "ItemKillable" "0" 
+	    "ItemSellable" "0"
+	    "ItemCastOnPickup" "0"
+	    "ItemPurchasable" "0"
+	    "ItemDroppable" "1"
+	    "ItemShareability" "ITEM_FULLY_SHAREABLE"
+	    "AbilityTextureName" "item_ultimate_orb"
+	
+	    "SideShop"     "0" 
+	    "SecretShop"   "0"
+	
+	    "ItemShopTags"					"artifact"
+		"ItemQuality"					"artifact"
+	    
+	    "ItemStackable" "0"
+	    "ItemPermanent" "1"
+	    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+	    "AbilitySpecial"
+	    {
+	        "01"
+	        {
+	            "var_type"      "FIELD_FLOAT"
+	            "stat_bonus" "2500"
+	        }
+	
+	    }
+	    "Modifiers"
+	    {
+	        "modifier_moon_buff"
+	        {
+	            "Passive"            "1"
+	            "IsHidden"            "1"
+	            "IsDebuff"            "0"
+	            "IsPurgable"        "0"
+	            "IsBuff"            "1"
+	            //Purge(bool RemovePositiveBuffs, bool RemoveDebuffs, bool BuffsCreatedThisFrameOnly, bool RemoveStuns, bool RemoveExceptions)"
+	        
+	            "EffectName"        "particle_name"
+	            "EffectAttachType"    "follow_origin"
+	        
+	            "Properties"
+	            {
+	                "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%stat_bonus"
+	                "MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%stat_bonus"
+	                "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%stat_bonus"
+	            }
+	         
+	        }
+	    }
+	    "precache"
+	    {
+	    	"particle"  "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl"
+	    	"particle"	"particles/generic_gameplay/dropped_item.vpcf"
+	    }   
+	}  
+	"item_lightning_sword" 
+	{
+	    "ID"           "1108"
+	    "BaseClass"    "item_datadriven"
+	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	    "Model"        "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl" 
+	    "Effect"       "particles/generic_gameplay/dropped_item.vpcf"
+	    "ItemCost"     "5000"
+	    "ItemKillable" "0" 
+	    "ItemSellable" "0"
+	    "ItemCastOnPickup" "0"
+	    "ItemPurchasable" "0"
+	    "ItemDroppable" "1"
+	    "ItemShareability" "ITEM_FULLY_SHAREABLE"
+	    "AbilityTextureName" "item_mjollnir"
+	
+	    "SideShop"     "0" 
+	    "SecretShop"   "0"
+	
+	    "ItemShopTags"					"artifact"
+		"ItemQuality"					"artifact"
+	    
+	    "ItemStackable" "0"
+	    "ItemPermanent" "1"
+	    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+	    "AbilitySpecial"
+	    {
+	        "01"
+	        {
+	            "var_type"      "FIELD_FLOAT"
+	            "base_attack_bonus" "10000"
+	        }
+	        "02"
+	        {
+	            "var_type"      "FIELD_INTEGER"
+	            "lifesteal" "50"
+	        }
+	    }
+	    "Modifiers"
+	    {
+	        "modifier_lightning_sword"
+	        {
+	            "Passive"            "1"
+	            "IsHidden"            "1"
+	            "IsDebuff"            "0"
+	            "IsPurgable"        "0"
+	            "IsBuff"            "1"
+	            //Purge(bool RemovePositiveBuffs, bool RemoveDebuffs, bool BuffsCreatedThisFrameOnly, bool RemoveStuns, bool RemoveExceptions)"
+	        
+	            "Properties"
+	            {
+	                "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%base_attack_bonus"
+	            }
+	         
+	          "OnAttackLanded"      
+	          {
+	            "RunScript"
+	            {
+	              "ScriptFile"  "heroes/hero_demonhunter/vampiric_aura.lua"
+	              "Function"    "VampiricAuraApply"
+	            }
+	          }
+	      }
+	
+	        "modifier_vampiric_aura_lifesteal"
+	        {
+	            "IsHidden"    "1"
+	            "OnDealDamage"
+	            {
+	              "Lifesteal"
+	              {
+	                "Target"        "ATTACKER"
+	                "LifestealPercent"    "%lifesteal"
+	              }
+	            }
+	        }
+	    }
+	    "precache"
+	    {
+	    	"particle"  "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl"
+	    	"particle"	"particles/generic_gameplay/dropped_item.vpcf"
+	        "particle"  "particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
+	    }   
+	}  
+	"item_magtheridon_ankh" 
+	{
+	    	"ID"           "1105"
+	    	"BaseClass"    "item_datadriven"
+	    	"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	    	"Model"        "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl" 
+	    	"Effect"       "particles/generic_gameplay/dropped_item.vpcf"
+	    	"ItemCost"     "500"
+	    	"ItemKillable" "1" 
+	    	"ItemSellable" "1"
+	    	"ItemPurchasable" "1"
+	    "ItemDroppable" "1"
+	    "ItemShareability" "ITEM_FULLY_SHAREABLE"
+	    "AbilityTextureName" "item_aegis"
+	
+	    "SideShop"     "0" 
+	    "SecretShop"   "0"
+	
+	    "ItemShopTags"					"artifact"
+		"ItemQuality"					"artifact"
+	    
+	    "ItemStackable" "0"
+	    "ItemInitialCharges"			"1"
+	    "ItemPermanent" "0"
+	    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+	
+	    "AbilitySpecial"
+	    {
+	        "01"
+	        {
+	            "var_type"      "FIELD_FLOAT"
+	            "reincarnation_time"    	"3.0"
+	        }
+	    }
+	    "Modifiers"
+	    {
+	    	"modifier_reincarnation"
+	    	{
+	    		"Passive"			"1"
+	    		"IsHidden"			"1"
+	    		"IsDebuff"			"0"
+	    		"OnTakeDamage"
+	    		{
+	    			"RunScript"
+	    			{
+	    				"ScriptFile"	"items/Ankh_Magtheridon/magtheridon.lua"
+	    				"Function"		"reincarnation"
+	    			}
+	    		}
+	    	}
+	        "modifier_delete_door"
+	        {
+	            "Passive"           "0"
+	            "IsHidden"          "0"
+	            "IsDebuff"          "0"
+	            "OnDeath"
+	            {
+	                "RunScript"
+	                {
+	                    "ScriptFile"    "items/Ankh_Magtheridon/magtheridon.lua"
+	                    "Function"      "delete_door"
+	                }
+	            }
+	        }
+	    }
+	
+	    "precache"
+	    {
+	    	"particle"  "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl"
+	    	"particle"	"particles/generic_gameplay/dropped_item.vpcf"
+	    	"particle"	"particles/items_fx/aegis_respawn.vpcf"
+	    	"particle"	"particles/generic_hero_status/death_tombstone_alt.vpcf"
+	    }   
+	}      
+	//mana Pot
+	"item_mana_pot" 
+	{
+	    	"ID"           "1101"
+	    	"BaseClass"    "item_datadriven"
+	    	"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	    	"Model"        "models/props_gameplay/salve_blue.vmdl" 
+	    	"Effect"       "particles/generic_gameplay/dropped_item.vpcf"
+	    	"ItemCost"     "10"
+	    	"ItemKillable" "1" 
+	    	"ItemSellable" "1"
+	    	"ItemPurchasable" "1"
+	    "ItemDroppable" "1"
+	    "ItemShareability" "ITEM_FULLY_SHAREABLE"
+	    "AbilityTextureName" "item_greater_clarity"
+	    "SideShop"     "1" 
+	    "SecretShop"   "0"
+	
+	    "ItemShopTags"					"consumable"
+		"ItemQuality"					"consumable"
+	    
+	    "ItemStackable" "0"
+	    "ItemInitialCharges"			"15"
+	    "ItemPermanent" "0"
+	    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+	    "AbilityCastAnimation"      "ACT_DOTA_DISABLED"
+		"AbilityCastPoint"				"0.0"
+	    "AbilitySpecial"
+	    {
+	        "01"
+	        {
+	            "var_type"      "FIELD_INTEGER"
+	            "mana"    	"3000"
+	        }
+	    }
+	    "OnSpellStart"
+	    { 
+	    	"RunScript"
+	        	{
+	          	"ScriptFile"      "items/Mana_Potion/manaPotions.lua"
+	          	"Function"        "GiffMana"
+	        	}
+	    	"SpendCharge"
+			{}
+	    }
+	    "precache"
+	    {
+	    	"particle"  "particles/generic_gameplay/dropped_item.vpcf"
+	    }    
+	}
+	"item_morbid_mask" 
+	{
+	    "ID"           "1112"
+	    "BaseClass"    "item_datadriven"
+	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	    "Model"        "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl" 
+	    "Effect"       "particles/generic_gameplay/dropped_item.vpcf"
+	    "ItemCost"     "1000"
+	    "ItemKillable" "1" 
+	    "ItemSellable" "1"
+	    "ItemCastOnPickup" "0"
+	    "ItemPurchasable" "1"
+	    "ItemDroppable" "1"
+	    "ItemShareability" "ITEM_FULLY_SHAREABLE"
+	    "AbilityTextureName" "item_lifesteal"
+	
+	    "SideShop"     "1" 
+	    "SecretShop"   "0"
+	
+	    "ItemShopTags"					"artifact"
+		"ItemQuality"					"artifact"
+	    
+	    "ItemStackable" "0"
+	    "ItemPermanent" "1"
+	    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+	    "AbilitySpecial"
+	    {
+	       "01"
+	      {
+	        "var_type"        "FIELD_INTEGER"
+	        "lifesteal"     "50"
+	      }
+	    }
+	
+	    "precache"
+	    {
+	      // Not really used in the Lifesteal action
+	        "particle"  "particles/items_fx/aegis_respawn.vpcf"
+	        "particle"  "particles/generic_hero_status/death_tombstone_alt.vpcf"
+	        "particle"  "particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
+	    }
+	
+	    "Modifiers"
+	    {
+	        "modifier_vampiric_aura_buff"
+	        { 
+	          "Passive"       "1"
+	          "IsHidden"      "0"
+	          "IsPurgable"    "0"
+	          "IsBuff"        "1"
+	
+	          "OnAttackLanded"      
+	          {
+	            "RunScript"
+	            {
+	              "ScriptFile"  "heroes/hero_demonhunter/vampiric_aura.lua"
+	              "Function"    "VampiricAuraApply"
+	            }
+	          }
+	        }
+	
+	        "modifier_vampiric_aura_lifesteal"
+	        {
+	        "IsHidden"    "1"
+	        "OnDealDamage"
+	        {
+	          "Lifesteal"
+	          {
+	            "Target"        "ATTACKER"
+	            "LifestealPercent"    "%lifesteal"
+	          }
+	        }
+	      }
+	    }
+	}  
+	
+	"item_ring_of_superiority" 
+	{
+	    	"ID"           "1109"
+	    	"BaseClass"    "item_datadriven"
+	    	"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	    	"Model"        "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl" 
+	    	"Effect"       "particles/generic_gameplay/dropped_item.vpcf"
+	    	"ItemCost"     "500"
+	    	"ItemKillable" "1" 
+	    	"ItemSellable" "0"
+	    	"ItemPurchasable" "0"
+	    "ItemDroppable" "1"
+	    "ItemShareability" "ITEM_FULLY_SHAREABLE"
+	    "AbilityTextureName" "item_ring_of_health"
+	
+	    "SideShop"     "0" 
+	    "SecretShop"   "0"
+	
+	    "ItemShopTags"					"artifact"
+		"ItemQuality"					"artifact"
+	    
+	    "ItemStackable" "0"
+	    "ItemPermanent" "1"
+	    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+	
+	    "AbilitySpecial"
+	    {
+	        "01"
+	        {
+	            "var_type"      "FIELD_INTEGER"
+	            "bonus_life_regeneration_unholy"    	"3"
+	        }
+	        "02"
+	        {
+	            "var_type"      "FIELD_INTEGER"
+	            "radius"        "900"
+	        }
+	        "03"
+	        {
+	            "var_type"      "FIELD_INTEGER"
+	            "bonus_movement_speed_percentage_unholy"        "40"
+	        }
+	        "04"
+	        {
+	            "var_type"      "FIELD_INTEGER"
+	            "bonus_damage_percentage_command"        "200"
+	        }
+	        "05"
+	        {
+	            "var_type"      "FIELD_INTEGER"
+	            "bonus_armor"        "500"
+	        }
+	        "06"
+	        {
+	            "var_type"      "FIELD_INTEGER"
+	            "bonus_movement_speed_percentage_endurance"        "40"
+	        }
+	        "07"
+	        {
+	            "var_type"      "FIELD_INTEGER"
+	            "bonus_attack_speed_endurance"        "300"
+	        }
+	    }
+	    "Modifiers"
+	    {
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////////
+	////////// UNHOLY AURA
+	        "modifier_unholy_aura_ring"
+	          {
+	            "Passive"       "1"
+	            "IsHidden"      "1"
+	            "IsBuff"      "1"
+	
+	            "Aura"        "modifier_unholy_buff_ring"
+	            "Aura_Radius"     "%radius"
+	            "Aura_Teams"    "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	            "Aura_Types"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	          }
+	
+	        "modifier_unholy_buff_ring"
+	          { 
+	            "IsBuff" "1"
+	            "Properties"
+	            {
+	              "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed_percentage_unholy"
+	              "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"    "%bonus_life_regeneration_unholy"
+	            }
+	          }
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////////
+	////////// COMMAND AURA
+	        "modifier_command_aura_ring"
+	          {
+	            "Passive"       "1"
+	            "IsHidden"      "1"
+	            "IsBuff"      "1"
+	
+	            "Aura"        "modifier_command_buff_ring"
+	            "Aura_Radius"     "%radius"
+	            "Aura_Teams"    "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	            "Aura_Types"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	          }
+	        "modifier_command_buff_ring"
+	          { 
+	            "IsBuff" "1"
+	            "Properties"
+	            {
+	              "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%bonus_damage_percentage_command"
+	            }
+	          }
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////////
+	////////// DEVOTION AURA
+	        "modifier_devotion_aura_ring"
+	          {
+	            "Passive"       "1"
+	            "IsHidden"      "1"
+	            "IsBuff"      "1"
+	
+	            "Aura"        "modifier_devotion_buff_ring"
+	            "Aura_Radius"     "%radius"
+	            "Aura_Teams"    "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	            "Aura_Types"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	          }
+	         
+	          "modifier_devotion_buff_ring"
+	          { 
+	            "IsPurgable" "0"
+	            "IsBuff" "1"
+	            "Properties"
+	            {
+	              "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%bonus_armor" 
+	            }
+	          }
+	
+	////////////////////////////////////////////////////////////////////////////////////////////////////////
+	////////// ENDURANCE_AURA
+	        "modifier_endurance_aura_ring"
+	          {
+	            "Passive"       "1"
+	            "IsHidden"      "1"
+	            "IsBuff"      "1"
+	
+	            "Aura"        "modifier_endurance_buff_ring"
+	            "Aura_Radius"     "%radius"
+	            "Aura_Teams"    "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	            "Aura_Types"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	          }
+	         "modifier_endurance_buff_ring"
+	          { 
+	            "IsBuff" "1"
+	            "IsHidden"      "0"
+	            "Properties"
+	            {
+	              "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attack_speed_endurance"
+	              "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed_percentage_endurance" 
+	            }
+	          }
+	    }
+	
+	    "precache"
+	    {
+	    	"particle"  "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl"
+	    	"particle"	"particles/generic_gameplay/dropped_item.vpcf"
+	    	"particle"	"particles/items_fx/aegis_respawn.vpcf"
+	    	"particle"	"particles/generic_hero_status/death_tombstone_alt.vpcf"
+	    }   
+	}
+	"item_shield_of_invincibility" 
+	{
+	    "ID"           "1111"
+	    "BaseClass"    "item_datadriven"
+	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	    "Model"        "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl" 
+	    "Effect"       "particles/generic_gameplay/dropped_item.vpcf"
+	    "ItemCost"     "500"
+	    "ItemKillable" "0" 
+	    "ItemSellable" "0"
+	    "ItemCastOnPickup" "0"
+	    "ItemPurchasable" "0"
+	    "ItemDroppable" "1"
+	    "ItemShareability" "ITEM_FULLY_SHAREABLE"
+	    "AbilityTextureName" "item_aegis"
+	
+	    "SideShop"     "0" 
+	    "SecretShop"   "0"
+	
+	    "ItemShopTags"					"artifact"
+		"ItemQuality"					"artifact"
+	    
+	    "ItemStackable" "0"
+	    "ItemPermanent" "1"
+	    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+	    "AbilitySpecial"
+	    {
+	      "01"
+	      {
+	        "var_type"        "FIELD_FLOAT"
+	        "damage_return_factor"  "0.8"
+	      }
+	      "02"
+	      {
+	        "var_type"        "FIELD_INTEGER"
+	        "armor_bonus"     "600"
+	      }
+	      "03"
+	        {
+	            "var_type"      "FIELD_FLOAT"
+	            "reincarnation_time"        "3.0"
+	        }
+	    }
+	
+	    "precache"
+	    {
+	      // Not really used in the Lifesteal action
+	        "particle"  "particles/units/heroes/hero_nyx_assassin/nyx_assassin_spiked_carapace.vpcf"
+	        "particle"  "particles/items_fx/aegis_respawn.vpcf"
+	        "particle"  "particles/generic_hero_status/death_tombstone_alt.vpcf"
+	        "particle"  "particles/units/heroes/hero_nyx_assassin/nyx_assassin_spiked_carapace_hit.vpcf"
+	    }
+	
+	    "Modifiers"
+	    {
+	      "modifier_spiked_carapace"
+	      {
+	        "Passive"       "1"
+	        "IsHidden"      "1"
+	        "IsBuff"      "1"
+	        "EffectName" ""
+	        "EffectAttachType" "follow_origin"
+	        "Properties"
+	        {
+	          "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
+	        }
+	
+	        "OnTakeDamage"
+	        // "%attack_damage" is set to the damage value after mitigation
+	        {
+	          "Damage"
+	          {
+	            "Target"    "ATTACKER"
+	            "Type"      "DAMAGE_TYPE_PHYSICAL"
+	            "Damage"    "%attack_damage* %damage_return_factor"
+	          }
+	          "FireEffect"
+	          {
+	            "EffectName"        "particles/units/heroes/hero_nyx_assassin/nyx_assassin_spiked_carapace_hit.vpcf"
+	            "EffectAttachType"  "follow_origin"
+	            "Target"            "TARGET"
+	          }
+	        }
+	      }
+	      "modifier_reincarnation"
+	        {
+	            "Passive"           "1"
+	            "IsHidden"          "1"
+	            "IsDebuff"          "0"
+	            "OnTakeDamage"
+	            {
+	                "RunScript"
+	                {
+	                    "ScriptFile"    "items/Ankh/ankh.lua"
+	                    "Function"      "reincarnation"
+	                }
+	            }
+	        }
+	        "modifier_no_draw"
+	        {
+	            "Passive" "0"
+	            "IsHidden" "1"
+	            "IsBuff" "1"
+	            "Duration" "%reincarnation_time"
+	            "OnCreated"
+	            {
+	                "AttachEffect"
+	                {
+	                    "EffectName"        "particles/generic_hero_status/death_tombstone_alt.vpcf"
+	                    "EffectAttachType"  "follow_origin"
+	                    "Target"            "CASTER"
+	                }
+	            }
+	            "OnDestroy"
+	            {
+	                "FireEffect"
+	                {
+	                    "EffectName"        "particles/items_fx/aegis_respawn.vpcf"
+	                    "EffectAttachType"  "follow_origin"
+	                    "Target"            "CASTER"
+	                }
+	                "RunScript"
+	                {
+	                    "ScriptFile"    "items/Ankh/ankh.lua"
+	                    "Function"      "StartHero"
+	                }
+	            }
+	            
+	            "States"
+	                {
+	                    "MODIFIER_STATE_STUNNED" "MODIFIER_STATE_VALUE_ENABLED"
+	                    "MODIFIER_STATE_INVULNERABLE" "MODIFIER_STATE_VALUE_ENABLED"
+	                }         
+	        }
+	    }
+	}  
+	//mana Pot
+	"item_summon_ursa" 
+	{
+	    	"ID"           "1106"
+	    	"BaseClass"    "item_datadriven"
+	    	"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	    	"Model"        "models/props_gameplay/salve_blue.vmdl" 
+	    	"Effect"       "particles/generic_gameplay/dropped_item.vpcf"
+	    	"ItemCost"     "500"
+	    	"ItemKillable" "1" 
+	    	"ItemSellable" "1"
+	    	"ItemPurchasable" "1"
+	    "ItemDroppable" "1"
+	    "ItemShareability" "ITEM_FULLY_SHAREABLE"
+	    "AbilityTextureName" "item_summon_ursa"
+	    "SideShop"     "1" 
+	    "SecretShop"   "0"
+	
+	    "ItemShopTags"					"consumable"
+		"ItemQuality"					"consumable"
+	    
+	    "ItemStackable" "0"
+	    "ItemInitialCharges"			"3"
+	    "ItemPermanent" "0"
+	    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+	    "AbilityCastAnimation"      "ACT_DOTA_DISABLED"
+		"AbilityCastPoint"				"0.0"
+	    "AbilitySpecial"
+	    {
+	        "01"
+	        {
+	            "var_type"      "FIELD_INTEGER"
+	            "duration"    	"180"
+	        }
+	    }
+	    "OnSpellStart"
+	    { 
+	        "SpawnUnit"
+	        {
+	            "UnitName"        "npc_ursa"
+	            "Target"         "CASTER"
+	            "Duration"        "%duration"
+	            "UnitCount"        "1"
+	            "GrantsGold"    "1"
+	            "GrantsXP"        "1"
+	            "SpawnRadius"    "10"
+	            "OnSpawn"
+	            {
+	                "ApplyModifier"
+	                {
+	                    "ModifierName"    "modifier_phased"
+	                    "Target"        "TARGET"
+	                    "Duration"        "0.03"
+	                }
+	        
+	            }
+	        }
+	    	"SpendCharge"
+			{}
+	    }
+	    "precache"
+	    {
+	    }    
+	}
+	"item_tome_all" 
+	{
+	    	"ID"           "1107"
+	    	"BaseClass"    "item_datadriven"
+	    	"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	    	"Model"        "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl" 
+	    	"Effect"       "particles/generic_gameplay/dropped_item.vpcf"
+	    	"ItemCost"     "5000"
+	    	"ItemKillable" "1" 
+	    	"ItemSellable" "0"
+	    	"ItemCastOnPickup" "1"
+	    	"ItemPurchasable" "1"
+	    "ItemDroppable" "1"
+	    "ItemShareability" "ITEM_FULLY_SHAREABLE"
+	    "AbilityTextureName" "item_necronomicon_3"
+	
+	    "SideShop"     "1" 
+	    "SecretShop"   "0"
+	
+	    "ItemShopTags"					"artifact"
+		"ItemQuality"					"artifact"
+	    
+	    "ItemStackable" "0"
+	    "ItemInitialCharges"			"1"
+	    "ItemPermanent" "0"
+	    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+	    "OnSpellStart"
+	
+	    {
+	
+	        "RunScript"
+	        {
+	            "ScriptFile"    "items/Tome_All/tome_all"
+	            "Function"        "buy_tomes"
+	        }
+	    	"SpendCharge" {}
+	    }
+	    "Modifiers"
+	    {
+	    }
+	
+	    "AbilitySpecial"
+	    {
+	    }
+	
+	    "precache"
+	    {
+	    	"particle"  "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl"
+	    	"particle"	"particles/generic_gameplay/dropped_item.vpcf"
+	    }   
+	}  
+	"item_tome_big" 
+	{
+	    	"ID"           "1104"
+	    	"BaseClass"    "item_datadriven"
+	    	"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	    	"Model"        "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl" 
+	    	"Effect"       "particles/generic_gameplay/dropped_item.vpcf"
+	    	"ItemCost"     "5000"
+	    	"ItemKillable" "1" 
+	    	"ItemSellable" "1"
+	    	"ItemCastOnPickup" "1"
+	    	"ItemPurchasable" "1"
+	    "ItemDroppable" "1"
+	    "ItemShareability" "ITEM_FULLY_SHAREABLE"
+	    "AbilityTextureName" "item_necronomicon_2"
+	
+	    "SideShop"     "1" 
+	    "SecretShop"   "0"
+	
+	    "ItemShopTags"					"artifact"
+		"ItemQuality"					"artifact"
+	    
+	    "ItemStackable" "1"
+	    "ItemInitialCharges"			"1"
+	    "ItemPermanent" "0"
+	    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+	    "OnSpellStart"
+	    {
+	        "RunScript"
+	        {
+	            "ScriptFile"    "items/Tome_All/tome_all"
+	            "Function"        "tome_use"
+	        }
+	    	"SpendCharge" {}
+	    }
+	
+	    "AbilitySpecial"
+	    {
+	        "01"
+	        {
+	            "var_type"      "FIELD_FLOAT"
+	            "stat_bonus" "100"
+	        }
+	    }
+	
+	    "precache"
+	    {
+	    	"particle"  "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl"
+	    	"particle"	"particles/generic_gameplay/dropped_item.vpcf"
+	    }   
+	}  
+	//tome
+	"item_tome_small" 
+	{
+	    	"ID"           "1103"
+	    	"BaseClass"    "item_datadriven"
+	    	"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	    	"Model"        "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl" 
+	    	"Effect"       "particles/generic_gameplay/dropped_item.vpcf"
+	    	"ItemCost"     "500"
+	    	"ItemKillable" "1" 
+	    	"ItemCastOnPickup" "1"
+	    	"ItemSellable" "1"
+	    	"ItemPurchasable" "1"
+	    "ItemDroppable" "1"
+	    "ItemShareability" "ITEM_FULLY_SHAREABLE"
+	    "AbilityTextureName" "item_necronomicon"
+	
+	    "SideShop"     "1" 
+	    "SecretShop"   "0"
+	
+	    "ItemShopTags"					"artifact"
+		"ItemQuality"					"artifact"
+	    
+	    "ItemStackable" "1"
+	    "ItemInitialCharges"			"1"
+	    "ItemPermanent" "0"
+	    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+	    "OnSpellStart"
+	    {
+	        "RunScript"
+	        {
+	            "ScriptFile"    "items/Tome_All/tome_all"
+	            "Function"        "tome_use"
+	        }
+	        "SpendCharge" {}
+	    }
+	    "AbilitySpecial"
+	    {
+	        "01"
+	        {
+	            "var_type"      "FIELD_FLOAT"
+	            "stat_bonus" "10"
+	        }
+	    }
+	
+	    "precache"
+	    {
+	    	"particle"  "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl"
+	    	"particle"	"particles/generic_gameplay/dropped_item.vpcf"
+	    }   
+	}
+}

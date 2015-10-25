@@ -1,0 +1,189 @@
+"druid_true_form"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"       "ability_datadriven"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityTextureName"      "lone_druid_true_form"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"        "0."
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"       "25"
+    "MaxLevel"              "1"
+    "RequiredLevel"         "-1"  
+    // Special  
+    //-------------------------------------------------------------------------------------------------------------
+      "AbilitySpecial"
+      {
+        "01"
+        {
+          "var_type"        "FIELD_FLOAT"
+          "transformation_time" "1.95"
+        }
+        "02"
+        {
+          "var_type"        "FIELD_FLOAT"
+          "base_attack_time"    "1.5"
+        }
+        "03"
+        {
+          "var_type"        "FIELD_INTEGER"
+          "bonus_damage"      "10"
+        }
+        "04"
+        {
+          "var_type"          "FIELD_INTEGER"
+          "speed_bonus"        "0"
+        }
+        "05"
+        {
+          "var_type"          "FIELD_INTEGER"
+          "health_bonus"        "700"
+        }
+      }
+
+   //precache
+      "precache"
+      {
+        "particle"  "particles/units/heroes/hero_lone_druid/lone_druid_true_form.vpcf"
+        "soundfile" "soundevents/game_sounds_heroes/game_sounds_lone_druid.vsndevts"
+        "model"   "models/heroes/lone_druid/true_form.vmdl"
+      }
+    //OnToogleOn
+     "OnToggleOn"
+      {
+        "FireSound"
+        {
+          "EffectName"    "Hero_LoneDruid.TrueForm.Cast"
+          "Target"      "CASTER"
+        }
+
+        "FireEffect"
+        {
+          "EffectName"    "particles/units/heroes/hero_lone_druid/lone_druid_true_form.vpcf"
+          "EffectAttachType"  "start_at_customorigin"
+          "Target"      "CASTER"
+          "EffectDurationScale" "0.2"
+          "ControlPointEntities"
+          {
+            "CASTER"    "attach_origin"
+            "CASTER"    "attach_origin"
+            "CASTER"    "attach_origin"
+            "CASTER"    "attach_origin" //CP3
+          }
+        }
+        "ApplyModifier"
+        {
+          "ModifierName"    "modifier_true_form_transform"
+          "Target"      "CASTER"
+        }
+      }
+
+      "OnToggleOff"
+      {
+        "FireSound"
+        {
+          "EffectName"    "Hero_LoneDruid.TrueForm.Cast"
+          "Target"      "CASTER"
+        }
+
+        "FireEffect"
+        {
+          "EffectName"    "particles/units/heroes/hero_lone_druid/lone_druid_true_form.vpcf"
+          "EffectAttachType"  "follow_origin"
+          "Target"      "CASTER"
+        }
+
+        "RemoveModifier"
+        {
+          "ModifierName"  "modifier_true_form"
+          "Target"     "CASTER"
+        }
+      }
+
+     //MODIFIERS
+      "Modifiers"
+      {
+        "modifier_true_form_transform"
+        {
+          "IsHidden"  "1"
+          "Duration"  "%transformation_time"
+          "OverrideAnimation" "ACT_DOTA_OVERRIDE_ABILITY_3"
+          "States"
+          {
+            "MODIFIER_STATE_STUNNED"    "MODIFIER_STATE_VALUE_ENABLED"
+          }
+          "OnDestroy"
+          {
+            "ApplyModifier"
+            {
+              "ModifierName"  "modifier_true_form"
+              "Target"    "CASTER"
+            }
+          }
+        }
+
+        "modifier_true_form_transform_reverse"
+        {
+          "IsHidden"  "1"
+          "Duration"  "%transformation_time/2"
+
+          "States"
+          {
+            "MODIFIER_STATE_STUNNED"    "MODIFIER_STATE_VALUE_ENABLED"
+          }
+
+          "OnDestroy"
+          {
+            "RunScript"
+            {
+              "ScriptFile"  "units/npc_druid/true_form.lua"
+              "Function"    "ModelSwapEnd"
+            }
+           "RunScript"
+            {
+              "ScriptFile"  "units/npc_druid/true_form.lua"
+              "Function"    "ShowWearables"
+            }
+          }
+        }
+        "modifier_true_form"
+        {
+
+          "OnCreated"
+          {
+            "RunScript"
+            {
+              "ScriptFile"      "units/npc_druid/true_form.lua"
+              "Function"        "HideWearables"
+            }
+            "RunScript"
+            {
+              "ScriptFile"      "units/npc_druid/true_form.lua"
+              "Function"        "ModelSwapStart"
+              "model"   "models/heroes/lone_druid/true_form.vmdl"
+            }
+          }
+
+          "Properties"
+          {
+            "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"  "%speed_bonus"
+            "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"    "%bonus_damage"   
+            "MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT" "%base_attack_time"  
+          }
+
+          "OnDestroy"
+          {
+            "ApplyModifier"
+            {
+              "ModifierName"  "modifier_true_form_transform_reverse"
+              "Target"     "CASTER"
+              "Duration"    "%transformation_time"
+            }
+          }
+        }
+      }
+    }

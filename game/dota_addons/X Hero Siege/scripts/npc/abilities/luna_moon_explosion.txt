@@ -1,0 +1,101 @@
+"luna_moon_explosion"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+
+    "MaxLevel"              "2"
+    "RequiredLevel"        "10"
+    "LevelsBetweenUpgrades" "5"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.5"
+    "AOERadius"         "1000"
+    "AbilityCooldown"  "120"
+    "AbilityManaCost"  "400"
+    "AbilityTextureName" "luna_eclipse"
+    "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "damage_per_unit"      "2500 5000"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "radius"      "400 500"
+      }
+      "03"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "stun_duration"      "0.6 0.7"
+      }
+      "04"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "time_between_explosions"      "0.6 0.4"
+      }
+      "05"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "explosions_per_tick"      "1"
+      }
+      "06"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "radius_explosion"      "250"
+      }
+      "07"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "duration"      "6 8"
+      }
+
+    }
+
+    "OnSpellStart"
+    { 
+      "ApplyModifier"
+      {
+        "ModifierName"  "modifier_spawn_meteor"
+        "Target"     "CASTER"
+        "Duration" "%duration"
+      }
+    }
+
+
+    "Modifiers"
+      {
+        "modifier_spawn_meteor" 
+        {
+          "IsHidden" "1"
+          "ThinkInterval"  "%time_between_explosions"
+          "OnIntervalThink"
+          {
+            "RunScript"
+            {
+              "ScriptFile"  "heroes/hero_luna/luna_moon_explosions.lua"
+              "Function"    "moon_explosions"
+              "Damage"
+              {
+                
+                "Type"      "DAMAGE_TYPE_MAGICAL"
+                "Damage"    "%AbilityDamage"
+              }
+            }
+          }
+        }
+      } 
+
+    "precache"
+    {
+      "particle"  "particles/econ/items/luna/luna_lucent_ti5/luna_lucent_beam_impact_shared_ti_5.vpcf"
+    }
+  }

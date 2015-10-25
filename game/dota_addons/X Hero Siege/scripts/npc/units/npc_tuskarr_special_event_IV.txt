@@ -1,0 +1,82 @@
+"npc_tuskarr_special_event_IV"
+  {
+    // General
+    "BaseClass"         "npc_dota_creature"  // Class of entity of link to.
+    "Model"             "models/heroes/tuskarr/tuskarr.vmdl"  // Model.
+    "SoundSet"          "npc_dota_hero_tusk"          // Name of sound set.
+    "Level"             "5"
+    "ModelScale"                    "1.0"
+    // Abilities
+    //----------------------------------------------------------------
+    
+    "Ability1"          "neutral_critical"     // Ability 1.
+    "Ability2"          "special_arena"      // Ability 2.
+    "Ability3"          ""      // Ability 3.
+    "Ability4"          ""      // Ability 4.
+    "Ability5"          ""      // Ability 5.
+    "Ability6"          ""      // Ability 6 - Extra.
+    "Ability7"          ""      // Ability 7 - Extra.   
+    "Ability8"          ""      // Ability 8 - Extra.
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"       "8"     // Physical protection.
+    "MagicalResistance"       "0"     // Magical protection.
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"    // Type of attack - melee, ranged, etc.
+    "AttackDamageMin"     "241"     // Damage range min.
+    "AttackDamageMax"     "245"     // Damage range max.
+    "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
+    "AttackRate"        "1.35"     // Speed of attack.
+    "AttackAnimationPoint"    "0.6"   // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"  "800"   // Range within a target can be acquired.
+    "AttackRange"       "100"   // Range within a target can be attacked.
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"          "150"     // Experience earn.
+    "BountyGoldMin"       "239"     // Gold earned min.
+    "BountyGoldMax"       "241"     // Gold earned max.
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"      "DOTA_HULL_SIZE_REGULAR"      // Hull type used for navigation/locomotion.
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"     // Type of locomotion - ground, air
+    "MovementSpeed"       "300"   // Speed
+    "MovementTurnRate"      "0.5"   // Turning rate.
+    "FollowRange"       "250"   // Distance to keep when following
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"        "5000"     // Base health.
+    "StatusHealthRegen"     "2"     // Health regeneration rate.
+    "StatusMana"        "3000"     // Base mana.
+    "StatusManaRegen"     "0.67"     // Mana regeneration rate.
+
+    
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"    "800"   // Range of vision during day light.
+    "VisionNighttimeRange"    "600"   // Range of vision at night time.
+
+    // Bots
+    //----------------------------------------------------------------
+    "AttackDesire"        "1.5"   // How much bots want to attack them vs other non-hero things
+    "Creature"
+    {
+        "AttachWearables"
+        {
+            "Wearable1" { "ItemDef" "413" }
+            "Wearable2" { "ItemDef" "414" }
+            "Wearable3" { "ItemDef" "415" }
+            "Wearable4" { "ItemDef" "416" }
+            "Wearable5" { "ItemDef" "417" }
+            "Wearable6" { "ItemDef" "418" }
+        }
+    }
+  }  

@@ -1,0 +1,79 @@
+//SECONDPHASE
+"npc_ghul_II"
+  {
+    // General
+    "BaseClass"         "npc_dota_creature"  // Class of entity of link to.
+    "Model"             "models/heroes/life_stealer/life_stealer.vmdl"  // Model.
+    "Level"             "2"
+    "ModelScale"                    "1"
+    // Abilities
+    //----------------------------------------------------------------
+    
+    "Ability1"          "unholy_aura"     // Ability 1.
+    "Ability2"          "endurance_aura"      // Ability 2.
+    "Ability3"          ""      // Ability 3.
+    "Ability4"          ""      // Ability 4.
+    "Ability5"          ""      // Ability 5.
+    "Ability6"          ""      // Ability 6 - Extra.
+    "Ability7"          ""      // Ability 7 - Extra.
+    "Ability8"          ""      // Ability 8 - Extra.
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"       "58"     // Physical protection.
+    "MagicalResistance"       "0"     // Magical protection.
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"    // Type of attack - melee, ranged, etc.
+    "AttackDamageMin"     "2002"     // Damage range min.
+    "AttackDamageMax"     "2004"     // Damage range max.
+    "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
+    "AttackRate"        "1.3"     // Speed of attack.
+    "AttackAnimationPoint"    "0.39"   // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"  "1000"   // Range within a target can be acquired.
+    "AttackRange"       "100"   // Range within a target can be attacked.
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"          "150"     // Experience earn.
+    "BountyGoldMin"       "249"     // Gold earned min.
+    "BountyGoldMax"       "251"     // Gold earned max.
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"      "DOTA_HULL_SIZE_REGULAR"      // Hull type used for navigation/locomotion.
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"     // Type of locomotion - ground, air
+    "MovementSpeed"       "300"   // Speed
+    "MovementTurnRate"      "0.5"   // Turning rate.
+    "FollowRange"       "250"   // Distance to keep when following
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"        "30000"     // Base health.
+    "StatusHealthRegen"     "2"     // Health regeneration rate.
+    "StatusMana"        "0"     // Base mana.
+    "StatusManaRegen"     "0"     // Mana regeneration rate.
+
+    
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"    "1000"   // Range of vision during day light.
+    "VisionNighttimeRange"    "1000"   // Range of vision at night time.
+
+    // Bots
+    //----------------------------------------------------------------
+    "AttackDesire"        "1.5"   // How much bots want to attack them vs other non-hero things
+    	"Creature"
+    {
+       "AttachWearables"   
+        {
+            "Wearable1" { "ItemDef" "443" }
+            "Wearable2" { "ItemDef" "444" }
+
+        } 
+    }
+  }  

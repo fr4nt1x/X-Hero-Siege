@@ -1,0 +1,357 @@
+"DOTAHeroes"
+{
+	//=================================================================================================================
+	// HERO: Nyx Assassin
+	//=================================================================================================================
+	"npc_dota_hero_crypt_lord"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"Model"						"models/heroes/nerubian_assassin/nerubian_assassin.mdl"		// Model.
+		"Portrait"					"vgui/hud/heroportraits/portrait_nerubian_assassin"						// Small image for hero selection
+		"SoundSet"					"Hero_NyxAssassin"													// Name of sound set.
+		"ModelScale" 				"0.98"
+		"override_hero"    			 "npc_dota_hero_nyx_assassin"
+		"NameAliases"				"nerubian"
+		"url"						"Cryptlord"
+		"PickSound"					"nyx_assassin_nyx_spawn_01"
+		"BanSound"					"nyx_assassin_nyx_anger_07"
+		"HeroSelectSoundEffect"		"Hero_Nyx.Pick"
+		"AbilityLayout"     			"6"
+		"UnitLabel"                 "Crypt Lord" 
+	
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"Ability1"					"crypt_lord_impale"
+		"Ability2"					"crypt_lord_carrion_beetle"
+		"Ability3"					"crypt_lord_locust_swarm"
+		"Ability4"					"crypt_lord_spiked_carapace"
+		"Ability5"					"crypt_lord_stinger"
+	    "Ability6"        			""
+	    "Ability7"        ""
+	    "Ability8"        ""
+	    "Ability9"        ""
+	    "Ability10"       ""
+	    "Ability11"       ""
+	    "Ability12"       ""
+	    "Ability13"       ""
+	    "Ability14"       ""
+	    "Ability15"       ""
+	    "Ability16"       ""
+	
+	
+		// Armor
+		//-------------------------------------------------------------------------------------------------------------
+		"ArmorPhysical"				"0.0"								// Physical protection.
+		"MagicalResistance"       "0"                 // Magical protection (percentage).
+	
+		// Attack
+		//-------------------------------------------------------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"2"									// Damage range min.
+		"AttackDamageMax"			"8"									// Damage range max.
+		"AttackRate"				"1.9"									// Speed of attack.
+		"AttackAnimationPoint"		"0.46"									// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"600"									// Range within a target can be acquired.
+		"AttackRange"				"128"									// Range within a target can be attacked.
+	
+		// Attributes
+		//-------------------------------------------------------------------------------------------------------------
+		"AttributePrimary"				"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"			"46"									// Base strength
+		"AttributeStrengthGain"			"3.2"									// Strength bonus per level.
+		"AttributeBaseAgility"			"34"									// Base agility
+		"AttributeAgilityGain"			"1.2"									// Agility bonus per level.
+		"AttributeBaseIntelligence"		"34"									// Base intelligence
+		"AttributeIntelligenceGain"		"1.6"									// Intelligence bonus per level.
+	
+		"BountyXP"          "0"                 // Experience earn.
+	    "BountyGoldMin"       "0"                   // Gold earned min.
+	    "BountyGoldMax"       "0"                   // Gold earned max.
+		// Status
+		//-------------------------------------------------------------------------------------------------------------
+		"StatusHealth"        "300"                 // Base health.
+	    "StatusHealthRegen"     "1"                 // Health regeneration rate.
+	    "StatusMana"        "0"                   // Base mana.
+	    "StatusManaRegen"     "0.01"                 // Mana regeneration rate.
+	
+		// Movement
+		//-------------------------------------------------------------------------------------------------------------
+		"MovementSpeed"				"286"									// Speed.
+		"MovementTurnRate"			"0.5"									// Turning rate.
+	
+		"VisionDaytimeRange"    "1200"                  // Range of vision at night time.
+	    "VisionNighttimeRange"    "1000"                  // Range of vision at night time.
+			
+	}
+	
+	"npc_dota_hero_demonhunter"
+	{
+	    "AbilityLayout"     "6"
+	    "override_hero"     "npc_dota_hero_antimage"
+	    "Model"                     "models/heroes/antimage/antimage.mdl"           // Model.
+	    "SoundSet"                  "Hero_Antimage"                                 // Name of sound set.
+	    "IdleExpression"            "scenes/antimage/antimage_exp_idle_01.vcd"      // custom facial animation idle
+	
+	    "Portrait"                  "vgui/hud/heroportraits/portrait_antimage"
+	    "ModelScale"                ".90"
+	
+	    "HeroGlowColor"             "120 64 148"
+	    "PickSound"                 "antimage_anti_spawn_01"
+	    "BanSound"                  "antimage_anti_anger_04"
+	
+	    "NameAliases"               "demonhunter"
+	    "url"               "Demonhunter"
+	    "HeroSelectSoundEffect"     "Hero_Antimage.Pick"
+	
+	    "Ability1"        "demonhunter_negative_energy"
+	    "Ability2"        "demonhunter_immolation" 
+	    "Ability3"        "demonhunter_evasion"
+	    "Ability4"        "demonhunter_vampiric_aura"
+	    "Ability5"        "demonhunter_metamorphosis"
+	    "Ability6"        ""
+	    "Ability7"        ""
+	    "Ability8"        ""
+	    "Ability9"        ""
+	    "Ability10"       ""
+	    "Ability11"       ""
+	    "Ability12"       ""
+	    "Ability13"       ""
+	    "Ability14"       ""
+	    "Ability15"       ""
+	    "Ability16"       ""
+	
+	    "ArmorPhysical"       "0"                 // Physical protection.
+	    "MagicalResistance"       "0"                 // Magical protection (percentage).
+	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageMin"     "2"                   // Damage range min.
+	    "AttackDamageMax"     "24"                   // Damage range max.
+	    "AttackRate"                "1.70"                                  // Speed of attack.
+	    "AttackAnimationPoint"      "0.6"                                   // Normalized time in animation cycle to attack.
+	    "AttackAcquisitionRange"    "600"                                   // Range within a target can be acquired.
+	    "AttackRange"               "128"                                   // Range within a target can be attacked.
+	    "ProjectileModel"           "particles/units/heroes/hero_terrorblade/terrorblade_metamorphosis_base_attack.vpcf"                                     // Particle system model for projectile.
+	    "ProjectileSpeed"           "900"                                     // Speed of projectile.
+	    
+	    "AttributePrimary"      "DOTA_ATTRIBUTE_AGILITY"
+	    "AttributeBaseStrength"   "39"                   // Base strength
+	    "AttributeStrengthGain"   "2.4"                   // Strength bonus per level.
+	    "AttributeBaseIntelligence" "36"                   // Base intelligence
+	    "AttributeIntelligenceGain" "2.1"                   // Intelligence bonus per level.
+	    "AttributeBaseAgility"    "42"                   // Base agility
+	    "AttributeAgilityGain"    "3.0"                   // Agility bonus per level.
+	
+	    "BountyXP"          "0"                 // Experience earn.
+	    "BountyGoldMin"       "0"                   // Gold earned min.
+	    "BountyGoldMax"       "0"                   // Gold earned max.
+	
+	    //"BoundsHullName"      "DOTA_HULL_SIZE_HERO"
+	    //"RingRadius"        "70"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "315"                 // Speed.
+	    "MovementTurnRate"      "0.5"                 // Turning rate.
+	
+	    "StatusHealth"        "300"                 // Base health.
+	    "StatusHealthRegen"     "1"                 // Health regeneration rate.
+	    "StatusMana"        "0"                   // Base mana.
+	    "StatusManaRegen"     "0.01"                 // Mana regeneration rate.
+	
+	    "VisionDaytimeRange"    "1200"                  // Range of vision at night time.
+	    "VisionNighttimeRange"    "1000"                  // Range of vision at night time.
+	}
+	"npc_dota_hero_dryad"
+	{
+		"Model"		"models/heroes/enchantress/enchantress.vmdl"
+		"Portrait"		"vgui/hud/heroportraits/portrait_enchantress"
+		"IdleExpression"		"scenes/enchantress/enchantress_exp_idle_01.vcd"
+		"SoundSet"		"Hero_Enchantress"
+		"Enabled"		"1"
+		"override_hero"    			 "npc_dota_hero_enchantress"
+		"ModelScale"		"0.740000"
+		"LoadoutScale"		"0.780000"
+		"HeroGlowColor"		"216 114 11"
+
+
+		"url"		"Enchantress"
+		"AbilityLayout"     			"6"
+		"UnitLabel"                 "Dryad" 
+
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"Ability1"					"dryad_multiple_arrows"
+		"Ability2"					"dryad_critical_arrows"
+		"Ability3"					"dryad_trueshot_aura"
+		"Ability4"					"demonhunter_evasion"
+		"Ability5"					"dryad_endurance_aura"
+	    "Ability6"        			""
+	    "Ability7"        ""
+	    "Ability8"        ""
+	    "Ability9"        ""
+	    "Ability10"       ""
+	    "Ability11"       ""
+	    "Ability12"       ""
+	    "Ability13"       ""
+	    "Ability14"       ""
+	    "Ability15"       ""
+	    "Ability16"       ""
+
+		"ArmorPhysical"		"0.000000"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"		"2"
+		"AttackDamageMax"		"12"
+		"AttackRate"		"1.8600000"
+		"AttackAnimationPoint"		"0.300000"
+		"AttackAcquisitionRange"		"800"
+		"AttackRange"		"600"
+		"ProjectileModel"		"particles/units/heroes/hero_enchantress/enchantress_base_attack.vpcf"
+		"ProjectileSpeed"		"1000"
+		"AttributePrimary"		"DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"		"38"
+		"AttributeStrengthGain"		"1.900000"
+		"AttributeBaseAgility"		"44"
+		"AttributeAgilityGain"		"2.500000"
+		"AttributeBaseIntelligence"		"35"
+		"AttributeIntelligenceGain"		"2.600000"
+
+		// Status
+		//-------------------------------------------------------------------------------------------------------------
+		"StatusHealth"        "300"                 // Base health.
+	    "StatusHealthRegen"     "1"                 // Health regeneration rate.
+	    "StatusMana"        "200"                   // Base mana.
+	    "StatusManaRegen"     "0.01"                 // Mana regeneration rate.
+		"MovementSpeed"		"315"
+		"MovementTurnRate"		"0.500000"
+		"VisionDaytimeRange"    "1200"                  // Range of vision at night time.
+	    "VisionNighttimeRange"    "1000"                  // Range of vision at night time.
+	}
+	"npc_dota_hero_luna"
+	{
+		"Model"		"models/heroes/luna/luna.vmdl"
+		"Portrait"		"vgui/hud/heroportraits/portrait_luna"
+		"IdleExpression"		"scenes/luna/luna_exp_idle_01.vcd"
+		"SoundSet"		"Hero_Luna"
+		"Enabled"		"1"
+		"override_hero"    			 "npc_dota_hero_luna"
+		"ModelScale"		"0.740000"
+		"LoadoutScale"		"0.780000"
+		"HeroGlowColor"		"216 114 11"
+
+
+		"url"		"Luna"
+		"AbilityLayout"     			"6"
+		"UnitLabel"                 "Luna" 
+
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"Ability1"					"luna_owl_lightning"
+		"Ability2"					"luna_moon_explosion"
+		"Ability3"					"luna_split_lightning"
+		"Ability4"					"luna_elunes_armor"
+		"Ability5"					"luna_command_aura"
+	    "Ability6"        			""
+	    "Ability7"        ""
+	    "Ability8"        ""
+	    "Ability9"        ""
+	    "Ability10"       ""
+	    "Ability11"       ""
+	    "Ability12"       ""
+	    "Ability13"       ""
+	    "Ability14"       ""
+	    "Ability15"       ""
+	    "Ability16"       ""
+
+		"ArmorPhysical"		"0.000000"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"		"40"
+		"AttackDamageMax"		"52"
+		"AttackRate"		"1.800000"
+		"AttackAnimationPoint"		"0.4600000"
+		"AttackAcquisitionRange"		"800"
+		"AttackRange"		"300"
+		"ProjectileModel"		"particles/units/heroes/hero_luna/luna_base_attack.vpcf"
+		"ProjectileSpeed"		"900"
+		"AttributePrimary"		"DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"		"38"
+		"AttributeStrengthGain"		"1.900000"
+		"AttributeBaseAgility"		"44"
+		"AttributeAgilityGain"		"2.500000"
+		"AttributeBaseIntelligence"		"35"
+		"AttributeIntelligenceGain"		"2.600000"
+
+		// Status
+		//-------------------------------------------------------------------------------------------------------------
+		"StatusHealth"        "300"                 // Base health.
+	    "StatusHealthRegen"     "1"                 // Health regeneration rate.
+	    "StatusMana"        "200"                   // Base mana.
+	    "StatusManaRegen"     "0.01"                 // Mana regeneration rate.
+		"MovementSpeed"		"315"
+		"MovementTurnRate"		"0.600000"
+		"VisionDaytimeRange"    "1200"                  // Range of vision at night time.
+	    "VisionNighttimeRange"    "1000"                  // Range of vision at night time.
+	}
+	"npc_dota_hero_moon_priest"
+	{
+
+		"Model"					"models/heroes/mirana/mirana.mdl"			// Model.
+		"Portrait"				"vgui/hud/heroportraits/portrait_mirana"	// Small image for hero selection
+		"IdleExpression"		"scenes/mirana/mirana_exp_idle_01.vcd"		// custom facial animation idle
+		"SoundSet"				"Hero_Mirana"									// Name of sound set.
+		"PickSound"				"mirana_mir_spawn_01"
+		"BanSound"				"mirana_mir_anger_01"
+		"url"		"Moon Priest"
+		"ModelScale" 			".79"
+		"HeroGlowColor" 		"220 194 248"
+		"override_hero" "npc_dota_hero_mirana"
+		"AbilityLayout"     			"6"
+		"UnitLabel"                 "Mirana" 
+		"HeroSelectSoundEffect"		"Hero_Mirana.Pick"
+
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"Ability1"					"moon_priest_chain_lightning"
+		"Ability2"					"moon_priest_water_servant"
+		"Ability3"					"moon_priest_forked_lightning"
+		"Ability4"					"moon_priest_monsoon"
+		"Ability5"					"moon_priest_trueshot_aura"
+	    "Ability6"        			""
+	    "Ability7"        ""
+	    "Ability8"        ""
+	    "Ability9"        ""
+	    "Ability10"       ""
+	    "Ability11"       ""
+	    "Ability12"       ""
+	    "Ability13"       ""
+	    "Ability14"       ""
+	    "Ability15"       ""
+	    "Ability16"       ""
+
+		"ArmorPhysical"		"0.000000"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"		"2"
+		"AttackDamageMax"		"12"
+		"AttackRate"		"1.700000"
+		"AttackAnimationPoint"		"0.300000"
+		"AttackAcquisitionRange"		"800"
+		"AttackRange"		"600"
+		"AttributePrimary"		"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"		"38"
+		"AttributeStrengthGain"		"1.900000"
+		"AttributeBaseAgility"		"35"
+		"AttributeAgilityGain"		"2.600000"
+		"AttributeBaseIntelligence"		"44"
+		"AttributeIntelligenceGain"		"2.500000"
+
+		// Status
+		//-------------------------------------------------------------------------------------------------------------
+		"StatusHealth"        "300"                 // Base health.
+	    "StatusHealthRegen"     "1"                 // Health regeneration rate.
+	    "StatusMana"        "200"                   // Base mana.
+	    "StatusManaRegen"     "0.01"                 // Mana regeneration rate.
+		"MovementSpeed"		"315"
+		"MovementTurnRate"		"0.500000"
+		"VisionDaytimeRange"    "1200"                  // Range of vision at night time.
+	    "VisionNighttimeRange"    "1000"                  // Range of vision at night time.
+	}
+}

@@ -1,0 +1,86 @@
+"crypt_lord_stinger"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"       "ability_datadriven"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+    "AbilityTextureName"      "sandking_caustic_finale"
+    "MaxLevel"             "4"
+    "RequiredLevel"        "5"
+    "LevelsBetweenUpgrades" "2"
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "damage_per_second"  "125 250 500 1000"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "movement_bonus"     "-60 -65 -70 -75"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "attack_bonus"     "-25 -45 -65 -85"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "duration"     "3 3 3 3"
+      }
+    }
+
+    "precache"
+    {
+      // Not really used in the Lifesteal action
+      "particle"  "particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
+    }
+    
+    "Modifiers"
+    {
+      "modifier_stinger_passive"
+      {
+        "Passive"       "1"
+        "IsHidden"      "0"
+        "IsBuff"        "1"
+        "IsPurgable"    "0"
+        "OnAttackLanded"
+        {
+          
+          "ApplyModifier"
+          {
+            "ModifierName"  "modifier_stinger"
+            "Target"        "TARGET"
+ 
+            "Duration"      "%duration"
+          }
+        }
+  
+      }
+
+      "modifier_stinger"
+      {
+        "Passive"       "0"
+        "IsHidden"      "0"
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_bonus"
+          "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movement_bonus"
+        }
+        "ThinkInterval"  "1.0"
+        "OnIntervalThink"
+        {
+          "Damage"
+          {
+            "Target"    "TARGET"
+            "Type"      "DAMAGE_TYPE_MAGICAL"
+            "Damage"    "%damage_per_second"
+          }
+        }
+      }
+    }
+  }

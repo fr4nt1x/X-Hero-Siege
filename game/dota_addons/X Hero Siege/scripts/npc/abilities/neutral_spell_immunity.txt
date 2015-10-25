@@ -1,0 +1,29 @@
+"neutral_spell_immunity"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "-1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityTextureName" "neutral_spell_immunity"
+    "AbilitySpecial"
+    {
+    }
+    "Modifiers"
+    {
+      "modifier_spell_immunity"
+      {
+        "Passive" "1"
+        "IsHidden" "1"
+        "IsBuff" "1"
+        "States"
+        {
+        	"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+        }
+      }
+    }
+  }

@@ -1,0 +1,34 @@
+"top_bosses_gates"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "-1"
+    "LevelsBetweenUpgrades" "1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityTextureName" ""
+    "AbilitySpecial"
+    {
+    }
+
+    "Modifiers"
+    {
+      "modifier_open_gates"
+      {
+        "Passive" "1"
+        "IsHidden" "0"
+        "OnDeath"
+        {
+          "RunScript"
+          {
+            "ScriptFile"  "heroes/top_bosses/open_gate.lua"
+            "Function"    "open_gates"
+          }
+        }
+      }
+    }
+  }

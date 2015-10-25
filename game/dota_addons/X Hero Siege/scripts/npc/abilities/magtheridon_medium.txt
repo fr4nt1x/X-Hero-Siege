@@ -1,0 +1,36 @@
+//Magtheridon
+
+"magtheridon_medium"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior"  "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "-1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityTextureName" ""
+    "AbilitySpecial"
+ {	
+   }
+    "Modifiers"
+    {
+      "modifier_magtheridon_medium"
+      {
+        "Passive"       "1"
+        "IsHidden"      "1"
+        "IsBuff"      "1"
+
+        "OnDeath"
+        {
+        	"RunScript"
+        	{
+        		"ScriptFile"	"items/Ankh_Magtheridon/magtheridon.lua"
+        		"Function"		"respawnMagtheridonMedium"
+        	}
+        }
+      }
+    }
+  }

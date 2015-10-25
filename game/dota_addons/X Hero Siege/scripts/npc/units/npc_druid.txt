@@ -1,0 +1,80 @@
+"npc_druid"
+      {
+        // General
+        "BaseClass"         "npc_dota_creature"  // Class of entity of link to.
+        "Model"             "models/heroes/lone_druid/lone_druid.vmdl"  // Model.
+        "Level"             "4"
+        "ModelScale"                    "0.85"
+        // Abilities
+        //----------------------------------------------------------------
+        
+        "Ability1"          "druid_roar"     // Ability 1.
+        "Ability2"          "druid_true_form"      // Ability 2.
+        "Ability3"          ""      // Ability 3.
+        "Ability4"          ""      // Ability 4.
+        "Ability5"          ""      // Ability 5.
+        "Ability6"          ""      // Ability 6 - Extra.
+        "Ability7"          ""      // Ability 7 - Extra.
+        "Ability8"          ""      // Ability 8 - Extra.
+    
+        // Armor
+        //----------------------------------------------------------------
+        "ArmorPhysical"       "11"     // Physical protection.
+        "MagicalResistance"       "0"     // Magical protection.
+    
+        // Attack
+        //----------------------------------------------------------------
+        "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"    // Type of attack - melee, ranged, etc.
+        "AttackDamageMin"     "61"     // Damage range min.
+        "AttackDamageMax"     "64"     // Damage range max.
+        "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
+        "AttackRate"        "1.5"     // Speed of attack.
+        "AttackAnimationPoint"    "0.33"   // Normalized time in animation cycle to attack.
+        "AttackAcquisitionRange"  "500"   // Range within a target can be acquired.
+        "AttackRange"       "110"   // Range within a target can be attacked.
+    
+        // Bounty
+        //----------------------------------------------------------------
+        "BountyXP"          "60"     // Experience earn.
+        "BountyGoldMin"       "8"     // Gold earned min.
+        "BountyGoldMax"       "10"     // Gold earned max.
+    
+        // Bounds
+        //----------------------------------------------------------------
+        "BoundsHullName"      "DOTA_HULL_SIZE_SMALL"      // Hull type used for navigation/locomotion.
+    
+        // Movement
+        //----------------------------------------------------------------
+        "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"     // Type of locomotion - ground, air
+        "MovementSpeed"       "300"   // Speed
+        "MovementTurnRate"      "0.6"   // Turning rate.
+        "FollowRange"       "250"   // Distance to keep when following
+    
+        // Status
+        //----------------------------------------------------------------
+        "StatusHealth"        "1500"     // Base health.
+        "StatusHealthRegen"     "2"     // Health regeneration rate.
+        "StatusMana"        "300"     // Base mana.
+        "StatusManaRegen"     "1"     // Mana regeneration rate.
+    
+        
+        // Vision
+        //----------------------------------------------------------------
+        "VisionDaytimeRange"    "800"   // Range of vision during day light.
+        "VisionNighttimeRange"    "600"   // Range of vision at night time.
+    
+        // Bots
+        //----------------------------------------------------------------
+        "AttackDesire"        "1.5"   // How much bots want to attack them vs other non-hero things
+        "vscripts" "ai/npc_druid.lua"
+        "Creature"
+        {
+         	"AttachWearables"
+         	{
+         		"Wearable1" { "ItemDef" "107" }
+         		"Wearable2" { "ItemDef" "108" }
+         		"Wearable3" { "ItemDef" "109" }
+         		"Wearable4" { "ItemDef" "110" }
+        	}
+      	}
+     }

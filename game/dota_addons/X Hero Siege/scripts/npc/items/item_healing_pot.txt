@@ -1,0 +1,51 @@
+//Healing Pot
+"item_healing_pot" 
+{
+    	"ID"           "1100"
+    	"BaseClass"    "item_datadriven"
+    	"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_IMMEDIATE" 
+    	"Model"        "models/props_gameplay/salve.vmdl" 
+    	"Effect"       "particles/generic_gameplay/dropped_item.vpcf"
+    	"ItemCost"     "10"
+    	"ItemKillable" "1" 
+    	"ItemSellable" "1"
+    	"ItemPurchasable" "1"
+    "ItemDroppable" "1"
+    "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    "AbilityTextureName" "item_flask2"
+
+    "SideShop"     "1" 
+    "SecretShop"   "0"
+
+    "ItemShopTags"					"consumable"
+	"ItemQuality"					"consumable"
+    
+    "ItemStackable" "0"
+    "ItemInitialCharges"			"15"
+    "ItemPermanent" "0"
+    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "AbilityCastAnimation"      "ACT_DOTA_DISABLED"
+	"AbilityCastPoint"				"0.0"
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"      "FIELD_INTEGER"
+            "heal"    	"3000"
+        }
+    }
+    "OnSpellStart"
+    {
+    	"Heal"
+    	{
+    		"Target"        "CASTER"
+    		"HealAmount"	"%heal"
+    	}
+    	"SpendCharge"
+		{}
+    }
+    "precache"
+    {
+    	"particle"  "particles/generic_gameplay/dropped_item.vpcf"
+    }    
+}

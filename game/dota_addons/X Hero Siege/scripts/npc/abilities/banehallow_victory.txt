@@ -1,0 +1,34 @@
+"banehallow_victory"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "-1"
+    "LevelsBetweenUpgrades" "1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityTextureName" ""
+    "AbilitySpecial"
+    {
+    }
+
+    "Modifiers"
+    {
+      "modifier_spawn_banehallow"
+      {
+        "Passive" "1"
+        "IsHidden" "1"
+        "OnDeath"
+        {
+          "RunScript"
+          {
+            "ScriptFile"  "heroes/top_bosses/banehallow.lua"
+            "Function"    "end_game"
+          }
+        }
+      }
+    }
+  }

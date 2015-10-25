@@ -1,11 +1,26 @@
-# Build and Release Folders
-bin/
-bin-debug/
-bin-release/
+# Cache crap that Valve autogenerates
+*.bin
 
-# Other files and folders
-.settings/
+# Compiled formats
+*.vpcf_c
+*.vtex_c
+*.vsndevts_c
+*.vmat_c
+*.vjs_c
+*.vxml_c
+*.vcss_c
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+# Commit panorama compiled textures
+!game/dota_addons/dotacraft/panorama/images/*.vtex_c
+!game/dota_addons/dotacraft/panorama/images/custom_game/*.vtex_c
+
+# Map files
+*.vpk
+
+# Map overviews
+content/dota_addons/dotacraft/materials/overviews/*
+game/dota_addons/dotacraft/materials/overviews/*
+game/dota_addons/dotacraft/resource/overviews/*
+
+#Github dump
+*.stackdump

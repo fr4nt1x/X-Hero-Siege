@@ -1,0 +1,112 @@
+"arthas_light_roar"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "MaxLevel"              "2"
+    "RequiredLevel"        "10"
+    "LevelsBetweenUpgrades" "5"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.5"
+    "AbilityCooldown"  "60"
+    "AbilityManaCost"  "100"
+    "AbilityTextureName" "fountain_glyph"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type" "FIELD_INTEGER"
+            "radius" "500"
+        }
+        "02"
+        {
+          "var_type" "FIELD_INTEGER"
+          "bonus_damage_percentage" "50 100"
+        }
+        "03"
+        {
+          "var_type" "FIELD_FLOAT"
+          "armor_bonus" "50 100"
+        }
+        "04"
+        {
+          "var_type" "FIELD_FLOAT"
+          "duration" "45"
+        }
+        "05"
+        {
+          "var_type" "FIELD_INTEGER"
+          "hp_regeneration" "0.5 1"
+        }        
+    }
+
+    "precache"
+    {
+        "particle" "particles/units/heroes/hero_lone_druid/lone_druid_battle_cry_buff.vpcf"
+        "particle" "particles/units/heroes/hero_lone_druid/lone_druid_battle_cry_overhead.vpcf"
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+        "ApplyModifier"
+        {
+            "ModifierName" "modifier_light_roar"
+
+            "Target"
+            {
+              "Center"    "CASTER"
+              "Radius"   "%radius"
+              "Teams"   "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+              "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+            }
+        }
+
+    }
+
+    "Modifiers"
+    {
+      
+      "modifier_light_roar"
+      {
+
+        "IsBuff" "1"
+        "IsHidden" "0"
+        "Passive" "0"
+        "IsPurgable" "0"
+        "Duration" "%duration"
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%bonus_damage_percentage"
+          "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
+          "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%hp_regeneration"
+
+        }
+        "OnCreated"
+        {
+
+            "AttachEffect"
+            {
+              "Target" "TARGET"
+              "EffectName" "particles/units/heroes/hero_lone_druid/lone_druid_battle_cry_overhead.vpcf"
+              "EffectAttachType" "follow_overhead"
+            }
+            "AttachEffect"
+            {
+              "Target" "TARGET"
+              "EffectName" "particles/units/heroes/hero_lone_druid/lone_druid_battle_cry_buff.vpcf"
+              "EffectAttachType" "follow_origin"
+            }
+        }
+      }
+    }    
+  }

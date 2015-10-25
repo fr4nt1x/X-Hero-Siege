@@ -1,0 +1,380 @@
+--=================================================================-- This is the primary barebones gamemode script and should be used to assist in initializing your game mode
+
+
+-- Set this to true if you want to see a complete debug output of all events/processes done by barebones
+-- You can also change the cvar 'barebones_spew' at any time to 1 or 0 for output/no output
+BAREBONES_DEBUG_SPEW = false 
+
+if GameMode == nil then
+    DebugPrint( '[BAREBONES] creating barebones game mode' )
+    _G.GameMode = class({})
+end
+
+-- This library allow for easily delayed/timed actions
+require('libraries/timers')
+-- This library can be used for advancted physics/motion/collision of units.  See PhysicsReadme.txt for more information.
+require('libraries/physics')
+-- This library can be used for advanced 3D projectile systems.
+require('libraries/projectiles')
+-- This library can be used for sending panorama notifications to the UIs of players/teams/everyone
+require('libraries/notifications')
+-- This library can be used for starting customized animations on units from lua
+require('libraries/animations')
+-- This library can be used for performing "Frankenstein" attachments on units
+require('libraries/attachments')
+
+-- These internal libraries set up gamemode's events and processes.  Feel free to inspect them/change them if you need to.
+require('internal/gamemode')
+require('internal/events')
+
+-- settings.lua is where you can specify many different properties for your game mode and is one of the core gamemode files.
+require('settings')
+-- events.lua is where you can specify the actions to be taken when any event occurs and is one of the core gamemode files.
+require('events')
+require('libraries/spawncreeps')
+
+--just add the original hero name as key, with the abilityname as value
+AbilitiesHeroes = {npc_dota_hero_antimage = "demonhunter_roar",
+                   npc_dota_hero_nyx_assassin = "crypt_lord_anubarak_claw",
+                    npc_dota_hero_enchantress = "dryad_poison_weapons",
+                    npc_dota_hero_luna = "luna_moon_glaive",
+                    npc_dota_hero_mirana = "moon_priest_rejunivation"}
+--[[
+  This function should be used to set up Async precache calls at the beginning of the gameplay.
+
+  In this function, place all of your PrecacheItemByNameAsync and PrecacheUnitByNameAsync.  These calls will be made
+  after all players have loaded in, but before they have selected their heroes. PrecacheItemByNameAsync can also
+  be used to precache dynamically-added datadriven abilities instead of items.  PrecacheUnitByNameAsync will 
+  precache the precache{} block statement of the unit and all precache{} block statements for every Ability# 
+  defined on the unit.
+
+  This function should only be called once.  If you want to/need to precache more items/abilities/units at a later
+  time, you can call the functions individually (for example if you want to precache units in a new wave of
+  holdout).
+
+  This function should generally only be used if the Precache() function in addon_game_mode.lua is not working.
+]]
+function GameMode:PostLoadPrecache()
+  DebugPrint("[BAREBONES] Performing Post-Load precache")    
+  --PrecacheItemByNameAsync("item_example_item", function(...) end)
+  --PrecacheItemByNameAsync("example_ability", function(...) end)
+
+  --PrecacheUnitByNameAsync("npc_dota_hero_viper", function(...) end)
+  --PrecacheUnitByNameAsync("npc_dota_hero_enigma", function(...) end)
+end
+
+--[[
+  This function is called once and only once as soon as the first player (almost certain to be the server in local lobbies) loads in.
+  It can be used to initialize state that isn't initializeable in InitGameMode() but needs to be done before everyone loads in.
+]]
+function GameMode:OnFirstPlayerLoaded()
+  DebugPrint("[BAREBONES] First Player has loaded")
+end
+
+--[[
+  This function is called once and only once after all players have loaded into the game, right as the hero selection time begins.
+  It can be used to initialize non-hero player state or adjust the hero selection (i.e. force random etc)
+]]
+function GameMode:OnAllPlayersLoaded()
+  DebugPrint("[BAREBONES] All Players have loaded into the game")
+  GameMode.FrostTowers_killed = 0
+  GameMode.wave_event_happened = false
+  GameMode.kill_event_happened = false
+
+end
+
+--[[
+  This function is called once and only once for every player when they spawn into the game for the first time.  It is also called
+  if the player's hero is replaced with a new hero for any reason.  This function is useful for initializing heroes, such as adding
+  levels, changing the starting gold, removing/adding abilities, adding physics, etc.
+
+  The hero parameter is the hero entity that just spawned in
+]]
+function GameMode:OnHeroInGame(hero)
+  DebugPrint("[BAREBONES] Hero spawned in game for first time -- " .. hero:GetUnitName())
+
+  -- This line for example will set the starting gold of every hero to 500 unreliable gold
+  hero:SetGold(500, false)
+  --local item = CreateItem("item_tome_big", hero, hero)
+  --hero:AddItem(item)
+  --local item = CreateItem("item_tome_big", hero, hero)
+  --hero:AddItem(item)
+  --hero:AddNewModifier(hero, nil,  "modifier_item_ultimate_scepter", {})
+  hero.in_special_event = false
+  hero.wave_kills = 0
+  hero.creep_kills  =0
+  hero.got_kill_bonus = false
+  local ability = AbilitiesHeroes[hero:GetUnitName()]
+
+  if ability ~=nil then
+    hero:AddAbility(ability)
+    hero:UpgradeAbility(hero:FindAbilityByName(ability))
+    hero:SetAbilityPoints(1)
+  end
+  
+  player = hero:GetPlayerOwnerID()
+  local point = Entities:FindByName(nil,"dota_goodguys_fort")
+--[[
+  unit = CreateUnitByName("npc_dota_hero_spirit_beast",point:GetAbsOrigin(),true,hero,nil,DOTA_TEAM_NEUTRALS)
+ -- local ability = unit:FindAbilityByName("ramero_baristal")
+  --ability:ApplyDataDrivenModifier(unit, unit, "modifier_baristal", {})
+  unit:SetControllableByPlayer(player, true)
+--]]
+ --[[for j = 1,15 do
+  illusion = CreateUnitByName("npc_ghul_II",point:GetAbsOrigin()+Vector(200,0,0),true,hero,nil,DOTA_TEAM_NEUTRALS)
+  illusion:SetControllableByPlayer(player, true)
+end--]]
+--[[  
+  illusion = CreateUnitByName("npc_dragon_level_III",point:GetAbsOrigin(),true,hero,nil,DOTA_TEAM_GOODGUYS)
+  
+  illusion = CreateUnitByName("npc_bloodelf_wave_XII",point:GetAbsOrigin(),true,hero,nil,DOTA_TEAM_GOODGUYS)
+  illusion:SetControllableByPlayer(player, true)  
+  --]]
+  local item = CreateItem("item_healing_pot", hero, hero)
+  hero:AddItem(item)
+  local item = CreateItem("item_ankh", hero, hero)
+  hero:AddItem(item)
+  -- These lines will create an item and add it to the player, effectively ensuring they start with the item
+
+  --[[ --These lines if uncommented will replace the W ability of any hero that loads into the game
+    --with the "example_ability" ability
+
+  local abil = hero:GetAbilityByIndex(1)
+  hero:RemoveAbility(abil:GetAbilityName())
+  hero:AddAbility("example_ability")]]
+end
+
+--[[
+  This function is called once and only once when the game completely begins (about 0:00 on the clock).  At this point,
+  gold will begin to go up in ticks if configured, creeps will spawn, towers will become damageable etc.  This function
+  is useful for starting any game logic timers/thinkers, beginning the first round, etc.
+]]
+function GameMode:OnGameInProgress()
+  DebugPrint("[BAREBONES] The game has officially begun")
+  GameMode.openLanes = {}
+
+  if PlayerResource:GetPlayerCount() >= 8 then
+    for i = 1,8 do
+      GameMode.openLanes["spawn"..i] = "wp_p"..i.."_1"
+    end
+    
+  else
+    for i = 1,PlayerResource:GetPlayerCount() do
+      GameMode.openLanes["spawn"..i] = "wp_p"..i.."_1"
+    end
+  end
+  
+  --remove invulnerability of the open lanes towers 
+  for  k,_  in pairs(GameMode.openLanes) do
+    local i,j = string.find(k,"%d")
+    local lane = string.sub(k,i,j) 
+    local towers = Entities:FindAllByName("tower_p"..lane)
+    
+    for _,tower in pairs(towers)do
+      tower:RemoveModifierByName("modifier_invulnerable")
+    end 
+  end
+  --remove invulnerability of the base towers
+  local towers = Entities:FindAllByName("tower_base")
+  for _,tower in pairs(towers)do
+    tower:RemoveModifierByName("modifier_invulnerable")
+  end 
+  --enable special event triggers
+  local triggers_choice = Entities:FindAllByName("trigger_special_event_choice")
+  for _,v in pairs(triggers_choice) do
+    v:Enable()
+  end
+  timer_creep_spawn = Timers:CreateTimer(0,SpawnCreeps)
+  timer_wave_spawn = Timers:CreateTimer(TimeBetweenWaves,SpawnWaves)
+  timer_special_arena = Timers:CreateTimer(TimeSpecialArena,specialEventArena)
+  timer_wave_message = Timers:CreateTimer(TimeBetweenWaves - 30,SendWaveMessage)
+  timer_arena_message = Timers:CreateTimer(TimeSpecialArena - 30,SendSpecialArenaMessage)
+  timer_event_roshan = Timers:CreateTimer(SpecialEventRoshan,specialEventRoshan)
+  GameMode.FrostInfernalDead = false
+  GameMode.SpiritBeastDead = false
+end
+
+
+
+
+-- This function initializes the game mode and is called before anyone loads into the game
+-- It can be used to pre-initialize any values/tables that will be needed later
+function GameMode:InitGameMode()
+  GameMode = self
+  DebugPrint('[BAREBONES] Starting to load Barebones gamemode...')
+
+  -- Call the internal function to set up the rules/behaviors specified in constants.lua
+  -- This also sets up event hooks for all event handlers in events.lua
+  -- Check out internals/gamemode to see/modify the exact code
+  GameMode:_InitGameMode()
+
+  -- Commands can be registered for debugging purposes or as functions that can be called by the custom Scaleform UI
+  --Convars:RegisterCommand( "openlane1", openlane1, "A console command example", FCVAR_CHEAT )
+  --Convars:RegisterCommand( "openlane2", openlane2, "A console command example", FCVAR_CHEAT )
+  --Convars:RegisterCommand( "openlane3", openlane3, "A console command example", FCVAR_CHEAT )
+  --Convars:RegisterCommand( "openlane4", openlane4, "A console command example", FCVAR_CHEAT )
+  --Convars:RegisterCommand( "openlane5", openlane5, "A console command example", FCVAR_CHEAT )
+  --Convars:RegisterCommand( "closelane1", closelane1, "A console command example", FCVAR_CHEAT )
+  --Convars:RegisterCommand( "closelane2", closelane2, "A console command example", FCVAR_CHEAT )
+  --Convars:RegisterCommand( "closelane3", closelane3, "A console command example", FCVAR_CHEAT )
+  --Convars:RegisterCommand( "closelane4", closelane4, "A console command example", FCVAR_CHEAT )
+  --Convars:RegisterCommand( "closelane5", closelane5, "A console command example", FCVAR_CHEAT )
+  --Convars:RegisterCommand( "lasthits", lasthits, "A console command example", FCVAR_CHEAT )
+
+  DebugPrint('[BAREBONES] Done loading Barebones gamemode!\n\n')
+end
+
+-- This is an example console command
+function GameMode:ExampleConsoleCommand()
+  print( '******* Example Console Command ***************' )
+  local cmdPlayer = Convars:GetCommandClient()
+  if cmdPlayer then
+    local playerID = cmdPlayer:GetPlayerID()
+    if playerID ~= nil and playerID ~= -1 then
+      -- Do something here for the player who called this command
+        local i,j = string.find(Convars,"%d")
+        local lane = string.sub(Convars,i,j)
+
+    end
+  end
+
+  print( '*********************************************' )
+end
+function lasthits()
+  -- body
+  for k,v in pairs(Timers.timers) do
+    print(k,v.endTime)
+    v.endTime  = v.endTime +30
+  end
+end
+function openlane1()
+  -- body
+  if GameMode.SecondPhase or GameMode.FinalWave then
+    return nil
+  end
+
+  GameMode.openLanes["spawn1"] = "wp_p1_1"
+  local towers = Entities:FindAllByName("tower_p"..1)
+    
+    for _,tower in pairs(towers)do
+      tower:RemoveModifierByName("modifier_invulnerable")
+    end 
+
+end
+function openlane2()
+  -- body
+  if GameMode.SecondPhase or GameMode.FinalWave then
+    return nil
+  end
+  GameMode.openLanes["spawn2"] = "wp_p2_1"
+    local towers = Entities:FindAllByName("tower_p"..2)
+    
+    for _,tower in pairs(towers)do
+      print("remove modifier",tower)
+      tower:RemoveModifierByName("modifier_invulnerable")
+    end 
+end
+function openlane3()
+  -- body
+  if GameMode.SecondPhase or GameMode.FinalWave then
+    return nil
+  end
+  
+  GameMode.openLanes["spawn3"] = "wp_p3_1"
+    local towers = Entities:FindAllByName("tower_p"..3)
+    
+    for _,tower in pairs(towers)do
+      tower:RemoveModifierByName("modifier_invulnerable")
+    end 
+end
+function openlane4()
+  -- body
+  if GameMode.SecondPhase or GameMode.FinalWave then
+    return nil
+  end
+  
+  GameMode.openLanes["spawn4"] = "wp_p4_1"
+    local towers = Entities:FindAllByName("tower_p"..4)
+    
+    for _,tower in pairs(towers)do
+      tower:RemoveModifierByName("modifier_invulnerable")
+    end 
+end
+function openlane5()
+  -- body
+  if GameMode.SecondPhase or GameMode.FinalWave then
+    return nil
+  end
+
+  GameMode.openLanes["spawn5"] = "wp_p5_1"
+  local towers = Entities:FindAllByName("tower_p"..5)
+  for _,tower in pairs(towers)do
+    tower:RemoveModifierByName("modifier_invulnerable")
+  end 
+end
+function closelane1()
+  -- body
+  if GameMode.SecondPhase  or GameMode.FinalWave then
+    return nil
+  end
+  
+  GameMode.openLanes["spawn1"] = nil
+  local towers = Entities:FindAllByName("tower_p"..1)
+    
+    for _,tower in pairs(towers)do
+      tower:AddNewModifier(nil,nil,"modifier_invulnerable",nil)
+    end 
+
+end
+function closelane2()
+  -- body
+  if GameMode.SecondPhase or GameMode.FinalWave then
+    return nil
+  end
+
+  GameMode.openLanes["spawn2"] = nil
+    local towers = Entities:FindAllByName("tower_p"..2)
+    
+    for _,tower in pairs(towers)do
+      print("remove modifier",tower)
+      tower:AddNewModifier(nil,nil,"modifier_invulnerable",nil)
+    end 
+end
+function closelane3()
+  -- body
+  if GameMode.SecondPhase or GameMode.FinalWave then
+    return nil
+  end
+
+  GameMode.openLanes["spawn3"] = nil
+    local towers = Entities:FindAllByName("tower_p"..3)
+    
+    for _,tower in pairs(towers)do
+      tower:AddNewModifier(nil,nil,"modifier_invulnerable",nil)
+    end 
+end
+function closelane4()
+  -- body
+  if GameMode.SecondPhase or GameMode.FinalWave then
+    return nil
+  end
+
+  GameMode.openLanes["spawn4"] = nil
+    local towers = Entities:FindAllByName("tower_p"..4)
+    
+    for _,tower in pairs(towers)do
+      tower:AddNewModifier(nil,nil,"modifier_invulnerable",nil)
+    end 
+end
+function closelane5()
+  -- body
+  if GameMode.SecondPhase or GameMode.FinalWave then
+    return nil
+  end
+
+  GameMode.openLanes["spawn5"] = nil
+  local towers = Entities:FindAllByName("tower_p"..5)
+  for _,tower in pairs(towers)do
+    tower:AddNewModifier(nil,nil,"modifier_invulnerable",nil)
+  end 
+end

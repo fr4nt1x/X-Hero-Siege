@@ -1,0 +1,78 @@
+"roshan_grow"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "MaxLevel"              "2"
+    "RequiredLevel"        "10"
+    "LevelsBetweenUpgrades" "5"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.6"
+    "AbilityCooldown"  "60"
+    "AbilityManaCost"  "100"
+    "AbilityTextureName" ""
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+        "01"
+        {
+          "var_type" "FIELD_FLOAT"
+          "base_attack_rate" "0.5"
+        }
+        "02"
+        {
+          "var_type" "FIELD_FLOAT"
+          "model_scale" "1.4"
+        }           
+    }
+
+    "precache"
+    {
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+        "ApplyModifier"
+        {
+            "ModifierName" "modifier_grow"
+            "Target"      "CASTER"
+        }
+
+    }
+
+    "Modifiers"
+    {
+      
+      "modifier_grow"
+      {
+
+        "IsBuff" "1"
+        "IsHidden" "0"
+        "Passive" "0"
+        "IsPurgable" "0"
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT" "%base_attack_rate"
+          "MODIFIER_PROPERTY_COOLDOWN_REDUCTION_CONSTANT" "2"
+
+        }
+        "OnCreated"
+        {
+          "RunScript"
+          {
+            "ScriptFile"  "heroes/npc_hero_roshan/roshan.lua"
+            "Function"    "grow"
+          }
+        }
+      }
+    }    
+  }

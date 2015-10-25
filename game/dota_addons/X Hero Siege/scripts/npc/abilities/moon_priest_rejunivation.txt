@@ -1,0 +1,72 @@
+"moon_priest_rejunivation"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "-1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.5"
+    "AbilityCooldown"  "60"
+    "AbilityManaCost"  "100"
+    "AbilityTextureName" "warlock_shadow_word"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+        "01"
+        {
+          "var_type" "FIELD_FLOAT"
+          "duration" "30"
+        }
+        "02"
+        {
+          "var_type" "FIELD_INTEGER"
+          "hp_regeneration" "2"
+        }        
+    }
+
+    "precache"
+    {
+        "particle" "particles/units/heroes/hero_warlock/warlock_shadow_word_buff.vpcf"
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+        "ApplyModifier"
+        {
+            "ModifierName" "modifier_rejunivation"
+            "Target" "TARGET"
+        }
+
+    }
+
+    "Modifiers"
+    {
+      
+      "modifier_rejunivation"
+      {
+
+        "IsBuff" "1"
+        "IsHidden" "0"
+        "Passive" "0"
+        "IsPurgable" "0"
+        "Duration" "%duration"
+        "EffectName" "particles/units/heroes/hero_warlock/warlock_shadow_word_buff.vpcf"
+        "EffectAttachType" "follow_origin"
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%hp_regeneration"
+        }
+      }
+    }    
+  }

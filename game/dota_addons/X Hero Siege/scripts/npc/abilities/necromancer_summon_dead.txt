@@ -1,0 +1,77 @@
+"necromancer_summon_dead"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "-1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.5"
+    "AbilityCooldown"  "8"
+    "AbilityManaCost"  "75"
+    "AbilityTextureName" "dark_troll_warlord_raise_dead"
+
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+        {
+          "var_type" "FIELD_FLOAT"
+          "duration" "40"
+        }
+    }
+
+    "precache"
+    {
+        "particle" "particles/units/heroes/hero_lone_druid/lone_druid_battle_cry_buff.vpcf"
+        "particle" "particles/units/heroes/hero_lone_druid/lone_druid_battle_cry_overhead.vpcf"
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+        "SpawnUnit"
+        {
+          "Target" "CASTER"
+          "Duration" "%duration"
+          "UnitName"    "npc_skeleton_warrior"
+          "UnitCount"    "2"
+          "GrantsGold"  "1"
+          "GrantsXP"    "1"
+          "SpawnRadius"  "50"
+          "OnSpawn"
+          {
+            "RunScript"
+            {
+              "ScriptFile"  "units/npc_necromancer/skeleton.lua"
+              "Function"    "SetGoal"
+            }
+          }
+        }
+        "SpawnUnit"
+        {
+          "Target" "CASTER"
+          "Duration" "%duration"
+          "UnitName"    "npc_skeleton_archer"
+          "UnitCount"    "1"
+          "GrantsGold"  "1"
+          "GrantsXP"    "1"
+          "SpawnRadius"  "50"
+          "OnSpawn"
+          {
+            "RunScript"
+            {
+              "ScriptFile"  "units/npc_necromancer/skeleton.lua"
+              "Function"    "SetGoal"
+            }
+
+          }
+        }
+    }
+  }

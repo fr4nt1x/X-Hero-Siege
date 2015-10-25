@@ -1,0 +1,63 @@
+	"npc_dota_hero_moon_priest"
+	{
+
+		"Model"					"models/heroes/mirana/mirana.mdl"			// Model.
+		"Portrait"				"vgui/hud/heroportraits/portrait_mirana"	// Small image for hero selection
+		"IdleExpression"		"scenes/mirana/mirana_exp_idle_01.vcd"		// custom facial animation idle
+		"SoundSet"				"Hero_Mirana"									// Name of sound set.
+		"PickSound"				"mirana_mir_spawn_01"
+		"BanSound"				"mirana_mir_anger_01"
+		"url"		"Moon Priest"
+		"ModelScale" 			".79"
+		"HeroGlowColor" 		"220 194 248"
+		"override_hero" "npc_dota_hero_mirana"
+		"AbilityLayout"     			"6"
+		"UnitLabel"                 "Mirana" 
+		"HeroSelectSoundEffect"		"Hero_Mirana.Pick"
+
+		// Abilities
+		//-------------------------------------------------------------------------------------------------------------
+		"Ability1"					"moon_priest_chain_lightning"
+		"Ability2"					"moon_priest_water_servant"
+		"Ability3"					"moon_priest_forked_lightning"
+		"Ability4"					"moon_priest_monsoon"
+		"Ability5"					"moon_priest_trueshot_aura"
+	    "Ability6"        			""
+	    "Ability7"        ""
+	    "Ability8"        ""
+	    "Ability9"        ""
+	    "Ability10"       ""
+	    "Ability11"       ""
+	    "Ability12"       ""
+	    "Ability13"       ""
+	    "Ability14"       ""
+	    "Ability15"       ""
+	    "Ability16"       ""
+
+		"ArmorPhysical"		"0.000000"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"		"2"
+		"AttackDamageMax"		"12"
+		"AttackRate"		"1.700000"
+		"AttackAnimationPoint"		"0.300000"
+		"AttackAcquisitionRange"		"800"
+		"AttackRange"		"600"
+		"AttributePrimary"		"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"		"38"
+		"AttributeStrengthGain"		"1.900000"
+		"AttributeBaseAgility"		"35"
+		"AttributeAgilityGain"		"2.600000"
+		"AttributeBaseIntelligence"		"44"
+		"AttributeIntelligenceGain"		"2.500000"
+
+		// Status
+		//-------------------------------------------------------------------------------------------------------------
+		"StatusHealth"        "300"                 // Base health.
+	    "StatusHealthRegen"     "1"                 // Health regeneration rate.
+	    "StatusMana"        "200"                   // Base mana.
+	    "StatusManaRegen"     "0.01"                 // Mana regeneration rate.
+		"MovementSpeed"		"315"
+		"MovementTurnRate"		"0.500000"
+		"VisionDaytimeRange"    "1200"                  // Range of vision at night time.
+	    "VisionNighttimeRange"    "1000"                  // Range of vision at night time.
+	}

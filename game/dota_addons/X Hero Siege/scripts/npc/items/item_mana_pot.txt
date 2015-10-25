@@ -1,0 +1,50 @@
+//mana Pot
+"item_mana_pot" 
+{
+    	"ID"           "1101"
+    	"BaseClass"    "item_datadriven"
+    	"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    	"Model"        "models/props_gameplay/salve_blue.vmdl" 
+    	"Effect"       "particles/generic_gameplay/dropped_item.vpcf"
+    	"ItemCost"     "10"
+    	"ItemKillable" "1" 
+    	"ItemSellable" "1"
+    	"ItemPurchasable" "1"
+    "ItemDroppable" "1"
+    "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    "AbilityTextureName" "item_greater_clarity"
+    "SideShop"     "1" 
+    "SecretShop"   "0"
+
+    "ItemShopTags"					"consumable"
+	"ItemQuality"					"consumable"
+    
+    "ItemStackable" "0"
+    "ItemInitialCharges"			"15"
+    "ItemPermanent" "0"
+    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "AbilityCastAnimation"      "ACT_DOTA_DISABLED"
+	"AbilityCastPoint"				"0.0"
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"      "FIELD_INTEGER"
+            "mana"    	"3000"
+        }
+    }
+    "OnSpellStart"
+    { 
+    	"RunScript"
+        	{
+          	"ScriptFile"      "items/Mana_Potion/manaPotions.lua"
+          	"Function"        "GiffMana"
+        	}
+    	"SpendCharge"
+		{}
+    }
+    "precache"
+    {
+    	"particle"  "particles/generic_gameplay/dropped_item.vpcf"
+    }    
+}

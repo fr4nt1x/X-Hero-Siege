@@ -1,0 +1,137 @@
+//Magtheridon
+"moon_priest_monsoon"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "MaxLevel"              "2"
+    "LevelsBetweenUpgrades" "5"
+    "RequiredLevel"        "10"
+    "AbilityChannelTime" 	"15"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.5"
+    "AbilityCooldown"  "120"
+    "AbilityCastRange" "300"
+    "AbilityManaCost"  "300 800"
+    "AbilityTextureName" "skywrath_mage_mystic_flare"
+    "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "ticktime"      "0.8 0.4"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "damage_per_tick"      "1500 2500"
+      }
+      "03"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "radius"      "500"
+      }
+    }
+
+    "OnSpellStart"
+    {
+    	"SpawnUnit"
+    	{
+    		"UnitName"		"npc_dummy_target"
+    		"Target" 		   "POINT"
+    		"UnitCount"		"1"
+    		"UnitLimit"		"0"
+    		"GrantsGold"	"0"
+    		"GrantsXP"		"0"
+    		"SpawnRadius"	"1"
+    		"OnSpawn"
+    		{
+    			"ApplyModifier"
+    			{
+    				"ModifierName"	"modifier_monsoon"
+    				"Target"		"TARGET"
+    			}
+    		}
+    	}
+    }
+    "OnChannelFinish"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "heroes/moon_priest/monsoon.lua"
+        "Function"    "channel_end"
+      }
+    }
+
+    "Modifiers"
+      {
+        "modifier_monsoon"
+        {
+        	"EffectName" "particles/moon_priest_monsoon.vpcf"
+        	"EffectAttachType" "follow_origin"
+        	"OnCreated"
+        	{
+        		"RunScript"
+          		{
+          			"ScriptFile"	"heroes/moon_priest/monsoon.lua"
+          			"Function"		"modifier_start"
+          		}
+        	}
+          	"IsHidden"  "1"
+          	"ThinkInterval"  "%ticktime"
+          	"OnIntervalThink"
+          	{
+                "FireEffect"
+                {
+                  "EffectName"        "particles/units/heroes/hero_skywrath_mage/skywrath_mage_mystic_flare.vpcf"
+                  "EffectAttachType"  "follow_origin"
+                  "Target"
+                  {
+                    "Center"    "CASTER"
+                    "Radius"   "%radius"
+                    "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                    "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                  }
+                }
+                "Damage"
+                {
+                  "Target"
+                  {
+                    "Center"    "CASTER"
+                    "Radius"   "%radius"
+                    "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                    "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                  }
+                  "Type"      "DAMAGE_TYPE_MAGICAL"
+                  "Damage"    "%damage_per_tick"
+                }
+                
+          	}
+    		    "States" 
+      		  {
+            "MODIFIER_STATE_UNSELECTABLE"   "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_NO_HEALTH_BAR"   "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_NO_UNIT_COLLISION"  "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_NO_TEAM_MOVE_TO"    "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_NO_TEAM_SELECT"     "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_COMMAND_RESTRICTED" "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_ATTACK_IMMUNE"      "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_MAGIC_IMMUNE"       "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_NOT_ON_MINIMAP"     "MODIFIER_STATE_VALUE_ENABLED"
+      		  }
+
+        }
+      } 
+
+    "precache"
+    {
+      "particle"  "particles/units/heroes/hero_skywrath_mage/skywrath_mage_mystic_flare.vpcf"
+      "particle"  "particles/moon_priest_monsoon.vpcf"
+    }
+  }  

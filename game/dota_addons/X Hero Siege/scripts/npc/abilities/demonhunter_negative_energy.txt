@@ -1,0 +1,87 @@
+"demonhunter_negative_energy"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "MaxLevel"              "4"
+    "RequiredLevel"        "-1"
+    "LevelsBetweenUpgrades" "2"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.5"
+    "AbilityCooldown"  "20"
+    "AbilityCastRange" "800"
+    "AbilityManaCost"  "0 0 0 0"
+    "AbilityTextureName" "nyx_assassin_mana_burn"
+    "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityDamage" "1000 2500 5000 10000"
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "damage_delay"      "0.1"
+      }
+    }
+
+    "OnSpellStart"
+    { 
+      "FireEffect"
+      {
+        "EffectName"  "particles/units/heroes/hero_lina/lina_spell_laguna_blade.vpcf"
+        "EffectAttachType"  "start_at_customorigin"   
+        "ControlPointEntities"
+        {
+          "CASTER"  "attach_attack1"
+          "TARGET"  "attach_hitloc"
+        }
+      }
+
+
+      "FireSound"
+      {
+        "EffectName"  "Ability.LagunaBladeImpact"
+        "Target"    "TARGET"
+      }
+
+      "FireSound"
+      {
+        "EffectName"  "Ability.LagunaBlade"
+        "Target"    "CASTER"
+      }
+      "ApplyModifier"
+      {
+        "ModifierName"    "modifier_laguna_blade_datadriven"
+        "Target"      "TARGET"
+      }
+    }
+
+    "Modifiers"
+      {
+        "modifier_laguna_blade_datadriven"
+        {
+          "IsHidden"  "1"
+          "Duration"  "%damage_delay"
+
+          "OnDestroy"
+          {
+            "Damage"
+            {
+              "Target"  "TARGET"
+              "Type"    "DAMAGE_TYPE_MAGICAL"
+              "Damage"  "%AbilityDamage"
+            }
+          }
+        }
+      } 
+
+    "precache"
+    {
+      "particle"  "particles/units/heroes/hero_lina/lina_spell_laguna_blade.vpcf"
+      "soundfile" "soundevents/game_sounds_heroes/game_sounds_lina.vsndevts"
+    }
+  }

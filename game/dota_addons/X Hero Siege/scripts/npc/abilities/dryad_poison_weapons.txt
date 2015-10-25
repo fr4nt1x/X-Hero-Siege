@@ -1,0 +1,87 @@
+"dryad_poison_weapons"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"       "ability_datadriven"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+    "AbilityTextureName"      "gnoll_assassin_envenomed_weapon"
+    "MaxLevel"             "1"
+    "RequiredLevel"        "-1"
+    "LevelsBetweenUpgrades" "1"
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "damage_per_second"  "50"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "movement_bonus"     "-30"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "attack_bonus"     "-30"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "duration"     "5"
+      }
+    }
+
+    "precache"
+    {
+      "particle"  "particles/neutral_fx/gnoll_poison_debuff.vpcf"
+    }
+    
+    "Modifiers"
+    {
+      "modifier_stinger_passive"
+      {
+        "Passive"       "1"
+        "IsHidden"      "1"
+        "IsBuff"        "1"
+        "IsPurgable"    "0"
+        "OnAttackLanded"
+        {
+          
+          "ApplyModifier"
+          {
+            "ModifierName"  "modifier_poison"
+            "Target"        "TARGET"
+ 
+            "Duration"      "%duration"
+          }
+        }
+  
+      }
+
+      "modifier_poison"
+      {
+        "Passive"       "0"
+        "EffectName"            "particles/neutral_fx/gnoll_poison_debuff.vpcf"
+        "EffectAttachType"      "follow_origin"
+        "IsHidden"      "0"
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_bonus"
+          "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movement_bonus"
+        }
+        "ThinkInterval"  "1.0"
+        "OnIntervalThink"
+        {
+          "Damage"
+          {
+            "Target"    "TARGET"
+            "Type"      "DAMAGE_TYPE_MAGICAL"
+            "Damage"    "%damage_per_second"
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,136 @@
+"item_shield_of_invincibility" 
+{
+    "ID"           "1111"
+    "BaseClass"    "item_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "Model"        "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl" 
+    "Effect"       "particles/generic_gameplay/dropped_item.vpcf"
+    "ItemCost"     "500"
+    "ItemKillable" "0" 
+    "ItemSellable" "0"
+    "ItemCastOnPickup" "0"
+    "ItemPurchasable" "0"
+    "ItemDroppable" "1"
+    "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    "AbilityTextureName" "item_aegis"
+
+    "SideShop"     "0" 
+    "SecretShop"   "0"
+
+    "ItemShopTags"					"artifact"
+	"ItemQuality"					"artifact"
+    
+    "ItemStackable" "0"
+    "ItemPermanent" "1"
+    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "damage_return_factor"  "0.8"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "armor_bonus"     "600"
+      }
+      "03"
+        {
+            "var_type"      "FIELD_FLOAT"
+            "reincarnation_time"        "3.0"
+        }
+    }
+
+    "precache"
+    {
+      // Not really used in the Lifesteal action
+        "particle"  "particles/units/heroes/hero_nyx_assassin/nyx_assassin_spiked_carapace.vpcf"
+        "particle"  "particles/items_fx/aegis_respawn.vpcf"
+        "particle"  "particles/generic_hero_status/death_tombstone_alt.vpcf"
+        "particle"  "particles/units/heroes/hero_nyx_assassin/nyx_assassin_spiked_carapace_hit.vpcf"
+    }
+
+    "Modifiers"
+    {
+      "modifier_spiked_carapace"
+      {
+        "Passive"       "1"
+        "IsHidden"      "1"
+        "IsBuff"      "1"
+        "EffectName" ""
+        "EffectAttachType" "follow_origin"
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
+        }
+
+        "OnTakeDamage"
+        // "%attack_damage" is set to the damage value after mitigation
+        {
+          "Damage"
+          {
+            "Target"    "ATTACKER"
+            "Type"      "DAMAGE_TYPE_PHYSICAL"
+            "Damage"    "%attack_damage* %damage_return_factor"
+          }
+          "FireEffect"
+          {
+            "EffectName"        "particles/units/heroes/hero_nyx_assassin/nyx_assassin_spiked_carapace_hit.vpcf"
+            "EffectAttachType"  "follow_origin"
+            "Target"            "TARGET"
+          }
+        }
+      }
+      "modifier_reincarnation"
+        {
+            "Passive"           "1"
+            "IsHidden"          "1"
+            "IsDebuff"          "0"
+            "OnTakeDamage"
+            {
+                "RunScript"
+                {
+                    "ScriptFile"    "items/Ankh/ankh.lua"
+                    "Function"      "reincarnation"
+                }
+            }
+        }
+        "modifier_no_draw"
+        {
+            "Passive" "0"
+            "IsHidden" "1"
+            "IsBuff" "1"
+            "Duration" "%reincarnation_time"
+            "OnCreated"
+            {
+                "AttachEffect"
+                {
+                    "EffectName"        "particles/generic_hero_status/death_tombstone_alt.vpcf"
+                    "EffectAttachType"  "follow_origin"
+                    "Target"            "CASTER"
+                }
+            }
+            "OnDestroy"
+            {
+                "FireEffect"
+                {
+                    "EffectName"        "particles/items_fx/aegis_respawn.vpcf"
+                    "EffectAttachType"  "follow_origin"
+                    "Target"            "CASTER"
+                }
+                "RunScript"
+                {
+                    "ScriptFile"    "items/Ankh/ankh.lua"
+                    "Function"      "StartHero"
+                }
+            }
+            
+            "States"
+                {
+                    "MODIFIER_STATE_STUNNED" "MODIFIER_STATE_VALUE_ENABLED"
+                    "MODIFIER_STATE_INVULNERABLE" "MODIFIER_STATE_VALUE_ENABLED"
+                }         
+        }
+    }
+}  

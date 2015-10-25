@@ -1,0 +1,34 @@
+"arthas_spawn_banehallow"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "-1"
+    "LevelsBetweenUpgrades" "1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityTextureName" ""
+    "AbilitySpecial"
+    {
+    }
+
+    "Modifiers"
+    {
+      "modifier_spawn_banehallow"
+      {
+        "Passive" "1"
+        "IsHidden" "0"
+        "OnDeath"
+        {
+          "RunScript"
+          {
+            "ScriptFile"  "heroes/top_bosses/arthas.lua"
+            "Function"    "spawn_bane"
+          }
+        }
+      }
+    }
+  }

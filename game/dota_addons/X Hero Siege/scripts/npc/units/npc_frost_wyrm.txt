@@ -1,0 +1,82 @@
+"npc_frost_wyrm"
+  {
+    // General
+    "BaseClass"         "npc_dota_creature"  // Class of entity of link to.
+    "Model"             "models/heroes/winterwyvern/winterwyvern.vmdl"  // Model.
+    "SoundSet"          "lane_dire_ranged"          // Name of sound set.
+    "Level"             "3"
+    "ModelScale"                    "0.9"
+    "ProjectileModel"            "particles/units/heroes/hero_jakiro/jakiro_base_attack.vpcf"
+    "ProjectileSpeed"                   "800"
+    // Abilities
+    //----------------------------------------------------------------
+    
+    "Ability1"          ""     // Ability 1.
+    "Ability2"          ""      // Ability 2.
+    "Ability3"          ""      // Ability 3.
+    "Ability4"          ""      // Ability 4.
+    "Ability5"          ""      // Ability 5.
+    "Ability6"          ""      // Ability 6 - Extra.
+    "Ability7"          ""      // Ability 7 - Extra.
+    "Ability8"          ""      // Ability 8 - Extra.
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"       "28"     // Physical protection.
+    "MagicalResistance"       "0"     // Magical protection.
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"    // Type of attack - melee, ranged, etc.
+    "AttackDamageMin"     "300"     // Damage range min.
+    "AttackDamageMax"     "320"     // Damage range max.
+    "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
+    "AttackRate"        "3.0"     // Speed of attack.
+    "AttackAnimationPoint"    "0.5"   // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"  "800"   // Range within a target can be acquired.
+    "AttackRange"       "500"   // Range within a target can be attacked.
+
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"          "100"     // Experience earn.
+    "BountyGoldMin"       "39"     // Gold earned min.
+    "BountyGoldMax"       "40"     // Gold earned max.
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"      "DOTA_HULL_SIZE_REGULAR"      // Hull type used for navigation/locomotion.
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_FLY"     // Type of locomotion - ground, air
+    "MovementSpeed"       "300"   // Speed
+    "MovementTurnRate"      "0.5"   // Turning rate.
+    "FollowRange"       "250"   // Distance to keep when following
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"        "5500"     // Base health.
+    "StatusHealthRegen"     "2"     // Health regeneration rate.
+    "StatusMana"        "0"     // Base mana.
+    "StatusManaRegen"     "0"     // Mana regeneration rate.
+
+    
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"    "800"   // Range of vision during day light.
+    "VisionNighttimeRange"    "600"   // Range of vision at night time.
+
+    // Bots
+    //----------------------------------------------------------------
+    "AttackDesire"        "1.5"   // How much bots want to attack them vs other non-hero things
+    "Creature"
+    {
+    	"AttachWearables"
+    	{
+    		"Wearable1" { "ItemDef" "551" }
+         		"Wearable2" { "ItemDef" "552" }
+         		"Wearable3" { "ItemDef" "553" }
+    	}
+    }
+  }

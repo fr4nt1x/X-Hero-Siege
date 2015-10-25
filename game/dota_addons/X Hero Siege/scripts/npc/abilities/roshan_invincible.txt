@@ -1,0 +1,29 @@
+"roshan_invincible"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"       "ability_datadriven"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"      "backdoor_protection"
+    "MaxLevel"             "1"
+    "RequiredLevel"        "-1"
+    "AbilitySpecial"
+    {
+    }
+
+    "Modifiers"
+    {
+      "modifier_invincible"
+      {
+        "Passive"       "1"
+        "IsHidden"      "0"
+        "IsPurgable"    "0"
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL" "1"
+          "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL"  "1"
+          "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE"     "1"
+        }
+      }
+    }
+  }

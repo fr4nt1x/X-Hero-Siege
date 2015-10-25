@@ -1,0 +1,50 @@
+"luna_elunes_armor"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"       "ability_datadriven"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+    "AbilityTextureName"      "night_stalker_darkness"
+    "MaxLevel"             "4"
+    "RequiredLevel"        "-1"
+    "LevelsBetweenUpgrades" "2"
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "incoming_damage_physical_reduction"  "-10 -20 -30 -40"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "magical_resistance_bonus"     "25 35 45 55"
+      }
+    }
+
+    "precache"
+    {
+      // Not really used in the Lifesteal action
+      "particle"  "particles/units/heroes/hero_nyx_assassin/nyx_assassin_spiked_carapace.vpcf"
+      "particle"  "particles/units/heroes/hero_nyx_assassin/nyx_assassin_spiked_carapace_hit.vpcf"
+    }
+
+    "Modifiers"
+    {
+      "modifier_elunes_armor"
+      {
+        "Passive"       "1"
+        "IsHidden"      "1"
+        "IsBuff"      "1"
+        "EffectName" ""
+        "EffectAttachType" ""
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE" "%incoming_damage_physical_reduction"
+          "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magical_resistance_bonus"
+        }
+      }
+    }
+  }

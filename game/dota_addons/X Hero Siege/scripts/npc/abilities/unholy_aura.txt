@@ -1,0 +1,54 @@
+"unholy_aura"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior"  "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "-1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityTextureName" "satyr_hellcaller_unholy_aura"
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "bonus_attack_speed"      "50"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "bonus_movement_speed_percentage"      "40"
+      }
+      "03"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "radius"      "1000"
+      }
+    }
+    "Modifiers"
+    {
+      "modifier_unholy_aura"
+      {
+        "Passive"       "1"
+        "IsHidden"      "1"
+        "IsBuff"      "1"
+
+        "Aura"        "modifier_unholy_buff"
+        "Aura_Radius"     "%radius"
+        "Aura_Teams"    "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "Aura_Types"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+      }
+     "modifier_unholy_buff"
+      { 
+        "IsBuff" "1"
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attack_speed"
+          "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed_percentage" 
+        }
+      }
+    }
+  }

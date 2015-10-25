@@ -1,0 +1,34 @@
+"demonhunter_evasion"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"              "4"
+    "RequiredLevel"        "8"
+    "LevelsBetweenUpgrades" "2"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityTextureName" "phantom_assassin_blur"
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "bonus_evasion"      "15 20 25 30"
+      }
+    }
+    "Modifiers"
+    {
+      "modifier_evasion"
+      {
+        "Passive" "1"
+        "IsHidden" "1"
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_EVASION_CONTANT" "%bonus_evasion" 
+        }
+      }
+    }
+  }

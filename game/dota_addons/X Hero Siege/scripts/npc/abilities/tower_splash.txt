@@ -1,0 +1,77 @@
+"tower_splash"
+  {
+      // General
+      //-------------------------------------------------------------------------------------------------------------
+      "BaseClass"           "ability_datadriven"
+      "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+      "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
+      "AbilityTextureName"      "black_dragon_splash_attack"  
+      "AbilitySpecial"
+      {
+        "01"
+        {
+          "var_type"      "FIELD_INTEGER"
+          "radius"      "200"
+        }
+      }
+      // Stats
+      //-------------------------------------------------------------------------------------------------------------
+      "precache"
+      {
+          "particle" "particles/siege_fx/siege_bits_03.vpcf"
+      }
+      "Modifiers"
+      {
+        "tower_splash"
+        {
+          "Passive" "1"
+          "IsHidden" "1"
+          "OnAttackLanded"
+          {
+            "Damage"
+            {
+              "Target"
+              {
+                "Center"    "TARGET"
+                "Radius"   "%radius/3"
+                "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+              }
+              "Damage" "(%attack_damage)/3"
+              "Type" "DAMAGE_TYPE_PHYSICAL"
+            }
+            "Damage"
+            {
+              "Target"
+              {
+                "Center"    "TARGET"
+                "Radius"   "2*%radius/3"
+                "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+              }
+              "Damage" "(%attack_damage)/3"
+              "Type" "DAMAGE_TYPE_PHYSICAL"
+            }
+            "Damage"
+            {
+              "Target"
+              {
+                "Center"    "TARGET"
+                "Radius"   "%radius"
+                "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+              }
+              "Damage" "(%attack_damage)/3"
+              "Type" "DAMAGE_TYPE_PHYSICAL"
+            }
+
+            "AttachEffect"
+            {
+              "Target" "TARGET"
+              "EffectName" "particles/siege_fx/siege_bits_03.vpcf"
+              "EffectAttachType" "follow_origin"      
+            }   
+          }
+        }
+      }
+  }

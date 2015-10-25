@@ -1,0 +1,75 @@
+"item_morbid_mask" 
+{
+    "ID"           "1112"
+    "BaseClass"    "item_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "Model"        "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl" 
+    "Effect"       "particles/generic_gameplay/dropped_item.vpcf"
+    "ItemCost"     "1000"
+    "ItemKillable" "1" 
+    "ItemSellable" "1"
+    "ItemCastOnPickup" "0"
+    "ItemPurchasable" "1"
+    "ItemDroppable" "1"
+    "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    "AbilityTextureName" "item_lifesteal"
+
+    "SideShop"     "1" 
+    "SecretShop"   "0"
+
+    "ItemShopTags"					"artifact"
+	"ItemQuality"					"artifact"
+    
+    "ItemStackable" "0"
+    "ItemPermanent" "1"
+    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "AbilitySpecial"
+    {
+       "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "lifesteal"     "50"
+      }
+    }
+
+    "precache"
+    {
+      // Not really used in the Lifesteal action
+        "particle"  "particles/items_fx/aegis_respawn.vpcf"
+        "particle"  "particles/generic_hero_status/death_tombstone_alt.vpcf"
+        "particle"  "particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
+    }
+
+    "Modifiers"
+    {
+        "modifier_vampiric_aura_buff"
+        { 
+          "Passive"       "1"
+          "IsHidden"      "0"
+          "IsPurgable"    "0"
+          "IsBuff"        "1"
+
+          "OnAttackLanded"      
+          {
+            "RunScript"
+            {
+              "ScriptFile"  "heroes/hero_demonhunter/vampiric_aura.lua"
+              "Function"    "VampiricAuraApply"
+            }
+          }
+        }
+
+        "modifier_vampiric_aura_lifesteal"
+        {
+        "IsHidden"    "1"
+        "OnDealDamage"
+        {
+          "Lifesteal"
+          {
+            "Target"        "ATTACKER"
+            "LifestealPercent"    "%lifesteal"
+          }
+        }
+      }
+    }
+}  

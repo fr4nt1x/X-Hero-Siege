@@ -1,0 +1,68 @@
+"item_boots_of_speed" 
+{
+    "ID"           "1113"
+    "BaseClass"    "item_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT"
+    "Model"        "item_power_treads" 
+    "Effect"       "item_power_treads"
+    "ItemCost"     "1000"
+    "ItemKillable" "1" 
+    "ItemSellable" "1"
+    "ItemCastOnPickup" "0"
+    "ItemPurchasable" "1"
+    "ItemDroppable" "1"
+    "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    "AbilityTextureName" "item_power_treads"
+    "AbilityCastPoint"   "0.5"
+    "AbilityCastRange"        "900"
+    "AbilityCooldown"        "10"
+    "AbilityManaCost"        "100"
+
+    "SideShop"     "1" 
+    "SecretShop"   "0"
+
+    "ItemShopTags"					"artifact"
+	   "ItemQuality"					"artifact"
+    
+    "ItemStackable" "0"
+    "ItemPermanent" "1"
+    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "AbilitySpecial"
+    {
+    }
+
+    "precache"
+    {
+      "particle"  "particles/econ/events/nexon_hero_compendium_2014/blink_dagger_end_nexon_hero_cp_2014.vpcf"
+    }
+    "OnSpellStart"
+    {
+        "FireEffect"
+        {
+            "EffectName"        "particles/econ/events/nexon_hero_compendium_2014/blink_dagger_end_nexon_hero_cp_2014.vpcf"
+            "EffectAttachType" "follow_origin"
+            "Target"            "CASTER"
+        }
+        "RunScript"
+        {
+          "ScriptFile"  "items/Blink/blink.lua"
+          "Function"    "blink"
+          "Target"      "POINT"
+        }
+
+    }
+    "Modifiers"
+    {
+        "modifier_boots"
+        { 
+          "Passive"       "1"
+          "IsHidden"      "0"
+          "IsPurgable"    "0"
+          "IsBuff"        "1"
+          "Properties"
+          {
+              "MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE" "522" 
+          }
+        }
+    }
+}  

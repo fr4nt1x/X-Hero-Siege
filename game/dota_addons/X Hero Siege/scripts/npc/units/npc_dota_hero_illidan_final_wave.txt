@@ -1,0 +1,86 @@
+"npc_dota_hero_illidan_final_wave"
+{
+    "AbilityLayout"     "6"
+    "BaseClass"         "npc_dota_creature"
+    "Model"                     "models/heroes/antimage/antimage.mdl"           // Model.
+    "SoundSet"                  "Hero_Antimage"                                 // Name of sound set.
+    "IdleExpression"            "scenes/antimage/antimage_exp_idle_01.vcd"      // custom facial animation idle
+
+    "Portrait"                  "vgui/hud/heroportraits/portrait_antimage"
+    "ModelScale"                "2.1"
+	"Level"						"10"
+    "NameAliases"               "demonhunter"
+    "url"               "Demonhunter"
+    "HealthBarOffset"			"200"
+    "HeroSelectSoundEffect"     "Hero_Antimage.Pick"
+
+    "Ability1"        "demonhunter_negative_energy"
+    "Ability2"        "" 
+    "Ability3"        "demonhunter_evasion"
+    "Ability4"        "grom_devotion_aura"
+    "Ability5"        ""
+    "Ability6"        ""
+    "Ability7"        ""
+    "Ability8"        ""
+    "Ability9"        ""
+    "Ability10"       ""
+    "Ability11"       ""
+    "Ability12"       ""
+    "Ability13"       ""
+    "Ability14"       ""
+    "Ability15"       ""
+    "Ability16"       ""
+
+    "ArmorPhysical"       "150"                 // Physical protection.
+    "MagicalResistance"       "0"                 // Magical protection (percentage).
+
+    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"     "10002"                   // Damage range min.
+    "AttackDamageMax"     "10012"                   // Damage range max.
+    "AttackRate"                "1.0"                                  // Speed of attack.
+    "AttackAnimationPoint"      "0.3"                                   // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"    "600"                                   // Range within a target can be acquired.
+    "AttackRange"               "135"                                   // Range within a target can be attacked.
+    "ProjectileModel"           "particles/units/heroes/hero_terrorblade/terrorblade_metamorphosis_base_attack.vpcf"                                     // Particle system model for projectile.
+    "ProjectileSpeed"           "900"                                     // Speed of projectile.
+    
+    "AttributePrimary"      "DOTA_ATTRIBUTE_AGILITY"
+    "AttributeBaseStrength"   "100"                   // Base strength
+    "AttributeStrengthGain"   "20"                   // Strength bonus per level.
+    "AttributeBaseIntelligence" "100"                   // Base intelligence
+    "AttributeIntelligenceGain" "20"                   // Intelligence bonus per level.
+    "AttributeBaseAgility"    "100"                   // Base agility
+    "AttributeAgilityGain"    "20"                   // Agility bonus per level.
+
+    "BountyXP"          "300"                 // Experience earn.
+    "BountyGoldMin"       "1000"                   // Gold earned min.
+    "BountyGoldMax"       "1000"                   // Gold earned max.
+
+    "BoundsHullName"      "DOTA_HULL_SIZE_HUGE"
+    //"RingRadius"        "70"
+
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"       "400"                 // Speed.
+    "MovementTurnRate"      "0.5"                 // Turning rate.
+
+    "StatusHealth"        "40000"                 // Base health.
+    "StatusHealthRegen"     "10.0"                 // Health regeneration rate.
+    "StatusMana"        "5000"                   // Base mana.
+    "StatusManaRegen"     "0.01"                 // Mana regeneration rate.
+
+    "VisionDaytimeRange"    "1200"                  // Range of vision at night time.
+    "VisionNighttimeRange"    "1000"                  // Range of vision at night time.
+    "vscripts" "ai/npc_hero_illidan_final_wave.lua"
+ 	"Creature"
+    {
+       "AttachWearables"   
+        {
+            "Wearable1" { "ItemDef" "215" }
+            "Wearable2" { "ItemDef" "216" }
+            "Wearable3" { "ItemDef" "217" }
+            "Wearable4" { "ItemDef" "218" }
+            "Wearable1" { "ItemDef" "1" }
+            "Wearable1" { "ItemDef" "335" }
+        } 
+    }
+}

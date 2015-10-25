@@ -1,0 +1,67 @@
+"moon_priest_water_servant"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "MaxLevel"              "4"
+    "RequiredLevel"        "-1"
+    "LevelsBetweenUpgrades" "2"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.5"
+    "AbilityCooldown"  "20"
+    "AbilityManaCost"  "30"
+    "AbilityTextureName" "slark_dark_pact"
+
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+        {
+          "var_type" "FIELD_FLOAT"
+          "duration" "60 60 60 60"
+        }
+        "02"
+        {
+          "var_type" "FIELD_INTEGER"
+          "servant_units" "1 1 1 2"
+        }
+    }
+
+    "precache"
+    {
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "heroes/hero_moon_priest/summon_servant.lua"
+        "Function"    "spawn_servant"
+      }
+    }
+    "Modifiers"
+    {
+      "modifier_water_servant"
+      {
+        "Passive"      "0"
+        "IsHidden"      "0"
+        "IsDebuff"      "0"
+        "Duration"      "%duration"
+        "OnDestroy"
+          {
+            "RunScript"
+            {
+              "ScriptFile"  "heroes/hero_moon_priest/summon_servant.lua"
+              "Function"    "despawn_servant"
+            }
+          }    
+      }
+    }
+  }

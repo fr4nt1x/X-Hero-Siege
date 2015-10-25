@@ -1,0 +1,50 @@
+"ramero_baristal"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "-1"
+    "LevelsBetweenUpgrades" "1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityTextureName" ""
+    "AbilitySpecial"
+    {
+    }
+
+    "Modifiers"
+    {
+      "modifier_baristal"
+      {
+        "Passive" "0"
+        "IsHidden" "1"
+        "IsPurgable"    "0"
+        "OnDeath"
+        {
+          "RunScript"
+          {
+            "ScriptFile"  "heroes/special_event/ramero_baristal.lua"
+            "Function"    "drop_lightning_sword"
+          }
+        }
+      }
+      "modifier_ramero"
+      {
+        "Passive" "0"
+        "IsHidden" "1"
+        "IsPurgable"    "0"
+        //Purge(bool RemovePositiveBuffs, bool RemoveDebuffs, bool BuffsCreatedThisFrameOnly, bool RemoveStuns, bool RemoveExceptions)"
+        "OnDeath"
+        {
+          "RunScript"
+          {
+            "ScriptFile"  "heroes/special_event/ramero_baristal.lua"
+            "Function"    "drop_ring"
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,34 @@
+"special_arena"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "-1"
+    "LevelsBetweenUpgrades" "1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityTextureName" ""
+    "AbilitySpecial"
+    {
+    }
+
+    "Modifiers"
+    {
+      "modifier_arena_kill"
+      {
+        "Passive" "1"
+        "IsHidden" "1"
+        "OnDeath"
+        {
+          "RunScript"
+          {
+            "ScriptFile"  "units/special_arena/special_arena.lua"
+            "Function"    "arena_kill"
+          }
+        }
+      }
+    }
+  }

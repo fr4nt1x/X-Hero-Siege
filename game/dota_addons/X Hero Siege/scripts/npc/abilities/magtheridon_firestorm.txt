@@ -1,0 +1,157 @@
+//Magtheridon
+"magtheridon_firestorm"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "-1"
+    "AbilityChannelTime" 	"6"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.5"
+    "AbilityCooldown"  "12"
+    "AbilityCastRange" "800"
+    "AbilityTextureName" "abyssal_underlord_firestorm"
+    "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "ticktime"      "0.25"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "damage_per_tick"      "2000"
+      }
+      "03"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "damage_per_tick_afterburn"      "1000"
+      }
+      "04"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "ticktime_afterburn"      "0.25"
+      }
+      "05"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "afterburn_duration"      "3"
+      }
+      "06"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "radius"      "500"
+      }
+    }
+
+    "OnSpellStart"
+    {
+    	"SpawnUnit"
+    	{
+    		"UnitName"		"npc_dummy_target"
+    		"Target" 		   "POINT"
+    		"UnitCount"		"1"
+    		"UnitLimit"		"0"
+    		"GrantsGold"	"0"
+    		"GrantsXP"		"0"
+    		"SpawnRadius"	"1"
+    		"OnSpawn"
+    		{
+    			"ApplyModifier"
+    			{
+    				"ModifierName"	"modifier_firestorm"
+    				"Target"		"TARGET"
+    			}
+    		}
+    	}
+    }
+    "OnChannelFinish"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "heroes/magtheridon/magtheridon.lua"
+        "Function"    "channel_end"
+      }
+    }
+
+    "Modifiers"
+      {
+        "modifier_firestorm"
+        {
+        	"EffectName" "particles/addons_gameplay/pit_lava_blast.vpcf"
+        	"EffectAttachType" "follow_origin"
+        	"EffectDurationScale" "0.35"
+        	"OnCreated"
+        	{
+        		"RunScript"
+          		{
+          			"ScriptFile"	"heroes/magtheridon/magtheridon.lua"
+          			"Function"		"modifier_start"
+          		}
+        	}
+          	"IsHidden"  "1"
+          	"ThinkInterval"  "%ticktime"
+          	"OnIntervalThink"
+          	{
+          		"RunScript"
+          		{
+          			"ScriptFile"	"heroes/magtheridon/magtheridon.lua"
+          			"Function"		"firestorm"
+          		}
+          	}
+    		    "States" 
+      		  {
+            "MODIFIER_STATE_UNSELECTABLE"   "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_NO_HEALTH_BAR"   "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_NO_UNIT_COLLISION"  "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_NO_TEAM_MOVE_TO"    "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_NO_TEAM_SELECT"     "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_COMMAND_RESTRICTED" "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_ATTACK_IMMUNE"      "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_MAGIC_IMMUNE"       "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_NOT_ON_MINIMAP"     "MODIFIER_STATE_VALUE_ENABLED"
+      		  }
+
+        }
+
+        "modifier_firestorm_afterburn"
+        {
+        	"IsHidden" "0"
+        	"Duration" "%afterburn_duration"
+          "Attributes"    ""
+        	"OnCreated"
+        	{
+        		"ApplyEffect"
+        		{
+        			"EffectName"        "particles/units/heroes/hero_leshrac/leshrac_pulse_nova_ambient.vpcf"
+        			"EffectAttachType"  "follow_origin"
+        			"Target"            "TARGET"
+        		}
+        	}
+        	"ThinkInterval"  "%ticktime_afterburn"
+          	"OnIntervalThink"
+          	{
+          		"Damage"
+          		{
+          			"Target"		"TARGET"
+          			"Type"			"DAMAGE_TYPE_MAGICAL"
+          			"Damage"		"%damage_per_tick_afterburn"
+          		}
+          	}
+        }
+      } 
+
+    "precache"
+    {
+      "particle"  "particles/addons_gameplay/pit_lava_blast.vpcf"
+      "particle" "particles/units/heroes/hero_leshrac/leshrac_pulse_nova_ambient.vpcf"
+    }
+  }  

@@ -1,0 +1,83 @@
+"crypt_lord_anubarak_claw"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "-1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.5"
+    "AbilityCooldown"  "40"
+    "AbilityManaCost"  "100"
+    "AbilityTextureName" "bloodseeker_bloodrage"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+        "01"
+        {
+          "var_type" "FIELD_INTEGER"
+          "bonus_attack_speed" "50"
+        }
+        "02"
+        {
+          "var_type" "FIELD_INTEGER"
+          "bonus_movement_speed_percentage" "50"
+        }
+        "03"
+        {
+          "var_type" "FIELD_FLOAT"
+          "duration" "45"
+        }
+    }
+
+    "precache"
+    {
+
+       "particle" "particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodrage_eztzhok.vpcf"
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+        "ApplyModifier"
+        {
+            "ModifierName" "modifier_anubarak"
+            "Target"  "CASTER"
+        }
+
+        "AttachEffect"
+        {
+          "Target" "CASTER"
+          "EffectName" "particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodrage_eztzhok.vpcf"
+          "EffectAttachType" "follow_origin"
+        }
+
+    }
+
+    "Modifiers"
+    {
+      "modifier_anubarak"
+      {
+
+        "IsBuff" "1"
+        "IsHidden" "0"
+        "Passive" "0"
+        "IsPurgable" "1"
+        "Duration" "%duration"
+
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed_percentage"
+          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attack_speed"
+        }
+      }
+    }    
+  }

@@ -1,0 +1,51 @@
+"item_tome_all" 
+{
+    	"ID"           "1107"
+    	"BaseClass"    "item_datadriven"
+    	"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    	"Model"        "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl" 
+    	"Effect"       "particles/generic_gameplay/dropped_item.vpcf"
+    	"ItemCost"     "5000"
+    	"ItemKillable" "1" 
+    	"ItemSellable" "0"
+    	"ItemCastOnPickup" "1"
+    	"ItemPurchasable" "1"
+    "ItemDroppable" "1"
+    "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    "AbilityTextureName" "item_necronomicon_3"
+
+    "SideShop"     "1" 
+    "SecretShop"   "0"
+
+    "ItemShopTags"					"artifact"
+	"ItemQuality"					"artifact"
+    
+    "ItemStackable" "0"
+    "ItemInitialCharges"			"1"
+    "ItemPermanent" "0"
+    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "OnSpellStart"
+
+    {
+
+        "RunScript"
+        {
+            "ScriptFile"    "items/Tome_All/tome_all"
+            "Function"        "buy_tomes"
+        }
+    	"SpendCharge" {}
+    }
+    "Modifiers"
+    {
+    }
+
+    "AbilitySpecial"
+    {
+    }
+
+    "precache"
+    {
+    	"particle"  "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl"
+    	"particle"	"particles/generic_gameplay/dropped_item.vpcf"
+    }   
+}  

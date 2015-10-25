@@ -1,0 +1,63 @@
+"item_key_of_the_three_moons" 
+{
+    "ID"           "1110"
+    "BaseClass"    "item_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "Model"        "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl" 
+    "Effect"       "particles/generic_gameplay/dropped_item.vpcf"
+    "ItemCost"     "500"
+    "ItemKillable" "0" 
+    "ItemSellable" "0"
+    "ItemCastOnPickup" "0"
+    "ItemPurchasable" "0"
+    "ItemDroppable" "1"
+    "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    "AbilityTextureName" "item_ultimate_orb"
+
+    "SideShop"     "0" 
+    "SecretShop"   "0"
+
+    "ItemShopTags"					"artifact"
+	"ItemQuality"					"artifact"
+    
+    "ItemStackable" "0"
+    "ItemPermanent" "1"
+    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"      "FIELD_FLOAT"
+            "stat_bonus" "2500"
+        }
+
+    }
+    "Modifiers"
+    {
+        "modifier_moon_buff"
+        {
+            "Passive"            "1"
+            "IsHidden"            "1"
+            "IsDebuff"            "0"
+            "IsPurgable"        "0"
+            "IsBuff"            "1"
+            //Purge(bool RemovePositiveBuffs, bool RemoveDebuffs, bool BuffsCreatedThisFrameOnly, bool RemoveStuns, bool RemoveExceptions)"
+        
+            "EffectName"        "particle_name"
+            "EffectAttachType"    "follow_origin"
+        
+            "Properties"
+            {
+                "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%stat_bonus"
+                "MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%stat_bonus"
+                "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%stat_bonus"
+            }
+         
+        }
+    }
+    "precache"
+    {
+    	"particle"  "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl"
+    	"particle"	"particles/generic_gameplay/dropped_item.vpcf"
+    }   
+}  

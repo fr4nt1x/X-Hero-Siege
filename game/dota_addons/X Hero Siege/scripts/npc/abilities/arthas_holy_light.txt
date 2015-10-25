@@ -1,0 +1,53 @@
+"arthas_holy_light"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "-1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCooldown"  "15"
+    "AbilityManaCost"  "150"
+    "AbilityCastRange"        "600"
+    "AbilityCastPoint"        "0.5"
+    "AbilityTextureName" "omniknight_purification"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO"
+
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+        "01"
+        {
+          "var_type" "FIELD_FLOAT"
+          "heal" "15000"
+        }
+    }
+
+    "precache"
+    {
+        "particle"  "particles/units/heroes/hero_omniknight/omniknight_purification.vpcf"
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+        "Heal"
+        {
+            "Target"        "CASTER"
+            "HealAmount"    "%heal"
+        }
+        "FireEffect"
+        {
+            "EffectName"        "particles/units/heroes/hero_omniknight/omniknight_purification.vpcf"
+            "EffectAttachType"  "follow_origin"
+            "Target"            "CASTER"
+        }
+    } 
+  }

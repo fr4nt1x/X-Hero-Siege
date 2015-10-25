@@ -1,0 +1,66 @@
+"crypt_lord_spiked_carapace"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"       "ability_datadriven"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+    "AbilityTextureName"      "nyx_assassin_spiked_carapace"
+    "MaxLevel"             "4"
+    "RequiredLevel"        "8"
+    "LevelsBetweenUpgrades" "2"
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "damage_return_factor"  "0.5 0.7 0.8 0.9"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "armor_bonus"     "10 20 50 100"
+      }
+    }
+
+    "precache"
+    {
+      // Not really used in the Lifesteal action
+      "particle"  "particles/units/heroes/hero_nyx_assassin/nyx_assassin_spiked_carapace.vpcf"
+      "particle"  "particles/units/heroes/hero_nyx_assassin/nyx_assassin_spiked_carapace_hit.vpcf"
+    }
+
+    "Modifiers"
+    {
+      "modifier_spiked_carapace"
+      {
+        "Passive"       "1"
+        "IsHidden"      "1"
+        "IsBuff"      "1"
+        "EffectName" "particles/units/heroes/hero_nyx_assassin/nyx_assassin_spiked_carapace.vpcf"
+        "EffectAttachType" "follow_origin"
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
+        }
+
+        "OnTakeDamage"
+        // "%attack_damage" is set to the damage value after mitigation
+        {
+          "Damage"
+          {
+            "Target"    "ATTACKER"
+            "Type"      "DAMAGE_TYPE_PHYSICAL"
+            "Damage"    "%attack_damage* %damage_return_factor"
+          }
+          "FireEffect"
+          {
+            "EffectName"        "particles/units/heroes/hero_nyx_assassin/nyx_assassin_spiked_carapace_hit.vpcf"
+            "EffectAttachType"  "follow_origin"
+            "Target"            "TARGET"
+          }
+        }
+      }
+    }
+  }

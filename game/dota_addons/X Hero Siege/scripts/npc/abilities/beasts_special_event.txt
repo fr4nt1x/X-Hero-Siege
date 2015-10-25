@@ -1,0 +1,50 @@
+"beasts_special_event"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "-1"
+    "LevelsBetweenUpgrades" "1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityTextureName" ""
+    "AbilitySpecial"
+    {
+    }
+
+    "Modifiers"
+    {
+      "modifier_frost_infernal"
+      {
+        "Passive" "0"
+        "IsHidden" "1"
+        "IsPurgable"    "0"
+        "OnDeath"
+        {
+          "RunScript"
+          {
+            "ScriptFile"  "heroes/special_event/beasts.lua"
+            "Function"    "drop_keys_of_three_moons"
+          }
+        }
+      }
+      "modifier_spirit_beast"
+      {
+        "Passive" "0"
+        "IsHidden" "1"
+        "IsPurgable"    "0"
+        //Purge(bool RemovePositiveBuffs, bool RemoveDebuffs, bool BuffsCreatedThisFrameOnly, bool RemoveStuns, bool RemoveExceptions)"
+        "OnDeath"
+        {
+          "RunScript"
+          {
+            "ScriptFile"  "heroes/special_event/beasts.lua"
+            "Function"    "drop_shield_of_invincibility"
+          }
+        }
+      }
+    }
+  }
