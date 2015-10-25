@@ -68,8 +68,8 @@
 	    "ID"           "1113"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT"
-	    "Model"        "item_power_treads" 
-	    "Effect"       "item_power_treads"
+	    "Model"        "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl" 
+	    "Effect"       "particles/generic_gameplay/dropped_item.vpcf"
 	    "ItemCost"     "1000"
 	    "ItemKillable" "1" 
 	    "ItemSellable" "1"
@@ -99,6 +99,8 @@
 	    "precache"
 	    {
 	      "particle"  "particles/econ/events/nexon_hero_compendium_2014/blink_dagger_end_nexon_hero_cp_2014.vpcf"
+	      "particle"  "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl"
+	      "particle"  "particles/generic_gameplay/dropped_item.vpcf"
 	    }
 	    "OnSpellStart"
 	    {
