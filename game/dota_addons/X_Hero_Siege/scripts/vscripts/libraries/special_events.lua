@@ -98,6 +98,7 @@ function endSpecialEventRoshan()
   for _,unit in pairs(units) do
     unit:RemoveSelf()
   end
+  GameMode.hero_position = nil
   return nil
 end
 
@@ -122,7 +123,7 @@ function specialEventArena()
   GameMode.player_count_arena = 1
   local heroes = HeroList:GetAllHeroes()
   for _,hero in pairs(heroes) do
-    if hero:GetTeam() == DOTA_TEAM_GOODGUYS then
+    if not hero:IsNull() and hero:GetTeam() == DOTA_TEAM_GOODGUYS then
       hero.in_special_event = true 
       local point = Entities:FindByName(nil,"special_arena_"..GameMode.player_count_arena):GetAbsOrigin()
       GameMode.player_spawn_round_kills[hero:GetEntityIndex()] = {}
@@ -172,19 +173,20 @@ function endSpecialArena()
     end
 
     local hero = EntIndexToHScript(k)
-
-    if hero:IsAlive() then
-      FindClearSpaceForUnit(hero, GameMode.hero_position[k], true)
-    else 
-      hero:SetRespawnPosition(GameMode.hero_position[k])
-      hero:RespawnHero(false, false, false)
-      hero.ankh_respawn = false
-      hero:SetRespawnsDisabled(false)
-      Timers:RemoveTimer(hero.respawn_timer)
-      hero.respawn_timer = nil
+    if not hero:IsNull() then
+      if hero:IsAlive() then
+        FindClearSpaceForUnit(hero, GameMode.hero_position[k], true)
+      else 
+        hero:SetRespawnPosition(GameMode.hero_position[k])
+        hero:RespawnHero(false, false, false)
+        hero.ankh_respawn = false
+        hero:SetRespawnsDisabled(false)
+        Timers:RemoveTimer(hero.respawn_timer)
+        hero.respawn_timer = nil
+      end
+      hero.in_special_event = false 
     end
 
-    hero.in_special_event = false 
   end
 
   GameMode.player_spawn_round_kills  = nil
@@ -196,13 +198,13 @@ function endSpecialArena()
   end
   local units = FindUnitsInRadius( DOTA_TEAM_GOODGUYS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
   for _,unit in pairs(units) do
-    if unit:GetPlayerOwner() ~=nil and unit:IsAlive() then
+    if unit:GetPlayerOwner() ~=nil and unit:GetPlayerOwner():GetAssignedHero():GetEntityIndex() ~= nil and unit:IsAlive() then
       FindClearSpaceForUnit(unit, GameMode.hero_position[unit:GetPlayerOwner():GetAssignedHero():GetEntityIndex()]  , true)
     else
       unit:RemoveSelf()
     end
   end 
-
+  GameMode.hero_position = nil
   return nil
 end
 

@@ -388,54 +388,52 @@ function GameMode:OnPlayerChat(keys)
   local playerID = self.vUserIds[userID]:GetPlayerID()
   local text = keys.text
   local player = PlayerResource:GetPlayer(playerID)
+  local numberOFPlayers = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
+  
+  for i = 0,numberOFPlayers-1 do
+      if playerID == i then
 
-  if playerID == 0 then
+        local i,j = string.find(text,"openlane_%d")
+        local lane = nil
+        if i ~= nil then
+           lane = string.sub(text,i,j)
+        end
+        if lane == text then
+          local i,j = string.find(lane,"%d")
+          lane = tonumber(string.sub(lane,i,j))
+          print(lane)
+          if lane <= 8 then
+            GameMode.openLanes["spawn"..lane] = "wp_p"..lane.."_1"
+            local towers = Entities:FindAllByName("tower_p"..lane)
+        
+            for _,tower in pairs(towers)do
+            tower:RemoveModifierByName("modifier_invulnerable")
+            end 
 
-    local i,j = string.find(text,"openlane_%d")
-    local lane = nil
-    if i ~= nil then
-       lane = string.sub(text,i,j)
-    end
-    if lane == text then
-      local i,j = string.find(lane,"%d")
-      lane = tonumber(string.sub(lane,i,j))
-      print(lane)
-      if lane <= 8 then
-        GameMode.openLanes["spawn"..lane] = "wp_p"..lane.."_1"
-        local towers = Entities:FindAllByName("tower_p"..lane)
-    
-        for _,tower in pairs(towers)do
-        tower:RemoveModifierByName("modifier_invulnerable")
-        end 
+          end
+        end
 
+        local i,j = string.find(text,"closelane_%d")
+        local lane = nil
+        if i ~= nil then
+           lane = string.sub(text,i,j)
+        end
+        if lane == text then
+          local i,j = string.find(lane,"%d")
+          lane = tonumber(string.sub(lane,i,j))
+          print(lane)
+          if lane <= 8 then
+            GameMode.openLanes["spawn"..lane] = nil
+            local towers = Entities:FindAllByName("tower_p"..lane)
+        
+            for _,tower in pairs(towers)do
+              tower:AddNewModifier(nil,nil,"modifier_invulnerable",nil)
+            end 
+          end
+        end
+
+        break
       end
-
-    end
-
-    local i,j = string.find(text,"closelane_%d")
-    local lane = nil
-    if i ~= nil then
-       lane = string.sub(text,i,j)
-    end
-    if lane == text then
-      local i,j = string.find(lane,"%d")
-      lane = tonumber(string.sub(lane,i,j))
-      print(lane)
-      if lane <= 8 then
-        GameMode.openLanes["spawn"..lane] = nil
-        local towers = Entities:FindAllByName("tower_p"..lane)
-    
-        for _,tower in pairs(towers)do
-          tower:AddNewModifier(nil,nil,"modifier_invulnerable",nil)
-        end 
-      end
-    end
-
-    if text == "speed_up" then
-      SendToConsole("host_timescale 2")
-    elseif text == "speed_down" then
-      SendToConsole("host_timescale 1")
-    end
   end
   
   if text ~= nil and text == "bt" then

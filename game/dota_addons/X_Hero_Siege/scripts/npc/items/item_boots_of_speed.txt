@@ -42,7 +42,7 @@
         "FireEffect"
         {
             "EffectName"        "particles/econ/events/nexon_hero_compendium_2014/blink_dagger_end_nexon_hero_cp_2014.vpcf"
-            "EffectAttachType" "follow_origin"
+            "EffectAttachType" "attach_origin"
             "Target"            "CASTER"
         }
         "RunScript"

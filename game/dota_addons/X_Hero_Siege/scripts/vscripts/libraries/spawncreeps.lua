@@ -40,7 +40,7 @@ SpecialEventRoshanDuration = 1.1*60
 TimeBetweenCreepSpawn = 15
 waves_between_levels = 9
 waves_between_dragons = 28
-TimeSpecialArena = 60*22
+TimeSpecialArena = 60*20
 creeps_per_wave = 2
 spawn_dragon = false
 

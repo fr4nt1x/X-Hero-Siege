@@ -105,7 +105,6 @@ function GameMode:OnHeroInGame(hero)
   hero.creep_kills  =0
   hero.got_kill_bonus = false
   local ability = AbilitiesHeroes[hero:GetUnitName()]
-
   if ability ~=nil then
     hero:AddAbility(ability)
     hero:UpgradeAbility(hero:FindAbilityByName(ability))

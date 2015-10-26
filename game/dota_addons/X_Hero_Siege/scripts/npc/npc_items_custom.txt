@@ -107,7 +107,7 @@
 	        "FireEffect"
 	        {
 	            "EffectName"        "particles/econ/events/nexon_hero_compendium_2014/blink_dagger_end_nexon_hero_cp_2014.vpcf"
-	            "EffectAttachType" "follow_origin"
+	            "EffectAttachType" "attach_origin"
 	            "Target"            "CASTER"
 	        }
 	        "RunScript"
@@ -711,7 +711,7 @@
 	    "ItemKillable" "0" 
 	    "ItemSellable" "0"
 	    "ItemCastOnPickup" "0"
-	    "ItemPurchasable" "0"
+	    "ItemPurchasable" "1"
 	    "ItemDroppable" "1"
 	    "ItemShareability" "ITEM_FULLY_SHAREABLE"
 	    "AbilityTextureName" "item_aegis"
@@ -740,7 +740,7 @@
 	      "03"
 	        {
 	            "var_type"      "FIELD_FLOAT"
-	            "reincarnation_time"        "3.0"
+	            "reincarnation_time"        "10.0"
 	        }
 	    }
 	
@@ -749,7 +749,6 @@
 	      // Not really used in the Lifesteal action
 	        "particle"  "particles/units/heroes/hero_nyx_assassin/nyx_assassin_spiked_carapace.vpcf"
 	        "particle"  "particles/items_fx/aegis_respawn.vpcf"
-	        "particle"  "particles/generic_hero_status/death_tombstone_alt.vpcf"
 	        "particle"  "particles/units/heroes/hero_nyx_assassin/nyx_assassin_spiked_carapace_hit.vpcf"
 	    }
 	
@@ -784,56 +783,22 @@
 	          }
 	        }
 	      }
+	
 	      "modifier_reincarnation"
 	        {
 	            "Passive"           "1"
 	            "IsHidden"          "1"
 	            "IsDebuff"          "0"
-	            "OnTakeDamage"
+	            "OnDeath"
 	            {
 	                "RunScript"
 	                {
 	                    "ScriptFile"    "items/Ankh/ankh.lua"
-	                    "Function"      "reincarnation"
+	                    "Function"      "shield"
 	                }
 	            }
 	        }
-	        "modifier_no_draw"
-	        {
-	            "Passive" "0"
-	            "IsHidden" "1"
-	            "IsBuff" "1"
-	            "Duration" "%reincarnation_time"
-	            "OnCreated"
-	            {
-	                "AttachEffect"
-	                {
-	                    "EffectName"        "particles/generic_hero_status/death_tombstone_alt.vpcf"
-	                    "EffectAttachType"  "follow_origin"
-	                    "Target"            "CASTER"
-	                }
-	            }
-	            "OnDestroy"
-	            {
-	                "FireEffect"
-	                {
-	                    "EffectName"        "particles/items_fx/aegis_respawn.vpcf"
-	                    "EffectAttachType"  "follow_origin"
-	                    "Target"            "CASTER"
-	                }
-	                "RunScript"
-	                {
-	                    "ScriptFile"    "items/Ankh/ankh.lua"
-	                    "Function"      "StartHero"
-	                }
-	            }
-	            
-	            "States"
-	                {
-	                    "MODIFIER_STATE_STUNNED" "MODIFIER_STATE_VALUE_ENABLED"
-	                    "MODIFIER_STATE_INVULNERABLE" "MODIFIER_STATE_VALUE_ENABLED"
-	                }         
-	        }
+	
 	    }
 	}  
 	//mana Pot
