@@ -9,7 +9,7 @@
     "ItemKillable" "0" 
     "ItemSellable" "0"
     "ItemCastOnPickup" "0"
-    "ItemPurchasable" "1"
+    "ItemPurchasable" "0"
     "ItemDroppable" "1"
     "ItemShareability" "ITEM_FULLY_SHAREABLE"
     "AbilityTextureName" "item_aegis"

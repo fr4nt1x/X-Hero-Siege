@@ -38,8 +38,8 @@
     "MagicalResistance"       "0"                 // Magical protection (percentage).
 
     "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"     "2"                   // Damage range min.
-    "AttackDamageMax"     "24"                   // Damage range max.
+    "AttackDamageMin"     "43"                   // Damage range min.
+    "AttackDamageMax"     "68"                   // Damage range max.
     "AttackRate"                "1.70"                                  // Speed of attack.
     "AttackAnimationPoint"      "0.6"                                   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"    "600"                                   // Range within a target can be acquired.
@@ -48,11 +48,11 @@
     "ProjectileSpeed"           "900"                                     // Speed of projectile.
     
     "AttributePrimary"      "DOTA_ATTRIBUTE_AGILITY"
-    "AttributeBaseStrength"   "39"                   // Base strength
+    "AttributeBaseStrength"   "29"                   // Base strength
     "AttributeStrengthGain"   "2.4"                   // Strength bonus per level.
-    "AttributeBaseIntelligence" "36"                   // Base intelligence
+    "AttributeBaseIntelligence" "26"                   // Base intelligence
     "AttributeIntelligenceGain" "2.1"                   // Intelligence bonus per level.
-    "AttributeBaseAgility"    "42"                   // Base agility
+    "AttributeBaseAgility"    "32"                   // Base agility
     "AttributeAgilityGain"    "3.0"                   // Agility bonus per level.
 
     "BountyXP"          "0"                 // Experience earn.

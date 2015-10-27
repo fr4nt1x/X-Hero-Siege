@@ -8,8 +8,8 @@
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
     "AbilityTextureName"      "skeleton_king_mortal_strike"
     "MaxLevel"             "4"
-    "RequiredLevel"        "8"
-    "LevelsBetweenUpgrades" "2"
+    "RequiredLevel"        "3"
+    "LevelsBetweenUpgrades" "3"
 
     // Special
     //-------------------------------------------------------------------------------------------------------------

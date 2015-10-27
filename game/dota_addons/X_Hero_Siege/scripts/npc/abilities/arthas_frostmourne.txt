@@ -38,6 +38,11 @@
         "var_type"        "FIELD_INTEGER"
         "stun_chance"     "5 10 15 20"
       }
+     "06"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "attack_speed"     "50 100 200 300"
+      }
     }
 
     "precache"
@@ -90,6 +95,7 @@
         "Properties"
         {
             "MODIFIER_PROPERTY_EVASION_CONTANT" "%evasion_chance" 
+            "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed"
         }
   
       }

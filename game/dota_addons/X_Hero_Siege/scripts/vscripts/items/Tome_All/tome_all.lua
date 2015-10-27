@@ -3,7 +3,7 @@ function buy_tomes( event )
 	local hero = event.caster
 	local ability = event.ability
 	local gold = hero:GetGold()
-	local cost = 5000
+	local cost = 8000
 	local numberOfTomes = math.floor(gold / cost)
 	local playerid = hero:GetPlayerID()
 	

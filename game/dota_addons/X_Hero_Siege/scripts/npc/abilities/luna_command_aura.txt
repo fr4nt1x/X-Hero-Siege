@@ -5,8 +5,8 @@
     "BaseClass" "ability_datadriven"
     "AbilityBehavior"  "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
     "MaxLevel"             "4"
-    "RequiredLevel"        "5"
-    "LevelsBetweenUpgrades" "2"
+    "RequiredLevel"        "3"
+    "LevelsBetweenUpgrades" "3"
 
     // Stats
     //-------------------------------------------------------------------------------------

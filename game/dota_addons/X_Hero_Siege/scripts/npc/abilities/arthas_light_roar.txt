@@ -43,7 +43,7 @@
         }
         "05"
         {
-          "var_type" "FIELD_INTEGER"
+          "var_type" "FIELD_FLOAT"
           "hp_regeneration" "0.5 1"
         }        
     }

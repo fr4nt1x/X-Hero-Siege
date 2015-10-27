@@ -80,7 +80,18 @@ function GameMode:OnAllPlayersLoaded()
   GameMode.FrostTowers_killed = 0
   GameMode.wave_event_happened = false
   GameMode.kill_event_happened = false
+    GameMode.openLanes = {}
 
+  if PlayerResource:GetPlayerCount() >= 8 then
+    for i = 1,8 do
+      GameMode.openLanes["spawn"..i] = "wp_p"..i.."_1"
+    end
+    
+  else
+    for i = 1,PlayerResource:GetPlayerCount() do
+      GameMode.openLanes["spawn"..i] = "wp_p"..i.."_1"
+    end
+  end
 end
 
 --[[
@@ -94,7 +105,11 @@ function GameMode:OnHeroInGame(hero)
   DebugPrint("[BAREBONES] Hero spawned in game for first time -- " .. hero:GetUnitName())
 
   -- This line for example will set the starting gold of every hero to 500 unreliable gold
+  local number_players = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
+  
   hero:SetGold(500, false)
+
+
   --local item = CreateItem("item_tome_big", hero, hero)
   --hero:AddItem(item)
   --local item = CreateItem("item_tome_big", hero, hero)
@@ -150,18 +165,7 @@ end
 ]]
 function GameMode:OnGameInProgress()
   DebugPrint("[BAREBONES] The game has officially begun")
-  GameMode.openLanes = {}
 
-  if PlayerResource:GetPlayerCount() >= 8 then
-    for i = 1,8 do
-      GameMode.openLanes["spawn"..i] = "wp_p"..i.."_1"
-    end
-    
-  else
-    for i = 1,PlayerResource:GetPlayerCount() do
-      GameMode.openLanes["spawn"..i] = "wp_p"..i.."_1"
-    end
-  end
   
   --remove invulnerability of the open lanes towers 
   for  k,_  in pairs(GameMode.openLanes) do

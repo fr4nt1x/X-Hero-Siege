@@ -8,8 +8,8 @@
     "AbilityUnitTargetType" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
     "AbilityTextureName"      "sandking_caustic_finale"
     "MaxLevel"             "4"
-    "RequiredLevel"        "5"
-    "LevelsBetweenUpgrades" "2"
+    "RequiredLevel"        "3"
+    "LevelsBetweenUpgrades" "3"
     "AbilitySpecial"
     {
       "01"

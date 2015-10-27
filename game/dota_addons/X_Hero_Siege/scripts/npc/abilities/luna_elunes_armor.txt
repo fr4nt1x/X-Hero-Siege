@@ -9,7 +9,7 @@
     "AbilityTextureName"      "night_stalker_darkness"
     "MaxLevel"             "4"
     "RequiredLevel"        "-1"
-    "LevelsBetweenUpgrades" "2"
+    "LevelsBetweenUpgrades" "3"
     "AbilitySpecial"
     {
       "01"

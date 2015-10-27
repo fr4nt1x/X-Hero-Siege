@@ -31,9 +31,9 @@
     "MagicalResistance"       "0"                 // Magical protection (percentage).
 
     "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"     "10002"                   // Damage range min.
-    "AttackDamageMax"     "10012"                   // Damage range max.
-    "AttackRate"                "0.9"                                  // Speed of attack.
+    "AttackDamageMin"     "45000"                   // Damage range min.
+    "AttackDamageMax"     "45012"                   // Damage range max.
+    "AttackRate"                "0.3"                                  // Speed of attack.
     "AttackAnimationPoint"      "0.433"                                   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"    "1000"                                   // Range within a target can be acquired.
     "AttackRange"               "300"                                   // Range within a target can be attacked.
@@ -41,11 +41,11 @@
     "ProjectileSpeed"           ""                                     // Speed of projectile.
     
     "AttributePrimary"      "DOTA_ATTRIBUTE_STRENGTH"
-    "AttributeBaseStrength"   "100"                   // Base strength
+    "AttributeBaseStrength"   "1000"                   // Base strength
     "AttributeStrengthGain"   "20"                   // Strength bonus per level.
-    "AttributeBaseIntelligence" "100"                   // Base intelligence
+    "AttributeBaseIntelligence" "1000"                   // Base intelligence
     "AttributeIntelligenceGain" "20"                   // Intelligence bonus per level.
-    "AttributeBaseAgility"    "100"                   // Base agility
+    "AttributeBaseAgility"    "1000"                   // Base agility
     "AttributeAgilityGain"    "20"                   // Agility bonus per level.
 
     "BountyXP"          "300"                 // Experience earn.
@@ -59,7 +59,7 @@
     "MovementSpeed"       "400"                 // Speed.
     "MovementTurnRate"      "0.4"                 // Turning rate.
 
-    "StatusHealth"        "80000"                 // Base health.
+    "StatusHealth"        "150000"                 // Base health.
     "StatusHealthRegen"     "30.0"                 // Health regeneration rate.
     "StatusMana"        "5000"                   // Base mana.
     "StatusManaRegen"     "100"                 // Mana regeneration rate.

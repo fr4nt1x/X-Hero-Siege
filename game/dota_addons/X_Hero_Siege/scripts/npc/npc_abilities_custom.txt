@@ -40,6 +40,11 @@
 	        "var_type"        "FIELD_INTEGER"
 	        "stun_chance"     "5 10 15 20"
 	      }
+	     "06"
+	      {
+	        "var_type"        "FIELD_INTEGER"
+	        "attack_speed"     "50 100 200 300"
+	      }
 	    }
 	
 	    "precache"
@@ -92,6 +97,7 @@
 	        "Properties"
 	        {
 	            "MODIFIER_PROPERTY_EVASION_CONTANT" "%evasion_chance" 
+	            "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed"
 	        }
 	  
 	      }
@@ -169,7 +175,7 @@
 	        "01"
 	        {
 	          "var_type" "FIELD_FLOAT"
-	          "heal" "15000"
+	          "heal" "10000"
 	        }
 	    }
 	
@@ -298,7 +304,7 @@
 	        }
 	        "05"
 	        {
-	          "var_type" "FIELD_INTEGER"
+	          "var_type" "FIELD_FLOAT"
 	          "hp_regeneration" "0.5 1"
 	        }        
 	    }
@@ -413,7 +419,7 @@
 	    //-------------------------------------------------------------------------------------
 	    "AbilityCastPoint" "0.5"
 	    "AnimationPlaybackRate" "0.5"
-	    "AOERadius"         "1000"
+	    "AOERadius"         "600"
 	    "AbilityCooldown"  "40"
 	    "AbilityChannelTime"  "10"
 	    "AbilityManaCost"  "200"
@@ -1179,7 +1185,7 @@
 	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	    "MaxLevel"              "4"
 	    "RequiredLevel"        "-1"
-	    "LevelsBetweenUpgrades" "2"
+	    "LevelsBetweenUpgrades" "3"
 	
 	    // Stats
 	    //-------------------------------------------------------------------------------------
@@ -1232,7 +1238,7 @@
 	    "FightRecapLevel"       "1"
 	    "MaxLevel"              "4"
 	    "RequiredLevel"        "-1"
-	    "LevelsBetweenUpgrades" "2"
+	    "LevelsBetweenUpgrades" "3"
 	
 	    // Casting
 	    //-------------------------------------------------------------------------------------------------------------
@@ -1532,8 +1538,8 @@
 	    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
 	    "AbilityTextureName"      "sandking_caustic_finale"
 	    "MaxLevel"             "4"
-	    "RequiredLevel"        "5"
-	    "LevelsBetweenUpgrades" "2"
+	    "RequiredLevel"        "3"
+	    "LevelsBetweenUpgrades" "3"
 	    "AbilitySpecial"
 	    {
 	      "01"
@@ -1652,7 +1658,7 @@
 	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 	    "MaxLevel"              "4"
 	    "RequiredLevel"        "-1"
-	    "LevelsBetweenUpgrades" "2"
+	    "LevelsBetweenUpgrades" "3"
 	
 	    // Stats
 	    //-------------------------------------------------------------------------------------
@@ -1978,7 +1984,7 @@
 	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 	    "MaxLevel"              "4"
 	    "RequiredLevel"        "-1"
-	    "LevelsBetweenUpgrades" "2"
+	    "LevelsBetweenUpgrades" "3"
 	
 	    // Stats
 	    //-------------------------------------------------------------------------------------
@@ -2174,8 +2180,8 @@
 	    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 	    "AbilityTextureName"      "skeleton_king_vampiric_aura"
 	    "MaxLevel"             "4"
-	    "RequiredLevel"        "5"
-	    "LevelsBetweenUpgrades" "2"
+	    "RequiredLevel"        "3"
+	    "LevelsBetweenUpgrades" "3"
 	    "AbilitySpecial"
 	    {
 	      "01"
@@ -2591,8 +2597,8 @@
 	    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 	    "AbilityTextureName"      "skeleton_king_mortal_strike"
 	    "MaxLevel"             "4"
-	    "RequiredLevel"        "8"
-	    "LevelsBetweenUpgrades" "2"
+	    "RequiredLevel"        "3"
+	    "LevelsBetweenUpgrades" "3"
 	
 	    // Special
 	    //-------------------------------------------------------------------------------------------------------------
@@ -2668,7 +2674,7 @@
 	    "AbilityBehavior"  "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
 	    "MaxLevel"              "4"
 	    "RequiredLevel"        "-1"
-	    "LevelsBetweenUpgrades" "2"
+	    "LevelsBetweenUpgrades" "3"
 	
 	    // Stats
 	    //-------------------------------------------------------------------------------------
@@ -2726,7 +2732,7 @@
 	    "AbilityTextureName"      "enchantress_impetus"
 	    "MaxLevel"             "4"
 	    "RequiredLevel"        "-1"
-	    "LevelsBetweenUpgrades" "2"
+	    "LevelsBetweenUpgrades" "3"
 	    "AbilitySpecial"
 	    {
 	        "01"
@@ -3422,8 +3428,8 @@
 	    "BaseClass" "ability_datadriven"
 	    "AbilityBehavior"  "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
 	    "MaxLevel"             "4"
-	    "RequiredLevel"        "5"
-	    "LevelsBetweenUpgrades" "2"
+	    "RequiredLevel"        "3"
+	    "LevelsBetweenUpgrades" "3"
 	
 	    // Stats
 	    //-------------------------------------------------------------------------------------
@@ -3475,7 +3481,7 @@
 	    "AbilityTextureName"      "night_stalker_darkness"
 	    "MaxLevel"             "4"
 	    "RequiredLevel"        "-1"
-	    "LevelsBetweenUpgrades" "2"
+	    "LevelsBetweenUpgrades" "3"
 	    "AbilitySpecial"
 	    {
 	      "01"
@@ -3633,7 +3639,7 @@
 	
 	    "MaxLevel"              "4"
 	    "RequiredLevel"        "-1"
-	    "LevelsBetweenUpgrades" "2"
+	    "LevelsBetweenUpgrades" "3"
 	
 	    // Casting
 	    //-------------------------------------------------------------------------------------------------------------
@@ -4072,7 +4078,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 	    "MaxLevel"             "4"
 	    "RequiredLevel"        "-1"
-	    "LevelsBetweenUpgrades" "2"
+	    "LevelsBetweenUpgrades" "3"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -4085,7 +4091,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"30 25 20 15"
+		"AbilityCooldown"				"15 10 10 10"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -4129,8 +4135,8 @@
 			"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 			"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 			"MaxLevel" "4"	
-			"RequiredLevel" "5"
-			"LevelsBetweenUpgrades" "2"
+			"RequiredLevel" "3"
+			"LevelsBetweenUpgrades" "3"
 			
 			// Casting
 			//-------------------------------------------------------------------------------------------------------------
@@ -4139,7 +4145,7 @@
 			
 			// Time		
 			//-------------------------------------------------------------------------------------------------------------
-			"AbilityCooldown"				"30 25 20 15"
+			"AbilityCooldown"				"15 15 15 10"
 	
 			// Cost
 			//-------------------------------------------------------------------------------------------------------------
@@ -4448,7 +4454,7 @@
 	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	    "MaxLevel"              "4"
 	    "RequiredLevel"        "-1"
-	    "LevelsBetweenUpgrades" "2"
+	    "LevelsBetweenUpgrades" "3"
 	
 	    // Stats
 	    //-------------------------------------------------------------------------------------

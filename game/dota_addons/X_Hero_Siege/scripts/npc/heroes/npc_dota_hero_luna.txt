@@ -45,11 +45,11 @@
 		"ProjectileModel"		"particles/units/heroes/hero_luna/luna_base_attack.vpcf"
 		"ProjectileSpeed"		"900"
 		"AttributePrimary"		"DOTA_ATTRIBUTE_AGILITY"
-		"AttributeBaseStrength"		"38"
+		"AttributeBaseStrength"		"28"
 		"AttributeStrengthGain"		"1.900000"
-		"AttributeBaseAgility"		"44"
+		"AttributeBaseAgility"		"34"
 		"AttributeAgilityGain"		"2.500000"
-		"AttributeBaseIntelligence"		"35"
+		"AttributeBaseIntelligence"		"25"
 		"AttributeIntelligenceGain"		"2.600000"
 
 		// Status

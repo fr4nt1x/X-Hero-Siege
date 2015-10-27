@@ -443,7 +443,7 @@ function GameMode:OnPlayerChat(keys)
       return nil
     end
     local gold = hero:GetGold()
-    local cost = 5000
+    local cost = 8000
     local numberOfTomes = math.floor(gold / cost)
     if numberOfTomes >= 1 then
       PlayerResource:SpendGold(playerID, (numberOfTomes)*cost, DOTA_ModifyGold_PurchaseItem)

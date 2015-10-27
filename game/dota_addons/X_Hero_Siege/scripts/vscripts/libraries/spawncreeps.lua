@@ -28,19 +28,19 @@ creep_kills_for_gold = 700
 creep_kills_for_event = 1600
 wave_kills_for_event = 60 
 wave = 0
-TimeBetweenWaves = 4*60
+TimeBetweenWaves = 5*60
 TimeBetweenCreepWavesTop = 7
 numberOfTopWaves = 0
-SpecialArenaDuration =1.5*60 --2*60
+SpecialArenaDuration =2*60
 SpecialEventKillsDuration = 2*60
 SpecialEventWaveKillsDuration = 2*60
 SpecialEventFrostInfernalDuration = 2*60
-SpecialEventRoshan = 12*60
+SpecialEventRoshan = 13*60
 SpecialEventRoshanDuration = 1.1*60
 TimeBetweenCreepSpawn = 15
-waves_between_levels = 9
-waves_between_dragons = 28
-TimeSpecialArena = 60*20
+waves_between_levels = 11
+waves_between_dragons = 30
+TimeSpecialArena = 60*22
 creeps_per_wave = 2
 spawn_dragon = false
 
@@ -96,7 +96,7 @@ function SpawnCreeps()
     level = level +1
     if level == 2 then
       creeps_per_wave = 3
-      waves_between_levels = 18
+      waves_between_levels = 22
     end
     for i = 1,4 do
       PrecacheUnitByNameAsync(creepsToSpawn[i][level], function() end) 
@@ -156,8 +156,14 @@ function SpawnWaves()
   local point = Entities:FindByName(nil, spawn_waves[(wave%4) +1]):GetAbsOrigin()
 
   DebugPrint("wave",wave)
+  local number_players = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
+  local number_of_wave_creeps = 10
 
-  for j = 1,12 do
+  if number_players >= 2 then
+    number_of_wave_creeps=20 
+  end
+
+  for j = 1,number_of_wave_creeps do
     Timers:CreateTimer(function()
       local unit = CreateUnitByName(creepsWave[wave], point+RandomVector(RandomInt(0, 50)), true, nil, nil, DOTA_TEAM_NEUTRALS)
 
@@ -191,7 +197,6 @@ end
 function SendWaveMessage()
   -- body
    --Delete the timers if the final wave is imminent
-
   if wave >= 12 then
     return nil
   end

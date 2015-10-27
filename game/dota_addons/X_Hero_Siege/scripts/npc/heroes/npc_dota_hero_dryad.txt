@@ -36,8 +36,8 @@
 
 		"ArmorPhysical"		"0.000000"
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"		"2"
-		"AttackDamageMax"		"12"
+		"AttackDamageMin"		"40"
+		"AttackDamageMax"		"52"
 		"AttackRate"		"1.8600000"
 		"AttackAnimationPoint"		"0.300000"
 		"AttackAcquisitionRange"		"800"
@@ -45,11 +45,11 @@
 		"ProjectileModel"		"particles/units/heroes/hero_enchantress/enchantress_base_attack.vpcf"
 		"ProjectileSpeed"		"1000"
 		"AttributePrimary"		"DOTA_ATTRIBUTE_AGILITY"
-		"AttributeBaseStrength"		"38"
+		"AttributeBaseStrength"		"28"
 		"AttributeStrengthGain"		"1.900000"
-		"AttributeBaseAgility"		"44"
+		"AttributeBaseAgility"		"34"
 		"AttributeAgilityGain"		"2.500000"
-		"AttributeBaseIntelligence"		"35"
+		"AttributeBaseIntelligence"		"25"
 		"AttributeIntelligenceGain"		"2.600000"
 
 		// Status

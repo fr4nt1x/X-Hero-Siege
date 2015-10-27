@@ -77,10 +77,10 @@ function endSpecialEventRoshan()
       hero.in_special_event = false
       if hero:IsAlive() then
         FindClearSpaceForUnit(hero, GameMode.hero_position[id], true)
-        hero:SetGold(5000+hero:GetGold(),false)
+        hero:SetGold(8000+hero:GetGold(),false)
       else
         if hero.ankh_respawn then
-          hero:SetGold(5000+hero:GetGold(),false)
+          hero:SetGold(8000+hero:GetGold(),false)
         end
 
         hero:SetRespawnPosition(GameMode.hero_position[id])

@@ -6,7 +6,7 @@
     "AbilityBehavior"  "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
     "MaxLevel"              "4"
     "RequiredLevel"        "-1"
-    "LevelsBetweenUpgrades" "2"
+    "LevelsBetweenUpgrades" "3"
 
     // Stats
     //-------------------------------------------------------------------------------------

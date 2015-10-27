@@ -12,7 +12,7 @@
     //-------------------------------------------------------------------------------------
     "AbilityCastPoint" "0.5"
     "AnimationPlaybackRate" "0.5"
-    "AOERadius"         "1000"
+    "AOERadius"         "600"
     "AbilityCooldown"  "40"
     "AbilityChannelTime"  "10"
     "AbilityManaCost"  "200"

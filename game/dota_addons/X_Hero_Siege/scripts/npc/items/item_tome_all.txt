@@ -5,7 +5,7 @@
     	"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     	"Model"        "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl" 
     	"Effect"       "particles/generic_gameplay/dropped_item.vpcf"
-    	"ItemCost"     "5000"
+    	"ItemCost"     "8000"
     	"ItemKillable" "1" 
     	"ItemSellable" "0"
     	"ItemCastOnPickup" "1"

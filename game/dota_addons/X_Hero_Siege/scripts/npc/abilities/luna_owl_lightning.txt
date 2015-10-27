@@ -16,7 +16,7 @@
 
     "MaxLevel"              "4"
     "RequiredLevel"        "-1"
-    "LevelsBetweenUpgrades" "2"
+    "LevelsBetweenUpgrades" "3"
 
     // Casting
     //-------------------------------------------------------------------------------------------------------------

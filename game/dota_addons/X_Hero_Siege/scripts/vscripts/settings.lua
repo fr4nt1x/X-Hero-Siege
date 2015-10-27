@@ -52,9 +52,11 @@ XP_PER_LEVEL_TABLE[1] = 0
 
 for i=2,MAX_LEVEL do
 	if i <= 5 then
-  		XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+(i^(1.1) * 400)
-  	else
+  		XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+(i^(1.1) * 500)
+  	elseif i <= 13 then
   		XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+(i^(1.1) * 600)
+  	else
+  		XP_PER_LEVEL_TABLE[i] = XP_PER_LEVEL_TABLE[i-1]+(i^(1.1) * 400)
   	end
 end
 
