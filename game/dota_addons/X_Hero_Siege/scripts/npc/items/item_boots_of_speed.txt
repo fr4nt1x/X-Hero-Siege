@@ -3,7 +3,7 @@
     "ID"           "1113"
     "BaseClass"    "item_datadriven"
     "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT"
-    "Model"        "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl" 
+    "Model"        "models/props_gameplay/red_box.vmdl" 
     "Effect"       "particles/generic_gameplay/dropped_item.vpcf"
     "ItemCost"     "1800"
     "ItemKillable" "1" 
@@ -18,7 +18,7 @@
     "AbilityCooldown"        "10"
     "AbilityManaCost"        "100"
 
-    "SideShop"     "1" 
+    "SideShop"     "0" 
     "SecretShop"   "0"
 
     "ItemShopTags"					"artifact"
@@ -29,12 +29,17 @@
     "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
     "AbilitySpecial"
     {
+       "01"
+        {
+            "var_type"      "FIELD_FLOAT"
+            "movement_speed" "522"
+        }
     }
 
     "precache"
     {
       "particle"  "particles/econ/events/nexon_hero_compendium_2014/blink_dagger_end_nexon_hero_cp_2014.vpcf"
-      "particle"  "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl"
+      "particle"  "models/props_gameplay/red_box.vmdl"
       "particle"  "particles/generic_gameplay/dropped_item.vpcf"
     }
     "OnSpellStart"
@@ -63,7 +68,7 @@
           "IsBuff"        "1"
           "Properties"
           {
-              "MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE" "522" 
+              "MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE" "%movement_speed" 
           }
         }
     }

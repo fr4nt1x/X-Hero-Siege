@@ -22,11 +22,10 @@ function specialEventRoshan()
   end
 
   Timers:CreateTimer(SpecialEventRoshanDuration+5,endSpecialEventRoshan)
-  GameMode.hero_position = {}
 
   local heroes = HeroList:GetAllHeroes()
   local point = Entities:FindByName(nil,"spawn_roshan_hero"):GetAbsOrigin()
-  
+
   GameRules:GetGameModeEntity():SetFixedRespawnTime(SpecialEventRoshanDuration)
 
   for _,hero in pairs(heroes) do
@@ -40,7 +39,7 @@ function specialEventRoshan()
       if not hero:IsAlive() then
         hero:RespawnHero(false, false, false)
       end
-      GameMode.hero_position[hero:GetEntityIndex()] = hero:GetAbsOrigin()
+      hero.position_roshan = hero:GetAbsOrigin()
       FindClearSpaceForUnit(hero, point, true)
       PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),hero)
       Timers:CreateTimer(4,function () PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),nil) 
@@ -71,34 +70,42 @@ function endSpecialEventRoshan()
     unit:RemoveModifierByName("modifier_stunned")
     unit:RemoveModifierByName("modifier_invulnerable")
   end
+  local heroes = HeroList:GetAllHeroes()
 
-  for id, point in pairs(GameMode.hero_position) do
-      local hero = EntIndexToHScript(id)
+  for _,hero in pairs(heroes) do
+
+    if hero:GetTeam() == DOTA_TEAM_GOODGUYS then
       hero.in_special_event = false
+      
       if hero:IsAlive() then
-        FindClearSpaceForUnit(hero, GameMode.hero_position[id], true)
+        FindClearSpaceForUnit(hero, hero.position_roshan, true)
         hero:SetGold(8000+hero:GetGold(),false)
       else
         if hero.ankh_respawn then
           hero:SetGold(8000+hero:GetGold(),false)
         end
 
-        hero:SetRespawnPosition(GameMode.hero_position[id])
+        hero:SetRespawnPosition(hero.position_roshan)
         hero:RespawnHero(false, false, false)
         hero.ankh_respawn = false
         hero:SetRespawnsDisabled(false)
         Timers:RemoveTimer(hero.respawn_timer)
         hero.respawn_timer = nil
       end
-  end 
+
+      hero.position_roshan = nil
+    end
+  end
+
   GameRules:GetGameModeEntity():SetFixedRespawnTime(-1)
   GameMode.roshan:RemoveSelf()
   GameMode.roshan = nil
+  
   local units = FindUnitsInRadius( DOTA_TEAM_GOODGUYS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
   for _,unit in pairs(units) do
     unit:RemoveSelf()
   end
-  GameMode.hero_position = nil
+  
   return nil
 end
 
@@ -116,24 +123,25 @@ function specialEventArena()
   end
 
   Timers:CreateTimer(SpecialArenaDuration+5,endSpecialArena)
+
   GameRules:GetGameModeEntity():SetFixedRespawnTime(SpecialArenaDuration)
 
-  GameMode.hero_position = {}
   GameMode.player_spawn_round_kills = {}
-  GameMode.player_count_arena = 1
+  local player_count_arena = 1
+  
   local heroes = HeroList:GetAllHeroes()
   for _,hero in pairs(heroes) do
     if not hero:IsNull() and hero:GetTeam() == DOTA_TEAM_GOODGUYS then
       hero.in_special_event = true 
-      local point = Entities:FindByName(nil,"special_arena_"..GameMode.player_count_arena):GetAbsOrigin()
+      local point = Entities:FindByName(nil,"special_arena_"..player_count_arena):GetAbsOrigin()
       GameMode.player_spawn_round_kills[hero:GetEntityIndex()] = {}
       GameMode.player_spawn_round_kills[hero:GetEntityIndex()]["point"] = hero:GetAbsOrigin()
       GameMode.player_spawn_round_kills[hero:GetEntityIndex()]["spawn_point"] = point
       GameMode.player_spawn_round_kills[hero:GetEntityIndex()]["round"] = 1
       GameMode.player_spawn_round_kills[hero:GetEntityIndex()]["kills"] = 0
 
-      GameMode.hero_position[hero:GetEntityIndex()] = hero:GetAbsOrigin()
-      GameMode.player_count_arena = GameMode.player_count_arena +1
+      hero.old_position_arena = hero:GetAbsOrigin()
+      player_count_arena = player_count_arena +1
       FindClearSpaceForUnit(hero, point, true)
       hero:AddNewModifier(nil, nil, "modifier_stunned", {Duration = 5,IsHidden = true})
       hero:AddNewModifier(nil, nil, "modifier_invulnerable", {Duration = 5,IsHidden = true})
@@ -163,6 +171,22 @@ end
 
 function endSpecialArena()
   -- body
+  
+  local units = FindUnitsInRadius( DOTA_TEAM_NEUTRALS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false )
+  for _,unit in pairs(units) do
+    unit:RemoveModifierByName("modifier_stunned")
+    unit:RemoveModifierByName("modifier_invulnerable")
+  end
+
+  local units = FindUnitsInRadius( DOTA_TEAM_GOODGUYS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
+  for _,unit in pairs(units) do
+    if unit:GetPlayerOwner() ~=nil and unit:GetPlayerOwner():GetAssignedHero() ~= nil and unit:IsAlive() then
+      FindClearSpaceForUnit(unit, unit:GetPlayerOwner():GetAssignedHero().old_position_arena  , true)
+    else
+      unit:RemoveSelf()
+    end
+  end
+
   for k,v in pairs(GameMode.player_spawn_round_kills) do
     --FindUnitsInRadius( iTeamNumber, vPosition, hCacheUnit, flRadius, iTeamFilter, iTypeFilter, iFlagFilter, iOrder, bCanGrowCache )
     local units = FindUnitsInRadius( DOTA_TEAM_NEUTRALS,v["spawn_point"], nil,  500, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
@@ -173,38 +197,27 @@ function endSpecialArena()
     end
 
     local hero = EntIndexToHScript(k)
-    if not hero:IsNull() then
+    if not hero:IsNull() and hero ~= nil then
       if hero:IsAlive() then
-        FindClearSpaceForUnit(hero, GameMode.hero_position[k], true)
+        FindClearSpaceForUnit(hero, hero.old_position_arena, true)
       else 
-        hero:SetRespawnPosition(GameMode.hero_position[k])
+        hero:SetRespawnPosition(hero.old_position_arena)
         hero:RespawnHero(false, false, false)
         hero.ankh_respawn = false
         hero:SetRespawnsDisabled(false)
         Timers:RemoveTimer(hero.respawn_timer)
         hero.respawn_timer = nil
+      
       end
       hero.in_special_event = false 
+      hero.old_position_arena = nil    
     end
 
   end
 
   GameMode.player_spawn_round_kills  = nil
   GameRules:GetGameModeEntity():SetFixedRespawnTime(-1)
-  local units = FindUnitsInRadius( DOTA_TEAM_NEUTRALS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false )
-  for _,unit in pairs(units) do
-    unit:RemoveModifierByName("modifier_stunned")
-    unit:RemoveModifierByName("modifier_invulnerable")
-  end
-  local units = FindUnitsInRadius( DOTA_TEAM_GOODGUYS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
-  for _,unit in pairs(units) do
-    if unit:GetPlayerOwner() ~=nil and unit:GetPlayerOwner():GetAssignedHero():GetEntityIndex() ~= nil and unit:IsAlive() then
-      FindClearSpaceForUnit(unit, GameMode.hero_position[unit:GetPlayerOwner():GetAssignedHero():GetEntityIndex()]  , true)
-    else
-      unit:RemoveSelf()
-    end
-  end 
-  GameMode.hero_position = nil
+ 
   return nil
 end
 
@@ -228,7 +241,7 @@ function startKillEvent(hero)
     unit:AddNewModifier(nil, nil, "modifier_stunned", {IsHidden = true})
     unit:AddNewModifier(nil, nil, "modifier_invulnerable", {IsHidden = true})
   end
-
+  GameRules:GetGameModeEntity():SetFixedRespawnTime(SpecialEventKillsDuration)
   local units = FindUnitsInRadius( DOTA_TEAM_GOODGUYS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
   
   for _,unit in pairs(units) do
@@ -248,10 +261,10 @@ function startKillEvent(hero)
   hero.in_special_event = true
   if not hero:IsAlive() then
     hero:SetRespawnPosition(point)
-    GameMode.old_position = Entities:FindByName(nil, "base"):GetAbsOrigin()
+    hero.old_position_killevent = Entities:FindByName(nil, "base"):GetAbsOrigin()
     hero:RespawnHero(false, false, false)
   else
-    GameMode.old_position = hero:GetAbsOrigin()
+    hero.old_position_killevent = hero:GetAbsOrigin()
     FindClearSpaceForUnit(hero,point, true)
 
   end
@@ -278,7 +291,8 @@ function endKillEvent(event)
   end
 
   GameMode.event_start_time  = nil
-
+  GameRules:GetGameModeEntity():SetFixedRespawnTime(-1)
+  
   local units = FindUnitsInRadius( DOTA_TEAM_NEUTRALS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false )
   for _,unit in pairs(units) do
     unit:RemoveModifierByName("modifier_stunned")
@@ -301,9 +315,9 @@ function endKillEvent(event)
   end
 
   if hero:IsAlive() then
-    FindClearSpaceForUnit(hero,GameMode.old_position, true)
+    FindClearSpaceForUnit(hero,hero.old_position_killevent, true)
   else
-      hero:SetRespawnPosition(GameMode.old_position)
+      hero:SetRespawnPosition(hero.old_position_killevent)
       hero:RespawnHero(false, false, false)
       hero.ankh_respawn = false
       hero:SetRespawnsDisabled(false)
@@ -332,6 +346,8 @@ function startWaveKillEvent(hero)
     v.endTime = v.endTime + SpecialEventWaveKillsDuration + 5
   end
 
+  GameRules:GetGameModeEntity():SetFixedRespawnTime(SpecialEventWaveKillsDuration)
+  
   local units = FindUnitsInRadius( DOTA_TEAM_NEUTRALS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
 
   for _,unit in pairs(units) do
@@ -362,10 +378,10 @@ function startWaveKillEvent(hero)
   
   if not hero:IsAlive() then
     hero:SetRespawnPosition(point)
-    GameMode.old_position = Entities:FindByName(nil, "base"):GetAbsOrigin()
+    hero.old_position_wavekills = Entities:FindByName(nil, "base"):GetAbsOrigin()
     hero:RespawnHero(false, false, false)
   else
-    GameMode.old_position = hero:GetAbsOrigin()
+    hero.old_position_wavekills = hero:GetAbsOrigin()
     FindClearSpaceForUnit(hero,point, true)
   end
   hero:AddNewModifier(nil, nil, "modifier_stunned", {Duration = 5,IsHidden = true})
@@ -387,6 +403,7 @@ function endWaveKillEvent(event)
     v.endTime = v.endTime - (SpecialEventWaveKillsDuration - duration)
   end
 
+  GameRules:GetGameModeEntity():SetFixedRespawnTime(-1)
   GameMode.event_start_time  = nil
 
   local units = FindUnitsInRadius( DOTA_TEAM_NEUTRALS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false )
@@ -413,19 +430,21 @@ function endWaveKillEvent(event)
     GameMode.ramero:RemoveSelf()
     GameMode.wave_event_happened = false
   end
+  
+  if hero ~= nil and not hero:IsNull() then
 
-  if hero:IsAlive() then
-    FindClearSpaceForUnit(hero,GameMode.old_position, true)
-  else
-    hero:SetRespawnPosition(GameMode.old_position)
-    hero:RespawnHero(false, false, false)
-    hero.ankh_respawn = false
-    hero:SetRespawnsDisabled(false)
-    Timers:RemoveTimer(hero.respawn_timer)
-    hero.respawn_timer = nil
+    if hero:IsAlive() then
+      FindClearSpaceForUnit(hero,hero.old_position_wavekills, true)
+    else
+      hero:SetRespawnPosition(hero.old_position_wavekills)
+      hero:RespawnHero(false, false, false)
+      hero.ankh_respawn = false
+      hero:SetRespawnsDisabled(false)
+      Timers:RemoveTimer(hero.respawn_timer)
+      hero.respawn_timer = nil
+    end
   end
 
-  GameMode.old_position = nil
   GameMode.baristal = nil
   GameMode.ramero = nil
   GameMode.waveKillEvent = nil
@@ -474,7 +493,8 @@ function startFrostInfernalEvent(event)
 
   local hero = event.activator
 
-  hero.old_position = Entities:FindByName(nil, "base" ):GetAbsOrigin()
+  GameRules:GetGameModeEntity():SetFixedRespawnTime(SpecialEventFrostInfernalDuration)
+
 
   local triggers = Entities:FindAllByName("trigger_frost_infernal_return")
   for _,v in pairs(triggers) do
@@ -517,7 +537,7 @@ function endFrostInfernalEvent(event)
     --enable special event triggers
     local triggers_choice = Entities:FindAllByName("trigger_special_event_choice")
     local triggers_events = Entities:FindAllByName("trigger_special_event")
-
+    GameRules:GetGameModeEntity():SetFixedRespawnTime(-1)
     for _,v in pairs(triggers_events) do
       v:Disable()
     end 
@@ -548,18 +568,19 @@ function endFrostInfernalEvent(event)
   if not GameMode.frost_infernal:IsNull() and  GameMode.frost_infernal:IsAlive() then
     GameMode.frost_infernal:RemoveSelf()
   end
-  
-  if hero:IsAlive() then
-    FindClearSpaceForUnit(hero,hero.old_position, true)
-  else
-    hero:SetRespawnPosition(hero.old_position)
-    hero:RespawnHero(false, false, false)
-    hero.ankh_respawn = false
-    hero:SetRespawnsDisabled(false)
-    Timers:RemoveTimer(hero.respawn_timer)
-    hero.respawn_timer = nil
-  end
 
+  if hero ~= nil and not hero:IsNull() then
+    if hero:IsAlive() then
+      FindClearSpaceForUnit(hero,Entities:FindByName(nil, "base" ):GetAbsOrigin(), true)
+    else
+      hero:SetRespawnPosition(Entities:FindByName(nil, "base" ):GetAbsOrigin())
+      hero:RespawnHero(false, false, false)
+      hero.ankh_respawn = false
+      hero:SetRespawnsDisabled(false)
+      Timers:RemoveTimer(hero.respawn_timer)
+      hero.respawn_timer = nil
+    end
+  end
   GameMode.frost_infernal = nil
   GameMode.frost_infernal_event = nil
 end
@@ -574,8 +595,7 @@ function startSpiritBeastEvent(event)
     FindClearSpaceForUnit(hero,Entities:FindByName(nil, "base" ):GetAbsOrigin(), true)
     return nil
   end
-  
-  hero.old_position = Entities:FindByName(nil, "base" ):GetAbsOrigin()
+  GameRules:GetGameModeEntity():SetFixedRespawnTime(SpecialEventFrostInfernalDuration)
   local triggers = Entities:FindAllByName("trigger_frost_infernal_return")
   
   for _,v in pairs(triggers) do
@@ -618,7 +638,7 @@ function endSpiritBeastEvent(event)
   if GameMode.spirit_beast_event == nil then
     return nil
   end
-
+  GameRules:GetGameModeEntity():SetFixedRespawnTime(-1)
   --enable special event triggers
   local triggers_choice = Entities:FindAllByName("trigger_special_event_choice")
   local triggers_events = Entities:FindAllByName("trigger_special_event")
@@ -641,15 +661,17 @@ function endSpiritBeastEvent(event)
   if not GameMode.spirit_beast:IsNull() and  GameMode.spirit_beast:IsAlive() then
     GameMode.spirit_beast:RemoveSelf()
   end
-  if hero:IsAlive() then
-    FindClearSpaceForUnit(hero,hero.old_position, true)
-  else
-    hero:SetRespawnPosition(hero.old_position)
-    hero:RespawnHero(false, false, false)
-    hero.ankh_respawn = false
-    hero:SetRespawnsDisabled(false)
-    Timers:RemoveTimer(hero.respawn_timer)
-    hero.respawn_timer = nil
+  if hero ~= nil and not hero:IsNull() then
+    if hero:IsAlive() then
+      FindClearSpaceForUnit(hero,Entities:FindByName(nil, "base" ):GetAbsOrigin(), true)
+    else
+      hero:SetRespawnPosition(Entities:FindByName(nil, "base" ):GetAbsOrigin())
+      hero:RespawnHero(false, false, false)
+      hero.ankh_respawn = false
+      hero:SetRespawnsDisabled(false)
+      Timers:RemoveTimer(hero.respawn_timer)
+      hero.respawn_timer = nil
+    end
   end
 
   GameMode.spirit_beast = nil

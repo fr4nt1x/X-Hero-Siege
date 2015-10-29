@@ -11,7 +11,7 @@
     "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
     "AbilityTextureName"      "skeleton_king_vampiric_aura"
     "MaxLevel"             "4"
-    "RequiredLevel"        "3"
+    "RequiredLevel"        "-1"
     "LevelsBetweenUpgrades" "3"
     "AbilitySpecial"
     {

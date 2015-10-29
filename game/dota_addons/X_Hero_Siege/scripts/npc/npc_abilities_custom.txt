@@ -38,7 +38,7 @@
 	      "05"
 	      {
 	        "var_type"        "FIELD_INTEGER"
-	        "stun_chance"     "5 10 15 20"
+	        "stun_chance"     "5 5 5 5"
 	      }
 	     "06"
 	      {
@@ -305,7 +305,7 @@
 	        "05"
 	        {
 	          "var_type" "FIELD_FLOAT"
-	          "hp_regeneration" "0.5 1"
+	          "hp_regeneration" "0.5 0.5"
 	        }        
 	    }
 	
@@ -1538,7 +1538,7 @@
 	    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
 	    "AbilityTextureName"      "sandking_caustic_finale"
 	    "MaxLevel"             "4"
-	    "RequiredLevel"        "3"
+	    "RequiredLevel"        "-1"
 	    "LevelsBetweenUpgrades" "3"
 	    "AbilitySpecial"
 	    {
@@ -2180,7 +2180,7 @@
 	    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 	    "AbilityTextureName"      "skeleton_king_vampiric_aura"
 	    "MaxLevel"             "4"
-	    "RequiredLevel"        "3"
+	    "RequiredLevel"        "-1"
 	    "LevelsBetweenUpgrades" "3"
 	    "AbilitySpecial"
 	    {
@@ -5033,7 +5033,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"duration"					"7"
+				"duration"					"5"
 			}
 		}
 	
@@ -5070,10 +5070,16 @@
 				"IsStunDebuff"		"0"
 				"Duration"			"%duration"
 				"EffectName"	"particles/units/heroes/hero_omniknight/omniknight_repel_buff.vpcf"
-				
+				"Properties"
+				{
+			        "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL" "1"
+			        "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL"  "1"
+	          		"MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE"     "1"
+				}
 				"States"
 				{
-					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 		}

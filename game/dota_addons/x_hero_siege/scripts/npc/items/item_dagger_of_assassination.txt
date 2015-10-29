@@ -1,0 +1,58 @@
+"item_dagger_of_assassination" 
+{
+    "ID"           "1120"
+    "BaseClass"    "item_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "Model"        "models/props_gameplay/red_box.vmdl" 
+    "Effect"       "particles/generic_gameplay/dropped_item.vpcf"
+    "ItemCost"     "9000"
+    "ItemKillable" "1" 
+    "ItemSellable" "1"
+    "ItemCastOnPickup" "0"
+    "ItemPurchasable" "1"
+    "ItemDroppable" "1"
+    "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    "AbilityTextureName" "item_blink"
+
+    "SideShop"     "0" 
+    "SecretShop"   "0"
+
+    "ItemShopTags"					"artifact"
+	   "ItemQuality"					"artifact"
+    
+    "ItemStackable" "0"
+    "ItemPermanent" "1"
+
+    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "damage_bonus"     "1250"
+      }
+
+    }
+
+    "precache"
+    {
+      "particle"  "models/props_gameplay/red_box.vmdl"
+      "particle"  "particles/generic_gameplay/dropped_item.vpcf"
+    }
+
+    "Modifiers"
+    {
+        "modifier_assasination_dagger"
+        { 
+          "Passive"       "1"
+          "IsHidden"      "0"
+          "IsPurgable"    "0"
+          "IsBuff"        "1"
+          "Properties"
+          {
+              "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"  "%damage_bonus"
+          }
+        }
+    }
+}  

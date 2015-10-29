@@ -934,6 +934,80 @@
 		"DOTA_Tooltip_ability_item_tome_small_Lore"                                       ""
 		"DOTA_Tooltip_ability_item_tome_small_stat_bonus"                                 "STAT BONUS:"
 
+		"DOTA_Tooltip_ability_arthas_frostmourne_attack_speed"                            "ATTACK SPEED:"
+
+
+		// ******************** ITEMS ********************
+		"DOTA_Tooltip_ability_item_cloak_of_immolation"                                   "Cloak Of Immolation"
+		"DOTA_Tooltip_ability_item_cloak_of_immolation_Description"                       ""
+		"DOTA_Tooltip_ability_item_cloak_of_immolation_radius"                            "RADIUS:"
+		"DOTA_Tooltip_ability_item_cloak_of_immolation_damage_per_tick"                   "DAMAGE PER TICK:"
+		"DOTA_Tooltip_ability_item_cloak_of_immolation_tick_time"                         "TICK TIME:"
+
+
+		// ******************** ITEM MODIFIERS ********************
+		"DOTA_Tooltip_modifier_bracer_of_protection"                                      "Bracer Of Protection"
+		"DOTA_Tooltip_modifier_bracer_of_protection_Description"                          ""
+
+		"DOTA_Tooltip_modifier_claws_of_attack"                                           "Claws Of Attack"
+		"DOTA_Tooltip_modifier_claws_of_attack_Description"                               ""
+
+		"DOTA_Tooltip_modifier_assasination_dagger"                                       "Assasination Dagger"
+		"DOTA_Tooltip_modifier_assasination_dagger_Description"                           ""
+
+		"DOTA_Tooltip_modifier_spellimmunity"                                             "Spellimmunity"
+		"DOTA_Tooltip_modifier_spellimmunity_Description"                                 ""
+
+		"DOTA_Tooltip_modifier_talisman_of_evasion"                                       "Talisman Of Evasion"
+		"DOTA_Tooltip_modifier_talisman_of_evasion_Description"                           ""
+
+
+		// ******************** ABILITIES ********************
+
+		// ******************** ITEMS ********************
+		"DOTA_Tooltip_ability_item_bracers_of_protection"                                 "Bracers Of Protection"
+		"DOTA_Tooltip_ability_item_bracers_of_protection_Description"                     ""
+		"DOTA_Tooltip_ability_item_bracers_of_protection_Note0"                           ""
+		"DOTA_Tooltip_ability_item_bracers_of_protection_Lore"                            ""
+		"DOTA_Tooltip_ability_item_bracers_of_protection_health_bonus"                    "HEALTH BONUS:"
+		"DOTA_Tooltip_ability_item_bracers_of_protection_armor"                           "ARMOR:"
+		"DOTA_Tooltip_ability_item_bracers_of_protection_strength"                        "STRENGTH:"
+		"DOTA_Tooltip_ability_item_bracers_of_protection_hp_regeneration"                 "HP REGENERATION:"
+
+		"DOTA_Tooltip_ability_item_claws_of_attack"                                       "Claws Of Attack"
+		"DOTA_Tooltip_ability_item_claws_of_attack_Description"                           ""
+		"DOTA_Tooltip_ability_item_claws_of_attack_Note0"                                 ""
+		"DOTA_Tooltip_ability_item_claws_of_attack_Lore"                                  ""
+		"DOTA_Tooltip_ability_item_claws_of_attack_damage"                                "DAMAGE:"
+		"DOTA_Tooltip_ability_item_claws_of_attack_attackspeed"                           "ATTACKSPEED:"
+		"DOTA_Tooltip_ability_item_claws_of_attack_agility"                               "AGILITY:"
+		"DOTA_Tooltip_ability_item_claws_of_attack_movement_speed"                        "MOVEMENT SPEED:"
+
+		"DOTA_Tooltip_ability_item_dagger_of_assassination"                               "Dagger Of Assassination"
+		"DOTA_Tooltip_ability_item_dagger_of_assassination_Description"                   ""
+		"DOTA_Tooltip_ability_item_dagger_of_assassination_Note0"                         ""
+		"DOTA_Tooltip_ability_item_dagger_of_assassination_Lore"                          ""
+		"DOTA_Tooltip_ability_item_dagger_of_assassination_damage_bonus"                  "DAMAGE BONUS:"
+
+		"DOTA_Tooltip_ability_item_potion_of_invulnerability"                             "Potion Of Invulnerability"
+		"DOTA_Tooltip_ability_item_potion_of_invulnerability_Description"                 ""
+		"DOTA_Tooltip_ability_item_potion_of_invulnerability_Note0"                       ""
+		"DOTA_Tooltip_ability_item_potion_of_invulnerability_Lore"                        ""
+		"DOTA_Tooltip_ability_item_potion_of_invulnerability_duration"                    "DURATION:"
+
+		"DOTA_Tooltip_ability_item_potion_of_spell_immunity"                              "Potion Of Spell Immunity"
+		"DOTA_Tooltip_ability_item_potion_of_spell_immunity_Description"                  ""
+		"DOTA_Tooltip_ability_item_potion_of_spell_immunity_Note0"                        ""
+		"DOTA_Tooltip_ability_item_potion_of_spell_immunity_Lore"                         ""
+		"DOTA_Tooltip_ability_item_potion_of_spell_immunity_duration"                     "DURATION:"
+
+		"DOTA_Tooltip_ability_item_talisman_of_evasion"                                   "Talisman Of Evasion"
+		"DOTA_Tooltip_ability_item_talisman_of_evasion_Description"                       ""
+		"DOTA_Tooltip_ability_item_talisman_of_evasion_Note0"                             ""
+		"DOTA_Tooltip_ability_item_talisman_of_evasion_Lore"                              ""
+		"DOTA_Tooltip_ability_item_talisman_of_evasion_evasion"                           "EVASION:"
+
+
 
 	}
 }

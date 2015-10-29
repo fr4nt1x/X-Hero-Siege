@@ -1,0 +1,75 @@
+"item_claws_of_attack" 
+{
+    "ID"           "1118"
+    "BaseClass"    "item_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "Model"        "models/props_gameplay/red_box.vmdl" 
+    "Effect"       "particles/generic_gameplay/dropped_item.vpcf"
+    "ItemCost"     "9000"
+    "ItemKillable" "1" 
+    "ItemSellable" "1"
+    "ItemCastOnPickup" "0"
+    "ItemPurchasable" "1"
+    "ItemDroppable" "1"
+    "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    "AbilityTextureName" "item_blades_of_attack"
+
+    "SideShop"     "0" 
+    "SecretShop"   "0"
+
+    "ItemShopTags"					"artifact"
+	   "ItemQuality"					"artifact"
+    
+    "ItemStackable" "0"
+    "ItemPermanent" "1"
+
+    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "damage"     "550"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "attackspeed"     "25"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "agility"     "75"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "movement_speed"     "20"
+      }
+    }
+
+    "precache"
+    {
+      "particle"  "models/props_gameplay/red_box.vmdl"
+      "particle"  "particles/generic_gameplay/dropped_item.vpcf"
+    }
+
+    "Modifiers"
+    {
+        "modifier_claws_of_attack"
+        { 
+          "Passive"       "1"
+          "IsHidden"      "0"
+          "IsPurgable"    "0"
+          "IsBuff"        "1"
+          "Properties"
+          {
+              "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movement_speed" 
+              "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attackspeed"
+              "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"       "%agility"
+              "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"    "%damage"
+          }
+        }
+    }
+}  

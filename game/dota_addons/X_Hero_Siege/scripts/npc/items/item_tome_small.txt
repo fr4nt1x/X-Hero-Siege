@@ -4,7 +4,7 @@
     	"ID"           "1103"
     	"BaseClass"    "item_datadriven"
     	"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-    	"Model"        "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl" 
+    	"Model"        "models/props_gameplay/red_box.vmdl" 
     	"Effect"       "particles/generic_gameplay/dropped_item.vpcf"
     	"ItemCost"     "800"
     	"ItemKillable" "1" 
@@ -45,7 +45,7 @@
 
     "precache"
     {
-    	"particle"  "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl"
+    	"particle"  "models/props_gameplay/red_box.vmdl"
     	"particle"	"particles/generic_gameplay/dropped_item.vpcf"
     }   
 }

@@ -3,7 +3,7 @@
     "ID"           "1108"
     "BaseClass"    "item_datadriven"
     "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "Model"        "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl" 
+    "Model"        "models/props_gameplay/red_box.vmdl" 
     "Effect"       "particles/generic_gameplay/dropped_item.vpcf"
     "ItemCost"     "5000"
     "ItemKillable" "0" 
@@ -77,7 +77,7 @@
     }
     "precache"
     {
-    	"particle"  "models/heroes/bounty_hunter/bounty_hunter_bweapon.vmdl"
+    	"particle"  "models/props_gameplay/red_box.vmdl"
     	"particle"	"particles/generic_gameplay/dropped_item.vpcf"
         "particle"  "particles/units/heroes/hero_skeletonking/wraith_king_vampiric_aura_lifesteal.vpcf"
     }   

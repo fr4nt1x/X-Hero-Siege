@@ -1,0 +1,61 @@
+
+HEROS:
+
+IMPLEMENTED:
+	
+	Naisha
+
+	Demonhunter
+
+	Priestress of the Moon
+
+	Crypt Lord 				BURROW IMPALE mächtiger
+
+	Tyrande (Dryad)
+
+############################################################################################
+
+NOT IMPLEMENTED:
+	
+	Paladin 												LIGHT FRENZY
+
+	Warden (PA)
+
+	Archmage												WATER SHIELD
+
+	Mountain king
+
+	Bloodmage
+
+	Blademaster	
+
+	Tauren Chieftain
+
+	Shadow hunter (shaman)									HEX NEUTRAL FEINDLICH
+
+	Lich   													FROST CHAOS
+
+	DreadLord
+
+	Beastmaster 											TERROR WOLF
+
+	Pit lord
+
+	Pandaren Brewmaster 									PARTITION
+
+	Kil'jaeden (shadow demon)
+
+	Arthas													KNIGHTS ARMOR
+
+	Jaina (Crystal maiden)
+
+	Sylvanas Windrunner
+
+	Marine
+
+	Rifleman												WEAPONS UPGRADE
+
+	Banehallow
+
+	Shandris (Lina)
+

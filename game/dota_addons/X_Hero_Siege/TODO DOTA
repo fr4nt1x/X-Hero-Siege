@@ -2,7 +2,22 @@ TODO DOTA:
 
 
 
+death in arena timer not lonmg enough and maybe finish the event
 
+artas bash reduce
+
+spawn banehallow stuff
+
+dont skip magtheridon
+
+make triggers bigger
+
+maybe rewrite the arena event to save everything in a list with nubmer as key, and find all units in each arena and port them back manually. -> dont let them blink outside arena
+
+maybe make blink a blink dagger baseclass, so that you can prevent blink
+
+beast event getting finsihed without killing
+asd
 
 
 

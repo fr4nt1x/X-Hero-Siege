@@ -4,7 +4,7 @@
     	"ID"           "1106"
     	"BaseClass"    "item_datadriven"
     	"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    	"Model"        "models/props_gameplay/salve_blue.vmdl" 
+    	"Model"        "models/props_gameplay/red_box.vmdl" 
     	"Effect"       "particles/generic_gameplay/dropped_item.vpcf"
     	"ItemCost"     "700"
     	"ItemKillable" "1" 
@@ -14,7 +14,7 @@
     "ItemDroppable" "1"
     "ItemShareability" "ITEM_FULLY_SHAREABLE"
     "AbilityTextureName" "item_summon_ursa"
-    "SideShop"     "1" 
+    "SideShop"     "0" 
     "SecretShop"   "0"
 
     "ItemShopTags"					"consumable"
@@ -61,5 +61,7 @@
     }
     "precache"
     {
+        "particle"  "models/props_gameplay/red_box.vmdl"
+        
     }    
 }

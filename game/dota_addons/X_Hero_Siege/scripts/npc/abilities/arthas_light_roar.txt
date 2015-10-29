@@ -44,7 +44,7 @@
         "05"
         {
           "var_type" "FIELD_FLOAT"
-          "hp_regeneration" "0.5 1"
+          "hp_regeneration" "0.5 0.5"
         }        
     }
 
