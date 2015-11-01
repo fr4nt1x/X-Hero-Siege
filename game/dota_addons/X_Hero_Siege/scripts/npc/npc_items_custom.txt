@@ -850,7 +850,7 @@
 	{
 	    	"ID"           "1116"
 	    	"BaseClass"    "item_datadriven"
-	    	"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_IMMEDIATE" 
+	    	"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_ITEM" 
 	    	"Model"        "models/props_gameplay/salve.vmdl" 
 	    	"Effect"       "particles/generic_gameplay/dropped_item.vpcf"
 	    	"ItemCost"     "2000"
@@ -860,6 +860,7 @@
 	    "ItemDroppable" "1"
 	    "ItemShareability" "ITEM_FULLY_SHAREABLE"
 	    "AbilityTextureName" "item_flask2"
+	    "SpellImmunityType"  "SPELL_IMMUNITY_ENEMIES_YES"
 	
 	    "SideShop"     "1" 
 	    "SecretShop"   "0"
@@ -926,7 +927,7 @@
 	{
 	    	"ID"           "1115"
 	    	"BaseClass"    "item_datadriven"
-	    	"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_IMMEDIATE" 
+	    	"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_ITEM" 
 	    	"Model"        "models/props_gameplay/salve.vmdl" 
 	    	"Effect"       "particles/generic_gameplay/dropped_item.vpcf"
 	    	"ItemCost"     "500"

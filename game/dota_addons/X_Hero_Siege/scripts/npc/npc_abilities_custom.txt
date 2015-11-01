@@ -3421,6 +3421,199 @@
 	      }
 	    }
 	  }
+	"lich_frost_breath"
+		{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"				   
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"	   
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"dragon_knight_breathe_fire"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts"
+			"particle"  "particles/units/heroes/hero_jakiro/jakiro_dual_breath_ice.vpcf"
+			"particle"  "particles/units/heroes/hero_invoker/invoker_ice_wall_debuff_frost.vpcf"
+			"particle"  "particles/units/heroes/hero_dragon_knight/dragon_knight_breathe_fire.vpcf"
+		}
+	
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"12.0 12.0 12.0 12.0"
+		
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"90 170 240 300"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 110 120 130"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"start_radius"			"150 150 150 150"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"end_radius"			"250 250 250 250"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"650 650 650 650"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"1050"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"					"5 5 5 5"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_second"					"100 200 400 800"
+			}		
+		}
+		
+		"OnSpellStart"
+		{
+			"LinearProjectile"
+			{
+				"Target" "POINT"
+				"EffectName" "particles/units/heroes/hero_jakiro/jakiro_dual_breath_ice.vpcf"
+				"MoveSpeed" "%speed"
+				"StartRadius" "%start_radius"
+				"StartPosition" "attach_origin"
+				"EndRadius" "%end_radius"
+				"FixedDistance" "%range"
+				"TargetTeams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"TargetTypes" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO | DOTA_UNITY_TARGET_MECHANICAL"
+				"TargetFlags" "DOTA_UNIT_TARGET_FLAG_NONE"
+				"HasFrontalCone" "1"
+				"ProvidesVision" "0"
+			}
+			"FireSound"
+			{
+				"EffectName" "Hero_DragonKnight.BreathFire"
+				"Target" "CASTER"
+			}
+		}
+			"OnProjectileHitUnit"
+			{
+				"DeleteOnHit" "0"
+				"Damage"
+				{
+					"Target" "TARGET"
+					"Type" "DAMAGE_TYPE_MAGICAL"
+					"Damage" "%AbilityDamage"
+				}
+				"ApplyModifier"
+				{
+					"ModifierName"	"modifier_frost_breath"
+					"Target" 		"TARGET"
+					"Duration"		"%duration"
+				}
+			}
+			"Modifiers"
+			{
+				"modifier_frost_breath"
+				{
+					"Passive"			"0"
+					"IsHidden"			"0"
+					"IsDebuff"			"1"
+			
+					"EffectName"		"particles/units/heroes/hero_invoker/invoker_ice_wall_debuff_frost.vpcf"
+					"EffectAttachType"	"follow_origin"
+			
+					"ThinkInterval"  "1.0"
+					"OnIntervalThink"
+					{
+						"Damage"
+						{
+							"Target"		"TARGET"
+							"Type"			"DAMAGE_TYPE_MAGICAL"
+							"Damage"		"%damage_per_second"
+						}
+					}
+				}
+			}
+		}
+	"lich_frost_nova_hero"
+	  {
+	    // General
+	    //-------------------------------------------------------------------------------------
+	    "BaseClass" "lich_frost_nova"
+	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+	    "MaxLevel"              "4"
+	    "RequiredLevel"        "-1"
+	    "LevelBetweenUpgrades"  "3"
+	
+	    // Stats
+	    //-------------------------------------------------------------------------------------
+	    "AbilityCastPoint" "0.46"
+	    "AbilityCooldown"  "10"
+	    "AbilityCastRange" "800"
+	    "AbilityManaCost"  "125 125 125 125"
+	
+	    "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+	    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	    "AbilityDamage"         "500"
+	    "AbilityDuration"       "4.0 4.0 4.0 4.0"
+	
+	    "AbilitySpecial"
+	    {     
+	      "01"
+	      {
+	        "var_type"        "FIELD_INTEGER"
+	        "radius"        "400 400 400 400"
+	      }
+	      "02"
+	      {
+	        "var_type"        "FIELD_INTEGER"
+	        "slow_movement_speed" "-30 -30 -30 -30"
+	      }
+	      "03"
+	      {
+	        "var_type"        "FIELD_INTEGER"
+	        "slow_attack_speed"   "-20 -20 -20 -20"
+	      }
+	      "04"
+	      {
+	        "var_type"        "FIELD_INTEGER"
+	        "aoe_damage"      "250 500 1000 2000"
+	      }
+	
+	    }
+	
+	    "precache"
+	    {
+	    }
+	  }
 	"luna_command_aura"
 	  {
 	    // General
@@ -4135,7 +4328,7 @@
 			"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 			"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 			"MaxLevel" "4"	
-			"RequiredLevel" "3"
+			"RequiredLevel" "-1"
 			"LevelsBetweenUpgrades" "3"
 			
 			// Casting
@@ -5503,7 +5696,7 @@
 	    "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
 	    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
 	    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-	
+	    "AbilityDamage"         "1900"
 	    "AbilitySpecial"
 	    {
 	      "01"
@@ -5538,6 +5731,12 @@
 	      {
 	        "Duration"   "%duration"
 	        "Target"    "TARGET"
+	      }
+	      "Damage"
+	      {
+	        "Target"    "TARGET"
+	        "Type"      "DAMAGE_TYPE_MAGICAL"
+	        "Damage"    "%AbilityDamage"
 	      }
 	    }
 	    "precache"
@@ -5987,7 +6186,7 @@
 	    "AOERadius"             "300"
 	    "AbilityTextureName"      "centaur_hoof_stomp"
 	    "AbilityUnitTargetTeam"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
-	    "AbilityDamage"           "600"
+	    "AbilityDamage"           "800"
 	    // Casting
 	    //-------------------------------------------------------------------------------------------------------------
 	    "AbilityCastPoint"        "0.6"
@@ -6041,6 +6240,7 @@
 	        "Damage"
 	        {
 	          "Damage" "%AbilityDamage"
+	          "Type"  "DAMAGE_TYPE_MAGICAL"
 	          "Target"
 	          {
 	            "Center"    "CASTER"
@@ -6055,6 +6255,284 @@
 	          "EffectAttachType"  "follow_origin"
 	          "Target"            "CASTER"
 	        }
+	    }
+	  }
+	"warden_flurry_of_knives"
+	  {
+	    // General
+	    //-------------------------------------------------------------------------------------------------------------
+	    "BaseClass"       "ability_datadriven"
+	    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET  | DOTA_ABILITY_BEHAVIOR_AOE"
+	    "AOERadius"             "%radius"
+	    "AbilityTextureName"      "bristleback_quill_spray"
+	    "AbilityUnitTargetTeam"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	
+	    // Casting
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilityCastPoint"        "0.45"
+	
+	    // Time   
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilityCooldown"       "7"
+	
+	    // Cost
+	    //-------------------------------------------------------------------------------------------------------------
+	      "AbilityManaCost"       "50 100 150 200"
+	      "MaxLevel"              "4"
+	      "LevelBetweenUpgrades"  "3"
+	      "RequiredLevel"         "-1"
+	
+	    // Special  
+	    //-------------------------------------------------------------------------------------------------------------
+	      "AbilitySpecial"
+	      {
+	        "01"
+	        {
+	          "var_type"        "FIELD_INTEGER"
+	          "damage"        "250 500 750 1000"
+	        }
+	        "02"
+	        {
+	          "var_type"        "FIELD_INTEGER"
+	          "radius"        "400 500 600 700"
+	        }
+	      }
+	
+	   //precache
+	      "precache"
+	      {
+	        "particle"  "particles/econ/items/bristleback/bristle_spikey_spray/bristle_spikey_quill_spray.vpcf"
+	      }
+	
+	    //SpellStart
+	    "OnSpellStart"
+	    {
+	        "Damage"
+	        {
+	          "Damage" "%damage"
+	          "Type"  "DAMAGE_TYPE_MAGICAL"
+	          "Target"
+	          {
+	            "Center"    "CASTER"
+	            "Radius"   "%radius"
+	            "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	            "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	          }
+	        }
+	        "FireEffect"
+	        {
+	          "EffectName"        "particles/econ/items/bristleback/bristle_spikey_spray/bristle_spikey_quill_spray.vpcf"
+	          "EffectAttachType"  "follow_origin"
+	          "Target"            "CASTER"
+	        }
+	    }
+	  }
+	"warden_poison_dagger"
+	  {
+	    // General
+	    //-------------------------------------------------------------------------------------
+	    "BaseClass" "ability_datadriven"
+	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+	    "MaxLevel"              "4"
+	    "RequiredLevel"        "-1"
+	    "LevelBetweenUpgrades"  "3"
+	
+	    // Stats
+	    //-------------------------------------------------------------------------------------
+	    "AbilityCastPoint" "0.46"
+	    "AbilityCooldown"  "9"
+	    "AbilityCastRange" "1000"
+	    "AbilityManaCost"  "200 200 200 200"
+	    "AbilityTextureName" "phantom_assassin_stifling_dagger"
+	    "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+	    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	
+	    "AbilitySpecial"
+	    {
+	      "01"
+	      {
+	        "var_type"      "FIELD_FLOAT"
+	        "duration"      "15 15 15 15"
+	      }
+	      "02"
+	      {
+	        "var_type"      "FIELD_FLOAT"
+	        "projectile_speed"      "900"
+	      }
+	      "03"
+	      {
+	        "var_type"      "FIELD_INTEGER"
+	        "damage"      "500 1250 2500 5000"
+	      }
+	      "04"
+	      {
+	        "var_type"      "FIELD_INTEGER"
+	        "damage_over_time"      "100 250 500 1000"
+	      }
+	      "05"
+	      {
+	        "var_type"      "FIELD_INTEGER"
+	        "attack_speed_slow"      "-100 -100 -100 -100"
+	      }
+	       "06"
+	      {
+	        "var_type"      "FIELD_INTEGER"
+	        "movement_speed_slow"      "-50 -50 -50 -50"
+	      }
+	    }
+	
+	    "OnSpellStart"
+	    { 
+	      "TrackingProjectile"
+	      {
+	        "Target"             "TARGET"
+	        "EffectName"    "particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/phantom_assassin_stifling_dagger_arcana.vpcf"
+	        "Dodgeable"      "1"
+	        "ProvidesVision"  "0"
+	        "MoveSpeed"          "%projectile_speed"
+	        "SourceAttachment"  "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+	      }
+	    }
+	
+	    "OnProjectileHitUnit"
+	    {
+	      "DeleteOnHit"  "1"
+	      "Damage"
+	      {
+	        "Target"    "TARGET"
+	        "Type"      "DAMAGE_TYPE_MAGICAL"
+	        "Damage"    "%damage"
+	      }
+	      "ApplyModifier"
+	      {
+	        "ModifierName"  "modifier_dagger_poison"
+	        "Target"     "TARGET"
+	        "Duration"    "%duration"
+	      }
+	    }
+	    "Modifiers"
+	    {
+	      "modifier_dagger_poison"
+	      {
+	        "Passive"      "0"
+	        "IsHidden"      "0"
+	        "IsDebuff"      "1"
+	    
+	        "EffectName"    "particles/units/heroes/hero_dazzle/dazzle_poison_debuff.vpcf"
+	        "EffectAttachType"  "follow_origin"
+	        "ThinkInterval"  "1.0"
+	        "OnIntervalThink"
+	        {
+	          "Damage"
+	          {
+	            "Target"    "TARGET"
+	            "Type"      "DAMAGE_TYPE_MAGICAL"
+	            "Damage"    "%damage_over_time"
+	          }
+	        }
+	        "Properties"
+	        {
+	          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed_slow"
+	          "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movement_speed_slow" 
+	        }
+	      }
+	    }
+	    "precache"
+	    {
+	      "particle"  "particles/units/heroes/hero_dazzle/dazzle_poison_debuff.vpcf"
+	      "particle"  "particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/phantom_assassin_stifling_dagger_arcana.vpcf"
+	    }
+	  }
+	"warden_silence"
+	  {
+	    // General
+	    //-------------------------------------------------------------------------------------------------------------
+	    "BaseClass"       "ability_datadriven"
+	    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+	    "AOERadius"             "%radius"
+	    "AbilityTextureName"      "drow_ranger_silence"
+	    "AbilityUnitTargetTeam"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	
+	    // Casting
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilityCastPoint"        "0.45"
+	
+	    // Time   
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilityCooldown"       "30"
+	
+	    // Cost
+	    //-------------------------------------------------------------------------------------------------------------
+	      "AbilityManaCost"       "75 75 75 75"
+	      "MaxLevel"              "4"
+	      "LevelBetweenUpgrades"  "3"
+	      "RequiredLevel"         "8"
+	
+	    // Special  
+	    //-------------------------------------------------------------------------------------------------------------
+	      "AbilitySpecial"
+	      {
+	        "01"
+	        {
+	          "var_type"        "FIELD_FLOAT"
+	          "duration"        "4 8 12 16"
+	        }
+	        "02"
+	        {
+	          "var_type"        "FIELD_INTEGER"
+	          "radius"        "200 275 350 425"
+	        }
+	      }
+	
+	   //precache
+	      "precache"
+	      {
+	        "particle"  "particles/units/heroes/hero_silencer/silencer_curse_aoe.vpcf"
+	      }
+	
+	    //SpellStart
+	    "OnSpellStart"
+	    {
+	        "ApplyModifier"
+	        {
+	          "ModifierName" "modifier_silence"
+	          "Duration"  "%duration"
+	          "Target"
+	          {
+	            "Center"    "POINT"
+	            "Radius"   "%radius"
+	            "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	            "Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+	            "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	          }
+	
+	        }
+	        "FireEffect"
+	        {
+	          "EffectName"        "particles/units/heroes/hero_silencer/silencer_curse_aoe.vpcf"
+	          "Target"            "POINT"
+	        }
+	    }
+	    "Modifiers"
+	    {
+	      "modifier_silence"
+	      {
+	        "Passive"      "0"
+	        "IsHidden"      "0"
+	        "IsDebuff"      "1"
+	    
+	        "EffectName"    "particles/generic_gameplay/generic_silence.vpcf"
+	        "EffectAttachType"  "follow_overhead"
+	    
+	        "Properties"
+	        {
+	        }
+	        "States"
+	        {
+	          "MODIFIER_STATE_SILENCED"    "MODIFIER_STATE_VALUE_ENABLED"
+	        }
+	      }
 	    }
 	  }
 	"wave_modifier"

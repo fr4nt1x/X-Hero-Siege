@@ -1,0 +1,52 @@
+"lich_frost_nova_hero"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "lich_frost_nova"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+    "MaxLevel"              "4"
+    "RequiredLevel"        "-1"
+    "LevelBetweenUpgrades"  "3"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.46"
+    "AbilityCooldown"  "10"
+    "AbilityCastRange" "800"
+    "AbilityManaCost"  "125 125 125 125"
+
+    "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityDamage"         "500"
+    "AbilityDuration"       "4.0 4.0 4.0 4.0"
+
+    "AbilitySpecial"
+    {     
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "radius"        "400 400 400 400"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "slow_movement_speed" "-30 -30 -30 -30"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "slow_attack_speed"   "-20 -20 -20 -20"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "aoe_damage"      "250 500 1000 2000"
+      }
+
+    }
+
+    "precache"
+    {
+    }
+  }

@@ -1,0 +1,91 @@
+"warden_silence"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"       "ability_datadriven"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AOERadius"             "%radius"
+    "AbilityTextureName"      "drow_ranger_silence"
+    "AbilityUnitTargetTeam"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"        "0.45"
+
+    // Time   
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"       "30"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+      "AbilityManaCost"       "75 75 75 75"
+      "MaxLevel"              "4"
+      "LevelBetweenUpgrades"  "3"
+      "RequiredLevel"         "8"
+
+    // Special  
+    //-------------------------------------------------------------------------------------------------------------
+      "AbilitySpecial"
+      {
+        "01"
+        {
+          "var_type"        "FIELD_FLOAT"
+          "duration"        "4 8 12 16"
+        }
+        "02"
+        {
+          "var_type"        "FIELD_INTEGER"
+          "radius"        "200 275 350 425"
+        }
+      }
+
+   //precache
+      "precache"
+      {
+        "particle"  "particles/units/heroes/hero_silencer/silencer_curse_aoe.vpcf"
+      }
+
+    //SpellStart
+    "OnSpellStart"
+    {
+        "ApplyModifier"
+        {
+          "ModifierName" "modifier_silence"
+          "Duration"  "%duration"
+          "Target"
+          {
+            "Center"    "POINT"
+            "Radius"   "%radius"
+            "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+            "Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+            "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+          }
+
+        }
+        "FireEffect"
+        {
+          "EffectName"        "particles/units/heroes/hero_silencer/silencer_curse_aoe.vpcf"
+          "Target"            "POINT"
+        }
+    }
+    "Modifiers"
+    {
+      "modifier_silence"
+      {
+        "Passive"      "0"
+        "IsHidden"      "0"
+        "IsDebuff"      "1"
+    
+        "EffectName"    "particles/generic_gameplay/generic_silence.vpcf"
+        "EffectAttachType"  "follow_overhead"
+    
+        "Properties"
+        {
+        }
+        "States"
+        {
+          "MODIFIER_STATE_SILENCED"    "MODIFIER_STATE_VALUE_ENABLED"
+        }
+      }
+    }
+  }

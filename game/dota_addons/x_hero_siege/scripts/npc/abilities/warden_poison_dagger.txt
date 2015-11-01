@@ -1,0 +1,117 @@
+"warden_poison_dagger"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "MaxLevel"              "4"
+    "RequiredLevel"        "-1"
+    "LevelBetweenUpgrades"  "3"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.46"
+    "AbilityCooldown"  "9"
+    "AbilityCastRange" "1000"
+    "AbilityManaCost"  "200 200 200 200"
+    "AbilityTextureName" "phantom_assassin_stifling_dagger"
+    "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "duration"      "15 15 15 15"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "projectile_speed"      "900"
+      }
+      "03"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "damage"      "500 1250 2500 5000"
+      }
+      "04"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "damage_over_time"      "100 250 500 1000"
+      }
+      "05"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "attack_speed_slow"      "-100 -100 -100 -100"
+      }
+       "06"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "movement_speed_slow"      "-50 -50 -50 -50"
+      }
+    }
+
+    "OnSpellStart"
+    { 
+      "TrackingProjectile"
+      {
+        "Target"             "TARGET"
+        "EffectName"    "particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/phantom_assassin_stifling_dagger_arcana.vpcf"
+        "Dodgeable"      "1"
+        "ProvidesVision"  "0"
+        "MoveSpeed"          "%projectile_speed"
+        "SourceAttachment"  "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+      }
+    }
+
+    "OnProjectileHitUnit"
+    {
+      "DeleteOnHit"  "1"
+      "Damage"
+      {
+        "Target"    "TARGET"
+        "Type"      "DAMAGE_TYPE_MAGICAL"
+        "Damage"    "%damage"
+      }
+      "ApplyModifier"
+      {
+        "ModifierName"  "modifier_dagger_poison"
+        "Target"     "TARGET"
+        "Duration"    "%duration"
+      }
+    }
+    "Modifiers"
+    {
+      "modifier_dagger_poison"
+      {
+        "Passive"      "0"
+        "IsHidden"      "0"
+        "IsDebuff"      "1"
+    
+        "EffectName"    "particles/units/heroes/hero_dazzle/dazzle_poison_debuff.vpcf"
+        "EffectAttachType"  "follow_origin"
+        "ThinkInterval"  "1.0"
+        "OnIntervalThink"
+        {
+          "Damage"
+          {
+            "Target"    "TARGET"
+            "Type"      "DAMAGE_TYPE_MAGICAL"
+            "Damage"    "%damage_over_time"
+          }
+        }
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed_slow"
+          "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movement_speed_slow" 
+        }
+      }
+    }
+    "precache"
+    {
+      "particle"  "particles/units/heroes/hero_dazzle/dazzle_poison_debuff.vpcf"
+      "particle"  "particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/phantom_assassin_stifling_dagger_arcana.vpcf"
+    }
+  }

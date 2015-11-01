@@ -178,25 +178,11 @@ function endSpecialArena()
     unit:RemoveModifierByName("modifier_invulnerable")
   end
 
-  local units = FindUnitsInRadius( DOTA_TEAM_GOODGUYS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
-  for _,unit in pairs(units) do
-    if unit:GetPlayerOwner() ~=nil and unit:GetPlayerOwner():GetAssignedHero() ~= nil and unit:IsAlive() then
-      FindClearSpaceForUnit(unit, unit:GetPlayerOwner():GetAssignedHero().old_position_arena  , true)
-    else
-      unit:RemoveSelf()
-    end
-  end
+  local heroes = HeroList:GetAllHeroes()
+  
+  for _,hero in pairs(heroes) do
 
-  for k,v in pairs(GameMode.player_spawn_round_kills) do
-    --FindUnitsInRadius( iTeamNumber, vPosition, hCacheUnit, flRadius, iTeamFilter, iTypeFilter, iFlagFilter, iOrder, bCanGrowCache )
-    local units = FindUnitsInRadius( DOTA_TEAM_NEUTRALS,v["spawn_point"], nil,  500, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
-    for _,unit in pairs(units) do
-      if unit:IsAlive() then
-        unit:RemoveSelf()
-      end
-    end
 
-    local hero = EntIndexToHScript(k)
     if not hero:IsNull() and hero ~= nil then
       if hero:IsAlive() then
         FindClearSpaceForUnit(hero, hero.old_position_arena, true)
@@ -217,7 +203,16 @@ function endSpecialArena()
 
   GameMode.player_spawn_round_kills  = nil
   GameRules:GetGameModeEntity():SetFixedRespawnTime(-1)
- 
+  
+  --FindUnitsInRadius( iTeamNumber, vPosition, hCacheUnit, flRadius, iTeamFilter, iTypeFilter, iFlagFilter, iOrder, bCanGrowCache )
+  for i = 1,8 do
+    units = FindUnitsInRadius( DOTA_TEAM_NEUTRALS,Entities:FindByName(nil,"special_arena_"..i):GetAbsOrigin(), nil,  500, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
+    for _,unit in pairs(units) do
+      if unit:IsAlive() then
+        unit:RemoveSelf()
+      end
+    end
+  end
   return nil
 end
 

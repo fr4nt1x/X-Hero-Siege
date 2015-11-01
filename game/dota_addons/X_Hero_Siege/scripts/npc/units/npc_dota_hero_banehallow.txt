@@ -4,8 +4,8 @@
     "BaseClass"     "npc_dota_creature"
     "Model"						"models/heroes/bane/bane.vmdl"			// Model.
 	"SoundSet"					"Hero_Bane"							// Name of sound set.
-    "ProjectileModel"            "particles/units/heroes/hero_bane/bane_projectile_core.vpcf"
-    "ProjectileSpeed"                   "800"
+    "ProjectileModel"            "particles/units/heroes/hero_bane/bane_projectile.vpcf"
+    "ProjectileSpeed"                   "900"
 	"ConsideredHero"			"1"
 	"Portrait"					"vgui/hud/heroportraits/portrait_bane"
     "ModelScale"                "1.8"

@@ -1,0 +1,81 @@
+"npc_dota_hero_warden"
+{
+
+    "override_hero"     "npc_dota_hero_phantom_assassin"
+    // General
+    //------------------------------------------------------------------------------------------------------------- 
+    "Model"                 "models/heroes/phantom_assassin/phantom_assassin.mdl"       // Model.
+    "Portrait"              "vgui/hud/heroportraits/portrait_phantom_assassin"      // Small image for hero selection
+    "IdleExpression"            "scenes/phantom_assassin/phantom_assassin_exp_idle_01.vcd"      // custom facial animation idle
+    "SoundSet"              "Hero_PhantomAssassin"                                  // Name of sound set.
+    "ModelScale"                ".90"
+
+    "ModelScale"                    ".86"
+    "LoadoutScale"          ".93"
+    "HeroGlowColor"             "154 97 133"
+    "PickSound"                 "phantom_assassin_phass_spawn_01"
+    "BanSound"                  "phantom_assassin_phass_anger_08"
+    "NameAliases"           "pa"
+    
+    "url"           "Warden"
+
+    "HeroSelectSoundEffect"     "Hero_PhantomAssassin.Pick"
+    "AbilityLayout"     "6"
+
+    "Ability1"        "warden_poison_dagger"
+    "Ability2"        "warden_flurry_of_knives" 
+    "Ability3"        "warden_silence"
+    "Ability4"        ""
+    "Ability5"        ""
+    "Ability6"        ""
+    "Ability7"        ""
+    "Ability8"        ""
+    "Ability9"        ""
+    "Ability10"       ""
+    "Ability11"       ""
+    "Ability12"       ""
+    "Ability13"       ""
+    "Ability14"       ""
+    "Ability15"       ""
+    "Ability16"       ""
+
+    "ArmorPhysical"       "0"                 // Physical protection.
+    "MagicalResistance"       "0"                 // Magical protection (percentage).
+
+    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+    "AttackDamageMin"     "40"                   // Damage range min.
+    "AttackDamageMax"     "66"                   // Damage range max.
+    "AttackRate"                "1.95"                                  // Speed of attack.
+    "AttackAnimationPoint"      "0.3"                                   // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"    "600"                                   // Range within a target can be acquired.
+    "AttackRange"               "135"                                   // Range within a target can be attacked.
+    "ProjectileModel"           ""                                     // Particle system model for projectile.
+    "ProjectileSpeed"           ""                                     // Speed of projectile.
+    
+    "AttributePrimary"      "DOTA_ATTRIBUTE_AGILITY"
+    "AttributeBaseStrength"   "29"                   // Base strength
+    "AttributeStrengthGain"   "2.4"                   // Strength bonus per level.
+    "AttributeBaseIntelligence" "26"                   // Base intelligence
+    "AttributeIntelligenceGain" "2.1"                   // Intelligence bonus per level.
+    "AttributeBaseAgility"    "32"                   // Base agility
+    "AttributeAgilityGain"    "2.7"                   // Agility bonus per level.
+
+    "BountyXP"          "0"                 // Experience earn.
+    "BountyGoldMin"       "0"                   // Gold earned min.
+    "BountyGoldMax"       "0"                   // Gold earned max.
+
+    //"BoundsHullName"      "DOTA_HULL_SIZE_HERO"
+    //"RingRadius"        "70"
+
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+    "MovementSpeed"       "315"                 // Speed.
+    "MovementTurnRate"      "0.5"                 // Turning rate.
+
+    "StatusHealth"        "350"                 // Base health.
+    "StatusHealthRegen"     "1"                 // Health regeneration rate.
+    "StatusMana"        "0"                   // Base mana.
+    "StatusManaRegen"     "0.01"                 // Mana regeneration rate.
+
+    "VisionDaytimeRange"    "1200"                  // Range of vision at night time.
+    "VisionNighttimeRange"    "1000"                  // Range of vision at night time.
+}

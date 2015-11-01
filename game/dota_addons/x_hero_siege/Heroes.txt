@@ -1,8 +1,10 @@
 
 HEROS:
 
+############################################################################################
 IMPLEMENTED:
-	
+############################################################################################
+
 	Naisha
 
 	Demonhunter
@@ -11,15 +13,23 @@ IMPLEMENTED:
 
 	Crypt Lord 				BURROW IMPALE mächtiger
 
-	Tyrande (Dryad)
+	Tyrande (Dryad)			ZAUBER IMMUNITÄT
 
 ############################################################################################
-
+IN WORKING PROGRESS
+############################################################################################
+	
+	Warden (PA)
+	
+	Lich   													FROST CHAOS
+	
+############################################################################################
 NOT IMPLEMENTED:
+############################################################################################
 	
 	Paladin 												LIGHT FRENZY
 
-	Warden (PA)
+
 
 	Archmage												WATER SHIELD
 
@@ -33,7 +43,7 @@ NOT IMPLEMENTED:
 
 	Shadow hunter (shaman)									HEX NEUTRAL FEINDLICH
 
-	Lich   													FROST CHAOS
+
 
 	DreadLord
 

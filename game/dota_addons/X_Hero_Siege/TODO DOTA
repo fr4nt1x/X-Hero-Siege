@@ -17,9 +17,11 @@ maybe rewrite the arena event to save everything in a list with nubmer as key, a
 maybe make blink a blink dagger baseclass, so that you can prevent blink
 
 beast event getting finsihed without killing
-asd
 
+Remove leaving player's hero or just kill him and don't let him respawn
 
+Frost breath schauen
 
+roshan event and blink
 
-
+implement counters

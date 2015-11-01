@@ -438,7 +438,7 @@ function GameMode:OnPlayerChat(keys)
   
   if text ~= nil and text == "bt" then
     local hero = PlayerResource:GetPlayer(playerID):GetAssignedHero()
-    if GameMode.player_spawn_round_kills ~= nil then
+    if hero.old_position_arena ~= nil then
       Notifications:Top(hero:GetPlayerOwnerID(), {text="Buy Tomes is not working during this special_event!", duration=5, style={color="red"}, continue=true})
       return nil
     end

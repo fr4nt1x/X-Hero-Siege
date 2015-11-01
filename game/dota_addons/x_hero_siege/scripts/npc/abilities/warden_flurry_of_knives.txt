@@ -1,0 +1,70 @@
+"warden_flurry_of_knives"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"       "ability_datadriven"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET  | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AOERadius"             "%radius"
+    "AbilityTextureName"      "bristleback_quill_spray"
+    "AbilityUnitTargetTeam"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"        "0.45"
+
+    // Time   
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"       "7"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+      "AbilityManaCost"       "50 100 150 200"
+      "MaxLevel"              "4"
+      "LevelBetweenUpgrades"  "3"
+      "RequiredLevel"         "-1"
+
+    // Special  
+    //-------------------------------------------------------------------------------------------------------------
+      "AbilitySpecial"
+      {
+        "01"
+        {
+          "var_type"        "FIELD_INTEGER"
+          "damage"        "250 500 750 1000"
+        }
+        "02"
+        {
+          "var_type"        "FIELD_INTEGER"
+          "radius"        "400 500 600 700"
+        }
+      }
+
+   //precache
+      "precache"
+      {
+        "particle"  "particles/econ/items/bristleback/bristle_spikey_spray/bristle_spikey_quill_spray.vpcf"
+      }
+
+    //SpellStart
+    "OnSpellStart"
+    {
+        "Damage"
+        {
+          "Damage" "%damage"
+          "Type"  "DAMAGE_TYPE_MAGICAL"
+          "Target"
+          {
+            "Center"    "CASTER"
+            "Radius"   "%radius"
+            "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+            "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+          }
+        }
+        "FireEffect"
+        {
+          "EffectName"        "particles/econ/items/bristleback/bristle_spikey_spray/bristle_spikey_quill_spray.vpcf"
+          "EffectAttachType"  "follow_origin"
+          "Target"            "CASTER"
+        }
+    }
+  }

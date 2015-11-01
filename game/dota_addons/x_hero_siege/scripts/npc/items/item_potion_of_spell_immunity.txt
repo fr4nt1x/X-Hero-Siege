@@ -3,7 +3,7 @@
 {
     	"ID"           "1115"
     	"BaseClass"    "item_datadriven"
-    	"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_IMMEDIATE" 
+    	"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_ITEM" 
     	"Model"        "models/props_gameplay/salve.vmdl" 
     	"Effect"       "particles/generic_gameplay/dropped_item.vpcf"
     	"ItemCost"     "500"
