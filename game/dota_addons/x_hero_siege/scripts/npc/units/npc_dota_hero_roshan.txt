@@ -31,8 +31,8 @@
     "MagicalResistance"       "0"                 // Magical protection (percentage).
 
     "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
-    "AttackDamageMin"     "10002"                   // Damage range min.
-    "AttackDamageMax"     "10012"                   // Damage range max.
+    "AttackDamageMin"     "20002"                   // Damage range min.
+    "AttackDamageMax"     "20012"                   // Damage range max.
     "AttackRate"                "1.5"                                  // Speed of attack.
     "AttackAnimationPoint"      "0.5"                                   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"    "300"                                   // Range within a target can be acquired.

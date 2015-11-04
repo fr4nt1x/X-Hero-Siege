@@ -2455,11 +2455,6 @@
 	    //OnToogleOn
 	     "OnToggleOn"
 	      {
-	        "FireSound"
-	        {
-	          "EffectName"    "Hero_LoneDruid.TrueForm.Cast"
-	          "Target"      "CASTER"
-	        }
 	
 	        "FireEffect"
 	        {
@@ -2484,11 +2479,6 @@
 	
 	      "OnToggleOff"
 	      {
-	        "FireSound"
-	        {
-	          "EffectName"    "Hero_LoneDruid.TrueForm.Cast"
-	          "Target"      "CASTER"
-	        }
 	
 	        "FireEffect"
 	        {
@@ -3421,6 +3411,106 @@
 	      }
 	    }
 	  }
+	"lich_frost_arrows"
+	{
+	    // General
+	    //-------------------------------------------------------------------------------------
+	    "BaseClass" "ability_datadriven"
+	    "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+	    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	    "MaxLevel"              "4"
+	    "RequiredLevel"        "-1"
+	    "LevelsBetweenUpgrades"  "3"
+	    // Stats
+	    //-------------------------------------------------------------------------------------
+	    "AbilityCastRange"  "500"
+	    "AbilityManaCost"   "10"
+	    "AbilityTextureName" "drow_ranger_frost_arrows"
+	    "precache"
+	    {
+	        "particle"  "particles/units/heroes/hero_drow/drow_frost_arrow.vpcf"
+	    }
+	
+	    // Special
+	    //-------------------------------------------------------------------------------------
+	    "AbilitySpecial"
+	    { 
+	        "01"
+	        {
+	            "var_type"  "FIELD_INTEGER"
+	            "bonus_damage"  "250 500 750 1000"
+	        }
+	        "02"
+	        {
+	            "var_type"  "FIELD_FLOAT"
+	            "duration"  "1.5 1.5 1.5 1.5"
+	        }
+	        "03"
+	        {
+	            "var_type"  "FIELD_INTEGER"
+	            "slow_movement"  "-40 -50 -60 -70"
+	        }
+	        "04"
+	        {
+	            "var_type"  "FIELD_INTEGER"
+	            "slow_attack_speed"  "-30 -40 -50 -60"
+	        }
+	    }
+	
+	    // Data Driven
+	    //-------------------------------------------------------------------------------------
+	    "Modifiers"
+	    { 
+	        "modifier_orb"
+	        {
+	            "Passive"   "1"
+	            "IsHidden"  "1"
+	            "Orb"
+	            {
+	                "Priority"  "DOTA_ORB_PRIORITY_ABILITY"
+	                "ProjectileName" "particles/units/heroes/hero_drow/drow_frost_arrow.vpcf"
+	                "CastAttack"    "1" //This ensures the effect doesn't fire every time
+	            }
+	
+	            "OnOrbFire"
+	            {
+	                "SpendMana"
+	                {
+	                    "Mana" "%AbilityManaCost"
+	                }
+	            }
+	
+	            "OnOrbImpact"
+	            {
+	                "ApplyModifier"
+	                {
+	                    "ModifierName"  "modifier_frost_arrow"
+	                    "Target"    "TARGET"
+	                    "Duration"  "%duration"
+	                }
+	
+	               "Damage"
+	               {
+	                   "Type" "DAMAGE_TYPE_PHYSICAL"
+	                   "Damage" "%bonus_damage"
+	                   "Target" "TARGET"
+	               }
+	          }
+	        }
+	        "modifier_frost_arrow"
+	        {
+	            "Passive"   "0"
+	            "IsDebuff"  "1"
+	
+	            "Properties"
+	            {
+	                "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%slow_attack_speed"
+	                "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow_movement" 
+	            }
+	        }
+	    }
+	}    
 	"lich_frost_breath"
 		{
 		// General
@@ -3433,31 +3523,32 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"dragon_knight_breathe_fire"
+		"AbilityTextureName"			"jakiro_dual_breath"
+		"MaxLevel"              "4"
+	    "RequiredLevel"        "-1"
+	    "LevelsBetweenUpgrades"  "3"
 	
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts"
 			"particle"  "particles/units/heroes/hero_jakiro/jakiro_dual_breath_ice.vpcf"
 			"particle"  "particles/units/heroes/hero_invoker/invoker_ice_wall_debuff_frost.vpcf"
-			"particle"  "particles/units/heroes/hero_dragon_knight/dragon_knight_breathe_fire.vpcf"
 		}
 	
 	
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"500"
-		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+		"AbilityCastRange"				"%range"
+		"AbilityCastPoint"				"0.4 0.4 0.4 0.4"
 	
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12.0 12.0 12.0 12.0"
+		"AbilityCooldown"				"20.0 20.0 20.0 20.0"
 		
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"90 170 240 300"
+		"AbilityDamage"					"250 500 1000 2000"
 		
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -3470,17 +3561,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"start_radius"			"150 150 150 150"
+				"start_radius"			"150 200 250 300"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"end_radius"			"250 250 250 250"
+				"end_radius"			"150 200 250 300"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"range"					"650 650 650 650"
+				"range"					"650 700 750 800"
 			}
 			"04"
 			{
@@ -3495,7 +3586,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_per_second"					"100 200 400 800"
+				"damage_per_second"					"50 100 200 400"
 			}		
 		}
 		
@@ -3515,11 +3606,6 @@
 				"TargetFlags" "DOTA_UNIT_TARGET_FLAG_NONE"
 				"HasFrontalCone" "1"
 				"ProvidesVision" "0"
-			}
-			"FireSound"
-			{
-				"EffectName" "Hero_DragonKnight.BreathFire"
-				"Target" "CASTER"
 			}
 		}
 			"OnProjectileHitUnit"
@@ -3562,6 +3648,93 @@
 				}
 			}
 		}
+	"lich_frost_frenzy"
+	  {
+	    // General
+	    //-------------------------------------------------------------------------------------
+	    "BaseClass" "ability_datadriven"
+	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+	    "MaxLevel"              "1"
+	    "RequiredLevel"        "-1"
+	
+	    // Stats
+	    //-------------------------------------------------------------------------------------
+	    "AbilityCastPoint" "0.5"
+	    "AbilityCooldown"  "5"
+	    "AbilityManaCost"  "100"
+	    "AbilityTextureName" "lich_dark_ritual"
+	
+	    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	    "SpellImmunityType"       "SPELL_IMMUNITY_ALLIES_YES"
+	
+	    // Special
+	    //-------------------------------------------------------------------------------------
+	    "AbilitySpecial"
+	    {
+	        "01"
+	        {
+	          "var_type" "FIELD_INTEGER"
+	          "bonus_attack_speed" "75"
+	        }
+	        "02"
+	        {
+	          "var_type" "FIELD_FLOAT"
+	          "duration" "45"
+	        }
+	        "03"
+	        {
+	          "var_type" "FIELD_FLOAT"
+	          "damage_per_second" "10"
+	        }
+	    }
+	
+	    "precache"
+	    {
+	
+	       "particle" "particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodrage_eztzhok.vpcf"
+	    }
+	
+	    // Data Driven
+	    //-------------------------------------------------------------------------------------
+	    "OnSpellStart"
+	    {
+	        "ApplyModifier"
+	        {
+	            "ModifierName" "modifier_frost_frenzy"
+	            "Target"  "TARGET"
+	        }
+	    }
+	
+	    "Modifiers"
+	    {
+	      "modifier_frost_frenzy"
+	      {
+	
+	        "IsBuff" "1"
+	        "IsHidden" "0"
+	        "Passive" "0"
+	        "IsPurgable" "1"
+	        "Duration" "%duration"
+	        "EffectName" "particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodrage_eztzhok.vpcf"
+	        "EffectAttachType" "follow_origin"
+	        "ThinkInterval" "1"
+	        "OnIntervalThink"
+	        {
+	          "Damage"
+	          {
+	            "Target"    "TARGET"
+	            "Type"      "DAMAGE_TYPE_PURE"
+	            "Damage"    "%damage_per_second"
+	          }
+	        }
+	        "Properties"
+	        {
+	          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attack_speed"
+	        }
+	      }
+	    }    
+	  }
 	"lich_frost_nova_hero"
 	  {
 	    // General
@@ -3570,7 +3743,7 @@
 	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
 	    "MaxLevel"              "4"
 	    "RequiredLevel"        "-1"
-	    "LevelBetweenUpgrades"  "3"
+	    "LevelsBetweenUpgrades"  "3"
 	
 	    // Stats
 	    //-------------------------------------------------------------------------------------
@@ -3614,6 +3787,111 @@
 	    {
 	    }
 	  }
+	"lich_frost_shield"
+	  {
+	    // General
+	    //-------------------------------------------------------------------------------------
+	    "BaseClass" "lich_frost_armor"
+	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+	    "MaxLevel"              "4"
+	    "RequiredLevel"        "8"
+	    "LevelBetweenUpgrades"  "3"
+	
+	    // Stats
+	    //-------------------------------------------------------------------------------------
+	    "AbilityCastPoint" "0.46"
+	    "AbilityCooldown"  "10"
+	    "AbilityCastRange" "800"
+	    "AbilityManaCost"  "40 80 160 320"
+	
+	    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL | DOTA_UNIT_TARGET_BUILDING"
+	    "SpellImmunityType"       "SPELL_IMMUNITY_ALLIES_YES"
+	
+	    "AbilityDuration"       "45 60 75 90"
+	
+	    "AbilitySpecial"
+	    {
+	      "01"
+	      {
+	        "var_type"        "FIELD_INTEGER"
+	        "armor_bonus"     "25 50 100 200"
+	      }     
+	      "02"
+	      {
+	        "var_type"        "FIELD_INTEGER"
+	        "slow_movement_speed" "-30 -30 -30 -30"
+	      }
+	      "03"
+	      {
+	        "var_type"        "FIELD_INTEGER"
+	        "slow_attack_speed"   "-20 -20 -20 -20"
+	      }
+	      "04"
+	      {
+	        "var_type"        "FIELD_FLOAT"
+	        "slow_duration"     "5.0 5.0 5.0 5.0"
+	      }
+	    }
+	
+	    "precache"
+	    {
+	    }
+	  }
+	"lich_summon_frost_beast"
+	  {
+	    // General
+	    //-------------------------------------------------------------------------------------
+	    "BaseClass" "ability_datadriven"
+	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	    "MaxLevel"              "2"
+	    "RequiredLevel"        "10"
+	    "LevelBetweenUpgrades"  "5"
+	
+	    // Stats
+	    //-------------------------------------------------------------------------------------
+	    "AbilityCastPoint" "0.5"
+	    "AbilityCooldown"  "121"
+	    "AbilityManaCost"  "500 500"
+	    "AbilityTextureName" "lich_chain_frost"
+	
+	
+	    // Special
+	    //-------------------------------------------------------------------------------------
+	    "AbilitySpecial"
+	    {
+	      "01"
+	        {
+	          "var_type" "FIELD_FLOAT"
+	          "duration" "120 120"
+	        }
+	      "02"
+	        {
+	          "var_type" "FIELD_INTEGER"
+	          "units" "1 2"
+	        }
+	    }
+	
+	    "precache"
+	    {
+	    }
+	
+	    // Data Driven
+	    //-------------------------------------------------------------------------------------
+	    "OnSpellStart"
+	    {
+	        "SpawnUnit"
+	        {
+	          "Target" "CASTER"
+	          "Duration" "%duration"
+	          "UnitName"    "npc_lich_frost_infernal"
+	          "UnitCount"    "%units"
+	          "GrantsGold"  "1"
+	          "GrantsXP"    "1"
+	          "SpawnRadius"  "50"
+	        }
+	    }
+	  }
 	"luna_command_aura"
 	  {
 	    // General
@@ -3621,7 +3899,7 @@
 	    "BaseClass" "ability_datadriven"
 	    "AbilityBehavior"  "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
 	    "MaxLevel"             "4"
-	    "RequiredLevel"        "3"
+	    "RequiredLevel"        "8"
 	    "LevelsBetweenUpgrades" "3"
 	
 	    // Stats
@@ -3935,8 +4213,8 @@
 			"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 			"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 			"MaxLevel" "4"	
-			"RequiredLevel" "8"
-			"LevelsBetweenUpgrades" "2"
+			"RequiredLevel" "-1"
+			"LevelsBetweenUpgrades" "3"
 			
 			// Casting
 			//-------------------------------------------------------------------------------------------------------------
@@ -4965,7 +5243,7 @@
 	      "01"
 	      {
 	        "var_type"      "FIELD_FLOAT"
-	        "bonus_evasion"      "1"
+	        "bonus_evasion"      "10"
 	      }
 	    }
 	    "Modifiers"
@@ -5672,6 +5950,7 @@
 	          "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL" "1"
 	          "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL"  "1"
 	          "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE"     "1"
+	          "MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_PURE"  "10000"
 	        }
 	      }
 	    }
@@ -6186,7 +6465,7 @@
 	    "AOERadius"             "300"
 	    "AbilityTextureName"      "centaur_hoof_stomp"
 	    "AbilityUnitTargetTeam"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
-	    "AbilityDamage"           "800"
+	    "AbilityDamage"           "600"
 	    // Casting
 	    //-------------------------------------------------------------------------------------------------------------
 	    "AbilityCastPoint"        "0.6"

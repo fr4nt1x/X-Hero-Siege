@@ -55,11 +55,6 @@
     //OnToogleOn
      "OnToggleOn"
       {
-        "FireSound"
-        {
-          "EffectName"    "Hero_LoneDruid.TrueForm.Cast"
-          "Target"      "CASTER"
-        }
 
         "FireEffect"
         {
@@ -84,11 +79,6 @@
 
       "OnToggleOff"
       {
-        "FireSound"
-        {
-          "EffectName"    "Hero_LoneDruid.TrueForm.Cast"
-          "Target"      "CASTER"
-        }
 
         "FireEffect"
         {

@@ -1,0 +1,87 @@
+"lich_frost_frenzy"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "-1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.5"
+    "AbilityCooldown"  "5"
+    "AbilityManaCost"  "100"
+    "AbilityTextureName" "lich_dark_ritual"
+
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"       "SPELL_IMMUNITY_ALLIES_YES"
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+        "01"
+        {
+          "var_type" "FIELD_INTEGER"
+          "bonus_attack_speed" "75"
+        }
+        "02"
+        {
+          "var_type" "FIELD_FLOAT"
+          "duration" "45"
+        }
+        "03"
+        {
+          "var_type" "FIELD_FLOAT"
+          "damage_per_second" "10"
+        }
+    }
+
+    "precache"
+    {
+
+       "particle" "particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodrage_eztzhok.vpcf"
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+        "ApplyModifier"
+        {
+            "ModifierName" "modifier_frost_frenzy"
+            "Target"  "TARGET"
+        }
+    }
+
+    "Modifiers"
+    {
+      "modifier_frost_frenzy"
+      {
+
+        "IsBuff" "1"
+        "IsHidden" "0"
+        "Passive" "0"
+        "IsPurgable" "1"
+        "Duration" "%duration"
+        "EffectName" "particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodrage_eztzhok.vpcf"
+        "EffectAttachType" "follow_origin"
+        "ThinkInterval" "1"
+        "OnIntervalThink"
+        {
+          "Damage"
+          {
+            "Target"    "TARGET"
+            "Type"      "DAMAGE_TYPE_PURE"
+            "Damage"    "%damage_per_second"
+          }
+        }
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attack_speed"
+        }
+      }
+    }    
+  }

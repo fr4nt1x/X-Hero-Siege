@@ -12,5 +12,5 @@
 	"npc_dota_hero_luna" "-1"
 	"npc_dota_hero_mirana" "-1"
 	"npc_dota_hero_lich" "-1"
-	"npc_dota_hero_phantom_assassin" "-1"
+	//"npc_dota_hero_phantom_assassin" "-1"
 }

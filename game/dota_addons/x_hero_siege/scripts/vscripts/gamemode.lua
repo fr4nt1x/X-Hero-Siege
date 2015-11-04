@@ -38,7 +38,8 @@ AbilitiesHeroes = {npc_dota_hero_antimage = "demonhunter_roar",
                    npc_dota_hero_nyx_assassin = "crypt_lord_anubarak_claw",
                     npc_dota_hero_enchantress = "dryad_poison_weapons",
                     npc_dota_hero_luna = "luna_moon_glaive",
-                    npc_dota_hero_mirana = "moon_priest_rejunivation"}
+                    npc_dota_hero_mirana = "moon_priest_rejunivation",
+                    npc_dota_hero_lich = "lich_frost_frenzy"}
 --[[
   This function should be used to set up Async precache calls at the beginning of the gameplay.
 
@@ -108,7 +109,6 @@ function GameMode:OnHeroInGame(hero)
   local number_players = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
   
   hero:SetGold(500, false)
-
 
   --local item = CreateItem("item_tome_big", hero, hero)
   --hero:AddItem(item)
@@ -193,6 +193,7 @@ function GameMode:OnGameInProgress()
   timer_wave_message = Timers:CreateTimer(TimeBetweenWaves - 30,SendWaveMessage)
   timer_arena_message = Timers:CreateTimer(TimeSpecialArena - 30,SendSpecialArenaMessage)
   timer_event_roshan = Timers:CreateTimer(SpecialEventRoshan,specialEventRoshan)
+  Timers:CreateTimer(30,printEvents)
   GameMode.FrostInfernalDead = false
   GameMode.SpiritBeastDead = false
 end

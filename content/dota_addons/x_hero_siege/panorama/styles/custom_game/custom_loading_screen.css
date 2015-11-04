@@ -53,8 +53,10 @@
 #gamemode
 {
   margin-left: 160px;
+  width: 700px;
+  height: 700px;
   /*margin-bottom: 0px;*/
-  
+
 }
 
 @keyframes 'gamemode_anim'

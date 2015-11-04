@@ -251,9 +251,9 @@
 	
 	    "Ability1"        "lich_frost_nova_hero"
 	    "Ability2"        "lich_frost_breath" 
-	    "Ability3"        ""
-	    "Ability4"        ""
-	    "Ability5"        ""
+	    "Ability3"        "lich_frost_arrows"
+	    "Ability4"        "lich_frost_shield"
+	    "Ability5"        "lich_summon_frost_beast"
 	    "Ability6"        ""
 	    "Ability7"        ""
 	    "Ability8"        ""

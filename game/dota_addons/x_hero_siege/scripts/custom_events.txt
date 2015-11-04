@@ -38,4 +38,11 @@
 	{
 		"hero_index"					"short"
 	}
+
+	"last_hits"
+	{
+		"creepkills"					"short"
+		"playerid"						"playerid"
+		"wavekills"						"short"
+	}
 }

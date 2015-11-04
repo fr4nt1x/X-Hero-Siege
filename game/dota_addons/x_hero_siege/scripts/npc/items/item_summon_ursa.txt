@@ -19,7 +19,7 @@
 
     "ItemShopTags"					"consumable"
 	"ItemQuality"					"consumable"
-    
+     
     "ItemStackable" "0"
     "ItemInitialCharges"			"3"
     "ItemPermanent" "0"

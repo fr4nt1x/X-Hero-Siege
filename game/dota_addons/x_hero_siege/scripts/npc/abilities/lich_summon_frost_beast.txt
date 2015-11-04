@@ -1,0 +1,54 @@
+"lich_summon_frost_beast"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "MaxLevel"              "2"
+    "RequiredLevel"        "10"
+    "LevelBetweenUpgrades"  "5"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.5"
+    "AbilityCooldown"  "121"
+    "AbilityManaCost"  "500 500"
+    "AbilityTextureName" "lich_chain_frost"
+
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+        {
+          "var_type" "FIELD_FLOAT"
+          "duration" "120 120"
+        }
+      "02"
+        {
+          "var_type" "FIELD_INTEGER"
+          "units" "1 2"
+        }
+    }
+
+    "precache"
+    {
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+        "SpawnUnit"
+        {
+          "Target" "CASTER"
+          "Duration" "%duration"
+          "UnitName"    "npc_lich_frost_infernal"
+          "UnitCount"    "%units"
+          "GrantsGold"  "1"
+          "GrantsXP"    "1"
+          "SpawnRadius"  "50"
+        }
+    }
+  }

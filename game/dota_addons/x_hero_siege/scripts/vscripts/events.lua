@@ -4,6 +4,8 @@
 require('libraries/notifications')
 require('libraries/spawncreeps')
 require('libraries/special_events')
+require('libraries/tools')
+
 
 -- Cleanup a player when they leave
 function GameMode:OnDisconnect(keys)
@@ -77,7 +79,7 @@ end
 -- state as necessary
 function GameMode:OnPlayerReconnect(keys)
   DebugPrint( '[BAREBONES] OnPlayerReconnect' )
-  DebugPrintTable(keys) 
+  DebugPrintTable(keys)
 end
 
 -- An item was purchased by a player
@@ -154,7 +156,6 @@ function GameMode:OnPlayerLevelUp(keys)
   else
     return nil
   end
-  print(level)
   if level >= 19 then
     hero:SetAbilityPoints(hero:GetAbilityPoints()-1) 
   end
@@ -173,6 +174,7 @@ function GameMode:OnLastHit(keys)
   if player == nil or isTowerKill then
     return nil
   end
+  
   local hero = player:GetAssignedHero()
 
   if not killedEnt:HasModifier("modifier_arena_kill") then
@@ -421,7 +423,6 @@ function GameMode:OnPlayerChat(keys)
         if lane == text then
           local i,j = string.find(lane,"%d")
           lane = tonumber(string.sub(lane,i,j))
-          print(lane)
           if lane <= 8 then
             GameMode.openLanes["spawn"..lane] = nil
             local towers = Entities:FindAllByName("tower_p"..lane)
@@ -435,7 +436,42 @@ function GameMode:OnPlayerChat(keys)
         break
       end
   end
-  
+  if text ~= nil and text == "info_kills" then
+
+    local msg = ""
+    local heroes = HeroList:GetAllHeroes()
+    for _,hero in pairs(heroes) do
+
+      if hero:GetPlayerOwnerID() ~= nil and hero:GetTeam() == DOTA_TEAM_GOODGUYS then
+        
+        msg = "<u>"..PlayerResource:GetPlayerName(hero:GetPlayerOwnerID()).."</u>".." has "..'<font color="#ff0000">'..hero.creep_kills.."</font>".." creepkills and "..'<font color="#ff0000">'..hero.wave_kills.."</font>".." wavekills <br>" 
+        GameRules:SendCustomMessage(msg, DOTA_TEAM_GOODGUYS, 1) 
+      end
+    end
+  end
+
+  if text ~= nil and text == "info_events" then
+    local msg = ""
+    if Timers.timers[timer_wave_spawn] ~= nil then
+      local time = sec2Min(math.floor(Timers.timers[timer_wave_spawn].endTime-GameRules:GetGameTime()))
+
+      msg = "Next wave incoming in "..time.."."
+      GameRules:SendCustomMessage(msg, DOTA_TEAM_GOODGUYS, 1) 
+    end
+    if Timers.timers[timer_event_roshan] ~= nil then
+      local time = sec2Min(math.floor(Timers.timers[timer_event_roshan].endTime-GameRules:GetGameTime()))
+
+      msg = "Special Event Roshan starting in "..time.."."
+      GameRules:SendCustomMessage(msg, DOTA_TEAM_GOODGUYS, 1) 
+    end
+    if Timers.timers[timer_special_arena] ~= nil then
+      local time = sec2Min(math.floor(Timers.timers[timer_special_arena].endTime-GameRules:GetGameTime()))
+
+      msg = "Special Arena starting in "..time.."."
+      GameRules:SendCustomMessage(msg, DOTA_TEAM_GOODGUYS, 1) 
+    end
+  end
+
   if text ~= nil and text == "bt" then
     local hero = PlayerResource:GetPlayer(playerID):GetAssignedHero()
     if hero.old_position_arena ~= nil then

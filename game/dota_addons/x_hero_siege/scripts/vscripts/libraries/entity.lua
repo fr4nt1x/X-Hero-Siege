@@ -25,7 +25,7 @@ function killed_baracks( keys )
 		openlanes = openlanes+1
 	end
 	--if there all the baracks of openlanes were killed start the countdown to the final wave
-	print(openlanes)
+
 	if  openlanes == 0 then
 		print("secondphase")
 		
@@ -146,14 +146,15 @@ function teleport_to_top(keys)
   		local proudmoore = CreateUnitByName("npc_dota_hero_proudmoore",Entities:FindByName(nil,"spawn_proudmoore"):GetAbsOrigin(),true,nil,nil,DOTA_TEAM_NEUTRALS)
   		proudmoore:SetAngles(0, 180, 0)
 
-	  	ankh:SetCurrentCharges(PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)+2)
+	  	ankh:SetCurrentCharges(PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS))
 	  	magtheridon:AddItem(ankh)
 
 	  	magtheridon:AddNewModifier(nil, nil, "modifier_stunned",nil)
     	magtheridon:AddNewModifier(nil, nil, "modifier_invulnerable",nil)
     	Timers:CreateTimer(10,StartMagtheridonFight)
+
 	  	for _,hero in pairs(heroes) do
-	  		if hero:GetTeam() == DOTA_TEAM_GOODGUYS then
+	  		if hero.disconnected ~= true and hero:GetTeam() == DOTA_TEAM_GOODGUYS then
 	  			FindClearSpaceForUnit(hero, point, true)
 	       		hero:AddNewModifier(nil, nil, "modifier_stunned",nil)
 	        	hero:AddNewModifier(nil, nil, "modifier_invulnerable",nil)
@@ -177,7 +178,7 @@ function StartMagtheridonFight()
   magtheridon = nil
 
   for _,hero in pairs(heroes) do
-	  if hero:GetTeam() == DOTA_TEAM_GOODGUYS then
+	  if hero.disconnected ~= true and hero:GetTeam() == DOTA_TEAM_GOODGUYS then
 	    PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),nil)
 	    hero:RemoveModifierByName("modifier_stunned")
 	    hero:RemoveModifierByName("modifier_invulnerable")
@@ -200,9 +201,8 @@ function start_top_waves( event )
 	local heroes = HeroList:GetAllHeroes()
 	local caller = event.caller
 	local point = Entities:FindByName(nil,"point_teleport_waves_top"):GetAbsOrigin()
-	print("start_top_waves")
 	for _,hero in pairs(heroes) do
-	  	if hero:GetTeam() == DOTA_TEAM_GOODGUYS then
+	  	if hero.disconnected ~= true and hero:GetTeam() == DOTA_TEAM_GOODGUYS then
 	  		FindClearSpaceForUnit(hero, point, true)
 	  		hero:AddNewModifier(nil, nil, "modifier_stunned",nil)
 	       	hero:AddNewModifier(nil, nil, "modifier_invulnerable",nil)	
@@ -218,9 +218,8 @@ function start_top_waves_second( event )
 	local heroes = HeroList:GetAllHeroes()
 	local caller = event.caller
 	local point = Entities:FindByName(nil,"point_teleport_waves_top"):GetAbsOrigin()
-	print("start_top_waves_second")
 	for _,hero in pairs(heroes) do
-	  	if hero:GetTeam() == DOTA_TEAM_GOODGUYS then
+	  	if hero.disconnected ~= true and hero:GetTeam() == DOTA_TEAM_GOODGUYS then
 	  		FindClearSpaceForUnit(hero, point, true)
 	  		hero:AddNewModifier(nil, nil, "modifier_stunned",nil)
 	       	hero:AddNewModifier(nil, nil, "modifier_invulnerable",nil)	

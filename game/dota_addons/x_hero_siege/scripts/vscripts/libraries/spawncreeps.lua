@@ -28,10 +28,10 @@ creep_kills_for_gold = 700
 creep_kills_for_event = 1600
 wave_kills_for_event = 60 
 wave = 0
-TimeBetweenWaves = 5*60
+TimeBetweenWaves = 4*60
 TimeBetweenCreepWavesTop = 7
 numberOfTopWaves = 0
-SpecialArenaDuration =2*60
+SpecialArenaDuration = 2*60
 SpecialEventKillsDuration = 2*60
 SpecialEventWaveKillsDuration = 2*60
 SpecialEventFrostInfernalDuration = 2*60
@@ -70,6 +70,7 @@ function SpawnCreeps()
         for j = 1,creeps_per_wave do
         Timers:CreateTimer(function()
           local unit = CreateUnitByName(creepsToSpawn[(creepround % 4)+1][i], point+RandomVector(RandomInt(0, 50)), true, nil, nil, DOTA_TEAM_NEUTRALS)
+          unit:SetMustReachEachGoalEntity(true)
           unit:SetInitialGoalEntity(waypoint)
         end) 
         end
@@ -80,6 +81,7 @@ function SpawnCreeps()
         Timers:CreateTimer(function()
           local unit = CreateUnitByName(creepsToSpawn[(creepround % 4)+1][i], point+RandomVector(RandomInt(0, 50)), true, nil, nil, DOTA_TEAM_NEUTRALS)
           unit:SetInitialGoalEntity(waypoint)
+          unit:SetMustReachEachGoalEntity(true)
         end) 
         end
       end
@@ -113,42 +115,6 @@ function SpawnCreeps()
 
 end
 
-
-function CountLevels()
-  --Delete the timers if the final wave is imminent
-
-  print(level)
-  level = level+1
-  if level == 2 then
-    TimeBetweenLevels = 599
-    creeps_per_wave = 4
-  end
-  for i = 1,4 do
-      PrecacheUnitByNameAsync(creepsToSpawn[i][level+1], function() end) 
-  end
-
-  if level <=3 then
-    return TimeBetweenLevels
-  else
-    return nil
-  end 
-end
-
-function SpawnDragons()
-  --Delete the timers if the second phase is started
-
-  dragonlevel = dragonlevel +1
-  PrecacheUnitByNameAsync(dragonNames[dragonlevel-1], function() end)
-  spawn_dragon = true
-  print("DRAGONLEVEL"..dragonlevel)
-
-  if dragonlevel <=3 then
-    return TimeBetweenDragons
-  else
-    return nil
-  end 
-end
-
 function SpawnWaves()
   --Delete the timers if the final wave is imminent
 
@@ -160,7 +126,9 @@ function SpawnWaves()
   local number_of_wave_creeps = 10
 
   if number_players >= 2 then
-    number_of_wave_creeps=20 
+    for i = 2,number_players do
+      number_of_wave_creeps = number_of_wave_creeps + 5
+    end
   end
 
   for j = 1,number_of_wave_creeps do

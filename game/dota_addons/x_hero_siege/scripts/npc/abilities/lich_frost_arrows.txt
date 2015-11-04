@@ -1,0 +1,100 @@
+"lich_frost_arrows"
+{
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "MaxLevel"              "4"
+    "RequiredLevel"        "-1"
+    "LevelsBetweenUpgrades"  "3"
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastRange"  "500"
+    "AbilityManaCost"   "10"
+    "AbilityTextureName" "drow_ranger_frost_arrows"
+    "precache"
+    {
+        "particle"  "particles/units/heroes/hero_drow/drow_frost_arrow.vpcf"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    { 
+        "01"
+        {
+            "var_type"  "FIELD_INTEGER"
+            "bonus_damage"  "250 500 750 1000"
+        }
+        "02"
+        {
+            "var_type"  "FIELD_FLOAT"
+            "duration"  "1.5 1.5 1.5 1.5"
+        }
+        "03"
+        {
+            "var_type"  "FIELD_INTEGER"
+            "slow_movement"  "-40 -50 -60 -70"
+        }
+        "04"
+        {
+            "var_type"  "FIELD_INTEGER"
+            "slow_attack_speed"  "-30 -40 -50 -60"
+        }
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "Modifiers"
+    { 
+        "modifier_orb"
+        {
+            "Passive"   "1"
+            "IsHidden"  "1"
+            "Orb"
+            {
+                "Priority"  "DOTA_ORB_PRIORITY_ABILITY"
+                "ProjectileName" "particles/units/heroes/hero_drow/drow_frost_arrow.vpcf"
+                "CastAttack"    "1" //This ensures the effect doesn't fire every time
+            }
+
+            "OnOrbFire"
+            {
+                "SpendMana"
+                {
+                    "Mana" "%AbilityManaCost"
+                }
+            }
+
+            "OnOrbImpact"
+            {
+                "ApplyModifier"
+                {
+                    "ModifierName"  "modifier_frost_arrow"
+                    "Target"    "TARGET"
+                    "Duration"  "%duration"
+                }
+
+               "Damage"
+               {
+                   "Type" "DAMAGE_TYPE_PHYSICAL"
+                   "Damage" "%bonus_damage"
+                   "Target" "TARGET"
+               }
+          }
+        }
+        "modifier_frost_arrow"
+        {
+            "Passive"   "0"
+            "IsDebuff"  "1"
+
+            "Properties"
+            {
+                "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%slow_attack_speed"
+                "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow_movement" 
+            }
+        }
+    }
+}    
