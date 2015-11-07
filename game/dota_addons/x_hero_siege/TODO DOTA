@@ -16,7 +16,7 @@ Remove leaving player's hero or just kill him and don't let him respawn
 
 roshan event and blink
 
-ank selling
+ankh selling
 
 teleport units to mag and final wave
 
@@ -34,10 +34,34 @@ teleport units to mag and final wave
 
 -Game scales from hard to extremely easy after the monster arena event, because lane creeps do not upgrade like the old one did (Level 1 to 4 upgrades on attack, defense and HP)
 
+Wave kill limit based on players
 
+greevil end event to early
+
+special events end on item pickup
+
+Banehallow stampede particle not showing
 
 
 
 DONE:
 
+
 New Lane command
+
+Fixed shield of invincibility and lich frost frenzy interaction (Cause of crash, since damage return and damage from self caused an infinite loop)
+
+Made items dagger, bracer and claws stackable
+
+Added level up system
+
+Difficulty system
+
+Added attack speed to proudmoore, illidan, balanar and grom
+
+grom uses mirror image more often,
+
+illidan negative energy more damage and pure
+
+attack speed of illidan metamorphosis
+

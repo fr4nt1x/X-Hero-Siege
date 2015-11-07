@@ -3,7 +3,7 @@
 
     "BaseClass"     "npc_dota_creature"
     "Model"						"models/heroes/nightstalker/nightstalker.vmdl"			// Model.
-	"SoundSet"					"Hero_Kunka"							// Name of sound set.
+	"SoundSet"					""							// Name of sound set.
 	"ConsideredHero"			"1"
 	"Portrait"					"vgui/hud/heroportraits/portrait_nightstalker"
     "ModelScale"                "2.1"
@@ -18,7 +18,7 @@
     "Ability5"        "balanar_sleep"
     "Ability6"        "balanar_rain_of_chaos"
     "Ability7"        "top_bosses_gates"
-    "Ability8"        ""
+    "Ability8"        "balanar_buff"
     "Ability9"        ""
     "Ability10"       ""
     "Ability11"       ""
@@ -35,7 +35,7 @@
     "AttackDamageMin"     "20002"                   // Damage range min.
     "AttackDamageMax"     "20012"                   // Damage range max.
     "AttackRate"                "0.5"                                  // Speed of attack.
-    "AttackAnimationPoint"      "0.5"                                   // Normalized time in animation cycle to attack.
+    "AttackAnimationPoint"      "0.8"                                   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"    "1000"                                   // Range within a target can be acquired.
     "AttackRange"               "200"                                   // Range within a target can be attacked.
     "ProjectileModel"           ""                                     // Particle system model for projectile.

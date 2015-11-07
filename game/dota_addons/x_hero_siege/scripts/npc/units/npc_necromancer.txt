@@ -12,7 +12,7 @@
     //----------------------------------------------------------------
     
     "Ability1"          "necromancer_summon_dead"     // Ability 1.
-    "Ability2"          ""      // Ability 2.
+    "Ability2"          "difficulty_upgrade"      // Ability 2.
     "Ability3"          ""      // Ability 3.
     "Ability4"          ""      // Ability 4.
     "Ability5"          ""      // Ability 5.

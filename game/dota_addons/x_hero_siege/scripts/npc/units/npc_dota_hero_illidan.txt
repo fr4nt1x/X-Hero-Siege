@@ -14,13 +14,13 @@
     "HealthBarOffset"			"200"
     "HeroSelectSoundEffect"     "Hero_Antimage.Pick"
 
-    "Ability1"        "demonhunter_negative_energy"
-    "Ability2"        "demonhunter_immolation" 
-    "Ability3"        "demonhunter_evasion"
+    "Ability1"        "illidan_bad_negative_energy"
+    "Ability2"        "illidan_bad_immolation" 
+    "Ability3"        "illidan_bad_evasion"
     "Ability4"        "grom_devotion_aura"
-    "Ability5"        "demonhunter_metamorphosis"
+    "Ability5"        "illidan_bad_metamorphosis"
     "Ability6"        "top_bosses_gates"
-    "Ability7"        ""
+    "Ability7"        "illidan_bad_buff"
     "Ability8"        ""
     "Ability9"        ""
     "Ability10"       ""
@@ -37,7 +37,7 @@
     "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
     "AttackDamageMin"     "20002"                   // Damage range min.
     "AttackDamageMax"     "20012"                   // Damage range max.
-    "AttackRate"                "0.3"                                  // Speed of attack.
+    "AttackRate"                "0.5"                                  // Speed of attack.
     "AttackAnimationPoint"      "0.3"                                   // Normalized time in animation cycle to attack.
     "AttackAcquisitionRange"    "600"                                   // Range within a target can be acquired.
     "AttackRange"               "135"                                   // Range within a target can be attacked.

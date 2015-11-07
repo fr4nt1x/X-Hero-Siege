@@ -81,6 +81,9 @@ function GameMode:_InitGameMode()
   ListenToGameEvent('dota_player_pick_hero', Dynamic_Wrap(GameMode, 'OnPlayerPickHero'), self)
   ListenToGameEvent('dota_team_kill_credit', Dynamic_Wrap(GameMode, 'OnTeamKillCredit'), self)
   ListenToGameEvent("player_reconnected", Dynamic_Wrap(GameMode, 'OnPlayerReconnect'), self)
+  
+  CustomGameEventManager:RegisterListener( "setting_vote", Dynamic_Wrap(GameMode, "OnSettingVote"))
+  --ListenToGameEvent( "setting_vote", Dynamic_Wrap(GameMode, "OnSettingVote"),self)
 
   ListenToGameEvent("dota_illusions_created", Dynamic_Wrap(GameMode, 'OnIllusionsCreated'), self)
   ListenToGameEvent("dota_item_combined", Dynamic_Wrap(GameMode, 'OnItemCombined'), self)
@@ -123,7 +126,7 @@ function GameMode:_InitGameMode()
   -- Initialized tables for tracking state
   self.bSeenWaitForPlayers = false
   self.vUserIds = {}
-
+  self.VoteTable = {}
   DebugPrint('[GAMEMODE] Done loading GameMode gamemode!\n\n')
 end
 

@@ -59,27 +59,54 @@
         "IsBuff"      "1"
         "EffectName" ""
         "EffectAttachType" "follow_origin"
-        "Properties"
-        {
-          "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
-        }
+
 
         "OnTakeDamage"
         // "%attack_damage" is set to the damage value after mitigation
         {
+          "RemoveModifier"
+          {
+            "ModifierName"  "modifier_spiked_carapace"
+            "Target"     "CASTER"
+          }
+
+          "ApplyModifier"
+          {
+            "ModifierName"  "modifier_apply_carapace"
+            "Target"     "CASTER"
+            "Duration"    "0.05"
+          }
+
           "Damage"
           {
             "Target"    "ATTACKER"
             "Type"      "DAMAGE_TYPE_PHYSICAL"
             "Damage"    "%attack_damage* %damage_return_factor"
           }
+
           "FireEffect"
           {
             "EffectName"        "particles/units/heroes/hero_nyx_assassin/nyx_assassin_spiked_carapace_hit.vpcf"
             "EffectAttachType"  "follow_origin"
             "Target"            "TARGET"
           }
+          
         }
+      }
+
+      "modifier_apply_carapace"
+      {
+            "Passive"           "0"
+            "IsHidden"          "1"
+            "IsDebuff"          "0"
+            "OnDestroy"
+            {
+              "ApplyModifier"
+              {
+                "ModifierName"  "modifier_spiked_carapace"
+                "Target"     "CASTER"
+              }
+            }
       }
 
       "modifier_reincarnation"
@@ -87,6 +114,10 @@
             "Passive"           "1"
             "IsHidden"          "1"
             "IsDebuff"          "0"
+            "Properties"
+            {
+              "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
+            }
             "OnDeath"
             {
                 "RunScript"

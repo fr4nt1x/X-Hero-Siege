@@ -28,6 +28,7 @@ function target_modifier_remove(event)
 	-- body
 	local target = event.target
 	local caster = event.caster
+	 
 	local unit = CreateUnitByName("npc_infernal_beast", target:GetAbsOrigin(), true, caster,caster, target:GetTeamNumber())
 	local soil = ParticleManager:CreateParticle("particles/units/heroes/hero_invoker/invoker_chaos_meteor_land_soil.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(soil, 3, target:GetAbsOrigin()+Vector(0,0,40))

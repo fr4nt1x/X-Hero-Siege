@@ -1,0 +1,38 @@
+"balanar_buff"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "-1"
+    "LevelsBetweenUpgrades" "1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityTextureName" ""
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "attack_speed_bonus"  "600"
+      }
+    }
+
+
+    "Modifiers"
+    {
+      "modifier_upgrade"
+      {
+        "Passive" "0"
+        "IsHidden" "1"
+        "IsPurgable"    "0"
+
+        "Properties"
+        {
+            "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed_bonus"
+        }
+      }
+    }
+  }

@@ -45,4 +45,10 @@
 		"playerid"						"playerid"
 		"wavekills"						"short"
 	}
+
+	"setting_vote"
+	{
+		"category"						"string"
+		"vote"							"short"
+	}
 }

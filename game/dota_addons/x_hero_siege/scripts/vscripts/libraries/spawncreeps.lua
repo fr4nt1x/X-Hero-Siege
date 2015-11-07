@@ -26,7 +26,11 @@ final_wave_creeps ={
 
 creep_kills_for_gold = 700 
 creep_kills_for_event = 1600
+
+
 wave_kills_for_event = 60 
+
+
 wave = 0
 TimeBetweenWaves = 4*60
 TimeBetweenCreepWavesTop = 7
@@ -98,7 +102,10 @@ function SpawnCreeps()
     level = level +1
     if level == 2 then
       creeps_per_wave = 3
-      waves_between_levels = 22
+      waves_between_levels = 24
+    elseif level >2 then
+      local msg = "Level "..(level-1).." time. The creeps got stronger!"
+      Notifications:TopToAll({text=msg, duration=5.0})
     end
     for i = 1,4 do
       PrecacheUnitByNameAsync(creepsToSpawn[i][level], function() end) 
@@ -108,6 +115,7 @@ function SpawnCreeps()
   if dragonlevel <= 4 and creepround >= waves_between_dragons *dragonlevel then
     dragonlevel = dragonlevel +1
     PrecacheUnitByNameAsync(dragonNames[dragonlevel-1], function() end)
+    Notifications:TopToAll({text="Dragon Attack next Creep wave!", duration=5.0})
     spawn_dragon = true
     print("DRAGONLEVEL"..dragonlevel)
   end
@@ -142,23 +150,7 @@ function SpawnWaves()
   if wave >= 12  then
     return nil
   else
-    print("next Wave",wave)
     return TimeBetweenWaves
-  end
-end
-
-function SendDragonMessage()
-  -- body
-   --Delete the timers if the final wave is imminent
-
-
-  -- Send a notification to all players that displays up top for 5 seconds
-  if dragonlevel <= 3 then
-    Notifications:TopToAll({text="Dragon in 30 seconds!", duration=5.0})
-    PrecacheUnitByNameAsync(dragonNames[dragonlevel], function() end)
-    return TimeBetweenDragons
-  else
-    return nil
   end
 end
 
@@ -174,24 +166,6 @@ function SendWaveMessage()
     return TimeBetweenWaves
 end
 
-function SendLevelMessage()
-  -- body
-   --Delete the timers if the final wave is imminent
-
-  if GameMode.FinalWave then
-    return nil
-  end
-
-  if level <=3 then
-    -- Send a notification to all players that displays up top for 5 seconds
-    Notifications:TopToAll({text="Level up in 30 seconds!", duration=5.0})
-    return TimeBetweenLevels
-  else
-    return nil
-  end 
-
-end
-
 function SendSpecialArenaMessage()
   -- body
    --Delete the timers if the final wave is imminent
@@ -203,8 +177,6 @@ function SendSpecialArenaMessage()
     Notifications:TopToAll({text="Special Arena Event in 30 seconds. Spent your gold before it.", duration=5.0})
     return nil
 end
-
-
 
 
 function spawn_second_phase_left()

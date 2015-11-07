@@ -2,9 +2,9 @@
 require('libraries/timers')
 
 function Spawn( entityKeyValues )
-	Ability_negative_energy = thisEntity:FindAbilityByName("demonhunter_negative_energy")
-	Ability_immolation = thisEntity:FindAbilityByName("demonhunter_immolation")
-	Ability_metamorphosis = thisEntity:FindAbilityByName("demonhunter_metamorphosis")
+	Ability_negative_energy = thisEntity:FindAbilityByName("illidan_bad_negative_energy")
+	Ability_immolation = thisEntity:FindAbilityByName("illidan_bad_immolation")
+	Ability_metamorphosis = thisEntity:FindAbilityByName("illidan_bad_metamorphosis")
 
 	Timers:CreateTimer(0,IllidanThink)
 	DebugPrint("Starting AI for "..thisEntity:GetUnitName().." "..thisEntity:GetEntityIndex())

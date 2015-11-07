@@ -1,0 +1,123 @@
+//HERO Abilities
+ //ABILITIES DEMONHUNTER
+"illidan_bad_immolation"
+ {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+    "MaxLevel"              "4"
+    "RequiredLevel"        "-1"
+    "LevelsBetweenUpgrades" "3"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.5"
+    "AbilityCooldown"  "0"
+    "AbilityManaCost"  "10 10 10 10"
+    "AbilityTextureName" "brewmaster_fire_permanent_immolation"
+    "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type" "FIELD_INTEGER"
+            "radius" "300 325 350 375"
+        }
+        "02"
+        {
+          "var_type" "FIELD_FLOAT"
+          "damage_per_tick" "75 150 250 1500"
+        }
+        "03"
+        {
+          "var_type" "FIELD_FLOAT"
+          "tick_time" "1.0 0.95 0.9 0.85"
+        }
+    }
+
+    "precache"
+    {
+        "particle" "particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard.vpcf"
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "OnToggleOn"
+    {
+        "ApplyModifier"
+        {
+
+            "ModifierName" "modifier_immolation"
+            "Target" "CASTER"
+        }
+    }
+
+    "OnToggleOff"
+    {
+        "RemoveModifier"
+        {
+            "ModifierName" "modifier_immolation"
+            "Target" "CASTER"
+        }
+    }
+
+    
+
+    "Modifiers"
+    {
+        "modifier_immolation"
+        {
+            "IsBuff" "1"
+            "IsHidden" "0"
+            "Passive" "0"
+            "IsPurgable" "0"
+            "ThinkInterval"  "%tick_time"
+            
+            // Modifier Events
+            //-----------------------------------------------------------------------------
+            "OnCreated"
+            {
+                "AttachEffect"
+                {
+                    "Target" "CASTER"
+                    "EffectName" "particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard.vpcf"
+                    "EffectAttachType" "follow_origin"
+
+                    "ControlPoints"
+                    {
+                        "00" "0 0 0"
+                        "01" "%radius 1 1"
+                    }
+                }
+            }
+
+
+          "OnIntervalThink"
+          {
+            "Damage"
+              {
+                "Target"
+                {
+                  "Center"   "TARGET"
+                  "Radius"   "%radius"
+                  "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                  "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                }
+                 "Type"      "DAMAGE_TYPE_MAGICAL"
+                 "Damage"    "%damage_per_tick"
+              }
+            "RunScript"
+            {
+            "ScriptFile" "abilities.lua"
+            "Function"   "maintain_immolation_toggle"
+            }
+          }
+        }
+    }    
+ }

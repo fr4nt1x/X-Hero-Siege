@@ -60,6 +60,7 @@
         "modifier_claws_of_attack"
         { 
           "Passive"       "1"
+          "Attributes"    "MODIFIER_ATTRIBUTE_MULTIPLE"
           "IsHidden"      "0"
           "IsPurgable"    "0"
           "IsBuff"        "1"

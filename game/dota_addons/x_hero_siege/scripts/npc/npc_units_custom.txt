@@ -10,8 +10,8 @@
 	        // Abilities
 	        //----------------------------------------------------------------
 	        
-	        "Ability1"          ""     // Ability 1.
-	        "Ability2"          ""      // Ability 2.
+	        "Ability1"          "level_upgrade"     // Ability 1.
+	        "Ability2"          "difficulty_upgrade"      // Ability 2.
 	        "Ability3"          ""      // Ability 3.
 	        "Ability4"          ""      // Ability 4.
 	        "Ability5"          ""      // Ability 5.
@@ -90,7 +90,7 @@
 	        // Abilities
 	        //----------------------------------------------------------------
 	        
-	        "Ability1"          ""     // Ability 1.
+	        "Ability1"          "difficulty_upgrade"     // Ability 1.
 	        "Ability2"          ""      // Ability 2.
 	        "Ability3"          ""      // Ability 3.
 	        "Ability4"          ""      // Ability 4.
@@ -173,8 +173,8 @@
 	        // Abilities
 	        //----------------------------------------------------------------
 	        
-	        "Ability1"          ""     // Ability 1.
-	        "Ability2"          ""      // Ability 2.
+	        "Ability1"          "level_upgrade"     // Ability 1.
+	        "Ability2"          "difficulty_upgrade"      // Ability 2.
 	        "Ability3"          ""      // Ability 3.
 	        "Ability4"          ""      // Ability 4.
 	        "Ability5"          ""      // Ability 5.
@@ -256,7 +256,7 @@
 	    // Abilities
 	    //----------------------------------------------------------------
 	    
-	    "Ability1"          ""     // Ability 1.
+	    "Ability1"          "difficulty_upgrade"     // Ability 1.
 	    "Ability2"          ""      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
@@ -339,7 +339,7 @@
 	    //----------------------------------------------------------------
 	    
 	    "Ability1"          "wave_modifier"     // Ability 1.
-	    "Ability2"          ""      // Ability 2.
+	    "Ability2"          "difficulty_upgrade"      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
@@ -421,8 +421,8 @@
 	        // Abilities
 	        //----------------------------------------------------------------
 	        
-	        "Ability1"          ""     // Ability 1.
-	        "Ability2"          ""      // Ability 2.
+	        "Ability1"          "level_upgrade"     // Ability 1.
+	        "Ability2"          "difficulty_upgrade"      // Ability 2.
 	        "Ability3"          ""      // Ability 3.
 	        "Ability4"          ""      // Ability 4.
 	        "Ability5"          ""      // Ability 5.
@@ -506,7 +506,7 @@
 	    //----------------------------------------------------------------
 	    
 	    "Ability1"          "wave_modifier"     // Ability 1.
-	    "Ability2"          ""      // Ability 2.
+	    "Ability2"          "difficulty_upgrade"      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
@@ -589,7 +589,7 @@
 	    
 	    "Ability1"          "endurance_aura"     // Ability 1.
 	    "Ability2"          "special_arena"      // Ability 2.
-	    "Ability3"          ""      // Ability 3.
+	    "Ability3"          "difficulty_upgrade"      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
 	    "Ability6"          ""      // Ability 6 - Extra.
@@ -670,7 +670,7 @@
 	    // Abilities
 	    //----------------------------------------------------------------
 	    
-	    "Ability1"          ""     // Ability 1.
+	    "Ability1"          "difficulty_upgrade"     // Ability 1.
 	    "Ability2"          ""      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
@@ -753,7 +753,7 @@
 	    //----------------------------------------------------------------
 	    
 	    "Ability1"          "wave_modifier"     // Ability 1.
-	    "Ability2"          ""      // Ability 2.
+	    "Ability2"          "difficulty_upgrade"      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
@@ -1156,7 +1156,7 @@
 	    //----------------------------------------------------------------
 	    
 	    "Ability1"          "special_arena"     // Ability 1.
-	    "Ability2"          ""      // Ability 2.
+	    "Ability2"          "difficulty_upgrade"      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
@@ -1241,7 +1241,7 @@
 	    // Abilities
 	    //----------------------------------------------------------------
 	    
-	    "Ability1"          ""     // Ability 1.
+	    "Ability1"          "difficulty_upgrade"     // Ability 1.
 	    "Ability2"          ""      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
@@ -1325,7 +1325,7 @@
 	    //----------------------------------------------------------------
 	    
 	    "Ability1"          "wave_modifier"     // Ability 1.
-	    "Ability2"          ""      // Ability 2.
+	    "Ability2"          "difficulty_upgrade"      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
@@ -1407,8 +1407,8 @@
 	    // Abilities
 	    //----------------------------------------------------------------
 	    
-	    "Ability1"          ""     // Ability 1.
-	    "Ability2"          ""      // Ability 2.
+	    "Ability1"          "level_upgrade"     // Ability 1.
+	    "Ability2"          "difficulty_upgrade"      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
@@ -1622,7 +1622,7 @@
 	    //----------------------------------------------------------------
 	    
 	    "Ability1"          "special_arena"     // Ability 1.
-	    "Ability2"          ""      // Ability 2.
+	    "Ability2"          "difficulty_upgrade"      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
@@ -1705,7 +1705,7 @@
 	    // Abilities
 	    //----------------------------------------------------------------
 	    
-	    "Ability1"          ""     // Ability 1.
+	    "Ability1"          "difficulty_upgrade"     // Ability 1.
 	    "Ability2"          ""      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
@@ -1788,7 +1788,7 @@
 	    // Abilities
 	    //----------------------------------------------------------------
 	    
-	    "Ability1"          ""     // Ability 1.
+	    "Ability1"          "difficulty_upgrade"     // Ability 1.
 	    "Ability2"          ""      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
@@ -1945,7 +1945,7 @@
 	
 	    "BaseClass"     "npc_dota_creature"
 	    "Model"						"models/heroes/nightstalker/nightstalker.vmdl"			// Model.
-		"SoundSet"					"Hero_Kunka"							// Name of sound set.
+		"SoundSet"					""							// Name of sound set.
 		"ConsideredHero"			"1"
 		"Portrait"					"vgui/hud/heroportraits/portrait_nightstalker"
 	    "ModelScale"                "2.1"
@@ -1960,7 +1960,7 @@
 	    "Ability5"        "balanar_sleep"
 	    "Ability6"        "balanar_rain_of_chaos"
 	    "Ability7"        "top_bosses_gates"
-	    "Ability8"        ""
+	    "Ability8"        "balanar_buff"
 	    "Ability9"        ""
 	    "Ability10"       ""
 	    "Ability11"       ""
@@ -1977,7 +1977,7 @@
 	    "AttackDamageMin"     "20002"                   // Damage range min.
 	    "AttackDamageMax"     "20012"                   // Damage range max.
 	    "AttackRate"                "0.5"                                  // Speed of attack.
-	    "AttackAnimationPoint"      "0.5"                                   // Normalized time in animation cycle to attack.
+	    "AttackAnimationPoint"      "0.8"                                   // Normalized time in animation cycle to attack.
 	    "AttackAcquisitionRange"    "1000"                                   // Range within a target can be acquired.
 	    "AttackRange"               "200"                                   // Range within a target can be attacked.
 	    "ProjectileModel"           ""                                     // Particle system model for projectile.
@@ -2356,7 +2356,7 @@
 	    "Ability3"        "grom_hellscream_mirror_image"
 	    "Ability4"        "juggernaut_blade_fury"
 	    "Ability5"        "top_bosses_gates"
-	    "Ability6"        ""
+	    "Ability6"        "grom_hellscream_buff"
 	    "Ability7"        ""
 	    "Ability8"        ""
 	    "Ability9"        ""
@@ -2516,13 +2516,13 @@
 	    "HealthBarOffset"			"200"
 	    "HeroSelectSoundEffect"     "Hero_Antimage.Pick"
 	
-	    "Ability1"        "demonhunter_negative_energy"
-	    "Ability2"        "demonhunter_immolation" 
-	    "Ability3"        "demonhunter_evasion"
+	    "Ability1"        "illidan_bad_negative_energy"
+	    "Ability2"        "illidan_bad_immolation" 
+	    "Ability3"        "illidan_bad_evasion"
 	    "Ability4"        "grom_devotion_aura"
-	    "Ability5"        "demonhunter_metamorphosis"
+	    "Ability5"        "illidan_bad_metamorphosis"
 	    "Ability6"        "top_bosses_gates"
-	    "Ability7"        ""
+	    "Ability7"        "illidan_bad_buff"
 	    "Ability8"        ""
 	    "Ability9"        ""
 	    "Ability10"       ""
@@ -2539,7 +2539,7 @@
 	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
 	    "AttackDamageMin"     "20002"                   // Damage range min.
 	    "AttackDamageMax"     "20012"                   // Damage range max.
-	    "AttackRate"                "0.3"                                  // Speed of attack.
+	    "AttackRate"                "0.5"                                  // Speed of attack.
 	    "AttackAnimationPoint"      "0.3"                                   // Normalized time in animation cycle to attack.
 	    "AttackAcquisitionRange"    "600"                                   // Range within a target can be acquired.
 	    "AttackRange"               "135"                                   // Range within a target can be attacked.
@@ -2766,7 +2766,7 @@
 	    "Ability1"        "magtheridon_medium"
 	    "Ability2"        "neutral_evasion" 
 	    "Ability3"        "neutral_critical"
-	    "Ability4"        ""
+	    "Ability4"        "difficulty_upgrade"
 	    "Ability5"        ""
 	    "Ability6"        ""
 	    "Ability7"        ""
@@ -2844,7 +2844,7 @@
 	    
 	    "Ability1"        "neutral_evasion"
 	    "Ability2"        "neutral_critical" 
-	    "Ability3"        ""
+	    "Ability3"        "difficulty_upgrade"
 	    "Ability4"        ""
 	    "Ability5"        ""
 	    "Ability6"        ""
@@ -2928,7 +2928,7 @@
 	    "Ability4"        "proudmoore_hex"
 	    "Ability5"        "proudmoore_divine_shield"
 	    "Ability6"        "top_bosses_gates"
-	    "Ability7"        ""
+	    "Ability7"        "proudmoore_buff"
 	    "Ability8"        ""
 	    "Ability9"        ""
 	    "Ability10"       ""
@@ -3321,7 +3321,7 @@
 	    // Abilities
 	    //----------------------------------------------------------------
 	    
-	    "Ability1"          ""     // Ability 1.
+	    "Ability1"          "difficulty_upgrade"     // Ability 1.
 	    "Ability2"          ""      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
@@ -3398,7 +3398,7 @@
 	    //----------------------------------------------------------------
 	    
 	    "Ability1"          "neutral_evasion"     // Ability 1.
-	    "Ability2"          ""      // Ability 2.
+	    "Ability2"          "difficulty_upgrade"      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
@@ -3475,7 +3475,7 @@
 	    
 	    "Ability1"          "neutral_critical"     // Ability 1.
 	    "Ability2"          "neutral_evasion"      // Ability 2.
-	    "Ability3"          ""      // Ability 3.
+	    "Ability3"          "difficulty_upgrade"      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
 	    "Ability6"          ""      // Ability 6 - Extra.
@@ -3548,8 +3548,8 @@
 	        
 	        "Ability1"          "druid_roar"     // Ability 1.
 	        "Ability2"          "druid_true_form"      // Ability 2.
-	        "Ability3"          ""      // Ability 3.
-	        "Ability4"          ""      // Ability 4.
+	        "Ability3"          "level_upgrade"      // Ability 3.
+	        "Ability4"          "difficulty_upgrade"      // Ability 4.
 	        "Ability5"          ""      // Ability 5.
 	        "Ability6"          ""      // Ability 6 - Extra.
 	        "Ability7"          ""      // Ability 7 - Extra.
@@ -3628,7 +3628,7 @@
 	        
 	        "Ability1"          "druid_roar"     // Ability 1.
 	        "Ability2"          "druid_true_form"      // Ability 2.
-	        "Ability3"          ""      // Ability 3.
+	        "Ability3"          "difficulty_upgrade"      // Ability 3.
 	        "Ability4"          ""      // Ability 4.
 	        "Ability5"          ""      // Ability 5.
 	        "Ability6"          ""      // Ability 6 - Extra.
@@ -3780,8 +3780,8 @@
 	    // Abilities
 	    //----------------------------------------------------------------
 	    
-	    "Ability1"          ""     // Ability 1.
-	    "Ability2"          ""      // Ability 2.
+	    "Ability1"          "level_upgrade"     // Ability 1.
+	    "Ability2"          "difficulty_upgrade"      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
@@ -3862,8 +3862,8 @@
 	    // Abilities
 	    //----------------------------------------------------------------
 	    
-	    "Ability1"          ""     // Ability 1.
-	    "Ability2"          ""      // Ability 2.
+	    "Ability1"          "level_upgrade"     // Ability 1.
+	    "Ability2"          "difficulty_upgrade"      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
@@ -3942,8 +3942,8 @@
 	    // Abilities
 	    //----------------------------------------------------------------
 	    
-	    "Ability1"          ""     // Ability 1.
-	    "Ability2"          ""      // Ability 2.
+	    "Ability1"          "level_upgrade"     // Ability 1.
+	    "Ability2"          "difficulty_upgrade"      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
@@ -4023,7 +4023,7 @@
 	    
 	    "Ability1"          "unholy_aura"     // Ability 1.
 	    "Ability2"          "endurance_aura"      // Ability 2.
-	    "Ability3"          ""      // Ability 3.
+	    "Ability3"          "difficulty_upgrade"      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
 	    "Ability6"          ""      // Ability 6 - Extra.
@@ -4101,7 +4101,7 @@
 	    //----------------------------------------------------------------
 	    
 	    "Ability1"          "special_arena"     // Ability 1.
-	    "Ability2"          ""      // Ability 2.
+	    "Ability2"          "difficulty_upgrade"      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
@@ -4172,8 +4172,8 @@
 	        // Abilities
 	        //----------------------------------------------------------------
 	        
-	        "Ability1"          ""     // Ability 1.
-	        "Ability2"          ""      // Ability 2.
+	        "Ability1"          "level_upgrade"     // Ability 1.
+	        "Ability2"          "difficulty_upgrade"      // Ability 2.
 	        "Ability3"          ""      // Ability 3.
 	        "Ability4"          ""      // Ability 4.
 	        "Ability5"          ""      // Ability 5.
@@ -4245,7 +4245,7 @@
 	    // Abilities
 	    //----------------------------------------------------------------
 	    
-	    "Ability1"          ""     // Ability 1.
+	    "Ability1"          "difficulty_upgrade"     // Ability 1.
 	    "Ability2"          ""      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
@@ -4327,7 +4327,7 @@
 	    //----------------------------------------------------------------
 	    
 	    "Ability1"          "wave_modifier"     // Ability 1.
-	    "Ability2"          ""      // Ability 2.
+	    "Ability2"          "difficulty_upgrade"      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
@@ -4410,8 +4410,8 @@
 	    // Abilities
 	    //----------------------------------------------------------------
 	    
-	    "Ability1"          ""     // Ability 1.
-	    "Ability2"          ""      // Ability 2.
+	    "Ability1"          "level_upgrade"     // Ability 1.
+	    "Ability2"          "difficulty_upgrade"      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
@@ -4494,7 +4494,7 @@
 	    // Abilities
 	    //----------------------------------------------------------------
 	    
-	    "Ability1"          ""     // Ability 1.
+	    "Ability1"          "difficulty_upgrade"     // Ability 1.
 	    "Ability2"          "permanent_immolation"      // Ability 2.
 	    "Ability3"          "neutral_bash"      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
@@ -4572,7 +4572,7 @@
 	    // Abilities
 	    //----------------------------------------------------------------
 	    
-	    "Ability1"          ""     // Ability 1.
+	    "Ability1"          "difficulty_upgrade"     // Ability 1.
 	    "Ability2"          ""      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
@@ -4654,7 +4654,7 @@
 	    //----------------------------------------------------------------
 	    
 	    "Ability1"          "wave_modifier"     // Ability 1.
-	    "Ability2"          ""      // Ability 2.
+	    "Ability2"          "difficulty_upgrade"      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
@@ -4731,8 +4731,8 @@
 	        // Abilities
 	        //----------------------------------------------------------------
 	        
-	        "Ability1"          ""     // Ability 1.
-	        "Ability2"          ""      // Ability 2.
+	        "Ability1"          "level_upgrade"     // Ability 1.
+	        "Ability2"          "difficulty_upgrade"      // Ability 2.
 	        "Ability3"          ""      // Ability 3.
 	        "Ability4"          ""      // Ability 4.
 	        "Ability5"          ""      // Ability 5.
@@ -4814,7 +4814,7 @@
 	        // Abilities
 	        //----------------------------------------------------------------
 	        
-	        "Ability1"          ""     // Ability 1.
+	        "Ability1"          "difficulty_upgrade"     // Ability 1.
 	        "Ability2"          ""      // Ability 2.
 	        "Ability3"          ""      // Ability 3.
 	        "Ability4"          ""      // Ability 4.
@@ -4898,8 +4898,8 @@
 	        // Abilities
 	        //----------------------------------------------------------------
 	        
-	        "Ability1"          ""     // Ability 1.
-	        "Ability2"          ""      // Ability 2.
+	        "Ability1"          "level_upgrade"     // Ability 1.
+	        "Ability2"          "difficulty_upgrade"      // Ability 2.
 	        "Ability3"          ""      // Ability 3.
 	        "Ability4"          ""      // Ability 4.
 	        "Ability5"          ""      // Ability 5.
@@ -5053,7 +5053,7 @@
 	    // Abilities
 	    //----------------------------------------------------------------
 	    
-	    "Ability1"          ""     // Ability 1.
+	    "Ability1"          "difficulty_upgrade"     // Ability 1.
 	    "Ability2"          ""      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
@@ -5138,7 +5138,7 @@
 	    //----------------------------------------------------------------
 	    
 	    "Ability1"          "wave_modifier"     // Ability 1.
-	    "Ability2"          ""      // Ability 2.
+	    "Ability2"          "difficulty_upgrade"      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
@@ -5220,7 +5220,7 @@
 	
 	    "Ability1"        "command_aura"
 	    "Ability2"        "npc_spell_immunity" 
-	    "Ability3"        ""
+	    "Ability3"        "difficulty_upgrade"
 	    "Ability4"        ""
 	    "Ability5"        ""
 	    "Ability6"        ""
@@ -5300,7 +5300,7 @@
 	        // Abilities
 	        //----------------------------------------------------------------
 	        
-	        "Ability1"          ""     // Ability 1.
+	        "Ability1"          "difficulty_upgrade"     // Ability 1.
 	        "Ability2"          ""      // Ability 2.
 	        "Ability3"          ""      // Ability 3.
 	        "Ability4"          ""      // Ability 4.
@@ -5384,7 +5384,7 @@
 	    // Abilities
 	    //----------------------------------------------------------------
 	    
-	    "Ability1"          ""     // Ability 1.
+	    "Ability1"          "difficulty_upgrade"     // Ability 1.
 	    "Ability2"          ""      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
@@ -5464,8 +5464,8 @@
 	        // Abilities
 	        //----------------------------------------------------------------
 	        
-	        "Ability1"          ""     // Ability 1.
-	        "Ability2"          ""      // Ability 2.
+	        "Ability1"          "level_upgrade"     // Ability 1.
+	        "Ability2"          "difficulty_upgrade"      // Ability 2.
 	        "Ability3"          ""      // Ability 3.
 	        "Ability4"          ""      // Ability 4.
 	        "Ability5"          ""      // Ability 5.
@@ -5538,7 +5538,7 @@
 	    //----------------------------------------------------------------
 	    
 	    "Ability1"          "special_arena"     // Ability 1.
-	    "Ability2"          ""      // Ability 2.
+	    "Ability2"          "difficulty_upgrade"      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
@@ -5621,7 +5621,7 @@
 	    //----------------------------------------------------------------
 	    
 	    "Ability1"          "wave_modifier"     // Ability 1.
-	    "Ability2"          ""      // Ability 2.
+	    "Ability2"          "difficulty_upgrade"      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
@@ -5703,7 +5703,7 @@
 	    //----------------------------------------------------------------
 	    
 	    "Ability1"          "necromancer_summon_dead"     // Ability 1.
-	    "Ability2"          ""      // Ability 2.
+	    "Ability2"          "difficulty_upgrade"      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
@@ -5804,7 +5804,7 @@
 	    // Abilities
 	    //----------------------------------------------------------------
 	    
-	    "Ability1"          ""     // Ability 1.
+	    "Ability1"          "difficulty_upgrade"     // Ability 1.
 	    "Ability2"          ""      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
@@ -5888,7 +5888,7 @@
 	    //----------------------------------------------------------------
 	    
 	    "Ability1"          "wave_modifier"     // Ability 1.
-	    "Ability2"          ""      // Ability 2.
+	    "Ability2"          "difficulty_upgrade"      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
@@ -5968,7 +5968,7 @@
 	    
 	    "Ability1"          "unholy_aura"     // Ability 1.
 	    "Ability2"          "endurance_aura"      // Ability 2.
-	    "Ability3"          ""      // Ability 3.
+	    "Ability3"          "difficulty_upgrade"      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
 	    "Ability6"          ""      // Ability 6 - Extra.
@@ -6040,7 +6040,7 @@
 	    // Abilities
 	    //----------------------------------------------------------------
 	    
-	    "Ability1"          ""     // Ability 1.
+	    "Ability1"          "difficulty_upgrade"     // Ability 1.
 	    "Ability2"          ""      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
@@ -6124,7 +6124,7 @@
 	    //----------------------------------------------------------------
 	    
 	    "Ability1"          "wave_modifier"     // Ability 1.
-	    "Ability2"          ""      // Ability 2.
+	    "Ability2"          "difficulty_upgrade"      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
@@ -6209,8 +6209,8 @@
 	        //----------------------------------------------------------------
 	        
 	        "Ability1"          "priest_innerfire"     // Ability 1.
-	        "Ability2"          ""      // Ability 2.
-	        "Ability3"          ""      // Ability 3.
+	        "Ability2"          "level_upgrade"      // Ability 2.
+	        "Ability3"          "difficulty_upgrade"      // Ability 3.
 	        "Ability4"          ""      // Ability 4.
 	        "Ability5"          ""      // Ability 5.
 	        "Ability6"          ""      // Ability 6 - Extra.
@@ -6291,7 +6291,7 @@
 	    //----------------------------------------------------------------
 	    
 	    "Ability1"          "special_arena"     // Ability 1.
-	    "Ability2"          ""      // Ability 2.
+	    "Ability2"          "difficulty_upgrade"      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
@@ -6370,8 +6370,8 @@
 	        //----------------------------------------------------------------
 	        
 	        "Ability1"          "shaman_bloodlust"     // Ability 1.
-	        "Ability2"          ""      // Ability 2.
-	        "Ability3"          ""      // Ability 3.
+	        "Ability2"          "level_upgrade"      // Ability 2.
+	        "Ability3"          "difficulty_upgrade"      // Ability 3.
 	        "Ability4"          ""      // Ability 4.
 	        "Ability5"          ""      // Ability 5.
 	        "Ability6"          ""      // Ability 6 - Extra.
@@ -6455,8 +6455,8 @@
 	        // Abilities
 	        //----------------------------------------------------------------
 	        
-	        "Ability1"          ""     // Ability 1.
-	        "Ability2"          ""      // Ability 2.
+	        "Ability1"          "level_upgrade"     // Ability 1.
+	        "Ability2"          "difficulty_upgrade"      // Ability 2.
 	        "Ability3"          ""      // Ability 3.
 	        "Ability4"          ""      // Ability 4.
 	        "Ability5"          ""      // Ability 5.
@@ -6539,8 +6539,8 @@
 	    // Abilities
 	    //----------------------------------------------------------------
 	    
-	    "Ability1"          ""     // Ability 1.
-	    "Ability2"          ""      // Ability 2.
+	    "Ability1"          "level_upgrade"     // Ability 1.
+	    "Ability2"          "difficulty_upgrade"      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
@@ -6620,8 +6620,8 @@
 	    // Abilities
 	    //----------------------------------------------------------------
 	    
-	    "Ability1"          ""     // Ability 1.
-	    "Ability2"          ""      // Ability 2.
+	    "Ability1"          "level_upgrade"     // Ability 1.
+	    "Ability2"          "difficulty_upgrade"      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
@@ -6691,7 +6691,7 @@
 	    //----------------------------------------------------------------
 	    
 	    "Ability1"          "wave_modifier"     // Ability 1.
-	    "Ability2"          ""      // Ability 2.
+	    "Ability2"          "difficulty_upgrade"      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
@@ -6770,8 +6770,8 @@
 	        // Abilities
 	        //----------------------------------------------------------------
 	        
-	        "Ability1"          ""     // Ability 1.
-	        "Ability2"          ""      // Ability 2.
+	        "Ability1"          "level_upgrade"     // Ability 1.
+	        "Ability2"          "difficulty_upgrade"      // Ability 2.
 	        "Ability3"          ""      // Ability 3.
 	        "Ability4"          ""      // Ability 4.
 	        "Ability5"          ""      // Ability 5.
@@ -6855,8 +6855,8 @@
 	        // Abilities
 	        //----------------------------------------------------------------
 	        
-	        "Ability1"          ""     // Ability 1.
-	        "Ability2"          ""      // Ability 2.
+	        "Ability1"          "level_upgrade"     // Ability 1.
+	        "Ability2"          "difficulty_upgrade"      // Ability 2.
 	        "Ability3"          ""      // Ability 3.
 	        "Ability4"          ""      // Ability 4.
 	        "Ability5"          ""      // Ability 5.
@@ -6937,9 +6937,9 @@
 	        // Abilities
 	        //----------------------------------------------------------------
 	        
-	        "Ability1"          ""     // Ability 1.
+	        "Ability1"          "level_upgrade"     // Ability 1.
 	        "Ability2"          "tauren_pulverize"      // Ability 2.
-	        "Ability3"          ""      // Ability 3.
+	        "Ability3"          "difficulty_upgrade"      // Ability 3.
 	        "Ability4"          ""      // Ability 4.
 	        "Ability5"          ""      // Ability 5.
 	        "Ability6"          ""      // Ability 6 - Extra.
@@ -7015,7 +7015,7 @@
 	        // Abilities
 	        //----------------------------------------------------------------
 	        
-	        "Ability1"          ""     // Ability 1.
+	        "Ability1"          "difficulty_upgrade"     // Ability 1.
 	        "Ability2"          "tauren_pulverize"      // Ability 2.
 	        "Ability3"          ""      // Ability 3.
 	        "Ability4"          ""      // Ability 4.
@@ -7636,8 +7636,8 @@
 	    
 	    "Ability1"          "neutral_critical"     // Ability 1.
 	    "Ability2"          "special_arena"      // Ability 2.
-	    "Ability3"          ""      // Ability 3.
-	    "Ability4"          ""      // Ability 4.
+	    "Ability3"          "level_upgrade"      // Ability 3.
+	    "Ability4"          "difficulty_upgrade"      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
 	    "Ability6"          ""      // Ability 6 - Extra.
 	    "Ability7"          ""      // Ability 7 - Extra.   
@@ -7800,8 +7800,8 @@
 	    
 	    "Ability1"          "command_aura"     // Ability 1.
 	    "Ability2"          "special_arena"      // Ability 2.
-	    "Ability3"          ""      // Ability 3.
-	    "Ability4"          ""      // Ability 4.
+	    "Ability3"          "level_upgrade"      // Ability 3.
+	    "Ability4"          "difficulty_upgrade"      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
 	    "Ability6"          ""      // Ability 6 - Extra.
 	    "Ability7"          ""      // Ability 7 - Extra.   
@@ -7880,8 +7880,8 @@
 	    // Abilities
 	    //----------------------------------------------------------------
 	    
-	    "Ability1"          ""     // Ability 1.
-	    "Ability2"          ""      // Ability 2.
+	    "Ability1"          "level_upgrade"     // Ability 1.
+	    "Ability2"          "difficulty_upgrade"      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
@@ -7966,8 +7966,8 @@
 	    //----------------------------------------------------------------
 	    
 	    "Ability1"          "wave_modifier"     // Ability 1.
-	    "Ability2"          ""      // Ability 2.
-	    "Ability3"          ""      // Ability 3.
+	    "Ability2"          "level_upgrade"      // Ability 2.
+	    "Ability3"          "difficulty_upgrade"      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.
 	    "Ability6"          ""      // Ability 6 - Extra.
@@ -8297,7 +8297,7 @@
 	    //----------------------------------------------------------------
 	    
 	    "Ability1"          "special_arena"     // Ability 1.
-	    "Ability2"          ""      // Ability 2.
+	    "Ability2"          "difficulty_upgrade"      // Ability 2.
 	    "Ability3"          ""      // Ability 3.
 	    "Ability4"          ""      // Ability 4.
 	    "Ability5"          ""      // Ability 5.

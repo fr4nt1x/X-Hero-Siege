@@ -25,8 +25,83 @@ function GameMode:OnGameRulesStateChange(keys)
 
   -- This internal handling is used to set up main barebones functions
   GameMode:_OnGameRulesStateChange(keys)
-
   local newState = GameRules:State_Get()
+
+  if newState == DOTA_GAMERULES_STATE_HERO_SELECTION then
+    GameRules:SetCustomGameDifficulty(2)
+    local mode  = GameMode
+    local votes = mode.VoteTable
+
+    --[[
+    -- Random tables for test purposes
+    local testTable = {game_length = {}, combat_system = {}}
+    local votes_a = {15, 20, 25, 30}
+    local votes_b = {1, 2}
+    for i = 0,9 do
+      testTable.game_length[i]  = votes_a[math.random(table.getn(votes_a))]
+      testTable.combat_system[i]  = votes_b[math.random(table.getn(votes_b))]
+    end
+    votes = testTable   
+    ]]
+
+
+    for category, pidVoteTable in pairs(votes) do
+      
+      -- Tally the votes into a new table
+      local voteCounts = {}
+      for pid, vote in pairs(pidVoteTable) do
+        if not voteCounts[vote] then voteCounts[vote] = 0 end
+        voteCounts[vote] = voteCounts[vote] + 1
+      end
+
+      --print(" ----- " .. category .. " ----- ")
+      --PrintTable(voteCounts)
+
+      -- Find the key that has the highest value (key=vote value, value=number of votes)
+      local highest_vote = 0
+      local highest_key = ""
+      for k, v in pairs(voteCounts) do
+        if v > highest_vote then
+          highest_key = k
+          highest_vote = v
+        end
+      end
+
+      -- Check for a tie by counting how many values have the highest number of votes
+      local tieTable = {}
+      for k, v in pairs(voteCounts) do
+        if v == highest_vote then
+          table.insert(tieTable, k)
+        end
+      end
+
+      -- Resolve a tie by selecting a random value from those with the highest votes
+      if table.getn(tieTable) > 1 then
+        --print("TIE!")
+        highest_key = tieTable[math.random(table.getn(tieTable))]
+      end
+      -- Act on the winning vote
+      if category == "difficulty" then
+        GameRules:SetCustomGameDifficulty(highest_key)
+      end
+
+      print(category .. ": " .. highest_key)
+    end
+  end
+end
+
+function GameMode:OnSettingVote(keys)
+  --print("Custom Game Settings Vote.")
+  --PrintTable(keys)
+  local pid   = keys.PlayerID
+  local mode  = GameMode
+
+  -- VoteTable is initialised in InitGameMode()
+  if not mode.VoteTable[keys.category] then mode.VoteTable[keys.category] = {} end
+  mode.VoteTable[keys.category][pid] = keys.vote
+
+
+  --PrintTable(mode.VoteTable)
 end
 
 -- An NPC has spawned somewhere in game.  This includes heroes
@@ -174,7 +249,7 @@ function GameMode:OnLastHit(keys)
   if player == nil or isTowerKill then
     return nil
   end
-  
+
   local hero = player:GetAssignedHero()
 
   if not killedEnt:HasModifier("modifier_arena_kill") then

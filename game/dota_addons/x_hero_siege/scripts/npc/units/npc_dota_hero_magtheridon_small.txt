@@ -11,7 +11,7 @@
     
     "Ability1"        "neutral_evasion"
     "Ability2"        "neutral_critical" 
-    "Ability3"        ""
+    "Ability3"        "difficulty_upgrade"
     "Ability4"        ""
     "Ability5"        ""
     "Ability6"        ""

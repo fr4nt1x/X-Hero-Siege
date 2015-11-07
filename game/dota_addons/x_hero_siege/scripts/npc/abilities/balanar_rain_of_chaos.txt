@@ -35,8 +35,8 @@
       }
       "03"
       {
-        "var_type"      "FIELD_INTEGER"
-        "stun_duration"      "3"
+        "var_type"      "FIELD_FLOAT"
+        "stun_duration"      "1.5"
       }
       "04"
       {

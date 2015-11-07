@@ -11,7 +11,7 @@
     // Abilities
     //----------------------------------------------------------------
     
-    "Ability1"          ""     // Ability 1.
+    "Ability1"          "difficulty_upgrade"     // Ability 1.
     "Ability2"          "permanent_immolation"      // Ability 2.
     "Ability3"          "neutral_bash"      // Ability 3.
     "Ability4"          ""      // Ability 4.

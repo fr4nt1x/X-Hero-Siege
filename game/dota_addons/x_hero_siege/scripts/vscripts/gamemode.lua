@@ -81,7 +81,12 @@ function GameMode:OnAllPlayersLoaded()
   GameMode.FrostTowers_killed = 0
   GameMode.wave_event_happened = false
   GameMode.kill_event_happened = false
-    GameMode.openLanes = {}
+  GameMode.openLanes = {}
+  local number_players = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
+  wave_kills_for_event = 55
+  for i = 1,number_players do
+   wave_kills_for_event = wave_kills_for_event +5
+  end
 
   if PlayerResource:GetPlayerCount() >= 8 then
     for i = 1,8 do
@@ -107,8 +112,16 @@ function GameMode:OnHeroInGame(hero)
 
   -- This line for example will set the starting gold of every hero to 500 unreliable gold
   local number_players = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
-  
-  hero:SetGold(500, false)
+  local difficulty = GameRules:GetCustomGameDifficulty()
+  if difficulty == 1 then
+    hero:SetGold(8000, false)
+  elseif difficulty == 2 then
+    hero:SetGold(500, false)
+  elseif difficulty == 3 then
+    hero:SetGold(400, false)
+  elseif difficulty == 4 then
+    hero:SetGold(300, false)
+  end  
 
   --local item = CreateItem("item_tome_big", hero, hero)
   --hero:AddItem(item)
@@ -169,6 +182,7 @@ function GameMode:OnGameInProgress()
   
   --remove invulnerability of the open lanes towers 
   for  k,_  in pairs(GameMode.openLanes) do
+
     local i,j = string.find(k,"%d")
     local lane = string.sub(k,i,j) 
     local towers = Entities:FindAllByName("tower_p"..lane)
@@ -243,142 +257,4 @@ function GameMode:ExampleConsoleCommand()
   end
 
   print( '*********************************************' )
-end
-function lasthits()
-  -- body
-  for k,v in pairs(Timers.timers) do
-    print(k,v.endTime)
-    v.endTime  = v.endTime +30
-  end
-end
-function openlane1()
-  -- body
-  if GameMode.SecondPhase or GameMode.FinalWave then
-    return nil
-  end
-
-  GameMode.openLanes["spawn1"] = "wp_p1_1"
-  local towers = Entities:FindAllByName("tower_p"..1)
-    
-    for _,tower in pairs(towers)do
-      tower:RemoveModifierByName("modifier_invulnerable")
-    end 
-
-end
-function openlane2()
-  -- body
-  if GameMode.SecondPhase or GameMode.FinalWave then
-    return nil
-  end
-  GameMode.openLanes["spawn2"] = "wp_p2_1"
-    local towers = Entities:FindAllByName("tower_p"..2)
-    
-    for _,tower in pairs(towers)do
-      print("remove modifier",tower)
-      tower:RemoveModifierByName("modifier_invulnerable")
-    end 
-end
-function openlane3()
-  -- body
-  if GameMode.SecondPhase or GameMode.FinalWave then
-    return nil
-  end
-  
-  GameMode.openLanes["spawn3"] = "wp_p3_1"
-    local towers = Entities:FindAllByName("tower_p"..3)
-    
-    for _,tower in pairs(towers)do
-      tower:RemoveModifierByName("modifier_invulnerable")
-    end 
-end
-function openlane4()
-  -- body
-  if GameMode.SecondPhase or GameMode.FinalWave then
-    return nil
-  end
-  
-  GameMode.openLanes["spawn4"] = "wp_p4_1"
-    local towers = Entities:FindAllByName("tower_p"..4)
-    
-    for _,tower in pairs(towers)do
-      tower:RemoveModifierByName("modifier_invulnerable")
-    end 
-end
-function openlane5()
-  -- body
-  if GameMode.SecondPhase or GameMode.FinalWave then
-    return nil
-  end
-
-  GameMode.openLanes["spawn5"] = "wp_p5_1"
-  local towers = Entities:FindAllByName("tower_p"..5)
-  for _,tower in pairs(towers)do
-    tower:RemoveModifierByName("modifier_invulnerable")
-  end 
-end
-function closelane1()
-  -- body
-  if GameMode.SecondPhase  or GameMode.FinalWave then
-    return nil
-  end
-  
-  GameMode.openLanes["spawn1"] = nil
-  local towers = Entities:FindAllByName("tower_p"..1)
-    
-    for _,tower in pairs(towers)do
-      tower:AddNewModifier(nil,nil,"modifier_invulnerable",nil)
-    end 
-
-end
-function closelane2()
-  -- body
-  if GameMode.SecondPhase or GameMode.FinalWave then
-    return nil
-  end
-
-  GameMode.openLanes["spawn2"] = nil
-    local towers = Entities:FindAllByName("tower_p"..2)
-    
-    for _,tower in pairs(towers)do
-      print("remove modifier",tower)
-      tower:AddNewModifier(nil,nil,"modifier_invulnerable",nil)
-    end 
-end
-function closelane3()
-  -- body
-  if GameMode.SecondPhase or GameMode.FinalWave then
-    return nil
-  end
-
-  GameMode.openLanes["spawn3"] = nil
-    local towers = Entities:FindAllByName("tower_p"..3)
-    
-    for _,tower in pairs(towers)do
-      tower:AddNewModifier(nil,nil,"modifier_invulnerable",nil)
-    end 
-end
-function closelane4()
-  -- body
-  if GameMode.SecondPhase or GameMode.FinalWave then
-    return nil
-  end
-
-  GameMode.openLanes["spawn4"] = nil
-    local towers = Entities:FindAllByName("tower_p"..4)
-    
-    for _,tower in pairs(towers)do
-      tower:AddNewModifier(nil,nil,"modifier_invulnerable",nil)
-    end 
-end
-function closelane5()
-  -- body
-  if GameMode.SecondPhase or GameMode.FinalWave then
-    return nil
-  end
-
-  GameMode.openLanes["spawn5"] = nil
-  local towers = Entities:FindAllByName("tower_p"..5)
-  for _,tower in pairs(towers)do
-    tower:AddNewModifier(nil,nil,"modifier_invulnerable",nil)
-  end 
 end

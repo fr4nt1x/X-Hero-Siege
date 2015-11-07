@@ -62,6 +62,7 @@
           "Passive"       "1"
           "IsHidden"      "0"
           "IsPurgable"    "0"
+          "Attributes"    "MODIFIER_ATTRIBUTE_MULTIPLE"
           "IsBuff"        "1"
           "Properties"
           {

@@ -10,7 +10,7 @@
 
     "Ability1"        "command_aura"
     "Ability2"        "npc_spell_immunity" 
-    "Ability3"        ""
+    "Ability3"        "difficulty_upgrade"
     "Ability4"        ""
     "Ability5"        ""
     "Ability6"        ""
