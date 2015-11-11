@@ -4,8 +4,10 @@ function specialEventRoshan()
   if GameMode.FinalWave then
     return nil
   end
-  for _,v in pairs(Timers.timers) do 
-    v.endTime = v.endTime + SpecialEventRoshanDuration
+  for _,v in pairs(Timers.timers) do
+    if v.endTime ~= nil then 
+      v.endTime = v.endTime + SpecialEventRoshanDuration
+    end
   end
   local units = FindUnitsInRadius( DOTA_TEAM_NEUTRALS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
 
@@ -116,7 +118,9 @@ end
 function specialEventArena()
   --body
   for _,v in pairs(Timers.timers) do 
-    v.endTime = v.endTime + SpecialArenaDuration+5
+    if v.endTime ~= nil then
+      v.endTime = v.endTime + SpecialArenaDuration+5
+    end
   end
   local units = FindUnitsInRadius( DOTA_TEAM_NEUTRALS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
 
@@ -245,7 +249,9 @@ function startKillEvent(hero)
   GameMode.event_start_time = GameRules:GetGameTime()
 
   for _,v in pairs(Timers.timers) do 
-    v.endTime = v.endTime + SpecialEventKillsDuration + 5
+    if v.endTime ~= nil then
+      v.endTime = v.endTime + SpecialEventKillsDuration + 5
+    end
   end
 
   local units = FindUnitsInRadius( DOTA_TEAM_NEUTRALS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
@@ -299,6 +305,9 @@ function startKillEvent(hero)
   PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),hero)
   Timers:CreateTimer(4,function () PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),nil) 
                             end)
+
+
+
 end
 
 function endKillEvent(event)
@@ -307,13 +316,8 @@ function endKillEvent(event)
     return nil
   end
 
-  local duration = GameRules:GetGameTime() - GameMode.event_start_time 
 
-  for _,v in pairs(Timers.timers) do 
-    v.endTime = v.endTime - (SpecialEventKillsDuration - duration)
-  end
 
-  GameMode.event_start_time  = nil
   GameRules:GetGameModeEntity():SetFixedRespawnTime(-1)
   
   local units = FindUnitsInRadius( DOTA_TEAM_NEUTRALS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false )
@@ -360,6 +364,16 @@ function endKillEvent(event)
   
   Timers:CreateTimer(0.5,function () PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),nil) 
                             end)
+
+  local duration = GameRules:GetGameTime() - GameMode.event_start_time 
+
+  for _,v in pairs(Timers.timers) do 
+    if v.endTime ~= nil then
+      v.endTime = v.endTime - (SpecialEventKillsDuration - duration)
+    end
+  end
+
+  GameMode.event_start_time  = nil
   GameMode.ramero = nil
   GameMode.killEvent = nil
 end
@@ -377,7 +391,9 @@ function startWaveKillEvent(hero)
   GameMode.eventWaveKills = 0
 
   for _,v in pairs(Timers.timers) do 
-    v.endTime = v.endTime + SpecialEventWaveKillsDuration + 5
+    if v.endTime ~= nil then
+      v.endTime = v.endTime + SpecialEventWaveKillsDuration + 5
+    end
   end
 
   GameRules:GetGameModeEntity():SetFixedRespawnTime(SpecialEventWaveKillsDuration)
@@ -443,14 +459,10 @@ function endWaveKillEvent(event)
     return nil
   end
 
-  local duration = GameRules:GetGameTime() - GameMode.event_start_time 
 
-  for _,v in pairs(Timers.timers) do 
-    v.endTime = v.endTime - (SpecialEventWaveKillsDuration - duration)
-  end
 
   GameRules:GetGameModeEntity():SetFixedRespawnTime(-1)
-  GameMode.event_start_time  = nil
+
 
   local units = FindUnitsInRadius( DOTA_TEAM_NEUTRALS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false )
   for _,unit in pairs(units) do
@@ -501,6 +513,15 @@ function endWaveKillEvent(event)
       FindClearSpaceForUnit(v, v:GetPlayerOwner():GetAssignedHero():GetAbsOrigin(), true)
     end
   end
+
+  local duration = GameRules:GetGameTime() - GameMode.event_start_time 
+
+  for _,v in pairs(Timers.timers) do 
+    if v.endTime ~= nil then
+    v.endTime = v.endTime - (SpecialEventWaveKillsDuration - duration)
+    end
+  end
+  GameMode.event_start_time  = nil
   GameMode.baristal = nil
   GameMode.ramero = nil
   GameMode.waveKillEvent = nil
@@ -756,5 +777,130 @@ function endSpiritBeastEvent(event)
 
   GameMode.spirit_beast = nil
   GameMode.spirit_beast_event = nil
+  
+end
+
+
+------------------------------------------------------------------------------------------------------------------
+function startIllusionEvent(event)
+  -- body
+
+  local hero = event.activator
+
+  if hero.illusion_done then
+    --enable special event triggers
+    local triggers_choice = Entities:FindAllByName("trigger_special_event_choice")
+    local triggers_events = Entities:FindAllByName("trigger_special_event")
+
+    for _,v in pairs(triggers_events) do
+      v:Disable()
+    end 
+    for _,v in pairs(triggers_choice) do
+      v:Enable()
+    end
+    FindClearSpaceForUnit(hero,Entities:FindByName(nil, "base" ):GetAbsOrigin(), true)
+    PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),hero)
+    Timers:CreateTimer(0.5,function () PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),nil) 
+                            end)
+    return nil
+  end
+
+  GameRules:GetGameModeEntity():SetFixedRespawnTime(SpecialEventFrostInfernalDuration)
+
+  local triggers = Entities:FindAllByName("trigger_illusion_return")
+  
+  for _,v in pairs(triggers) do
+    v:Enable()
+  end
+
+  GameMode.illusion_event = true
+  local point_hero = Entities:FindByName(nil, "point_hero_special_event_illusions"):GetAbsOrigin()
+  local point_beast = Entities:FindByName(nil, "spawn_illusions"):GetAbsOrigin()
+
+  GameMode.illusion = CreateUnitByName(hero:GetUnitName(), point_beast, true, nil, nil, DOTA_TEAM_NEUTRALS)
+  GameMode.illusion:AddAbility("event_illusion")
+  
+  local ability = GameMode.illusion:FindAbilityByName("event_illusion")
+  
+
+  GameMode.illusion:SetBaseStrength(hero:GetBaseStrength()*4)
+  GameMode.illusion:SetBaseIntellect(hero:GetBaseIntellect()*4)
+  GameMode.illusion:SetBaseAgility(hero:GetBaseAgility()*4)
+  
+
+  GameMode.illusion:AddNewModifier(GameMode.illusion, nil, "modifier_illusion", { outgoing_damage = 100, incoming_damage = 100})
+  
+  GameMode.illusion:MakeIllusion()
+
+  ability:ApplyDataDrivenModifier(GameMode.illusion, GameMode.illusion, "modifier_single_illusion", {}) 
+  
+
+
+  GameMode.illusion:AddNewModifier(nil, nil, "modifier_stunned", {Duration = 5,IsHidden = true})
+  GameMode.illusion:AddNewModifier(nil, nil, "modifier_invulnerable", {Duration = 5,IsHidden = true})
+
+  Timers:CreateTimer( SpecialEventFrostInfernalDuration+5,function () FireGameEventLocal("end_special_event_illusion", {hero_index = hero:GetEntityIndex()}) 
+                                                end)
+  hero.in_special_event = true
+
+  FindClearSpaceForUnit(hero,point_hero, true)
+
+  hero:AddNewModifier(nil, nil, "modifier_stunned", {Duration = 5,IsHidden = true})
+  hero:AddNewModifier(nil, nil, "modifier_invulnerable", {Duration = 5,IsHidden = true})
+
+  PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),hero)
+  Timers:CreateTimer(4,function () PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),nil) 
+                            end)
+end
+
+function endIllusionEvent(event)
+  -- body
+  if GameMode.illusion_event == nil then
+    return nil
+  end
+
+  GameRules:GetGameModeEntity():SetFixedRespawnTime(-1)
+  --enable special event triggers
+  local triggers_choice = Entities:FindAllByName("trigger_special_event_choice")
+  local triggers_events = Entities:FindAllByName("trigger_special_event")
+
+  for _,v in pairs(triggers_events) do
+    v:Disable()
+  end 
+ 
+  for _,v in pairs(triggers_choice) do
+  
+    v:Enable()
+  end
+
+  local triggers = Entities:FindAllByName("trigger_frost_infernal_return")
+  for _,v in pairs(triggers) do
+    v:Disable()
+  end
+
+  local hero = EntIndexToHScript(event.hero_index)
+  hero.in_special_event = false
+
+  if not GameMode.illusion:IsNull() and  GameMode.illusion:IsAlive() then
+    GameMode.illusion:RemoveSelf()
+  end
+  if hero ~= nil and not hero:IsNull() then
+    if hero:IsAlive() then
+      FindClearSpaceForUnit(hero,Entities:FindByName(nil, "base" ):GetAbsOrigin(), true)
+    else
+      hero:SetRespawnPosition(Entities:FindByName(nil, "base" ):GetAbsOrigin())
+      hero:RespawnHero(false, false, false)
+      hero.ankh_respawn = false
+      hero:SetRespawnsDisabled(false)
+      Timers:RemoveTimer(hero.respawn_timer)
+      hero.respawn_timer = nil
+    end
+    PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),hero)
+    Timers:CreateTimer(0.5,function () PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),nil) 
+                            end)
+  end
+
+  GameMode.illusion = nil
+  GameMode.illusion_event = nil
   
 end

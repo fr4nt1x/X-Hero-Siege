@@ -93,7 +93,9 @@ function GameMode:_InitGameMode()
   ListenToGameEvent("dota_npc_goal_reached", Dynamic_Wrap(GameMode, 'OnNPCGoalReached'), self)
 
   ListenToGameEvent("player_chat", Dynamic_Wrap(GameMode, 'OnPlayerChat'), self)
+
   ListenToGameEvent("end_special_event_kills", endKillEvent, nil)
+  ListenToGameEvent("end_special_event_illusion", endIllusionEvent, nil)
   ListenToGameEvent("end_special_event_wave_kills", endWaveKillEvent, nil)
   ListenToGameEvent("end_special_event_frost_infernal", endFrostInfernalEvent, nil)
   ListenToGameEvent("end_special_event_spirit_beast", endSpiritBeastEvent, nil)

@@ -81,6 +81,8 @@ function GameMode:OnAllPlayersLoaded()
   GameMode.FrostTowers_killed = 0
   GameMode.wave_event_happened = false
   GameMode.kill_event_happened = false
+  GameMode.first_time_teleport = true
+  
   GameMode.openLanes = {}
   local number_players = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
   wave_kills_for_event = 55
@@ -113,62 +115,65 @@ function GameMode:OnHeroInGame(hero)
   -- This line for example will set the starting gold of every hero to 500 unreliable gold
   local number_players = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
   local difficulty = GameRules:GetCustomGameDifficulty()
-  if difficulty == 1 then
-    hero:SetGold(8000, false)
-  elseif difficulty == 2 then
-    hero:SetGold(500, false)
-  elseif difficulty == 3 then
-    hero:SetGold(400, false)
-  elseif difficulty == 4 then
-    hero:SetGold(300, false)
-  end  
+  if hero:GetTeam() == DOTA_TEAM_GOODGUYS then
+    if difficulty == 1 then
+      hero:SetGold(8000, false)
+    elseif difficulty == 2 then
+      hero:SetGold(500, false)
+    elseif difficulty == 3 then
+      hero:SetGold(400, false)
+    elseif difficulty == 4 then
+      hero:SetGold(300, false)
+    end  
 
-  --local item = CreateItem("item_tome_big", hero, hero)
-  --hero:AddItem(item)
-  --local item = CreateItem("item_tome_big", hero, hero)
-  --hero:AddItem(item)
-  --hero:AddNewModifier(hero, nil,  "modifier_item_ultimate_scepter", {})
-  hero.in_special_event = false
-  hero.wave_kills = 0
-  hero.creep_kills  =0
-  hero.got_kill_bonus = false
-  local ability = AbilitiesHeroes[hero:GetUnitName()]
-  if ability ~=nil then
-    hero:AddAbility(ability)
-    hero:UpgradeAbility(hero:FindAbilityByName(ability))
-    hero:SetAbilityPoints(1)
+    --local item = CreateItem("item_tome_big", hero, hero)
+    --hero:AddItem(item)
+    --local item = CreateItem("item_tome_big", hero, hero)
+    --hero:AddItem(item)
+    --hero:AddNewModifier(hero, nil,  "modifier_item_ultimate_scepter", {})
+    hero.in_special_event = false
+    hero.wave_kills = 0
+    hero.creep_kills  =0
+    hero.got_kill_bonus = false
+    hero.illusion_done = false
+    local ability = AbilitiesHeroes[hero:GetUnitName()]
+    if ability ~=nil then
+      hero:AddAbility(ability)
+      hero:UpgradeAbility(hero:FindAbilityByName(ability))
+      hero:SetAbilityPoints(1)
+    end
+
+    player = hero:GetPlayerOwnerID()
+    local point = Entities:FindByName(nil,"dota_goodguys_fort")
+    --[[
+    unit = CreateUnitByName("npc_dota_hero_spirit_beast",point:GetAbsOrigin(),true,hero,nil,DOTA_TEAM_NEUTRALS)
+    -- local ability = unit:FindAbilityByName("ramero_baristal")
+    --ability:ApplyDataDrivenModifier(unit, unit, "modifier_baristal", {})
+    unit:SetControllableByPlayer(player, true)
+    --]]
+    --[[for j = 1,15 do
+    illusion = CreateUnitByName("npc_ghul_II",point:GetAbsOrigin()+Vector(200,0,0),true,hero,nil,DOTA_TEAM_NEUTRALS)
+    illusion:SetControllableByPlayer(player, true)
+    end--]]
+    --[[  
+    illusion = CreateUnitByName("npc_dragon_level_III",point:GetAbsOrigin(),true,hero,nil,DOTA_TEAM_GOODGUYS)
+
+    illusion = CreateUnitByName("npc_bloodelf_wave_XII",point:GetAbsOrigin(),true,hero,nil,DOTA_TEAM_GOODGUYS)
+    illusion:SetControllableByPlayer(player, true)  
+    --]]
+    local item = CreateItem("item_healing_pot", hero, hero)
+    hero:AddItem(item)
+    local item = CreateItem("item_ankh", hero, hero)
+    hero:AddItem(item)
+    -- These lines will create an item and add it to the player, effectively ensuring they start with the item
+
+    --[[ --These lines if uncommented will replace the W ability of any hero that loads into the game
+      --with the "example_ability" ability
+
+    local abil = hero:GetAbilityByIndex(1)
+    hero:RemoveAbility(abil:GetAbilityName())
+    hero:AddAbility("example_ability")]]
   end
-  
-  player = hero:GetPlayerOwnerID()
-  local point = Entities:FindByName(nil,"dota_goodguys_fort")
---[[
-  unit = CreateUnitByName("npc_dota_hero_spirit_beast",point:GetAbsOrigin(),true,hero,nil,DOTA_TEAM_NEUTRALS)
- -- local ability = unit:FindAbilityByName("ramero_baristal")
-  --ability:ApplyDataDrivenModifier(unit, unit, "modifier_baristal", {})
-  unit:SetControllableByPlayer(player, true)
---]]
- --[[for j = 1,15 do
-  illusion = CreateUnitByName("npc_ghul_II",point:GetAbsOrigin()+Vector(200,0,0),true,hero,nil,DOTA_TEAM_NEUTRALS)
-  illusion:SetControllableByPlayer(player, true)
-end--]]
---[[  
-  illusion = CreateUnitByName("npc_dragon_level_III",point:GetAbsOrigin(),true,hero,nil,DOTA_TEAM_GOODGUYS)
-  
-  illusion = CreateUnitByName("npc_bloodelf_wave_XII",point:GetAbsOrigin(),true,hero,nil,DOTA_TEAM_GOODGUYS)
-  illusion:SetControllableByPlayer(player, true)  
-  --]]
-  local item = CreateItem("item_healing_pot", hero, hero)
-  hero:AddItem(item)
-  local item = CreateItem("item_ankh", hero, hero)
-  hero:AddItem(item)
-  -- These lines will create an item and add it to the player, effectively ensuring they start with the item
-
-  --[[ --These lines if uncommented will replace the W ability of any hero that loads into the game
-    --with the "example_ability" ability
-
-  local abil = hero:GetAbilityByIndex(1)
-  hero:RemoveAbility(abil:GetAbilityName())
-  hero:AddAbility("example_ability")]]
 end
 
 --[[

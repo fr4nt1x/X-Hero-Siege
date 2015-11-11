@@ -43,7 +43,7 @@ SpecialEventRoshan = 13*60
 SpecialEventRoshanDuration = 1.1*60
 TimeBetweenCreepSpawn = 15
 waves_between_levels = 11
-waves_between_dragons = 30
+waves_between_dragons = 35
 TimeSpecialArena = 60*22
 creeps_per_wave = 2
 spawn_dragon = false
@@ -65,7 +65,7 @@ function SpawnCreeps()
     --Check if levellup was so that a dragon has to be spawned
     if spawn_dragon then
       Timers:CreateTimer(function()
-      local unit = CreateUnitByName(dragonNames[dragonlevel-1], point+RandomVector(RandomInt(0, 50)), true, nil, nil, DOTA_TEAM_NEUTRALS)
+      local unit = CreateUnitByName(dragonNames[math.min(3,dragonlevel-1)], point+RandomVector(RandomInt(0, 50)), true, nil, nil, DOTA_TEAM_NEUTRALS)
       unit:SetInitialGoalEntity(waypoint)
       end)
     end
@@ -112,9 +112,11 @@ function SpawnCreeps()
     end
   end
 
-  if dragonlevel <= 4 and creepround >= waves_between_dragons *dragonlevel then
+  if dragonlevel <= 8 and creepround >= waves_between_dragons *dragonlevel then
     dragonlevel = dragonlevel +1
-    PrecacheUnitByNameAsync(dragonNames[dragonlevel-1], function() end)
+    if dragonlevel <= 4 then
+      PrecacheUnitByNameAsync(dragonNames[dragonlevel-1], function() end)
+    end
     Notifications:TopToAll({text="Dragon Attack next Creep wave!", duration=5.0})
     spawn_dragon = true
     print("DRAGONLEVEL"..dragonlevel)

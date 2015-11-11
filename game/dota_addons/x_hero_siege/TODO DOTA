@@ -4,12 +4,6 @@ spawn banehallow stuff
 
 dont skip magtheridon
 
-make triggers bigger
-
-maybe rewrite the arena event to save everything in a list with nubmer as key, and find all units in each arena and port them back manually. -> dont let them blink outside arena
-
-maybe make blink a blink dagger baseclass, so that you can prevent blink
-
 beast event getting finsihed without killing
 
 Remove leaving player's hero or just kill him and don't let him respawn
@@ -18,11 +12,7 @@ roshan event and blink
 
 ankh selling
 
-teleport units to mag and final wave
-
 -Hero Image and All Hero Image challenge missing (Hero Image +100 all stats, All Hero Image grants immunity to spells and magic)
-
--Dragon Attack during the waves might be a little too hard for new players
 
 -Challenges can be retried (used to be one try per player only)
 
@@ -32,37 +22,15 @@ teleport units to mag and final wave
 
 -Cannon Tower seems a little too OP, more OP than I remembered.
 
--Game scales from hard to extremely easy after the monster arena event, because lane creeps do not upgrade like the old one did (Level 1 to 4 upgrades on attack, defense and HP)
-
-Wave kill limit based on players
-
 greevil end event to early
 
 special events end on item pickup
 
-Banehallow stampede particle not showing
-
 Special event timing doesn't fit (Ramero Baristal)
+
+Special events and final wave
 
 
 DONE:
 
-
-New Lane command
-
-Fixed shield of invincibility and lich frost frenzy interaction (Cause of crash, since damage return and damage from self caused an infinite loop)
-
-Made items dagger, bracer and claws stackable
-
-Added level up system
-
-Difficulty system
-
-Added attack speed to proudmoore, illidan, balanar and grom
-
-grom uses mirror image more often,
-
-illidan negative energy more damage and pure
-
-attack speed of illidan metamorphosis
-
+made crypt lord beetles not stack and fixed crypt lord spawn bug

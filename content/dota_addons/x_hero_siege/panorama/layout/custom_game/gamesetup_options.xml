@@ -36,7 +36,7 @@
 				<Panel class="CustomSettingPanel" hittest="false">
 
 					<Panel class="ContainerCustomGameLengthTitle" hittest="false">
-						<Label class="CustomGameSettingsTitle" id="CustomGameLengthTitle1" hittest="false" text="Game Length" />
+						<Label class="CustomGameSettingsTitle" id="CustomGameLengthTitle1" hittest="false" text="Game Difficulty" />
 					</Panel>
 
 					<Panel class="CustomGameSettingPanelDivider" hittest="false" />

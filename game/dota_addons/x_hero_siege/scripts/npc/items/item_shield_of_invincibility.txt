@@ -41,7 +41,6 @@
             "reincarnation_time"        "10.0"
         }
     }
-
     "precache"
     {
       // Not really used in the Lifesteal action

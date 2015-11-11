@@ -29,7 +29,10 @@
 	{
 		"hero_index"					"short"
 	}
-
+	"end_special_event_illusion"
+	{
+		"hero_index"					"short"
+	}
 	"end_special_event_frost_infernal"
 	{
 		"hero_index"					"short"

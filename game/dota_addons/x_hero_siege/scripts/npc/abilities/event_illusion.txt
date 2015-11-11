@@ -1,0 +1,36 @@
+"event_illusion"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "-1"
+    "LevelsBetweenUpgrades" "1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityTextureName" ""
+    "AbilitySpecial"
+    {
+    }
+
+    "Modifiers"
+    {
+      "modifier_single_illusion"
+      {
+        "Passive" "0"
+        "IsHidden" "0"
+        "AllowIllusionDuplicate"     "1"
+        "IsPurgable"    "0"
+        "OnTakeDamage"
+        {
+          "RunScript"
+          {
+            "ScriptFile"  "heroes/special_event/illusions.lua"
+            "Function"    "drop_tome"
+          }
+        }
+      }
+    }
+  }

@@ -2,7 +2,6 @@ require('libraries/timers')
 require('libraries/spawncreeps')
 require('libraries/notifications')
 
-first_time_teleport = true
 
 function killed_baracks( keys )
 	-- body
@@ -127,7 +126,7 @@ function teleport_to_top(keys)
 	local teleporters = Entities:FindAllByName("teleport")
 	local point = Entities:FindByName(nil,"point_teleport_boss"):GetAbsOrigin()
 	local point_mag = Entities:FindByName(nil,"spawn_magtheridon"):GetAbsOrigin()  
-	if first_time_teleport then
+	if GameMode.first_time_teleport then
   		local heroes = HeroList:GetAllHeroes()
 
   		magtheridon = CreateUnitByName("npc_dota_hero_magtheridon",Entities:FindByName(nil,"spawn_magtheridon"):GetAbsOrigin()  ,true,nil,nil,DOTA_TEAM_NEUTRALS)
@@ -159,7 +158,7 @@ function teleport_to_top(keys)
 	       		hero:AddNewModifier(nil, nil, "modifier_stunned",nil)
 	        	hero:AddNewModifier(nil, nil, "modifier_invulnerable",nil)
 	  			PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),hero)
-				first_time_teleport = false
+				GameMode.first_time_teleport = false
 	  		end
 	  	end
 
@@ -240,6 +239,22 @@ function teleporter_frost_infernal( event )
 
 	elseif GameMode.frost_infernal_event ~=nil then
 		event_to_sent = "end_special_event_frost_infernal"
+	else
+		return nil 
+	end
+	FireGameEventLocal(event_to_sent, {hero_index = hero:GetEntityIndex()})
+end
+
+function teleporter_illusions( event )
+	-- SetBodygroup(int iGroup, int iValue)					
+	local hero = event.activator
+	local event_to_sent = nil
+
+	if GameMode.illusion_event  ~= nil then
+		event_to_sent = "end_special_event_illusion"
+
+	--elseif GameMode.frost_infernal_event ~=nil then
+		--event_to_sent = "end_special_event_frost_infernal"
 	else
 		return nil 
 	end
