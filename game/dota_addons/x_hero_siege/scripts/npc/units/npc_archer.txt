@@ -65,7 +65,8 @@
         //----------------------------------------------------------------
         "VisionDaytimeRange"    "800"   // Range of vision during day light.
         "VisionNighttimeRange"    "600"   // Range of vision at night time.
-    
+        "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_LIGHT"
+        "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_STRONG"
         // Bots
         //----------------------------------------------------------------
         "AttackDesire"        "1.5"   // How much bots want to attack them vs other non-hero things

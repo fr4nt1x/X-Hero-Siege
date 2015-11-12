@@ -39,7 +39,8 @@ AbilitiesHeroes = {npc_dota_hero_antimage = "demonhunter_roar",
                     npc_dota_hero_enchantress = "dryad_poison_weapons",
                     npc_dota_hero_luna = "luna_moon_glaive",
                     npc_dota_hero_mirana = "moon_priest_rejunivation",
-                    npc_dota_hero_lich = "lich_frost_frenzy"}
+                    npc_dota_hero_lich = "lich_frost_frenzy",
+                    npc_dota_hero_phantom_assassin = "blink"}
 --[[
   This function should be used to set up Async precache calls at the beginning of the gameplay.
 

@@ -24,8 +24,8 @@ final_wave_creeps ={
                     south = {"npc_captain_final_wave","npc_marine_final_wave","npc_captain_final_wave","npc_knight_final_wave","npc_dota_hero_proudmoore_final_wave"}
                   }
 
-creep_kills_for_gold = 700 
-creep_kills_for_event = 1600
+creep_kills_for_gold = 600 
+creep_kills_for_event = 1500
 
 
 wave_kills_for_event = 60 
@@ -42,8 +42,11 @@ SpecialEventFrostInfernalDuration = 2*60
 SpecialEventRoshan = 13*60
 SpecialEventRoshanDuration = 1.1*60
 TimeBetweenCreepSpawn = 15
-waves_between_levels = 11
-waves_between_dragons = 35
+
+waves_between_levels = {10,44,68,90}
+
+waves_between_dragons = {28,56,84,108}
+
 TimeSpecialArena = 60*22
 creeps_per_wave = 2
 spawn_dragon = false
@@ -80,7 +83,7 @@ function SpawnCreeps()
         end
       end
     else
-      for i = 1,level do 
+      for i = 1,math.min(level,4) do 
         for j = 1,creeps_per_wave do
         Timers:CreateTimer(function()
           local unit = CreateUnitByName(creepsToSpawn[(creepround % 4)+1][i], point+RandomVector(RandomInt(0, 50)), true, nil, nil, DOTA_TEAM_NEUTRALS)
@@ -98,21 +101,25 @@ function SpawnCreeps()
 
   creepround = creepround+ 1
 
-  if level <= 4 and creepround >= waves_between_levels*level then
+  if level <= 5 and creepround == waves_between_levels[level] then
     level = level +1
     if level == 2 then
       creeps_per_wave = 3
-      waves_between_levels = 24
-    elseif level >2 then
+    elseif level > 2 then
+      if level == 4 then 
+        creeps_per_wave = 2
+      end
       local msg = "Level "..(level-1).." time. The creeps got stronger!"
       Notifications:TopToAll({text=msg, duration=5.0})
     end
-    for i = 1,4 do
-      PrecacheUnitByNameAsync(creepsToSpawn[i][level], function() end) 
+    if level <= 4 then
+      for i = 1,4 do
+        PrecacheUnitByNameAsync(creepsToSpawn[i][level], function() end) 
+      end
     end
   end
-
-  if dragonlevel <= 8 and creepround >= waves_between_dragons *dragonlevel then
+  -- integer tells you how many dragons get spawned 4 = 4 dragons
+  if dragonlevel <= 4 and creepround == waves_between_dragons[dragonlevel] then
     dragonlevel = dragonlevel +1
     if dragonlevel <= 4 then
       PrecacheUnitByNameAsync(dragonNames[dragonlevel-1], function() end)

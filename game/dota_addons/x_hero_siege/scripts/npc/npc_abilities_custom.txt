@@ -4199,17 +4199,17 @@
 	      "01"
 	      {
 	        "var_type"        "FIELD_FLOAT"
-	        "bonus_armor"  "2.5"
+	        "bonus_armor"  "1"
 	      }
 	      "02"
 	      {
 	        "var_type"        "FIELD_INTEGER"
-	        "bonus_damage"     "7"
+	        "bonus_damage"     "10"
 	      }
 	      "03"
 	      {
 	        "var_type"        "FIELD_INTEGER"
-	        "bonus_health"     "100"
+	        "bonus_health"     "200"
 	      }
 	    }
 	
@@ -7416,6 +7416,120 @@
 	        }
 	    }
 	  }
+	"warden_attribute_bonus"
+	  {
+	    // General
+	    //-------------------------------------------------------------------------------------------------------------
+	    "BaseClass"       "ability_datadriven"
+	    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_ATTRIBUTES"
+	    "AbilityTextureName"      "attribute_bonus"
+	    "MaxLevel"             "4"
+	    "RequiredLevel"        "-1"
+	    "LevelsBetweenUpgrades" "3"
+	
+	    "AbilitySpecial"
+	    {
+	      "01"
+	      {
+	        "var_type"        "FIELD_INTEGER"
+	        "stats"  "50 150 250 500"
+	      }
+	    }
+	
+	    "precache"
+	    {
+	      // Not really used in the Lifesteal action
+	
+	    }
+	    
+	    "Modifiers"
+	    {
+	      "modifier_bonus_attributes"
+	      {
+	        "Passive"       "1"
+	        "IsHidden"      "0"
+	        "IsBuff"        "1"
+	        "IsPurgable"    "0"
+	
+	        "Properties"
+	        {
+	            "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%stats" 
+	            "MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%stats"
+	            "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%stats"
+	        }
+	      }
+	    }
+	  }
+	"warden_avatar_summon_spirit"
+	  {
+	    // General
+	    //-------------------------------------------------------------------------------------
+	    "BaseClass" "ability_datadriven"
+	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+	    "MaxLevel"              "1"
+	    "RequiredLevel"        "-1"
+	
+	
+	    // Stats
+	    //-------------------------------------------------------------------------------------
+	    "AbilityCastPoint" "0.5"
+	    "AbilityCooldown"  "10"
+	    "AbilityManaCost"  "100"
+	    "AbilityTextureName" "spectre_haunt"
+	
+	
+	    // Special
+	    //-------------------------------------------------------------------------------------
+	    "AbilitySpecial"
+	    {
+	      "01"
+	        {
+	          "var_type" "FIELD_FLOAT"
+	          "duration" "50"
+	        }
+	      "02"
+	        {
+	          "var_type" "FIELD_INTEGER"
+	          "units" "1"
+	        }
+	      "03"
+	        {
+	          "var_type" "FIELD_INTEGER"
+	          "max_units" "5"
+	        }
+	    }
+	
+	    "precache"
+	    {
+	    }
+	
+	    // Data Driven
+	    //-------------------------------------------------------------------------------------
+	    "OnSpellStart"
+	    {
+	        "RunScript"
+	        {
+	          "ScriptFile"  "heroes/hero_warden/summon.lua"
+	          "Function"    "spawn_spirit"
+	        }
+	    }
+	    "Modifiers"
+	    {
+	      "modifier_spirit_of_vengeance"
+	      {
+	        "Passive"      "0"
+	        "IsHidden"      "0"
+	        "IsDebuff"      "0"
+	    
+	        "Properties"
+	        {
+	          "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL" "1"
+	          "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL"  "1"
+	          "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE"     "1"
+	        }
+	      }
+	    }
+	  }
 	"warden_flurry_of_knives"
 	  {
 	    // General
@@ -7438,7 +7552,7 @@
 	    //-------------------------------------------------------------------------------------------------------------
 	      "AbilityManaCost"       "50 100 150 200"
 	      "MaxLevel"              "4"
-	      "LevelBetweenUpgrades"  "3"
+	      "LevelsBetweenUpgrades"  "3"
 	      "RequiredLevel"         "-1"
 	
 	    // Special  
@@ -7494,7 +7608,7 @@
 	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 	    "MaxLevel"              "4"
 	    "RequiredLevel"        "-1"
-	    "LevelBetweenUpgrades"  "3"
+	    "LevelsBetweenUpgrades"  "3"
 	
 	    // Stats
 	    //-------------------------------------------------------------------------------------
@@ -7690,6 +7804,93 @@
 	        "States"
 	        {
 	          "MODIFIER_STATE_SILENCED"    "MODIFIER_STATE_VALUE_ENABLED"
+	        }
+	      }
+	    }
+	  }
+	"warden_vengeance"
+	  {
+	    // General
+	    //-------------------------------------------------------------------------------------
+	    "BaseClass" "ability_datadriven"
+	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	    "MaxLevel"              "2"
+	    "RequiredLevel"        "10"
+	    "LevelBetweenUpgrades"  "5"
+	
+	    // Stats
+	    //-------------------------------------------------------------------------------------
+	    "AbilityCastPoint" "0.5"
+	    "AbilityCooldown"  "121"
+	    "AbilityManaCost"  "500 500"
+	    "AbilityTextureName" "spectre_haunt"
+	
+	
+	    // Special
+	    //-------------------------------------------------------------------------------------
+	    "AbilitySpecial"
+	    {
+	      "01"
+	        {
+	          "var_type" "FIELD_FLOAT"
+	          "duration" "120 120"
+	        }
+	      "02"
+	        {
+	          "var_type" "FIELD_INTEGER"
+	          "units" "1 2"
+	        }
+	    }
+	
+	    "precache"
+	    {
+	    }
+	
+	    // Data Driven
+	    //-------------------------------------------------------------------------------------
+	    "OnSpellStart"
+	    {
+	        "SpawnUnit"
+	        {
+	          "Target" "CASTER"
+	          "Duration" "%duration"
+	          "UnitName"    "npc_avatar_of_vengeance"
+	          "UnitCount"    "%units"
+	          "GrantsGold"  "1"
+	          "GrantsXP"    "1"
+	          "SpawnRadius"  "50"
+	          "OnSpawn"
+	          {
+	              "ApplyModifier"
+	              {
+	                "ModifierName"  "modifier_avatar_vengeance"
+	                "Target"     "TARGET"
+	              }
+	              "ApplyModifier"
+	              {
+	                "ModifierName"  "modifier_phased"
+	                "Target"     "TARGET"
+	                "Duration"    "0.05"
+	              }
+	          }
+	        }
+	    }
+	    "Modifiers"
+	    {
+	      "modifier_avatar_vengeance"
+	      {
+	        "Passive"      "0"
+	        "IsHidden"      "0"
+	        "IsDebuff"      "0"
+	    
+	
+	        "OnDestroy"
+	        {
+	          "RunScript"
+	          {
+	            "ScriptFile"  "heroes/hero_warden/summon.lua"
+	            "Function"    "despawn_spirits"
+	          }
 	        }
 	      }
 	    }

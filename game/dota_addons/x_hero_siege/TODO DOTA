@@ -30,7 +30,17 @@ Special event timing doesn't fit (Ramero Baristal)
 
 Special events and final wave
 
+Phase 2 activating equally
+
 
 DONE:
 
 made crypt lord beetles not stack and fixed crypt lord spawn bug
+
+added better level up system, 
+
+changed when the level up and dragon attacks appear
+
+added warden 
+
+reduced the amount of creeps spawning at level 4, only two of each type are spawning per wave

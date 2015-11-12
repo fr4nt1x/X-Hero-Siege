@@ -20,7 +20,7 @@
     //-------------------------------------------------------------------------------------------------------------
       "AbilityManaCost"       "50 100 150 200"
       "MaxLevel"              "4"
-      "LevelBetweenUpgrades"  "3"
+      "LevelsBetweenUpgrades"  "3"
       "RequiredLevel"         "-1"
 
     // Special  

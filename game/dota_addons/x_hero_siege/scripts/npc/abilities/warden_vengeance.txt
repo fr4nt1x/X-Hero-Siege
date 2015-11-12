@@ -1,0 +1,87 @@
+"warden_vengeance"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "MaxLevel"              "2"
+    "RequiredLevel"        "10"
+    "LevelBetweenUpgrades"  "5"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.5"
+    "AbilityCooldown"  "121"
+    "AbilityManaCost"  "500 500"
+    "AbilityTextureName" "spectre_haunt"
+
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+        {
+          "var_type" "FIELD_FLOAT"
+          "duration" "120 120"
+        }
+      "02"
+        {
+          "var_type" "FIELD_INTEGER"
+          "units" "1 2"
+        }
+    }
+
+    "precache"
+    {
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+        "SpawnUnit"
+        {
+          "Target" "CASTER"
+          "Duration" "%duration"
+          "UnitName"    "npc_avatar_of_vengeance"
+          "UnitCount"    "%units"
+          "GrantsGold"  "1"
+          "GrantsXP"    "1"
+          "SpawnRadius"  "50"
+          "OnSpawn"
+          {
+              "ApplyModifier"
+              {
+                "ModifierName"  "modifier_avatar_vengeance"
+                "Target"     "TARGET"
+              }
+              "ApplyModifier"
+              {
+                "ModifierName"  "modifier_phased"
+                "Target"     "TARGET"
+                "Duration"    "0.05"
+              }
+          }
+        }
+    }
+    "Modifiers"
+    {
+      "modifier_avatar_vengeance"
+      {
+        "Passive"      "0"
+        "IsHidden"      "0"
+        "IsDebuff"      "0"
+    
+
+        "OnDestroy"
+        {
+          "RunScript"
+          {
+            "ScriptFile"  "heroes/hero_warden/summon.lua"
+            "Function"    "despawn_spirits"
+          }
+        }
+      }
+    }
+  }

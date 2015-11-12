@@ -58,6 +58,7 @@
     //-------------------------------------------------------------------------------------------------------------
     "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
     "BaseClass"             "antimage_blink"
+    "MaxLevel"              "1"
     // Casting
     //-------------------------------------------------------------------------------------------------------------
     "AbilityCastPoint"        "0.4"

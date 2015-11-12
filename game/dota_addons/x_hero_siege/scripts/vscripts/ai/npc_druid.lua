@@ -15,7 +15,7 @@ end
 function DruidThink()
 	-- body
 	local minimalTargets = 7
-	if not thisEntity:IsAlive() then
+	if thisEntity:IsNull() or not thisEntity:IsAlive() then
 		return nil
 	elseif Ability_roar:IsFullyCastable() then
 		DebugPrint("can cast roar")

@@ -1,0 +1,84 @@
+//=================================================================================
+	// Creature: Avatar of Vengeance
+	//=================================================================================
+	"npc_avatar_of_vengeance"
+	{
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creature"
+		"Model"						"models/heroes/spectre/spectre.vmdl"	 //Add model
+		"ModelScale"				"1.4"
+		"Level"						"7"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"HealthBarOffset"			"140"
+		
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"warden_avatar_summon_spirit"	 //Reference: ACmi
+		"Ability2"					""	 //Reference: Asp1
+		"Ability3"					""	 //Reference: ACrk
+		"Ability4"					""	 //Reference: Avng
+		
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"100"
+		"MagicalResistance"			"0"
+		
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"1500.0"
+		"AttackDamageMax"			"1512.0"
+		"AttackDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AttackRate"				"0.7"
+		"AttackAnimationPoint"		"0.33"
+		"AttackAcquisitionRange"	"500"
+		"AttackRange"				"450"
+		"ProjectileModel"			"particles/units/heroes/hero_vengeful/vengeful_base_attack.vpcf"	 //Add projectile
+		"ProjectileSpeed"			"1200"
+		
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyGoldMin"				"26.0"
+		"BountyGoldMax"				"38.0"
+		
+
+		
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"320"
+		"MovementTurnRate"			"0.6"
+		
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"25000"
+		"StatusHealthRegen"			"1.6"
+		"StatusMana"				"500"
+		"StatusManaRegen"			"2"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1200"
+		"VisionNighttimeRange"		"1000"
+		
+		// Team
+		//----------------------------------------------------------------
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+		"UnitRelationShipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		// Creature Data
+		//----------------------------------------------------------------
+		"Creature"
+        {
+           "AttachWearables"   
+            {
+                "Wearable1" { "ItemDef" "395" }
+                "Wearable2" { "ItemDef" "325" }
+                "Wearable3" { "ItemDef" "324" }
+                "Wearable4" { "ItemDef" "323" }
+                "Wearable4" { "ItemDef" "539" }
+            } 
+        }
+	}

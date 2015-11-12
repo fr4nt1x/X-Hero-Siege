@@ -16,17 +16,17 @@
       "01"
       {
         "var_type"        "FIELD_FLOAT"
-        "bonus_armor"  "2.5"
+        "bonus_armor"  "1"
       }
       "02"
       {
         "var_type"        "FIELD_INTEGER"
-        "bonus_damage"     "7"
+        "bonus_damage"     "10"
       }
       "03"
       {
         "var_type"        "FIELD_INTEGER"
-        "bonus_health"     "100"
+        "bonus_health"     "200"
       }
     }
 

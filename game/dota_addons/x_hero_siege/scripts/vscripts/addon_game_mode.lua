@@ -56,6 +56,7 @@ function Precache( context )
   PrecacheUnitByNameSync("npc_dota_hero_frost_infernal", context)
 
   PrecacheUnitByNameSync("npc_lich_frost_infernal", context)
+  PrecacheUnitByNameSync("npc_spirit_of_vengeance", context)
 
   PrecacheUnitByNameSync("npc_water_servant_I", context)
   PrecacheUnitByNameSync("npc_water_servant_II", context)

@@ -1,0 +1,70 @@
+"warden_avatar_summon_spirit"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "-1"
+
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.5"
+    "AbilityCooldown"  "10"
+    "AbilityManaCost"  "100"
+    "AbilityTextureName" "spectre_haunt"
+
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+        {
+          "var_type" "FIELD_FLOAT"
+          "duration" "50"
+        }
+      "02"
+        {
+          "var_type" "FIELD_INTEGER"
+          "units" "1"
+        }
+      "03"
+        {
+          "var_type" "FIELD_INTEGER"
+          "max_units" "5"
+        }
+    }
+
+    "precache"
+    {
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+        "RunScript"
+        {
+          "ScriptFile"  "heroes/hero_warden/summon.lua"
+          "Function"    "spawn_spirit"
+        }
+    }
+    "Modifiers"
+    {
+      "modifier_spirit_of_vengeance"
+      {
+        "Passive"      "0"
+        "IsHidden"      "0"
+        "IsDebuff"      "0"
+    
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL" "1"
+          "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL"  "1"
+          "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE"     "1"
+        }
+      }
+    }
+  }
