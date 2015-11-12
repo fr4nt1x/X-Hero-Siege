@@ -45,3 +45,7 @@ function printEvents()
     end
     return (30)
 end
+
+function IsValidAlive(ent)
+  return IsValidEntity(ent) and ent:IsAlive()
+end

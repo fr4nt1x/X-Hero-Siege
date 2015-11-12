@@ -5,7 +5,7 @@ function upgrade_unit(event)
 	local ability = event.ability
 	local health_bonus = ability:GetLevelSpecialValueFor("bonus_health", ability:GetLevel()-1)
 
-	if unit:IsNull() or not unit:IsAlive() or ability == nil then
+	if not IsValidAlive(unit) or ability == nil then
 		return nil
 	end
 

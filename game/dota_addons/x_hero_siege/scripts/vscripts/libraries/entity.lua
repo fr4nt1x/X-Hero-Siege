@@ -28,9 +28,9 @@ function killed_baracks( keys )
 	if  openlanes == 0 then
 		print("secondphase")
 		
-		Timers:RemoveTimer( timer_creep_spawn)
-		timer_creep_spawn = nil
-
+		Timers:RemoveTimer(timer_creep_spawn)
+		timer_creep_spawn = ""
+		print(timer_creep_spawn)
 
 		local trigger = Entities:FindByName(nil,"trigger_phase2_left")
 		trigger:Enable()

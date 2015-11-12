@@ -25,7 +25,7 @@ function specialEventRoshan()
 
   for _,hero in pairs(heroes) do
 
-    if hero.disconnected ~= true and hero:GetTeam() == DOTA_TEAM_GOODGUYS then
+    if hero.disconnected ~= true and IsValidEntity(hero) and hero:GetTeam() == DOTA_TEAM_GOODGUYS then
       hero:AddNewModifier(nil, nil, "modifier_stunned", {Duration = 5,IsHidden = true})
       hero:AddNewModifier(nil, nil, "modifier_invulnerable", {Duration = 5,IsHidden = true})
 
@@ -46,7 +46,7 @@ function specialEventRoshan()
   local units = FindUnitsInRadius( DOTA_TEAM_GOODGUYS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false )
   
   for _,v in pairs(units) do
-    if not v:IsNull() and v:IsAlive() and v:GetPlayerOwner() ~= nil then
+    if not v:IsNull() and IsValidAlive(v) and v:GetPlayerOwner() ~= nil then
       FindClearSpaceForUnit(v, v:GetPlayerOwner():GetAssignedHero():GetAbsOrigin(), true)
     end
   end
@@ -73,7 +73,7 @@ function endSpecialEventRoshan()
 
   for _,hero in pairs(heroes) do
 
-    if hero.disconnected ~= true and hero:GetTeam() == DOTA_TEAM_GOODGUYS then
+    if hero.disconnected ~= true and IsValidEntity(hero) and hero:GetTeam() == DOTA_TEAM_GOODGUYS then
       hero.in_special_event = false
       
       if hero:IsAlive() then
@@ -138,7 +138,7 @@ function specialEventArena()
   
   local heroes = HeroList:GetAllHeroes()
   for _,hero in pairs(heroes) do
-    if not hero:IsNull() and hero.disconnected ~= true and hero:GetTeam() == DOTA_TEAM_GOODGUYS then
+    if IsValidEntity(hero) and hero.disconnected ~= true and hero:GetTeam() == DOTA_TEAM_GOODGUYS then
       hero.in_special_event = true 
       local point = Entities:FindByName(nil,"special_arena_"..player_count_arena):GetAbsOrigin()
       GameMode.player_spawn_round_kills[hero:GetEntityIndex()] = {}
@@ -168,7 +168,7 @@ function specialEventArena()
 
   local units = FindUnitsInRadius( DOTA_TEAM_GOODGUYS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
   for _,unit in pairs(units) do
-    if unit:GetPlayerOwner()~= nil and unit:IsAlive() then
+    if unit:GetPlayerOwner()~= nil and IsValidAlive(unit) then
       FindClearSpaceForUnit(unit, unit:GetPlayerOwner():GetAssignedHero():GetAbsOrigin()  , true)
       unit:AddNewModifier(nil, nil, "modifier_stunned", {Duration = 5,IsHidden = true})
       unit:AddNewModifier(nil, nil, "modifier_invulnerable", {Duration = 5,IsHidden = true})
@@ -186,7 +186,7 @@ function endSpecialArena()
   for _,hero in pairs(heroes) do
 
 
-    if hero.disconnected ~= true and not hero:IsNull() and hero:GetTeam() == DOTA_TEAM_GOODGUYS then
+    if IsValidEntity(hero) and hero.disconnected ~= true and  hero:GetTeam() == DOTA_TEAM_GOODGUYS then
       if hero:IsAlive() then
         FindClearSpaceForUnit(hero, hero.old_position_arena, true)
       else 
@@ -221,7 +221,7 @@ function endSpecialArena()
   local units = FindUnitsInRadius( DOTA_TEAM_GOODGUYS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false )
   
   for _,v in pairs(units) do
-    if not v:IsNull() and v:IsAlive() and v:GetPlayerOwner() ~= nil then
+    if IsValidAlive(v) and v:GetPlayerOwner() ~= nil then
       FindClearSpaceForUnit(v, v:GetPlayerOwner():GetAssignedHero():GetAbsOrigin(), true)
     end
   end
@@ -278,6 +278,7 @@ function startKillEvent(hero)
   Timers:CreateTimer( SpecialEventKillsDuration+5,function () FireGameEventLocal("end_special_event_kills", {hero_index = hero:GetEntityIndex()}) 
                                                 end)
   hero.in_special_event = true
+
   if not hero:IsAlive() then
     hero:SetRespawnPosition(point)
     hero.old_position_killevent = Entities:FindByName(nil, "base"):GetAbsOrigin()
@@ -296,7 +297,7 @@ function startKillEvent(hero)
   local units = FindUnitsInRadius( DOTA_TEAM_GOODGUYS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false )
   
   for _,v in pairs(units) do
-    if not v:IsNull() and v:IsAlive() and v:GetPlayerOwner() ~= nil then
+    if IsValidAlive(v) and v:GetPlayerOwner() ~= nil then
       FindClearSpaceForUnit(v, v:GetPlayerOwner():GetAssignedHero():GetAbsOrigin(), true)
       v:AddNewModifier(nil, nil, "modifier_stunned", {Duration = 5,IsHidden = true})
       v:AddNewModifier(nil, nil, "modifier_invulnerable", {Duration = 5,IsHidden = true})
@@ -316,8 +317,6 @@ function endKillEvent(event)
     return nil
   end
 
-
-
   GameRules:GetGameModeEntity():SetFixedRespawnTime(-1)
   
   local units = FindUnitsInRadius( DOTA_TEAM_NEUTRALS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false )
@@ -336,7 +335,7 @@ function endKillEvent(event)
 
   hero.in_special_event = false
   
-  if not  GameMode.ramero:IsNull() and  GameMode.ramero:IsAlive() then
+  if IsValidAlive(GameMode.ramero) then
     GameMode.ramero:RemoveSelf()
     GameMode.kill_event_happened = false
   end
@@ -355,7 +354,7 @@ function endKillEvent(event)
   local units = FindUnitsInRadius( DOTA_TEAM_GOODGUYS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false )
   
   for _,v in pairs(units) do
-    if not v:IsNull() and v:IsAlive() and v:GetPlayerOwner() ~= nil then
+    if IsValidAlive(v) and v:GetPlayerOwner() ~= nil then
       FindClearSpaceForUnit(v, v:GetPlayerOwner():GetAssignedHero():GetAbsOrigin(), true)
     end
   end
@@ -440,7 +439,7 @@ function startWaveKillEvent(hero)
   local units = FindUnitsInRadius( DOTA_TEAM_GOODGUYS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false )
   
   for _,v in pairs(units) do
-    if not v:IsNull() and v:IsAlive() and v:GetPlayerOwner() ~= nil then
+    if IsValidAlive(v) and v:GetPlayerOwner() ~= nil then
       FindClearSpaceForUnit(v, v:GetPlayerOwner():GetAssignedHero():GetAbsOrigin(), true)
       v:AddNewModifier(nil, nil, "modifier_stunned", {Duration = 5,IsHidden = true})
       v:AddNewModifier(nil, nil, "modifier_invulnerable", {Duration = 5,IsHidden = true})
@@ -458,7 +457,6 @@ function endWaveKillEvent(event)
   if GameMode.waveKillEvent == nil then
     return nil
   end
-
 
 
   GameRules:GetGameModeEntity():SetFixedRespawnTime(-1)
@@ -480,16 +478,16 @@ function endWaveKillEvent(event)
 
   hero.in_special_event = false
   
-  if not GameMode.baristal:IsNull() and GameMode.baristal:IsAlive() then
+  if IsValidAlive(GameMode.baristal) then
     GameMode.baristal:RemoveSelf()
     GameMode.wave_event_happened = false
   end
-  if not GameMode.ramero:IsNull() and GameMode.ramero:IsAlive() then
+  if not IsValidAlive(GameMode.ramero) then
     GameMode.ramero:RemoveSelf()
     GameMode.wave_event_happened = false
   end
   
-  if hero ~= nil and not hero:IsNull() then
+  if IsValidAlive(hero) then
 
     if hero:IsAlive() then
       FindClearSpaceForUnit(hero,hero.old_position_wavekills, true)
@@ -509,7 +507,7 @@ function endWaveKillEvent(event)
   local units = FindUnitsInRadius( DOTA_TEAM_GOODGUYS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false )
   
   for _,v in pairs(units) do
-    if not v:IsNull() and v:IsAlive() and v:GetPlayerOwner() ~= nil then
+    if IsValidAlive(v) and v:GetPlayerOwner() ~= nil then
       FindClearSpaceForUnit(v, v:GetPlayerOwner():GetAssignedHero():GetAbsOrigin(), true)
     end
   end
@@ -642,12 +640,16 @@ function endFrostInfernalEvent(event)
   end
 
   local hero = EntIndexToHScript(event.hero_index)
-  hero.in_special_event = false
-  if not GameMode.frost_infernal:IsNull() and  GameMode.frost_infernal:IsAlive() then
+  
+  if IsValidEntity(hero) then
+    hero.in_special_event = false
+  end
+
+  if IsValidAlive(GameMode.frost_infernal) then
     GameMode.frost_infernal:RemoveSelf()
   end
 
-  if hero ~= nil and not hero:IsNull() then
+  if IsValidEntity(hero) then
     if hero:IsAlive() then
       FindClearSpaceForUnit(hero,Entities:FindByName(nil, "base" ):GetAbsOrigin(), true)
     else
@@ -755,11 +757,15 @@ function endSpiritBeastEvent(event)
   end
 
   local hero = EntIndexToHScript(event.hero_index)
-  hero.in_special_event = false
+  
+  if IsValidEntity(hero) then
+    hero.in_special_event = false
+  end
+
   if not GameMode.spirit_beast:IsNull() and  GameMode.spirit_beast:IsAlive() then
     GameMode.spirit_beast:RemoveSelf()
   end
-  if hero ~= nil and not hero:IsNull() then
+  if IsValidEntity(hero) then
     if hero:IsAlive() then
       FindClearSpaceForUnit(hero,Entities:FindByName(nil, "base" ):GetAbsOrigin(), true)
     else

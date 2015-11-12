@@ -207,6 +207,7 @@ function GameMode:OnGameInProgress()
   for _,v in pairs(triggers_choice) do
     v:Enable()
   end
+  
   timer_creep_spawn = Timers:CreateTimer(0,SpawnCreeps)
   timer_wave_spawn = Timers:CreateTimer(TimeBetweenWaves,SpawnWaves)
   timer_special_arena = Timers:CreateTimer(TimeSpecialArena,specialEventArena)

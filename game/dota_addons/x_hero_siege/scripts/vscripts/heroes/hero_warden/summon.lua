@@ -6,13 +6,13 @@ function spawn_spirit( event )
 	local max_spirits = ability:GetLevelSpecialValueFor("max_units", ability:GetLevel()-1)
 	local number_spirits = ability:GetLevelSpecialValueFor("units", ability:GetLevel()-1)
 
-	if not avatar:IsNull() and avatar:IsAlive() then
+	if IsValidAlive(avatar) then
 		if avatar.spirits == nil then
 			avatar.spirits = {}
 		end
 		
 		for k,v in ipairs(avatar.spirits) do
-			if v:IsNull() or not v:IsAlive() then
+			if not IsValidAlive(v) then
 				table.remove(avatar.spirits,k)
 			end 
 		end

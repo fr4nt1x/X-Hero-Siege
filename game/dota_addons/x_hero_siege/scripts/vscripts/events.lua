@@ -466,10 +466,16 @@ function GameMode:OnPlayerChat(keys)
   local text = keys.text
   local player = PlayerResource:GetPlayer(playerID)
   local numberOFPlayers = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
-  
-  for i = 0,numberOFPlayers-1 do
-      if playerID == i then
 
+  --[[  Run through player numbers but break at the first player that is there, so that only one player at the time has control
+  ]]
+  for i = 0,numberOFPlayers-1 do
+    print(timer_creep_spawn)
+      if playerID == i and timer_creep_spawn ~= nil then
+      --[[
+          openlane command, adds the key "spawn"..lane to the GameMode.openlanes,
+          only if the baracks is alive
+        ]]
         local i,j = string.find(text,"openlane_%d")
         local lane = nil
         if i ~= nil then
@@ -478,18 +484,26 @@ function GameMode:OnPlayerChat(keys)
         if lane == text then
           local i,j = string.find(lane,"%d")
           lane = tonumber(string.sub(lane,i,j))
-          print(lane)
-          if lane <= 8 then
-            GameMode.openLanes["spawn"..lane] = "wp_p"..lane.."_1"
-            local towers = Entities:FindAllByName("tower_p"..lane)
-        
-            for _,tower in pairs(towers)do
-            tower:RemoveModifierByName("modifier_invulnerable")
-            end 
 
+          if lane <= 8 then
+
+            --Only if crypt is alive
+            local crypt = Entities:FindByName(nil, "crypt_p"..lane)
+            if IsValidAlive(crypt) then
+              GameMode.openLanes["spawn"..lane] = "wp_p"..lane.."_1"
+              local towers = Entities:FindAllByName("tower_p"..lane)
+              
+              for _,tower in pairs(towers)do
+              tower:RemoveModifierByName("modifier_invulnerable")
+              end 
+            end
           end
         end
 
+--[[
+    Shortcut for openlane command, adds the key "spawn"..lane to the GameMode.openlanes,
+    only if the baracks is alive
+]]
         local i,j = string.find(text,"ol_%d")
         local lane = nil
         if i ~= nil then
@@ -498,15 +512,18 @@ function GameMode:OnPlayerChat(keys)
         if lane == text then
           local i,j = string.find(lane,"%d")
           lane = tonumber(string.sub(lane,i,j))
-          print(lane)
           if lane <= 8 then
-            GameMode.openLanes["spawn"..lane] = "wp_p"..lane.."_1"
-            local towers = Entities:FindAllByName("tower_p"..lane)
-        
-            for _,tower in pairs(towers)do
-            tower:RemoveModifierByName("modifier_invulnerable")
-            end 
 
+            --Only if crypt is alive
+            local crypt = Entities:FindByName(nil, "crypt_p"..lane)
+            if IsValidAlive(crypt) then
+              GameMode.openLanes["spawn"..lane] = "wp_p"..lane.."_1"
+              local towers = Entities:FindAllByName("tower_p"..lane)
+          
+              for _,tower in pairs(towers)do
+              tower:RemoveModifierByName("modifier_invulnerable")
+              end 
+            end
           end
         end
 
@@ -549,6 +566,7 @@ function GameMode:OnPlayerChat(keys)
         break
       end
   end
+
   if text ~= nil and text == "info_kills" then
 
     local msg = ""
