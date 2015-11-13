@@ -469,103 +469,106 @@ function GameMode:OnPlayerChat(keys)
 
   --[[  Run through player numbers but break at the first player that is there, so that only one player at the time has control
   ]]
-  for i = 0,numberOFPlayers-1 do
-    print(timer_creep_spawn)
-      if playerID == i and timer_creep_spawn ~= nil then
-      --[[
-          openlane command, adds the key "spawn"..lane to the GameMode.openlanes,
-          only if the baracks is alive
-        ]]
-        local i,j = string.find(text,"openlane_%d")
-        local lane = nil
-        if i ~= nil then
-           lane = string.sub(text,i,j)
-        end
-        if lane == text then
-          local i,j = string.find(lane,"%d")
-          lane = tonumber(string.sub(lane,i,j))
+  if GameMode.timers.timer_creep_spawn ~= nil then
+    for i = 0,numberOFPlayers-1 do
+        if playerID == i then
+        --[[
+            openlane command, adds the key "spawn"..lane to the GameMode.openlanes,
+            only if the baracks is alive
+          ]]
+          local i,j = string.find(text,"openlane_%d")
+          local lane = nil
+          if i ~= nil then
+             lane = string.sub(text,i,j)
+          end
+          if lane == text then
+            local i,j = string.find(lane,"%d")
+            lane = tonumber(string.sub(lane,i,j))
 
-          if lane <= 8 then
+            if lane <= 8 then
 
-            --Only if crypt is alive
-            local crypt = Entities:FindByName(nil, "crypt_p"..lane)
-            if IsValidAlive(crypt) then
-              GameMode.openLanes["spawn"..lane] = "wp_p"..lane.."_1"
-              local towers = Entities:FindAllByName("tower_p"..lane)
-              
-              for _,tower in pairs(towers)do
-              tower:RemoveModifierByName("modifier_invulnerable")
-              end 
+              --Only if crypt is alive
+              local crypt = Entities:FindByName(nil, "crypt_p"..lane)
+              if IsValidAlive(crypt) then
+                GameMode.openLanes["spawn"..lane] = "wp_p"..lane.."_1"
+                local towers = Entities:FindAllByName("tower_p"..lane)
+                
+                for _,tower in pairs(towers)do
+                tower:RemoveModifierByName("modifier_invulnerable")
+                end 
+              end
             end
           end
-        end
 
---[[
-    Shortcut for openlane command, adds the key "spawn"..lane to the GameMode.openlanes,
-    only if the baracks is alive
-]]
-        local i,j = string.find(text,"ol_%d")
-        local lane = nil
-        if i ~= nil then
-           lane = string.sub(text,i,j)
-        end
-        if lane == text then
-          local i,j = string.find(lane,"%d")
-          lane = tonumber(string.sub(lane,i,j))
-          if lane <= 8 then
+        --[[
+            Shortcut for openlane command, adds the key "spawn"..lane to the GameMode.openlanes,
+            only if the baracks is alive
+          ]]
+          local i,j = string.find(text,"ol_%d")
+          local lane = nil
+          if i ~= nil then
+             lane = string.sub(text,i,j)
+          end
+          if lane == text then
+            local i,j = string.find(lane,"%d")
+            lane = tonumber(string.sub(lane,i,j))
+            if lane <= 8 then
 
-            --Only if crypt is alive
-            local crypt = Entities:FindByName(nil, "crypt_p"..lane)
-            if IsValidAlive(crypt) then
-              GameMode.openLanes["spawn"..lane] = "wp_p"..lane.."_1"
+              --Only if crypt is alive
+              local crypt = Entities:FindByName(nil, "crypt_p"..lane)
+              if IsValidAlive(crypt) then
+                GameMode.openLanes["spawn"..lane] = "wp_p"..lane.."_1"
+                local towers = Entities:FindAllByName("tower_p"..lane)
+            
+                for _,tower in pairs(towers)do
+                tower:RemoveModifierByName("modifier_invulnerable")
+                end 
+              end
+            end
+          end
+
+          local i,j = string.find(text,"closelane_%d")
+          local lane = nil
+          if i ~= nil then
+             lane = string.sub(text,i,j)
+          end
+          if lane == text then
+            local i,j = string.find(lane,"%d")
+            lane = tonumber(string.sub(lane,i,j))
+            if lane <= 8 then
+              GameMode.openLanes["spawn"..lane] = nil
               local towers = Entities:FindAllByName("tower_p"..lane)
           
               for _,tower in pairs(towers)do
-              tower:RemoveModifierByName("modifier_invulnerable")
+                tower:AddNewModifier(nil,nil,"modifier_invulnerable",nil)
               end 
             end
           end
-        end
-
-        local i,j = string.find(text,"closelane_%d")
-        local lane = nil
-        if i ~= nil then
-           lane = string.sub(text,i,j)
-        end
-        if lane == text then
-          local i,j = string.find(lane,"%d")
-          lane = tonumber(string.sub(lane,i,j))
-          if lane <= 8 then
-            GameMode.openLanes["spawn"..lane] = nil
-            local towers = Entities:FindAllByName("tower_p"..lane)
-        
-            for _,tower in pairs(towers)do
-              tower:AddNewModifier(nil,nil,"modifier_invulnerable",nil)
-            end 
+          
+          local i,j = string.find(text,"cl_%d")
+          local lane = nil
+          if i ~= nil then
+             lane = string.sub(text,i,j)
           end
-        end
-        
-        local i,j = string.find(text,"cl_%d")
-        local lane = nil
-        if i ~= nil then
-           lane = string.sub(text,i,j)
-        end
-        if lane == text then
-          local i,j = string.find(lane,"%d")
-          lane = tonumber(string.sub(lane,i,j))
-          if lane <= 8 then
-            GameMode.openLanes["spawn"..lane] = nil
-            local towers = Entities:FindAllByName("tower_p"..lane)
-        
-            for _,tower in pairs(towers)do
-              tower:AddNewModifier(nil,nil,"modifier_invulnerable",nil)
-            end 
+          if lane == text then
+            local i,j = string.find(lane,"%d")
+            lane = tonumber(string.sub(lane,i,j))
+            if lane <= 8 then
+              GameMode.openLanes["spawn"..lane] = nil
+              local towers = Entities:FindAllByName("tower_p"..lane)
+          
+              for _,tower in pairs(towers)do
+                tower:AddNewModifier(nil,nil,"modifier_invulnerable",nil)
+              end 
+            end
           end
-        end
 
-        break
-      end
+          break
+        end
+    end
   end
+
+
 
   if text ~= nil and text == "info_kills" then
 

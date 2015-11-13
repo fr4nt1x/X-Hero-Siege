@@ -1,15 +1,20 @@
 require('internal/util')
 require('libraries/notifications')
 
+--[[
+  The Variables that have to be saved in the GameMode Entity are declared in OnAllPlayersLoaded
+]]
+
 creepsToSpawn = {{"npc_soldier","npc_sharpshooter","npc_priest","npc_knight","npc_spellbreaker"},{"npc_archer","npc_huntress","npc_druid","npc_chimera","npc_mountain_giant"},{"npc_ghul","npc_fiend","npc_necromancer","npc_abomination","npc_frost_wyrm"},{"npc_grunt","npc_berserker","npc_shaman","npc_tauren","npc_kodo_beast"}}
-specialEventCreeps = {"npc_murloc_mutant_special_event_I","npc_wildekin_special_event_II","npc_golem_special_event_III","npc_tuskarr_special_event_IV","npc_centaur_special_event_V","npc_bristleback_special_event_VI","npc_death_ghost_special_event_VII","npc_ursa_special_event_VIII","npc_satyr_special_event_IX"}
 
 --Holds which race to spawn cycles through 0,1,2,3
 creepround = 0
-level = 1
-dragonlevel= 1
+
+
+
 -- names of the spawnpoints, waypoints stand in Gamemode.openLanes
 spawn_waves = {"wave_west", "wave_north" ,"wave_east", "wave_south"}
+
 creepsWave = {"npc_necro_wave_I","npc_naga_wave_II","npc_guard_wave_III",
               "npc_captain_wave_IV","npc_slardar_wave_V","npc_orc_raider_wave_VI",
               "npc_luna_wave_VII","npc_chaos_orc_wave_VIII","npc_banshee_wave_IX",
@@ -26,14 +31,13 @@ final_wave_creeps ={
 
 creep_kills_for_gold = 600 
 creep_kills_for_event = 1500
-
-
 wave_kills_for_event = 60 
 
 
-wave = 0
+
 TimeBetweenWaves = 4*60
 TimeBetweenCreepWavesTop = 7
+
 numberOfTopWaves = 0
 SpecialArenaDuration = 2*60
 SpecialEventKillsDuration = 2*60
@@ -49,13 +53,14 @@ waves_between_dragons = {28,56,84,108}
 
 TimeSpecialArena = 60*22
 creeps_per_wave = 2
+
 spawn_dragon = false
 
 function SpawnCreeps()
   --Delete the timers if the final wave is imminent
 
 
-  print('This round '.. creepround % 4)
+  print('This round '.. creepround)
   local spawns = {}
 
   -- holds the names of the first waypoints for each lane
@@ -68,11 +73,11 @@ function SpawnCreeps()
     --Check if levellup was so that a dragon has to be spawned
     if spawn_dragon then
       Timers:CreateTimer(function()
-      local unit = CreateUnitByName(dragonNames[math.min(3,dragonlevel-1)], point+RandomVector(RandomInt(0, 50)), true, nil, nil, DOTA_TEAM_NEUTRALS)
+      local unit = CreateUnitByName(dragonNames[math.min(3,GameMode.level_state.dragonlevel-1)], point+RandomVector(RandomInt(0, 50)), true, nil, nil, DOTA_TEAM_NEUTRALS)
       unit:SetInitialGoalEntity(waypoint)
       end)
     end
-    if level <= 2 then
+    if GameMode.level_state.level <= 2 then
       for i = 1,2 do 
         for j = 1,creeps_per_wave do
         Timers:CreateTimer(function()
@@ -83,7 +88,7 @@ function SpawnCreeps()
         end
       end
     else
-      for i = 1,math.min(level,4) do 
+      for i = 1,math.min(GameMode.level_state.level,4) do 
         for j = 1,creeps_per_wave do
         Timers:CreateTimer(function()
           local unit = CreateUnitByName(creepsToSpawn[(creepround % 4)+1][i], point+RandomVector(RandomInt(0, 50)), true, nil, nil, DOTA_TEAM_NEUTRALS)
@@ -99,46 +104,67 @@ function SpawnCreeps()
     spawn_dragon = false
   end
 
+  --increment the creepround before level check
   creepround = creepround+ 1
+ 
+  --[[
+  The level up system depends on specific creeprounds,
+  which are defined in waves_between_levels, only level up 5 times
+  ]]  
+  if GameMode.level_state.level <= 5 and creepround == waves_between_levels[GameMode.level_state.level] then
+    --increment the level
+    GameMode.level_state.level = GameMode.level_state.level +1
 
-  if level <= 5 and creepround == waves_between_levels[level] then
-    level = level +1
-    if level == 2 then
+    --change the number of spawned creeps at the first level up, which only does that, creeps don't get better
+    if GameMode.level_state.level == 2 then
       creeps_per_wave = 3
-    elseif level > 2 then
-      if level == 4 then 
+
+    --print the level up msg only when the creeps actually get stronger
+    elseif GameMode.level_state.level > 2 then
+      
+      --reset the creeps to 2 per type as soons as all 4 types get spawned to reduce lag
+      if GameMode.level_state.level == 4 then 
         creeps_per_wave = 2
       end
-      local msg = "Level "..(level-1).." time. The creeps got stronger!"
+      
+      local msg = "Level "..(GameMode.level_state.level-1).." time. The creeps got stronger!"
       Notifications:TopToAll({text=msg, duration=5.0})
     end
-    if level <= 4 then
+    
+    --Precache the next creeps that get spawned
+    if GameMode.level_state.level <= 4 then
       for i = 1,4 do
-        PrecacheUnitByNameAsync(creepsToSpawn[i][level], function() end) 
+        PrecacheUnitByNameAsync(creepsToSpawn[i][GameMode.level_state.level], function() end) 
       end
     end
   end
-  -- integer tells you how many dragons get spawned 4 = 4 dragons
-  if dragonlevel <= 4 and creepround == waves_between_dragons[dragonlevel] then
-    dragonlevel = dragonlevel +1
-    if dragonlevel <= 4 then
-      PrecacheUnitByNameAsync(dragonNames[dragonlevel-1], function() end)
+
+  -- integer tells you how many rounds of dragons get spawned 4 = 4 rounds
+  if  GameMode.level_state.dragonlevel <= 4 and creepround == waves_between_dragons[ GameMode.level_state.dragonlevel] then
+    GameMode.level_state.dragonlevel =  GameMode.level_state.dragonlevel +1
+    --Precache the next dragon
+    if GameMode.level_state.dragonlevel <= 4 then
+      PrecacheUnitByNameAsync(dragonNames[GameMode.level_state.dragonlevel-1], function() end)
     end
+    --send msg
     Notifications:TopToAll({text="Dragon Attack next Creep wave!", duration=5.0})
     spawn_dragon = true
-    print("DRAGONLEVEL"..dragonlevel)
+    print("DRAGONLEVEL"..GameMode.level_state.dragonlevel)
   end
   return TimeBetweenCreepSpawn
 
 end
 
 function SpawnWaves()
-  --Delete the timers if the final wave is imminent
 
+  --waypoint for base to set the spawned creeps to
   local waypoint = Entities:FindByName(nil,"base")
-  local point = Entities:FindByName(nil, spawn_waves[(wave%4) +1]):GetAbsOrigin()
+  --Find the points were the wave should appear, runs clockwise around the base starting west(left)
+  local point = Entities:FindByName(nil, spawn_waves[(GameMode.level_state.wave%4) +1]):GetAbsOrigin()
 
-  DebugPrint("wave",wave)
+  DebugPrint("wave",GameMode.level_state.wave)
+
+  --Add 5 creeps to spawn per player currently in game recalculate everytime
   local number_players = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
   local number_of_wave_creeps = 10
 
@@ -148,15 +174,20 @@ function SpawnWaves()
     end
   end
 
+  --spawn the amount of creeps and set the waypoint
   for j = 1,number_of_wave_creeps do
     Timers:CreateTimer(function()
-      local unit = CreateUnitByName(creepsWave[wave], point+RandomVector(RandomInt(0, 50)), true, nil, nil, DOTA_TEAM_NEUTRALS)
+      local unit = CreateUnitByName(creepsWave[GameMode.level_state.wave], point+RandomVector(RandomInt(0, 50)), true, nil, nil, DOTA_TEAM_NEUTRALS)
 
       unit:SetInitialGoalEntity(waypoint)
       end) 
   end
-  wave = wave +1
-  if wave >= 12  then
+
+  --increment the wave counter
+  GameMode.level_state.wave = GameMode.level_state.wave +1
+  
+  --only spawn 12 waves, first wave spawns when the counter is 0
+  if GameMode.level_state.wave >= 12  then
     return nil
   else
     return TimeBetweenWaves
@@ -166,12 +197,12 @@ end
 function SendWaveMessage()
   -- body
    --Delete the timers if the final wave is imminent
-  if wave >= 12 then
+  if GameMode.level_state.wave >= 12 then
     return nil
   end
   local directions = {"west" , "north", "east", "south"}
   -- Send a notification to all players that displays up top for 5 seconds
-    Notifications:TopToAll({text="Warning. Huge wave of darkness incoming from the "..directions[wave%4 + 1] .."! Arriving in 30 seconds!", duration=5.0})
+    Notifications:TopToAll({text="Warning. Huge wave of darkness incoming from the "..directions[GameMode.level_state.wave%4 + 1] .."! Arriving in 30 seconds!", duration=5.0})
     return TimeBetweenWaves
 end
 

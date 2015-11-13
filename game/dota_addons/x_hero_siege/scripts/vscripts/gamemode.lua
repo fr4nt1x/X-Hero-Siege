@@ -34,7 +34,7 @@ require('events')
 require('libraries/spawncreeps')
 
 --just add the original hero name as key, with the abilityname as value
-AbilitiesHeroes = {npc_dota_hero_antimage = "demonhunter_roar",
+local AbilitiesHeroes = {npc_dota_hero_antimage = "demonhunter_roar",
                    npc_dota_hero_nyx_assassin = "crypt_lord_anubarak_claw",
                     npc_dota_hero_enchantress = "dryad_poison_weapons",
                     npc_dota_hero_luna = "luna_moon_glaive",
@@ -79,12 +79,23 @@ end
 ]]
 function GameMode:OnAllPlayersLoaded()
   DebugPrint("[BAREBONES] All Players have loaded into the game")
+  
   GameMode.FrostTowers_killed = 0
   GameMode.wave_event_happened = false
   GameMode.kill_event_happened = false
   GameMode.first_time_teleport = true
-  
+
+  GameMode.specialEventCreeps = {"npc_murloc_mutant_special_event_I","npc_wildekin_special_event_II","npc_golem_special_event_III",
+                                "npc_tuskarr_special_event_IV","npc_centaur_special_event_V","npc_bristleback_special_event_VI",
+                                "npc_death_ghost_special_event_VII","npc_ursa_special_event_VIII","npc_satyr_special_event_IX"}
+  GameMode.level_state ={}
+  GameMode.level_state.level = 1
+  GameMode.level_state.dragonlevel= 1
+  GameMode.level_state.wave = 0
+
+  GameMode.timers = {}
   GameMode.openLanes = {}
+  
   local number_players = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
   wave_kills_for_event = 55
   for i = 1,number_players do
@@ -207,8 +218,9 @@ function GameMode:OnGameInProgress()
   for _,v in pairs(triggers_choice) do
     v:Enable()
   end
-  
-  timer_creep_spawn = Timers:CreateTimer(0,SpawnCreeps)
+
+
+  GameMode.timers.timer_creep_spawn = Timers:CreateTimer(0,SpawnCreeps)
   timer_wave_spawn = Timers:CreateTimer(TimeBetweenWaves,SpawnWaves)
   timer_special_arena = Timers:CreateTimer(TimeSpecialArena,specialEventArena)
   timer_wave_message = Timers:CreateTimer(TimeBetweenWaves - 30,SendWaveMessage)

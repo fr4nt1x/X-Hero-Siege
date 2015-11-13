@@ -13,7 +13,7 @@ function arena_kill( event )
 		GameMode.player_spawn_round_kills[heroid]["round"] = (GameMode.player_spawn_round_kills[heroid]["round"] + 1) % 9
 
 		for j = 1,10 do
-        	local unit = CreateUnitByName(specialEventCreeps[GameMode.player_spawn_round_kills[heroid]["round"]+1], GameMode.player_spawn_round_kills[heroid]["spawn_point"], true, nil, nil, DOTA_TEAM_NEUTRALS)
+        	local unit = CreateUnitByName(GameMode.specialEventCreeps[GameMode.player_spawn_round_kills[heroid]["round"]+1], GameMode.player_spawn_round_kills[heroid]["spawn_point"], true, nil, nil, DOTA_TEAM_NEUTRALS)
         	unit.heroid = heroid
       	end
 

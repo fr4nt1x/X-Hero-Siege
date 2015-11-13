@@ -157,7 +157,7 @@ function specialEventArena()
       Timers:CreateTimer(4,function () PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),nil) 
                             end)
       for j = 1,10 do
-        local unit = CreateUnitByName(specialEventCreeps[1], point, true, nil, nil, DOTA_TEAM_NEUTRALS)
+        local unit = CreateUnitByName(GameMode.specialEventCreeps[1], point, true, nil, nil, DOTA_TEAM_NEUTRALS)
         unit.heroid = hero:GetEntityIndex()
         unit:AddNewModifier(nil, nil, "modifier_stunned", {Duration = 5,IsHidden = true})
         unit:AddNewModifier(nil, nil, "modifier_invulnerable", {Duration = 5,IsHidden = true})
@@ -482,7 +482,7 @@ function endWaveKillEvent(event)
     GameMode.baristal:RemoveSelf()
     GameMode.wave_event_happened = false
   end
-  if not IsValidAlive(GameMode.ramero) then
+  if IsValidAlive(GameMode.ramero) then
     GameMode.ramero:RemoveSelf()
     GameMode.wave_event_happened = false
   end

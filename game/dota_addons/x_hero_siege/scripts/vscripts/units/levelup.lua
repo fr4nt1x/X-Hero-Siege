@@ -9,8 +9,8 @@ function upgrade_unit(event)
 		return nil
 	end
 
-	if level >= 3 then
-		for i= 1,(level-2)^2 do 
+	if GameMode.level_state.level >= 3 then
+		for i= 1,(GameMode.level_state.level-2)^2 do 
 			for j = 1,i do
 				ability:ApplyDataDrivenModifier(unit,unit , "modifier_upgrade", nil)
 				unit:SetBaseMaxHealth(unit:GetMaxHealth() +health_bonus)
