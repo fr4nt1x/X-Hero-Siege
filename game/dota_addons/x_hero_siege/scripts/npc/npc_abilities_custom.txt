@@ -1073,14 +1073,6 @@
 	            "ModifierName" "modifier_anubarak"
 	            "Target"  "CASTER"
 	        }
-	
-	        "AttachEffect"
-	        {
-	          "Target" "CASTER"
-	          "EffectName" "particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodrage_eztzhok.vpcf"
-	          "EffectAttachType" "follow_origin"
-	        }
-	
 	    }
 	
 	    "Modifiers"
@@ -1092,6 +1084,8 @@
 	        "IsHidden" "0"
 	        "Passive" "0"
 	        "IsPurgable" "1"
+	        "EffectName" "particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodrage_eztzhok.vpcf"
+	        "EffectAttachType" "follow_origin"
 	        "Duration" "%duration"
 	
 	        "Properties"
@@ -1324,8 +1318,7 @@
 	{
 	    "BaseClass"                 "ability_datadriven"
 	    "AbilityTextureName"      "weaver_the_swarm"
-	    "AbilityType"           "DOTA_ABILITY_TYPE_ULTIMATE"
-	
+	    
 	    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
 	    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -4209,7 +4202,7 @@
 	      "03"
 	      {
 	        "var_type"        "FIELD_INTEGER"
-	        "bonus_health"     "200"
+	        "bonus_health"     "150"
 	      }
 	    }
 	
@@ -4502,7 +4495,7 @@
 	    // Stats
 	    //-------------------------------------------------------------------------------------
 	    "AbilityCastPoint" "0.5"
-	    "AbilityCooldown"  "5"
+	    "AbilityCooldown"  "10"
 	    "AbilityManaCost"  "100"
 	    "AbilityTextureName" "lich_dark_ritual"
 	
@@ -4523,11 +4516,6 @@
 	        {
 	          "var_type" "FIELD_FLOAT"
 	          "duration" "45"
-	        }
-	        "03"
-	        {
-	          "var_type" "FIELD_FLOAT"
-	          "damage_per_second" "10"
 	        }
 	    }
 	
@@ -4560,16 +4548,7 @@
 	        "Duration" "%duration"
 	        "EffectName" "particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodrage_eztzhok.vpcf"
 	        "EffectAttachType" "follow_origin"
-	        "ThinkInterval" "1"
-	        "OnIntervalThink"
-	        {
-	          "Damage"
-	          {
-	            "Target"    "TARGET"
-	            "Type"      "DAMAGE_TYPE_PURE"
-	            "Damage"    "%damage_per_second"
-	          }
-	        }
+	
 	        "Properties"
 	        {
 	          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attack_speed"

@@ -5,22 +5,22 @@ require('libraries/notifications')
   The Variables that have to be saved in the GameMode Entity are declared in OnAllPlayersLoaded
 ]]
 
-creepsToSpawn = {{"npc_soldier","npc_sharpshooter","npc_priest","npc_knight","npc_spellbreaker"},{"npc_archer","npc_huntress","npc_druid","npc_chimera","npc_mountain_giant"},{"npc_ghul","npc_fiend","npc_necromancer","npc_abomination","npc_frost_wyrm"},{"npc_grunt","npc_berserker","npc_shaman","npc_tauren","npc_kodo_beast"}}
+local creepsToSpawn = {{"npc_soldier","npc_sharpshooter","npc_priest","npc_knight","npc_spellbreaker"},{"npc_archer","npc_huntress","npc_druid","npc_chimera","npc_mountain_giant"},{"npc_ghul","npc_fiend","npc_necromancer","npc_abomination","npc_frost_wyrm"},{"npc_grunt","npc_berserker","npc_shaman","npc_tauren","npc_kodo_beast"}}
 
 --Holds which race to spawn cycles through 0,1,2,3
-creepround = 0
+local creepround = 0
 
 
 
 -- names of the spawnpoints, waypoints stand in Gamemode.openLanes
-spawn_waves = {"wave_west", "wave_north" ,"wave_east", "wave_south"}
+local spawn_waves = {"wave_west", "wave_north" ,"wave_east", "wave_south"}
 
-creepsWave = {"npc_necro_wave_I","npc_naga_wave_II","npc_guard_wave_III",
+local creepsWave = {"npc_necro_wave_I","npc_naga_wave_II","npc_guard_wave_III",
               "npc_captain_wave_IV","npc_slardar_wave_V","npc_orc_raider_wave_VI",
               "npc_luna_wave_VII","npc_chaos_orc_wave_VIII","npc_banshee_wave_IX",
               "npc_warlock_wave_X","npc_bloodelf_wave_XI","npc_keeper_wave_XII"}
 
-dragonNames = {"npc_dragon_level_I","npc_dragon_level_II","npc_dragon_level_III"}
+local dragonNames = {"npc_dragon_level_I","npc_dragon_level_II","npc_dragon_level_III"}
 
 final_wave_creeps ={
                     west = {"npc_abomination_final_wave","npc_banshee_final_wave","npc_necro_final_wave","npc_magnataur_final_wave","npc_dota_hero_balanar_final_wave"},
@@ -31,9 +31,6 @@ final_wave_creeps ={
 
 creep_kills_for_gold = 600 
 creep_kills_for_event = 1500
-wave_kills_for_event = 60 
-
-
 
 TimeBetweenWaves = 4*60
 TimeBetweenCreepWavesTop = 7
@@ -43,7 +40,7 @@ SpecialArenaDuration = 2*60
 SpecialEventKillsDuration = 2*60
 SpecialEventWaveKillsDuration = 2*60
 SpecialEventFrostInfernalDuration = 2*60
-SpecialEventRoshan = 13*60
+SpecialEventRoshan =13*60
 SpecialEventRoshanDuration = 1.1*60
 TimeBetweenCreepSpawn = 15
 

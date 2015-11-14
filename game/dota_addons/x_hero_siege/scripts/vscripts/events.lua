@@ -16,8 +16,8 @@ function GameMode:OnDisconnect(keys)
   local networkid = keys.networkid
   local reason = keys.reason
   local userid = keys.userid
-
 end
+
 -- The overall game state has changed
 function GameMode:OnGameRulesStateChange(keys)
   DebugPrint("[BAREBONES] GameRules State Changed")
@@ -148,6 +148,17 @@ function GameMode:OnItemPickedUp(keys)
   local itemEntity = EntIndexToHScript(keys.ItemEntityIndex)
   local player = PlayerResource:GetPlayer(keys.PlayerID)
   local itemname = keys.itemname
+  if IsValidEntity(heroEntity) then 
+    if itemname == "item_ring_of_superiority" then
+      FireGameEventLocal("end_special_event_kills", {hero_index = keys.HeroEntityIndex})
+    elseif itemname == "item_lightning_sword" then
+      FireGameEventLocal("end_special_event_wave_kills", {hero_index = keys.HeroEntityIndex})
+    elseif itemname == "item_key_of_the_three_moons" then
+      FireGameEventLocal("end_special_event_frost_infernal", {hero_index = keys.HeroEntityIndex})
+    elseif itemname == "item_shield_of_invincibility" then
+      FireGameEventLocal("end_special_event_spirit_beast", {hero_index = keys.HeroEntityIndex})     
+    end
+  end
 end
 
 -- A player has reconnected to the game.  This function can be used to repaint Player-based particles or change

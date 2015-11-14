@@ -16,7 +16,7 @@ function specialEventRoshan()
     unit:AddNewModifier(nil, nil, "modifier_invulnerable", {IsHidden = true})
   end
 
-  Timers:CreateTimer(SpecialEventRoshanDuration+5,endSpecialEventRoshan)
+  Timers:CreateTimer(SpecialEventRoshanDuration+5,stopEventRoshan)
 
   local heroes = HeroList:GetAllHeroes()
   local point = Entities:FindByName(nil,"spawn_roshan_hero"):GetAbsOrigin()
@@ -52,6 +52,7 @@ function specialEventRoshan()
   end
 
   local point = Entities:FindByName(nil,"spawn_roshan"):GetAbsOrigin()
+
   GameMode.roshan = CreateUnitByName("npc_dota_hero_roshan", point, true, nil, nil, DOTA_TEAM_NEUTRALS)
   GameMode.roshan:AddNewModifier(nil, nil, "modifier_stunned", {Duration = 5,IsHidden = true})
   GameMode.roshan:AddNewModifier(nil, nil, "modifier_invulnerable", {Duration = 5,IsHidden = true})
@@ -59,9 +60,22 @@ function specialEventRoshan()
   
 end
 
+
+function stopEventRoshan()
+  local heroes = HeroList:GetAllHeroes()
+  Timers:CreateTimer(2,endSpecialEventRoshan)
+  GameMode.roshan:AddNewModifier(nil, nil, "modifier_stunned", {Duration = 2,IsHidden = true})
+  GameMode.roshan:AddNewModifier(nil, nil, "modifier_invulnerable", {Duration = 2,IsHidden = true})
+  for _,hero in pairs(heroes) do 
+    if IsValidEntity(hero) and hero:GetTeam() == DOTA_TEAM_GOODGUYS then
+      hero:AddNewModifier(nil, nil, "modifier_stunned", {Duration = 2,IsHidden = true})
+      hero:AddNewModifier(nil, nil, "modifier_invulnerable", {Duration = 2,IsHidden = true})
+    end
+  end
+end
+
 function endSpecialEventRoshan()
   -- body
-
 
   local units = FindUnitsInRadius( DOTA_TEAM_NEUTRALS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false )
   for _,unit in pairs(units) do
@@ -358,7 +372,6 @@ function endKillEvent(event)
       FindClearSpaceForUnit(v, v:GetPlayerOwner():GetAssignedHero():GetAbsOrigin(), true)
     end
   end
-
   PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),hero)
   
   Timers:CreateTimer(0.5,function () PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),nil) 
@@ -371,7 +384,6 @@ function endKillEvent(event)
       v.endTime = v.endTime - (SpecialEventKillsDuration - duration)
     end
   end
-
   GameMode.event_start_time  = nil
   GameMode.ramero = nil
   GameMode.killEvent = nil
@@ -857,6 +869,7 @@ function startIllusionEvent(event)
   PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),hero)
   Timers:CreateTimer(4,function () PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),nil) 
                             end)
+  hero.illusion_done = true
 end
 
 function endIllusionEvent(event)
@@ -879,7 +892,7 @@ function endIllusionEvent(event)
     v:Enable()
   end
 
-  local triggers = Entities:FindAllByName("trigger_frost_infernal_return")
+  local triggers = Entities:FindAllByName("trigger_illusion_return")
   for _,v in pairs(triggers) do
     v:Disable()
   end

@@ -52,14 +52,6 @@
             "ModifierName" "modifier_anubarak"
             "Target"  "CASTER"
         }
-
-        "AttachEffect"
-        {
-          "Target" "CASTER"
-          "EffectName" "particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodrage_eztzhok.vpcf"
-          "EffectAttachType" "follow_origin"
-        }
-
     }
 
     "Modifiers"
@@ -71,6 +63,8 @@
         "IsHidden" "0"
         "Passive" "0"
         "IsPurgable" "1"
+        "EffectName" "particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodrage_eztzhok.vpcf"
+        "EffectAttachType" "follow_origin"
         "Duration" "%duration"
 
         "Properties"

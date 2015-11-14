@@ -26,6 +26,8 @@ Special events and final wave
 
 Phase 2 activating equally
 
+Gold at events
+
 
 
 
@@ -34,6 +36,9 @@ IMPORTANT:
 Change globals to be saved in the gameMode
 
 fix tower remove invulnerable without creeps spawn
+
+Damage over time from dead creeps can crash game
+
 
 
 DONE:
@@ -49,3 +54,10 @@ added warden
 reduced the amount of creeps spawning at level 4, only two of each type are spawning per wave
 
 fixed lane opening after destroyed rax
+
+The special events now end on pickup of the items not after time, so you have to pickup the items to end the events
+
+Removed damage on lich frost frenzy, because of possible crash reason
+
+
+

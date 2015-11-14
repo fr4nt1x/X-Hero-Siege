@@ -10,7 +10,7 @@
     // Stats
     //-------------------------------------------------------------------------------------
     "AbilityCastPoint" "0.5"
-    "AbilityCooldown"  "5"
+    "AbilityCooldown"  "10"
     "AbilityManaCost"  "100"
     "AbilityTextureName" "lich_dark_ritual"
 
@@ -31,11 +31,6 @@
         {
           "var_type" "FIELD_FLOAT"
           "duration" "45"
-        }
-        "03"
-        {
-          "var_type" "FIELD_FLOAT"
-          "damage_per_second" "10"
         }
     }
 
@@ -68,16 +63,7 @@
         "Duration" "%duration"
         "EffectName" "particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodrage_eztzhok.vpcf"
         "EffectAttachType" "follow_origin"
-        "ThinkInterval" "1"
-        "OnIntervalThink"
-        {
-          "Damage"
-          {
-            "Target"    "TARGET"
-            "Type"      "DAMAGE_TYPE_PURE"
-            "Damage"    "%damage_per_second"
-          }
-        }
+
         "Properties"
         {
           "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attack_speed"

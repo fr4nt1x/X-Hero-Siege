@@ -1010,6 +1010,100 @@
 		"DOTA_Tooltip_ability_item_talisman_of_evasion_Lore"                              ""
 		"DOTA_Tooltip_ability_item_talisman_of_evasion_evasion"                           "EVASION:"
 
+				// DOTA 2 MODKIT GENERATED TOOLTIPS FOR: x_hero_siege
+		// Keys already defined in addon_english.txt are not listed, nor are Modifiers with the property "IsHidden" "1".
+
+		// ******************** HEROES ********************
+		"npc_dota_hero_lich"                                                              "Npc Dota Hero Lich"
+		"npc_dota_hero_phantom_assassin"                                                  "Npc Dota Hero Warden"
+
+		// ******************** UNITS ********************
+		"npc_lich_frost_infernal"                                                         "Lich Frost Infernal"
+		"npc_dota_hero_lich"                                                              "Dota Hero Lich"
+		"npc_dota_hero_warden"                                                            "Dota Hero Warden"
+
+		// ******************** ABILITY MODIFIERS ********************
+		"DOTA_Tooltip_modifier_frost_arrow"                                               "Frost Arrow"
+		"DOTA_Tooltip_modifier_frost_arrow_Description"                                   ""
+
+		"DOTA_Tooltip_modifier_frost_breath"                                              "Frost Breath"
+		"DOTA_Tooltip_modifier_frost_breath_Description"                                  ""
+
+		"DOTA_Tooltip_modifier_frost_frenzy"                                              "Frost Frenzy"
+		"DOTA_Tooltip_modifier_frost_frenzy_Description"                                  ""
+
+		"DOTA_Tooltip_modifier_dagger_poison"                                             "Dagger Poison"
+		"DOTA_Tooltip_modifier_dagger_poison_Description"                                 ""
+
+		"DOTA_Tooltip_modifier_silence"                                                   "Silence"
+		"DOTA_Tooltip_modifier_silence_Description"                                       ""
+
+
+		// ******************** ITEM MODIFIERS ********************
+
+		// ******************** ABILITIES ********************
+		"DOTA_Tooltip_ability_lich_frost_arrows"                                          "Lich Frost Arrows"
+		"DOTA_Tooltip_ability_lich_frost_arrows_Description"                              ""
+		"DOTA_Tooltip_ability_lich_frost_arrows_bonus_damage"                             "BONUS DAMAGE:"
+		"DOTA_Tooltip_ability_lich_frost_arrows_duration"                                 "DURATION:"
+		"DOTA_Tooltip_ability_lich_frost_arrows_slow_movement"                            "SLOW MOVEMENT:"
+		"DOTA_Tooltip_ability_lich_frost_arrows_slow_attack_speed"                        "SLOW ATTACK SPEED:"
+
+		"DOTA_Tooltip_ability_lich_frost_breath"                                          "Lich Frost Breath"
+		"DOTA_Tooltip_ability_lich_frost_breath_Description"                              ""
+		"DOTA_Tooltip_ability_lich_frost_breath_start_radius"                             "START RADIUS:"
+		"DOTA_Tooltip_ability_lich_frost_breath_end_radius"                               "END RADIUS:"
+		"DOTA_Tooltip_ability_lich_frost_breath_range"                                    "RANGE:"
+		"DOTA_Tooltip_ability_lich_frost_breath_speed"                                    "SPEED:"
+		"DOTA_Tooltip_ability_lich_frost_breath_duration"                                 "DURATION:"
+		"DOTA_Tooltip_ability_lich_frost_breath_damage_per_second"                        "DAMAGE PER SECOND:"
+
+		"DOTA_Tooltip_ability_lich_frost_frenzy"                                          "Lich Frost Frenzy"
+		"DOTA_Tooltip_ability_lich_frost_frenzy_Description"                              ""
+		"DOTA_Tooltip_ability_lich_frost_frenzy_bonus_attack_speed"                       "BONUS ATTACK SPEED:"
+		"DOTA_Tooltip_ability_lich_frost_frenzy_duration"                                 "DURATION:"
+		"DOTA_Tooltip_ability_lich_frost_frenzy_damage_per_second"                        "DAMAGE PER SECOND:"
+
+		"DOTA_Tooltip_ability_lich_frost_nova_hero"                                       "Lich Frost Nova Hero"
+		"DOTA_Tooltip_ability_lich_frost_nova_hero_Description"                           ""
+		"DOTA_Tooltip_ability_lich_frost_nova_hero_radius"                                "RADIUS:"
+		"DOTA_Tooltip_ability_lich_frost_nova_hero_slow_movement_speed"                   "SLOW MOVEMENT SPEED:"
+		"DOTA_Tooltip_ability_lich_frost_nova_hero_slow_attack_speed"                     "SLOW ATTACK SPEED:"
+		"DOTA_Tooltip_ability_lich_frost_nova_hero_aoe_damage"                            "AOE DAMAGE:"
+
+		"DOTA_Tooltip_ability_lich_frost_shield"                                          "Lich Frost Shield"
+		"DOTA_Tooltip_ability_lich_frost_shield_Description"                              ""
+		"DOTA_Tooltip_ability_lich_frost_shield_armor_bonus"                              "ARMOR BONUS:"
+		"DOTA_Tooltip_ability_lich_frost_shield_slow_movement_speed"                      "SLOW MOVEMENT SPEED:"
+		"DOTA_Tooltip_ability_lich_frost_shield_slow_attack_speed"                        "SLOW ATTACK SPEED:"
+		"DOTA_Tooltip_ability_lich_frost_shield_slow_duration"                            "SLOW DURATION:"
+
+		"DOTA_Tooltip_ability_lich_summon_frost_beast"                                    "Lich Summon Frost Beast"
+		"DOTA_Tooltip_ability_lich_summon_frost_beast_Description"                        ""
+		"DOTA_Tooltip_ability_lich_summon_frost_beast_duration"                           "DURATION:"
+		"DOTA_Tooltip_ability_lich_summon_frost_beast_units"                              "UNITS:"
+
+		"DOTA_Tooltip_ability_warden_flurry_of_knives"                                    "Warden Flurry Of Knives"
+		"DOTA_Tooltip_ability_warden_flurry_of_knives_Description"                        ""
+		"DOTA_Tooltip_ability_warden_flurry_of_knives_damage"                             "DAMAGE:"
+		"DOTA_Tooltip_ability_warden_flurry_of_knives_radius"                             "RADIUS:"
+
+		"DOTA_Tooltip_ability_warden_poison_dagger"                                       "Warden Poison Dagger"
+		"DOTA_Tooltip_ability_warden_poison_dagger_Description"                           ""
+		"DOTA_Tooltip_ability_warden_poison_dagger_duration"                              "DURATION:"
+		"DOTA_Tooltip_ability_warden_poison_dagger_projectile_speed"                      "PROJECTILE SPEED:"
+		"DOTA_Tooltip_ability_warden_poison_dagger_damage"                                "DAMAGE:"
+		"DOTA_Tooltip_ability_warden_poison_dagger_damage_over_time"                      "DAMAGE OVER TIME:"
+		"DOTA_Tooltip_ability_warden_poison_dagger_attack_speed_slow"                     "ATTACK SPEED SLOW:"
+		"DOTA_Tooltip_ability_warden_poison_dagger_movement_speed_slow"                   "MOVEMENT SPEED SLOW:"
+
+		"DOTA_Tooltip_ability_warden_silence"                                             "Warden Silence"
+		"DOTA_Tooltip_ability_warden_silence_Description"                                 ""
+		"DOTA_Tooltip_ability_warden_silence_duration"                                    "DURATION:"
+		"DOTA_Tooltip_ability_warden_silence_radius"                                      "RADIUS:"
+
+
+		// ******************** ITEMS ********************
 
 
 	}

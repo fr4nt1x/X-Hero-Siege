@@ -12,7 +12,6 @@ function drop_lightning_sword(event)
 	if GameMode.eventWaveKills == 2 then
 		local sword = CreateItem("item_lightning_sword", hero,hero)
 		CreateItemOnPositionSync( point, sword )
-	 	Timers:CreateTimer( 10,function () FireGameEventLocal("end_special_event_wave_kills", {hero_index = hero:GetEntityIndex()}) end)
 	 	GameMode.eventWaveKills = nil
 		sword:LaunchLoot(false, 400, 0.75, point)
 	elseif GameMode.eventWaveKills == 1 then
@@ -34,7 +33,5 @@ function drop_ring(event)
 
 
 	CreateItemOnPositionSync( point, tome )
-
- 	Timers:CreateTimer( 10,function () FireGameEventLocal("end_special_event_kills", {hero_index = hero:GetEntityIndex()}) end) 
 	tome:LaunchLoot(false, 400, 0.75, point+RandomVector(50))
 end

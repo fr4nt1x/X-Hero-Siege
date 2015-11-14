@@ -160,7 +160,7 @@ function LocustSwarmPhysics( event )
 
 			-- If the unit doesn't have a target locked, find enemies near the caster
 			enemies = FindUnitsInRadius(caster:GetTeamNumber(), source, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, 
-										  abilityTargetType, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+										  abilityTargetType, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 
 			-- Check the possible enemies, assigning a new one
 			local target_enemy = nil
