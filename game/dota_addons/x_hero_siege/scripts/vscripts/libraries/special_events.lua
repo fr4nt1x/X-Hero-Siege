@@ -1,3 +1,5 @@
+require('libraries/tools')
+
 
 function specialEventRoshan()
   --body
@@ -92,10 +94,14 @@ function endSpecialEventRoshan()
       
       if hero:IsAlive() then
         FindClearSpaceForUnit(hero, hero.position_roshan, true)
-        hero:SetGold(8000+hero:GetGold(),false)
+        if IsValidEntity(hero:GetPlayerOwner()) then
+          PlayerResource:ModifyGold(hero:GetPlayerOwnerID(),8000, false,  DOTA_ModifyGold_Unspecified)
+        end
       else
         if hero.ankh_respawn then
-          hero:SetGold(8000+hero:GetGold(),false)
+          if IsValidEntity(hero:GetPlayerOwner()) then
+            PlayerResource:ModifyGold(hero:GetPlayerOwnerID(),8000, false,  DOTA_ModifyGold_Unspecified)
+          end
         end
 
         hero:SetRespawnPosition(hero.position_roshan)

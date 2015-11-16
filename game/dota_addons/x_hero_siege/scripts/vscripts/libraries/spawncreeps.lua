@@ -40,7 +40,7 @@ SpecialArenaDuration = 2*60
 SpecialEventKillsDuration = 2*60
 SpecialEventWaveKillsDuration = 2*60
 SpecialEventFrostInfernalDuration = 2*60
-SpecialEventRoshan =13*60
+SpecialEventRoshan = 13*60
 SpecialEventRoshanDuration = 1.1*60
 TimeBetweenCreepSpawn = 15
 

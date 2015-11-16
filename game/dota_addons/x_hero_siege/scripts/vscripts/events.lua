@@ -588,7 +588,6 @@ function GameMode:OnPlayerChat(keys)
     for _,hero in pairs(heroes) do
 
       if hero:GetPlayerOwnerID() ~= nil and hero:GetTeam() == DOTA_TEAM_GOODGUYS then
-        
         msg = "<u>"..PlayerResource:GetPlayerName(hero:GetPlayerOwnerID()).."</u>".." has "..'<font color="#ff0000">'..hero.creep_kills.."</font>".." creepkills and "..'<font color="#ff0000">'..hero.wave_kills.."</font>".." wavekills <br>" 
         GameRules:SendCustomMessage(msg, DOTA_TEAM_GOODGUYS, 1) 
       end

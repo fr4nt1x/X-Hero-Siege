@@ -29,6 +29,10 @@ Phase 2 activating equally
 Gold at events
 
 
+Triggers not working as supposed
+2 heroes can trigger the same event
+
+
 
 
 IMPORTANT:
@@ -43,21 +47,16 @@ Damage over time from dead creeps can crash game
 
 DONE:
 
-made crypt lord beetles not stack and fixed crypt lord spawn bug
 
-added better level up system, 
+spirit of vengeacne stack
 
-changed when the level up and dragon attacks appear
+Fixed disconnect bug
 
-added warden 
-
-reduced the amount of creeps spawning at level 4, only two of each type are spawning per wave
-
-fixed lane opening after destroyed rax
-
-The special events now end on pickup of the items not after time, so you have to pickup the items to end the events
-
-Removed damage on lich frost frenzy, because of possible crash reason
+Set the triggers further back at the special events
 
 
+Fixed the bug that caused the game client(of the host) to crash if the host disconnected.
 
+Put the telport point of the special event further away from the trigger.
+
+Fixed spirit of vengeance stacking on spawn.

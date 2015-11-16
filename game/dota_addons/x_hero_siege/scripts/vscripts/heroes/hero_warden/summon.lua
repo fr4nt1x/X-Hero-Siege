@@ -1,3 +1,4 @@
+require('libraries/tools')
 
 function spawn_spirit( event )
 	-- body
@@ -25,6 +26,7 @@ function spawn_spirit( event )
 		for i = 1,number_spirits do
 			local unit = CreateUnitByName("npc_spirit_of_vengeance", avatar:GetAbsOrigin()+150*avatar:GetForwardVector(), true, avatar, avatar:GetOwner(), avatar:GetTeam())
 			unit:SetControllableByPlayer(avatar:GetPlayerOwnerID(), true)
+			unit:AddNewModifier(nil, nil, "modifier_phased", {Duration = 0.05})
 			ability:ApplyDataDrivenModifier(avatar, unit, "modifier_spirit_of_vengeance", {})
 			table.insert(avatar.spirits,1,unit)
 		end

@@ -4495,7 +4495,7 @@
 	    // Stats
 	    //-------------------------------------------------------------------------------------
 	    "AbilityCastPoint" "0.5"
-	    "AbilityCooldown"  "10"
+	    "AbilityCooldown"  "7"
 	    "AbilityManaCost"  "100"
 	    "AbilityTextureName" "lich_dark_ritual"
 	

@@ -1,3 +1,5 @@
+require('libraries/tools')
+
 function upgrade_unit(event)
 	-- body
 
