@@ -1,0 +1,43 @@
+"blademaster_windwalk"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "bounty_hunter_wind_walk"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_YES"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
+    "MaxLevel"              "4"
+    "RequiredLevel"        "-1"
+    "LevelsBetweenUpgrades" "3"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.5"
+    "AbilityCooldown"  "15"
+    "AbilityManaCost"  "75 100 150 200"
+    "AbilityTextureName" "bounty_hunter_wind_walk"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"          "FIELD_FLOAT"
+        "duration"          "20.0 35 50 80"
+      }
+      "02"
+      {
+        "var_type"          "FIELD_FLOAT"
+        "fade_time"         "1.0 0.75 0.5 0.25"
+      }
+      "03"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "bonus_damage"        "500 2500 5000 10000"
+      }
+    }
+    "precache"
+    {
+    }
+  }

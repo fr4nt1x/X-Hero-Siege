@@ -69,13 +69,18 @@ function Phantasm( keys )
 		illusion:SetControllableByPlayer(player, true)
 
 		illusion:SetAngles( casterAngles.x, casterAngles.y, casterAngles.z )
-		
+
+
 		-- Level Up the unit to the casters level
 		local casterLevel = caster:GetLevel()
 		for i=1,casterLevel-1 do
 			illusion:HeroLevelUp(false)
 		end
-
+		
+		illusion:SetBaseStrength(caster:GetBaseStrength())
+  		illusion:SetBaseIntellect(caster:GetBaseIntellect())
+  		illusion:SetBaseAgility(caster:GetBaseAgility())
+		
 		-- Set the skill points to 0 and learn the skills of the caster
 		illusion:SetAbilityPoints(0)
 		for abilitySlot=0,15 do

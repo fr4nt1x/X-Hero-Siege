@@ -3,7 +3,7 @@ require('libraries/timers')
 
 function Spawn( entityKeyValues )
 	Ability_mirror_image = thisEntity:FindAbilityByName("grom_hellscream_mirror_image")
-	Ability_blade_fury = thisEntity:FindAbilityByName("juggernaut_blade_fury")
+	Ability_blade_fury = thisEntity:FindAbilityByName("grom_hellscream_bladefury")
 
 	Timers:CreateTimer(0,GromThink)
 	DebugPrint("Starting AI for "..thisEntity:GetUnitName().." "..thisEntity:GetEntityIndex())

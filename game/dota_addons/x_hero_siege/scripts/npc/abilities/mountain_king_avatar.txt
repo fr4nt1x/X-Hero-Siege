@@ -1,0 +1,107 @@
+"mountain_king_avatar"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "MaxLevel"              "2"
+    "RequiredLevel"        "10"
+    "LevelsBetweenUpgrades" "5"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.6"
+    "AbilityCooldown"  "120"
+    "AbilityManaCost"  "500 1000"
+    "AbilityTextureName" "sven_gods_strength"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+        "01"
+        {
+          "var_type" "FIELD_FLOAT"
+          "bonus_armor" "100 300"
+        }
+        "02"
+        {
+          "var_type" "FIELD_FLOAT"
+          "model_scale" "1.25 1.35"
+        }           
+        "03"
+        {
+          "var_type" "FIELD_FLOAT"
+          "bonus_damage" "3000 10000"
+        }           
+        "04"
+        {
+          "var_type" "FIELD_FLOAT"
+          "bonus_health" "15000 50000"
+        }           
+        "05"
+        {
+          "var_type" "FIELD_FLOAT"
+          "duration" "60 90"
+        }           
+    }
+
+    "precache"
+    {
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+        "ApplyModifier"
+        {
+            "ModifierName" "modifier_avatar"
+            "Target"      "CASTER"
+        }
+
+    }
+
+    "Modifiers"
+    {
+      
+      "modifier_avatar"
+      {
+
+        "IsBuff" "1"
+        "IsHidden" "0"
+        "Passive" "0"
+        "Duration"  "%duration"
+        "IsPurgable" "0"
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_HEALTH_BONUS" "%bonus_health"
+          "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%bonus_damage"
+          "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"    "%bonus_armor"
+
+        }
+        "States"
+        {
+          "MODIFIER_STATE_MAGIC_IMMUNE"    "MODIFIER_STATE_VALUE_ENABLED"
+        }
+        "OnCreated"
+        {
+          "RunScript"
+          {
+            "ScriptFile"  "heroes/npc_hero_mountain_king/avatar.lua"
+            "Function"    "grow"
+          }
+        }
+        "OnDestroy"
+        {
+          "RunScript"
+          {
+            "ScriptFile"  "heroes/npc_hero_mountain_king/avatar.lua"
+            "Function"    "end_grow"
+          }
+        }
+      }
+    }    
+  }

@@ -40,7 +40,9 @@ local AbilitiesHeroes = {npc_dota_hero_antimage = "demonhunter_roar",
                     npc_dota_hero_luna = "luna_moon_glaive",
                     npc_dota_hero_mirana = "moon_priest_rejunivation",
                     npc_dota_hero_lich = "lich_frost_frenzy",
-                    npc_dota_hero_phantom_assassin = "blink"}
+                    npc_dota_hero_phantom_assassin = "blink",
+                    npc_dota_hero_zuus = "mountain_king_thunderspirit",
+                    npc_dota_hero_juggernaut = "blademaster_berserk"}
 --[[
   This function should be used to set up Async precache calls at the beginning of the gameplay.
 
@@ -127,7 +129,8 @@ function GameMode:OnHeroInGame(hero)
   -- This line for example will set the starting gold of every hero to 500 unreliable gold
   local number_players = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
   local difficulty = GameRules:GetCustomGameDifficulty()
-  if hero:GetTeam() == DOTA_TEAM_GOODGUYS then
+
+  if  IsValidEntity(hero) and IsValidEntity(hero:GetPlayerOwner()) and hero:IsRealHero() and hero:GetTeam() == DOTA_TEAM_GOODGUYS then
     if difficulty == 1 then
       hero:SetGold(8000, false)
     elseif difficulty == 2 then

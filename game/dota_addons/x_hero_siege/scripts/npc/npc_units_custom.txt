@@ -2439,7 +2439,7 @@
 	    "Ability1"        "devotion_aura"
 	    "Ability2"        "neutral_critical" 
 	    "Ability3"        "grom_hellscream_mirror_image"
-	    "Ability4"        "juggernaut_blade_fury"
+	    "Ability4"        "grom_hellscream_bladefury"
 	    "Ability5"        "top_bosses_gates"
 	    "Ability6"        "grom_hellscream_buff"
 	    "Ability7"        ""

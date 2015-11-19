@@ -37,6 +37,7 @@ function Precache( context )
   PrecacheItemByNameSync("luna_moon_glaive", context)
   PrecacheItemByNameSync("moon_priest_rejunivation", context)
   PrecacheItemByNameSync("lich_frost_frenzy", context)
+  PrecacheItemByNameSync("blademaster_berserk", context)
   
   -- Entire heroes (sound effects/voice/models/particles) can be precached with PrecacheUnitByNameSync
   -- Custom units from npc_units_custom.txt can also have all of their abilities and precache{} blocks precached in this way

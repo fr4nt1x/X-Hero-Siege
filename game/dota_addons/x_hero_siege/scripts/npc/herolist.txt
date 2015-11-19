@@ -13,4 +13,6 @@
 	"npc_dota_hero_mirana" "-1"
 	"npc_dota_hero_lich" "-1"
 	"npc_dota_hero_phantom_assassin" "-1"
+	"npc_dota_hero_zuus"			"-1"
+	"npc_dota_hero_juggernaut"		"-1"
 }

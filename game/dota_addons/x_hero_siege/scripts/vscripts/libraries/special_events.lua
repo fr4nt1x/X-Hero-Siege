@@ -8,7 +8,7 @@ function specialEventRoshan()
   end
   for _,v in pairs(Timers.timers) do
     if v.endTime ~= nil then 
-      v.endTime = v.endTime + SpecialEventRoshanDuration
+      v.endTime = v.endTime + SpecialEventRoshanDuration+2+5
     end
   end
   local units = FindUnitsInRadius( DOTA_TEAM_NEUTRALS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
@@ -387,7 +387,7 @@ function endKillEvent(event)
 
   for _,v in pairs(Timers.timers) do 
     if v.endTime ~= nil then
-      v.endTime = v.endTime - (SpecialEventKillsDuration - duration)
+      v.endTime = v.endTime + duration - SpecialEventKillsDuration 
     end
   end
   GameMode.event_start_time  = nil
@@ -534,7 +534,7 @@ function endWaveKillEvent(event)
 
   for _,v in pairs(Timers.timers) do 
     if v.endTime ~= nil then
-    v.endTime = v.endTime - (SpecialEventWaveKillsDuration - duration)
+    v.endTime = v.endTime + duration - SpecialEventWaveKillsDuration 
     end
   end
   GameMode.event_start_time  = nil
@@ -546,26 +546,27 @@ end
 ---------------------------------------------------------------------------------------------------------------------------
 function teleport_special_event_choice( event)
   -- body
-  local hero = event.activator
-  local triggers_choice = Entities:FindAllByName("trigger_special_event_choice")
-  local triggers_events = Entities:FindAllByName("trigger_special_event")
+  if not GameMode.event_choice_occupied then
+    local hero = event.activator
+    local triggers_choice = Entities:FindAllByName("trigger_special_event_choice")
+    local triggers_events = Entities:FindAllByName("trigger_special_event")
 
-  for _,v in pairs(triggers_choice) do
+    GameMode.event_choice_occupied = true
 
-    v:Disable()
+    for _,v in pairs(triggers_choice) do
+      v:Disable()
+    end
+
+    for _,v in pairs(triggers_events) do
+      v:Enable()
+    end
+
+    local point = Entities:FindByName(nil,"point_teleport_special_events"):GetAbsOrigin()
+    FindClearSpaceForUnit(hero, point, true)
+    PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),hero)
+    Timers:CreateTimer(0.5,function () PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),nil) 
+                          end)
   end
-
-  for _,v in pairs(triggers_events) do
-    
-    v:Enable()
-  end
-
-  local point = Entities:FindByName(nil,"point_teleport_special_events"):GetAbsOrigin()
-  FindClearSpaceForUnit(hero, point, true)
-  PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),hero)
-  Timers:CreateTimer(0.5,function () PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),nil) 
-                            end)
-
 end
 ----------------------------------------------------------------------------------------------------------------------------
 
@@ -638,7 +639,7 @@ function endFrostInfernalEvent(event)
   if GameMode.frost_infernal_event == nil then
     return nil
   end
-  
+  GameMode.event_choice_occupied = false
   GameRules:GetGameModeEntity():SetFixedRespawnTime(-1)
   
   --enable special event triggers
@@ -755,6 +756,7 @@ function endSpiritBeastEvent(event)
   if GameMode.spirit_beast_event == nil then
     return nil
   end
+  GameMode.event_choice_occupied = false
   GameRules:GetGameModeEntity():SetFixedRespawnTime(-1)
   --enable special event triggers
   local triggers_choice = Entities:FindAllByName("trigger_special_event_choice")
@@ -838,6 +840,9 @@ function startIllusionEvent(event)
   end
 
   GameMode.illusion_event = true
+
+  GameMode.heroid_doing_illusions = hero:GetEntityIndex() 
+
   local point_hero = Entities:FindByName(nil, "point_hero_special_event_illusions"):GetAbsOrigin()
   local point_beast = Entities:FindByName(nil, "spawn_illusions"):GetAbsOrigin()
 
@@ -876,14 +881,17 @@ function startIllusionEvent(event)
   Timers:CreateTimer(4,function () PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),nil) 
                             end)
   hero.illusion_done = true
+
 end
+
+
 
 function endIllusionEvent(event)
   -- body
   if GameMode.illusion_event == nil then
     return nil
   end
-
+  GameMode.event_choice_occupied = false
   GameRules:GetGameModeEntity():SetFixedRespawnTime(-1)
   --enable special event triggers
   local triggers_choice = Entities:FindAllByName("trigger_special_event_choice")
@@ -924,7 +932,7 @@ function endIllusionEvent(event)
     Timers:CreateTimer(0.5,function () PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),nil) 
                             end)
   end
-
+  GameMode.heroid_doing_illusions = nil 
   GameMode.illusion = nil
   GameMode.illusion_event = nil
   

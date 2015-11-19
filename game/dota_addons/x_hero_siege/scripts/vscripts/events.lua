@@ -266,9 +266,9 @@ function GameMode:OnLastHit(keys)
   if not killedEnt:HasModifier("modifier_arena_kill") then
     hero.creep_kills = hero.creep_kills +1
   end
-  if not isTowerKill and player:GetAssignedHero():IsAlive() and not player:GetAssignedHero().in_special_event and player:GetTeam() == DOTA_TEAM_GOODGUYS then
+  if not isTowerKill and IsValidAlive(player:GetAssignedHero()) and not player:GetAssignedHero().in_special_event and player:GetTeam() == DOTA_TEAM_GOODGUYS then
     if hero.creep_kills >= creep_kills_for_gold and not hero.got_kill_bonus then
-      PlayerResource:SetGold(keys.PlayerID, PlayerResource:GetGold(keys.PlayerID)+5000, true)
+      PlayerResource:ModifyGold(hero:GetPlayerOwnerID(),5000, false,  DOTA_ModifyGold_Unspecified)
       hero.got_kill_bonus = true
       Notifications:TopToAll({text=player:GetAssignedHero():GetName().." has "..creep_kills_for_gold.." kills. He got 5000 gold.", duration=5.0})
     

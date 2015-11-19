@@ -1,0 +1,119 @@
+"mountain_king_thunderclap"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"       "ability_datadriven"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET  | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AOERadius"             "%radius"
+    "AbilityTextureName"      "slardar_slithereen_crush"
+    "AbilityUnitTargetTeam"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityCastAnimation"    "ACT_DOTA_SPAWN" 
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"        "0.35"
+
+    // Time   
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"       "5"
+    "AbilityDamage"         "125 250 500 1000"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"       "75 100 125 150"
+    "MaxLevel"              "4"
+    "RequiredLevel"         "-1"
+    "LevelsBetweenUpgrades" "3"
+
+    // Special  
+    //-------------------------------------------------------------------------------------------------------------
+      "AbilitySpecial"
+      {
+        "01"
+        {
+          "var_type"        "FIELD_FLOAT"
+          "duration"        "1 2 3 4"
+        }
+        "02"
+        {
+          "var_type"        "FIELD_INTEGER"
+          "radius"        "300 350 400 450"
+        }
+        "03"
+        {
+          "var_type"        "FIELD_FLOAT"
+          "bonus_attack_speed"        "-100"
+        }
+        "04"
+        {
+          "var_type"        "FIELD_INTEGER"
+          "bonus_movement_speed"        "-50"
+        }
+      }
+
+   //precache
+      "precache"
+      {
+        "particle"  "particles/units/heroes/hero_slardar/slardar_crush_entity.vpcf"
+        "particle"  "particles/units/heroes/hero_slardar/slardar_crush.vpcf"
+      }
+
+    //SpellStart
+    "OnSpellStart"
+    {
+        "ApplyModifier"
+        {
+          "ModifierName"  "modifier_clap"
+          "Target"
+          {
+            "Center"    "CASTER"
+            "Radius"   "%radius"
+            "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+            "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+          }
+          "Duration"    "%duration"
+        }
+
+        "Damage"
+        {
+          "Target"
+          {
+            "Center"    "CASTER"
+            "Radius"   "%radius"
+            "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+            "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+          }
+          "Type"      "DAMAGE_TYPE_MAGICAL"
+          "Damage"    "%AbilityDamage"
+        }
+        "FireEffect"
+        {
+          "EffectName"        "particles/units/heroes/hero_slardar/slardar_crush.vpcf"
+          "EffectAttachType"  "follow_origin"
+          "Target"            "CASTER"
+        }
+    }
+    "Modifiers"
+    {
+      "modifier_clap"
+      {
+        "Passive"      "0"
+        "IsHidden"      "0"
+        "IsDebuff"      "1"
+  
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attack_speed"
+          "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed" 
+        }
+        "OnCreated"
+        {
+          "FireEffect"
+          {
+            "EffectName"        "particles/units/heroes/hero_slardar/slardar_crush_entity.vpcf"
+            "EffectAttachType"  "follow_origin"
+            "Target"            "TARGET"
+          }
+        }
+      }
+    }
+  }

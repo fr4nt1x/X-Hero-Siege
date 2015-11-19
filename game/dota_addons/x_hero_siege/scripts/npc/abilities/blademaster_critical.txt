@@ -1,0 +1,79 @@
+"blademaster_critical"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"       "ability_datadriven"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
+    "AbilityTextureName"      "juggernaut_blade_dance"
+    "MaxLevel"              "4"
+    "RequiredLevel"        "8"
+    "LevelsBetweenUpgrades" "3"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+        "01"
+        {
+          "var_type"          "FIELD_INTEGER"
+          "crit_mult"         "200 300 400 500"
+        }
+        "02"
+        {
+          "var_type"          "FIELD_INTEGER"
+          "crit_chance"       "5 10 15 20"
+        }
+      }
+
+
+      "Modifiers"
+      {
+        "modifier_blade_crit"
+        {
+            "Passive"   "1"
+            "IsHidden"  "1"
+            "OnAttackStart"
+            {
+                "RemoveModifier"
+                {
+                    "ModifierName"  "modifier_blade_dance_crit"
+                    "Target"    "CASTER"
+                }
+
+                "Random"
+                {
+                    "Chance" "%crit_chance"
+                    "OnSuccess"
+                    {
+
+                        "ApplyModifier"
+                        {
+                            "ModifierName"  "modifier_blade_dance_crit"
+                            "Target"      "CASTER"    
+                        }        
+                    }
+                }
+            }
+        }
+
+        "modifier_blade_dance_crit"
+        {
+            "IsHidden"  "1"
+            "Properties"
+            {
+                "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "%crit_mult"
+            }
+
+            "OnAttackLanded"
+            {
+                "RemoveModifier"
+                {
+                    "ModifierName"  "modifier_blade_dance_crit"
+                    "Target"      "CASTER"    
+                }
+            }
+        }
+      }
+  }

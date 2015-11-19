@@ -24,14 +24,6 @@ Special event timing doesn't fit (Ramero Baristal)
 
 Special events and final wave
 
-Phase 2 activating equally
-
-Gold at events
-
-
-Triggers not working as supposed
-2 heroes can trigger the same event
-
 
 
 
@@ -45,18 +37,21 @@ Damage over time from dead creeps can crash game
 
 
 
+
 DONE:
 
+Fixed amount of gold after roshan event and for kills
 
-spirit of vengeacne stack
+spirit of vengeance don't get stuck in each other
 
-Fixed disconnect bug
+Fixed disconnect crash for host client
 
 Set the triggers further back at the special events
 
+bonus stats from illusion event always put to the starting hero
 
-Fixed the bug that caused the game client(of the host) to crash if the host disconnected.
+vengeance illusion not attackable
 
-Put the telport point of the special event further away from the trigger.
+only let one hero activate the the triggers for special events at a time
 
-Fixed spirit of vengeance stacking on spawn.
+New hero: Mountain King, Blademaster

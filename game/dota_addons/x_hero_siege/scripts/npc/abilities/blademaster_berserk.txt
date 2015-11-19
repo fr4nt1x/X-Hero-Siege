@@ -1,0 +1,84 @@
+"blademaster_berserk"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "-1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.1"
+    "AbilityCooldown"  "30"
+    "AbilityManaCost"  "10"
+    "AbilityTextureName" "huskar_berserkers_blood"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+        "01"
+        {
+          "var_type" "FIELD_INTEGER"
+          "bonus_attack_speed" "125"
+        }
+        "02"
+        {
+          "var_type" "FIELD_INTEGER"
+          "bonus_movement_speed_percentage" "25"
+        }
+        "03"
+        {
+          "var_type" "FIELD_FLOAT"
+          "duration" "15"
+        }
+       "04"
+        {
+          "var_type" "FIELD_INTEGER"
+          "incoming_damage_percentage" "150"
+        }
+    }
+
+    "precache"
+    {
+
+       "particle" "particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodrage_eztzhok.vpcf"
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+        "ApplyModifier"
+        {
+            "ModifierName" "modifier_berserker"
+            "Target"  "CASTER"
+        }
+    }
+
+    "Modifiers"
+    {
+      "modifier_berserker"
+      {
+
+        "IsBuff" "1"
+        "IsHidden" "0"
+        "Passive" "0"
+        "IsPurgable" "1"
+        "EffectName" "particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodrage_eztzhok.vpcf"
+        "EffectAttachType" "follow_origin"
+        "Duration" "%duration"
+
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed_percentage"
+          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attack_speed"
+          "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%incoming_damage_percentage"
+
+        }
+      }
+    }    
+  }

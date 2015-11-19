@@ -1,0 +1,77 @@
+	//=================================================================================
+	// Creature: Blademaster
+	// Description: "Cunning Hero, adept at quickly killing individual units and creating confusion among enemies. Can learn Mirror Image, Wind Walk, Critical Strike and Bladestorm. |n|n|cffffcc00Attacks land units.|r"
+	//=================================================================================
+	"npc_dota_hero_blademaster"
+	{
+		// General
+		//----------------------------------------------------------------
+		"override_hero"				"npc_dota_hero_juggernaut"	 //Add npc_dota_hero internal name
+		"Model"		"models/heroes/juggernaut/juggernaut.vmdl"
+		"Portrait"		"vgui/hud/heroportraits/portrait_juggernaut"
+		"SoundSet"		"Hero_Juggernaut"
+		"PickSound"		"juggernaut_jug_spawn_03"
+		"BanSound"		"juggernaut_jug_anger_04"
+
+		"ModelScale"		"0.850000"
+		"LoadoutScale"		"1"
+		"HeroGlowColor"		"222 120 36"
+		"AbilityLayout"		"6"
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"blademaster_windwalk"	 //Reference: AInv
+		"Ability2"					"blademaster_mirror_image"	 //Reference: AOwk
+		"Ability3"					"blademaster_war_drums_aura"	 //Reference: AOcr
+		"Ability4"					"blademaster_critical"	 //Reference: AOmi
+		"Ability5"					"blademaster_bladefury"	 //Reference: AOww
+		"Ability6"					""	 //Reference: AOww
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"0"
+		
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"48"
+		"AttackDamageMax"			"63.0"
+		"AttackDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AttackRate"				"1.77"
+		"AttackAnimationPoint"		"0.5"
+		"AttackAcquisitionRange"	"500"
+		"AttackRange"				"110"
+		
+		// Attributes
+		//----------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"		"19"
+		"AttributeStrengthGain"		"2"
+		"AttributeBaseIntelligence"	"16"
+		"AttributeIntelligenceGain"	"2.25"
+		"AttributeBaseAgility"		"23"
+		"AttributeAgilityGain"		"6"
+		
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"320"
+		"MovementTurnRate"			"0.6"
+		
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"500"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"100"
+		"StatusManaRegen"			"0.01"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1200"
+		"VisionNighttimeRange"		"1000"
+		
+
+		
+		// Creature Data
+		//----------------------------------------------------------------
+	}
