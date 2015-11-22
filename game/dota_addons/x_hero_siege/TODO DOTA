@@ -35,24 +35,11 @@ fix tower remove invulnerable without creeps spawn
 
 Damage over time from dead creeps can crash game
 
+Fix special events creeps
 
+player reconnect
 
 
 DONE:
 
-Fixed amount of gold after roshan event and for kills
-
-spirit of vengeance don't get stuck in each other
-
-Fixed disconnect crash for host client
-
-Set the triggers further back at the special events
-
-bonus stats from illusion event always put to the starting hero
-
-vengeance illusion not attackable
-
-only let one hero activate the the triggers for special events at a time
-
-New hero: Mountain King, Blademaster
 

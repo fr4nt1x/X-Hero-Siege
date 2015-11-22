@@ -145,8 +145,10 @@ function specialEventArena()
   local units = FindUnitsInRadius( DOTA_TEAM_NEUTRALS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
 
   for _,unit in pairs(units) do
-    unit:AddNewModifier(nil, nil, "modifier_stunned", {IsHidden = true})
-    unit:AddNewModifier(nil, nil, "modifier_invulnerable", {IsHidden = true})
+    if IsValidAlive() then
+      unit:AddNewModifier(nil, nil, "modifier_stunned", {IsHidden = true})
+      unit:AddNewModifier(nil, nil, "modifier_invulnerable", {IsHidden = true})
+    end
   end
   
   Timers:CreateTimer(SpecialArenaDuration+5,endSpecialArena)
@@ -234,8 +236,10 @@ function endSpecialArena()
   
   local units = FindUnitsInRadius( DOTA_TEAM_NEUTRALS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false )
   for _,unit in pairs(units) do
-    unit:RemoveModifierByName("modifier_stunned")
-    unit:RemoveModifierByName("modifier_invulnerable")
+    if IsValidAlive(unit) then
+      unit:RemoveModifierByName("modifier_stunned")
+      unit:RemoveModifierByName("modifier_invulnerable")
+    end
   end
   
   local units = FindUnitsInRadius( DOTA_TEAM_GOODGUYS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false )

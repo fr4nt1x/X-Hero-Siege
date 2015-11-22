@@ -75,19 +75,7 @@ function Phantasm( keys )
 		for i=1,casterLevel-1 do
 			illusion:HeroLevelUp(false)
 		end
-
-		-- Set the skill points to 0 and learn the skills of the caster
-		illusion:SetAbilityPoints(0)
-		for abilitySlot=0,15 do
-			local ability = caster:GetAbilityByIndex(abilitySlot)
-			if ability ~= nil then 
-				local abilityLevel = ability:GetLevel()
-				local abilityName = ability:GetAbilityName()
-				local illusionAbility = illusion:FindAbilityByName(abilityName)
-				illusionAbility:SetLevel(abilityLevel)
-			end
-		end
-
+		
 		-- Recreate the items of the caster
 		for itemSlot=0,5 do
 			local item = caster:GetItemInSlot(itemSlot)

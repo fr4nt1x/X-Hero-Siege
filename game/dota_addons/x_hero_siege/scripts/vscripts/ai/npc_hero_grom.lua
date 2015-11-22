@@ -12,7 +12,7 @@ end
 
 function GromThink()
 	-- body
-	if thisEntity:IsNull() or not thisEntity:IsAlive() or thisEntity:IsIllusion()	 then
+	if thisEntity:IsNull() or not thisEntity:IsAlive() or thisEntity:IsIllusion() then
 		return nil
 	elseif Ability_mirror_image:IsFullyCastable() then
 		local units = FindUnitsInRadius(thisEntity:GetTeamNumber(), thisEntity:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
