@@ -188,7 +188,7 @@ function specialEventArena()
 
   local units = FindUnitsInRadius( DOTA_TEAM_GOODGUYS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
   for _,unit in pairs(units) do
-    if unit:GetPlayerOwner()~= nil and IsValidAlive(unit) then
+    if unit:GetPlayerOwner() ~= nil and IsValidAlive(unit) then
       FindClearSpaceForUnit(unit, unit:GetPlayerOwner():GetAssignedHero():GetAbsOrigin()  , true)
       unit:AddNewModifier(nil, nil, "modifier_stunned", {Duration = 5,IsHidden = true})
       unit:AddNewModifier(nil, nil, "modifier_invulnerable", {Duration = 5,IsHidden = true})
@@ -250,7 +250,7 @@ function endSpecialArena()
     units = FindUnitsInRadius( DOTA_TEAM_NEUTRALS,Entities:FindByName(nil,"special_arena_"..i):GetAbsOrigin(), nil,  500, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_INVULNERABLE+DOTA_UNIT_TARGET_FLAG_DEAD, FIND_ANY_ORDER, false )
     
     for _,unit in pairs(units) do
-      if unit:IsAlive() then
+      if IsValidEntity(unit) then
         unit:RemoveSelf()
       end
     end
@@ -852,9 +852,9 @@ function startIllusionEvent(event)
   local ability = GameMode.illusion:FindAbilityByName("event_illusion")
   
 
-  GameMode.illusion:SetBaseStrength(hero:GetBaseStrength()*4)
-  GameMode.illusion:SetBaseIntellect(hero:GetBaseIntellect()*4)
-  GameMode.illusion:SetBaseAgility(hero:GetBaseAgility()*4)
+  GameMode.illusion:SetBaseStrength(hero:GetBaseStrength()*5)
+  GameMode.illusion:SetBaseIntellect(hero:GetBaseIntellect()*5)
+  GameMode.illusion:SetBaseAgility(hero:GetBaseAgility()*5)
   
 
   GameMode.illusion:AddNewModifier(GameMode.illusion, nil, "modifier_illusion", { outgoing_damage = 100, incoming_damage = 100})

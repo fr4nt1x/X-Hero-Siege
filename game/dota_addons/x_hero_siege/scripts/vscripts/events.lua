@@ -480,7 +480,7 @@ function GameMode:OnPlayerChat(keys)
 
   --[[  Run through player numbers but break at the first player that is there, so that only one player at the time has control
   ]]
-  if GameMode.timers.timer_creep_spawn ~= nil then
+  if GameMode.openLanes ~= nil then
     for i = 0,numberOFPlayers-1 do
         if playerID == i then
         --[[

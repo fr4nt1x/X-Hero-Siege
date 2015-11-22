@@ -89,7 +89,9 @@ function Phantasm( keys )
 				local abilityLevel = ability:GetLevel()
 				local abilityName = ability:GetAbilityName()
 				local illusionAbility = illusion:FindAbilityByName(abilityName)
-				illusionAbility:SetLevel(abilityLevel)
+				if IsValidEntity(illusionAbility) then
+					illusionAbility:SetLevel(abilityLevel)
+				end
 			end
 		end
 

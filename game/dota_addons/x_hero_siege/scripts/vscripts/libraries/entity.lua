@@ -31,6 +31,8 @@ function killed_baracks( keys )
 		Timers:RemoveTimer(GameMode.timers.timer_creep_spawn)
 		GameMode.timers.timer_creep_spawn = nil
 
+		GameMode.openLanes = nil
+		
 		local trigger = Entities:FindByName(nil,"trigger_phase2_left")
 		trigger:Enable()
 		local trigger = Entities:FindByName(nil,"trigger_phase2_right")

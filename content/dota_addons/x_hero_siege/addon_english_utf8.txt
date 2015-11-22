@@ -1102,6 +1102,105 @@
 		"DOTA_Tooltip_ability_warden_silence_duration"                                    "DURATION:"
 		"DOTA_Tooltip_ability_warden_silence_radius"                                      "RADIUS:"
 
+		// DOTA 2 MODKIT GENERATED TOOLTIPS FOR: x_hero_siege
+		// Keys already defined in addon_english.txt are not listed, nor are Modifiers with the property "IsHidden" "1".
+
+		// ******************** HEROES ********************
+
+		// ******************** UNITS ********************
+		"npc_avatar_of_vengeance"                                                         "Avatar Of Vengeance"
+		"npc_spirit_of_vengeance"                                                         "Spirit Of Vengeance"
+
+		// ******************** ABILITY MODIFIERS ********************
+		"DOTA_Tooltip_modifier_single_illusion"                                           "Single Illusion"
+		"DOTA_Tooltip_modifier_single_illusion_Description"                               ""
+
+		"DOTA_Tooltip_modifier_bonus_attributes"                                          "Bonus Attributes"
+		"DOTA_Tooltip_modifier_bonus_attributes_Description"                              ""
+
+		"DOTA_Tooltip_modifier_spirit_of_vengeance"                                       "Spirit Of Vengeance"
+		"DOTA_Tooltip_modifier_spirit_of_vengeance_Description"                           ""
+
+		"DOTA_Tooltip_modifier_avatar_vengeance"                                          "Avatar Vengeance"
+		"DOTA_Tooltip_modifier_avatar_vengeance_Description"                              ""
+
+
+		// ******************** ITEM MODIFIERS ********************
+
+		// ******************** ABILITIES ********************
+		"DOTA_Tooltip_ability_balanar_buff"                                               "Balanar Buff"
+		"DOTA_Tooltip_ability_balanar_buff_Description"                                   ""
+		"DOTA_Tooltip_ability_balanar_buff_attack_speed_bonus"                            "ATTACK SPEED BONUS:"
+
+		"DOTA_Tooltip_ability_difficulty_upgrade"                                         "Difficulty Upgrade"
+		"DOTA_Tooltip_ability_difficulty_upgrade_Description"                             ""
+		"DOTA_Tooltip_ability_difficulty_upgrade_bonus_armor"                             "BONUS ARMOR:"
+		"DOTA_Tooltip_ability_difficulty_upgrade_bonus_damage"                            "BONUS DAMAGE:"
+		"DOTA_Tooltip_ability_difficulty_upgrade_bonus_health"                            "BONUS HEALTH:"
+
+		"DOTA_Tooltip_ability_event_illusion"                                             "Event Illusion"
+		"DOTA_Tooltip_ability_event_illusion_Description"                                 ""
+
+		"DOTA_Tooltip_ability_grom_hellscream_buff"                                       "Grom Hellscream Buff"
+		"DOTA_Tooltip_ability_grom_hellscream_buff_Description"                           ""
+		"DOTA_Tooltip_ability_grom_hellscream_buff_attack_speed_bonus"                    "ATTACK SPEED BONUS:"
+
+		"DOTA_Tooltip_ability_illidan_bad_buff"                                           "Illidan Bad Buff"
+		"DOTA_Tooltip_ability_illidan_bad_buff_Description"                               ""
+		"DOTA_Tooltip_ability_illidan_bad_buff_attack_speed_bonus"                        "ATTACK SPEED BONUS:"
+
+		"DOTA_Tooltip_ability_illidan_bad_evasion"                                        "Illidan Bad Evasion"
+		"DOTA_Tooltip_ability_illidan_bad_evasion_Description"                            ""
+		"DOTA_Tooltip_ability_illidan_bad_evasion_bonus_evasion"                          "BONUS EVASION:"
+
+		"DOTA_Tooltip_ability_illidan_bad_immolation"                                     "Illidan Bad Immolation"
+		"DOTA_Tooltip_ability_illidan_bad_immolation_Description"                         ""
+		"DOTA_Tooltip_ability_illidan_bad_immolation_radius"                              "RADIUS:"
+		"DOTA_Tooltip_ability_illidan_bad_immolation_damage_per_tick"                     "DAMAGE PER TICK:"
+		"DOTA_Tooltip_ability_illidan_bad_immolation_tick_time"                           "TICK TIME:"
+
+		"DOTA_Tooltip_ability_illidan_bad_metamorphosis"                                  "Illidan Bad Metamorphosis"
+		"DOTA_Tooltip_ability_illidan_bad_metamorphosis_Description"                      ""
+		"DOTA_Tooltip_ability_illidan_bad_metamorphosis_duration"                         "DURATION:"
+		"DOTA_Tooltip_ability_illidan_bad_metamorphosis_transformation_time"              "TRANSFORMATION TIME:"
+		"DOTA_Tooltip_ability_illidan_bad_metamorphosis_base_attack_time"                 "BASE ATTACK TIME:"
+		"DOTA_Tooltip_ability_illidan_bad_metamorphosis_bonus_range"                      "BONUS RANGE:"
+		"DOTA_Tooltip_ability_illidan_bad_metamorphosis_tooltip_attack_range"             "TOOLTIP ATTACK RANGE:"
+		"DOTA_Tooltip_ability_illidan_bad_metamorphosis_bonus_damage"                     "BONUS DAMAGE:"
+		"DOTA_Tooltip_ability_illidan_bad_metamorphosis_speed_bonus"                      "SPEED BONUS:"
+		"DOTA_Tooltip_ability_illidan_bad_metamorphosis_radius"                           "RADIUS:"
+
+		"DOTA_Tooltip_ability_illidan_bad_negative_energy"                                "Illidan Bad Negative Energy"
+		"DOTA_Tooltip_ability_illidan_bad_negative_energy_Description"                    ""
+		"DOTA_Tooltip_ability_illidan_bad_negative_energy_damage_delay"                   "DAMAGE DELAY:"
+
+		"DOTA_Tooltip_ability_level_upgrade"                                              "Level Upgrade"
+		"DOTA_Tooltip_ability_level_upgrade_Description"                                  ""
+		"DOTA_Tooltip_ability_level_upgrade_bonus_armor"                                  "BONUS ARMOR:"
+		"DOTA_Tooltip_ability_level_upgrade_bonus_damage"                                 "BONUS DAMAGE:"
+		"DOTA_Tooltip_ability_level_upgrade_bonus_health"                                 "BONUS HEALTH:"
+
+		"DOTA_Tooltip_ability_proudmoore_buff"                                            "Proudmoore Buff"
+		"DOTA_Tooltip_ability_proudmoore_buff_Description"                                ""
+		"DOTA_Tooltip_ability_proudmoore_buff_attack_speed_bonus"                         "ATTACK SPEED BONUS:"
+
+		"DOTA_Tooltip_ability_warden_attribute_bonus"                                     "Warden Attribute Bonus"
+		"DOTA_Tooltip_ability_warden_attribute_bonus_Description"                         ""
+		"DOTA_Tooltip_ability_warden_attribute_bonus_stats"                               "STATS:"
+
+		"DOTA_Tooltip_ability_warden_avatar_summon_spirit"                                "Warden Avatar Summon Spirit"
+		"DOTA_Tooltip_ability_warden_avatar_summon_spirit_Description"                    ""
+		"DOTA_Tooltip_ability_warden_avatar_summon_spirit_duration"                       "DURATION:"
+		"DOTA_Tooltip_ability_warden_avatar_summon_spirit_units"                          "UNITS:"
+		"DOTA_Tooltip_ability_warden_avatar_summon_spirit_max_units"                      "MAX UNITS:"
+
+		"DOTA_Tooltip_ability_warden_vengeance"                                           "Warden Vengeance"
+		"DOTA_Tooltip_ability_warden_vengeance_Description"                               ""
+		"DOTA_Tooltip_ability_warden_vengeance_duration"                                  "DURATION:"
+		"DOTA_Tooltip_ability_warden_vengeance_units"                                     "UNITS:"
+
+
+		// ******************** ITEMS ********************
 
 		// ******************** ITEMS ********************
 

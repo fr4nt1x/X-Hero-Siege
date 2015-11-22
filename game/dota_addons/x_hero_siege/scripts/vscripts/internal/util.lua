@@ -1,5 +1,5 @@
 function DebugPrint(...)
-  local spew = Convars:GetInt('gamemode_spew') or -1
+  local spew = -1 --Convars:GetInt('gamemode_spew') or -1
   if spew == -1 and GAMEMODE_DEBUG_SPEW then
     spew = 1
   end
@@ -10,7 +10,7 @@ function DebugPrint(...)
 end
 
 function DebugPrintTable(...)
-  local spew = Convars:GetInt('gamemode_spew') or -1
+  local spew = -1 --Convars:GetInt('gamemode_spew') or -1
   if spew == -1 and GAMEMODE_DEBUG_SPEW then
     spew = 1
   end
