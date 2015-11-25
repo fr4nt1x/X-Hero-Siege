@@ -113,7 +113,7 @@ function Phantasm( keys )
 		illusion:MakeIllusion()
 		-- Set the illusion hp to be the same as the caster
 		illusion:SetHealth(caster:GetHealth())
-
+		illusion:SetPlayerID(caster:GetPlayerOwnerID())
 		-- Add the illusion created to a table within the caster handle, to remove the illusions on the next cast if necessary
 		table.insert(caster.phantasm_illusions, illusion)
 	end

@@ -18,6 +18,8 @@ function GameMode:OnDisconnect(keys)
   local userid = keys.userid
 end
 
+
+
 -- The overall game state has changed
 function GameMode:OnGameRulesStateChange(keys)
   DebugPrint("[BAREBONES] GameRules State Changed")
@@ -116,6 +118,10 @@ function GameMode:OnNPCSpawned(keys)
   if npc:IsRealHero() and npc:GetTeam()== DOTA_TEAM_GOODGUYS then
     npc:AddNewModifier(npc, nil,  "modifier_item_ultimate_scepter", {})
     npc.ankh_respawn = false
+    if npc.respawn_timer ~= nil then
+      Timers:RemoveTimer(npc.respawn_timer)
+      npc.respawn_timer = nil
+    end
   end
 end
 
@@ -266,7 +272,8 @@ function GameMode:OnLastHit(keys)
   if not killedEnt:HasModifier("modifier_arena_kill") then
     hero.creep_kills = hero.creep_kills +1
   end
-  if not isTowerKill and IsValidAlive(player:GetAssignedHero()) and not player:GetAssignedHero().in_special_event and player:GetTeam() == DOTA_TEAM_GOODGUYS then
+  
+  if not isTowerKill and IsValidAlive(player:GetAssignedHero()) and not player:GetAssignedHero().in_special_event and player:GetTeam() == DOTA_TEAM_GOODGUYS and hero:IsRealHero() then
     if hero.creep_kills >= creep_kills_for_gold and not hero.got_kill_bonus then
       PlayerResource:ModifyGold(hero:GetPlayerOwnerID(),5000, false,  DOTA_ModifyGold_Unspecified)
       hero.got_kill_bonus = true
@@ -469,6 +476,7 @@ function GameMode:OnNPCGoalReached(keys)
   local npc = EntIndexToHScript(keys.npc_entindex)
 end
 
+
 -- This function is called whenever any player sends a chat message to team or All
 function GameMode:OnPlayerChat(keys)
   local teamonly = keys.teamonly
@@ -585,9 +593,10 @@ function GameMode:OnPlayerChat(keys)
 
     local msg = ""
     local heroes = HeroList:GetAllHeroes()
+
     for _,hero in pairs(heroes) do
 
-      if hero:GetPlayerOwnerID() ~= nil and hero:GetTeam() == DOTA_TEAM_GOODGUYS then
+      if hero:GetPlayerOwnerID() ~= nil and hero:GetTeam() == DOTA_TEAM_GOODGUYS and hero:IsRealHero() then
         msg = "<u>"..PlayerResource:GetPlayerName(hero:GetPlayerOwnerID()).."</u>".." has "..'<font color="#ff0000">'..hero.creep_kills.."</font>".." creepkills and "..'<font color="#ff0000">'..hero.wave_kills.."</font>".." wavekills <br>" 
         GameRules:SendCustomMessage(msg, DOTA_TEAM_GOODGUYS, 1) 
       end

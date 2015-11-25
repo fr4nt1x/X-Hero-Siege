@@ -7,7 +7,7 @@ function voodoo_start( keys )
 	local model = keys.model
 
 	if target:IsIllusion() then
-		target:ForceKill(true)
+		target:RemoveSelf()
 	else
 		if target.target_model == nil then
 			target.target_model = target:GetModelName()

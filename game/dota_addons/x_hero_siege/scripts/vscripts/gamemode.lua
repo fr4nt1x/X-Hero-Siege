@@ -31,6 +31,9 @@ require('internal/events')
 require('settings')
 -- events.lua is where you can specify the actions to be taken when any event occurs and is one of the core gamemode files.
 require('events')
+
+--event_special the event specific events
+require('events_special')
 require('libraries/spawncreeps')
 
 --just add the original hero name as key, with the abilityname as value

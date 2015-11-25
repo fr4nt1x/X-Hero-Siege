@@ -42,11 +42,30 @@
 		"hero_index"					"short"
 	}
 
-	"last_hits"
+	"teleport_hero_to_special_event"
 	{
-		"creepkills"					"short"
-		"playerid"						"playerid"
-		"wavekills"						"short"
+		"hero_index"					"short"
+		"teleport_entity_index"				"short"
+	}
+
+	"teleport_hero_from_special_event"
+	{
+		"hero_index"					"short"
+		"teleport_point_x"				"float"
+		"teleport_point_y"				"float"
+		"teleport_point_z"				"float"
+		"stun_duration"					"float"
+	}
+	
+	"teleport_all_units_to_hero"
+	{
+		"stun_duration"					"float"
+	}
+	
+	"return_units_of_hero"
+	{
+		"hero_index"					"short"
+		"stun_duration"					"float"
 	}
 
 	"setting_vote"

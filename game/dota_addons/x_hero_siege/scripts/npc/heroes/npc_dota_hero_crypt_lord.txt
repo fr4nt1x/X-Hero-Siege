@@ -15,6 +15,7 @@
 	"PickSound"					"nyx_assassin_nyx_spawn_01"
 	"BanSound"					"nyx_assassin_nyx_anger_07"
 	"HeroSelectSoundEffect"		"Hero_Nyx.Pick"
+
 	"AbilityLayout"     			"6"
 	"UnitLabel"                 "Crypt Lord" 
 

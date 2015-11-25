@@ -51,6 +51,7 @@ function GameMode:_InitGameMode()
       SetTeamCustomHealthbarColor(team, color[1], color[2], color[3])
     end
   end
+
   DebugPrint('[GAMEMODE] GameRules set')
 
   --InitLogFile( "log/gamemode.txt","")
@@ -82,7 +83,7 @@ function GameMode:_InitGameMode()
   --ListenToGameEvent('dota_player_take_tower_damage', Dynamic_Wrap(GameMode, 'OnPlayerTakeTowerDamage'), self)
   --ListenToGameEvent('tree_cut', Dynamic_Wrap(GameMode, 'OnTreeCut'), self)
   --ListenToGameEvent('entity_hurt', Dynamic_Wrap(GameMode, 'OnEntityHurt'), self)
-  --ListenToGameEvent('player_connect', Dynamic_Wrap(GameMode, 'PlayerConnect'), self)
+  ListenToGameEvent('player_connect', Dynamic_Wrap(GameMode, 'PlayerConnect'), self)
   --ListenToGameEvent('dota_player_used_ability', Dynamic_Wrap(GameMode, 'OnAbilityUsed'), self)
   ListenToGameEvent('game_rules_state_change', Dynamic_Wrap(GameMode, 'OnGameRulesStateChange'), self)
 
@@ -90,7 +91,7 @@ function GameMode:_InitGameMode()
 
   --ListenToGameEvent('dota_player_pick_hero', Dynamic_Wrap(GameMode, 'OnPlayerPickHero'), self)
   --ListenToGameEvent('dota_team_kill_credit', Dynamic_Wrap(GameMode, 'OnTeamKillCredit'), self)
-  --ListenToGameEvent("player_reconnected", Dynamic_Wrap(GameMode, 'OnPlayerReconnect'), self)
+  ListenToGameEvent("player_reconnected", Dynamic_Wrap(GameMode, 'OnPlayerReconnect'), self)
   
   CustomGameEventManager:RegisterListener( "setting_vote", Dynamic_Wrap(GameMode, "OnSettingVote"))
   --ListenToGameEvent( "setting_vote", Dynamic_Wrap(GameMode, "OnSettingVote"),self)
@@ -109,6 +110,12 @@ function GameMode:_InitGameMode()
   ListenToGameEvent("end_special_event_wave_kills", endWaveKillEvent, nil)
   ListenToGameEvent("end_special_event_frost_infernal", endFrostInfernalEvent, nil)
   ListenToGameEvent("end_special_event_spirit_beast", endSpiritBeastEvent, nil)
+  
+  ListenToGameEvent("teleport_hero_to_special_event",  Dynamic_Wrap(GameMode, "OnTeleportHeroToSpecialEvent"), self)
+  ListenToGameEvent("teleport_all_units_to_hero",  Dynamic_Wrap(GameMode, "TeleportUnitsToHero"), self)
+  ListenToGameEvent("return_units_of_hero",  Dynamic_Wrap(GameMode, "ReturnUnitsOfHero"), self)
+  ListenToGameEvent("teleport_hero_from_special_event",  Dynamic_Wrap(GameMode, "OnTeleportHeroFromSpecialEvent"), self)
+  
   --ListenToGameEvent("dota_tutorial_shop_toggled", Dynamic_Wrap(GameMode, 'OnShopToggled'), self)
 
   --ListenToGameEvent('player_spawn', Dynamic_Wrap(GameMode, 'OnPlayerSpawn'), self)

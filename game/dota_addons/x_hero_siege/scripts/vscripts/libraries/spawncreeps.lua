@@ -43,12 +43,15 @@ SpecialEventFrostInfernalDuration = 2*60
 SpecialEventRoshan = 13*60
 SpecialEventRoshanDuration = 1.1*60
 TimeBetweenCreepSpawn = 15
+TimeSpecialArena = 60*22
 
 waves_between_levels = {10,44,68,90}
 
 waves_between_dragons = {28,56,84,108}
 
-TimeSpecialArena = 60*22
+--only in extreme mode needs to be after the normal dragon attack
+waves_between_special_dragon_attack = {38,72,100,120}
+
 creeps_per_wave = 2
 
 spawn_dragon = false
@@ -148,6 +151,22 @@ function SpawnCreeps()
     spawn_dragon = true
     print("DRAGONLEVEL"..GameMode.level_state.dragonlevel)
   end
+  
+  -- integer tells you how many rounds of special dragons get spawned 4 = 4 rounds
+  if  GameRules:GetCustomGameDifficulty() == 4 and creepround == waves_between_special_dragon_attack[GameMode.level_state.dragonlevel-1] then
+    local dragonspawns = Entities:FindAllByName("special_dragons")
+    for _,point in  pairs(dragonspawns) do
+      for i = 1,4 do
+        Timers:CreateTimer(function()
+        local unit = CreateUnitByName(dragonNames[math.min(3,GameMode.level_state.dragonlevel-1)],point:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_NEUTRALS)
+        unit:SetInitialGoalEntity(Entities:FindByName(nil,"base"))
+          end)
+      end
+    end
+    --send msg
+    Notifications:TopToAll({text="Special Dragon attack at your castle!", duration=5.0})
+  end
+
   return TimeBetweenCreepSpawn
 
 end

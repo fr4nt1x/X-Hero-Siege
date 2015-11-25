@@ -2105,6 +2105,7 @@
 	        {
 	          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_bonus"
 	          "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movement_bonus"
+	          "MODIFIER_PROPERTY_ABILITY_LAYOUT"              "6"
 	        }
 	        "ThinkInterval"  "1.0"
 	        "OnIntervalThink"

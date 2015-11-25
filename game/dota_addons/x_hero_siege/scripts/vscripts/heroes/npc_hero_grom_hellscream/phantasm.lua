@@ -69,12 +69,12 @@ function Phantasm( keys )
 		illusion:SetControllableByPlayer(player, true)
 
 		illusion:SetAngles( casterAngles.x, casterAngles.y, casterAngles.z )
-		
+	--NOT working since grom is not a hero	
 		-- Level Up the unit to the casters level
-		local casterLevel = caster:GetLevel()
-		for i=1,casterLevel-1 do
-			illusion:HeroLevelUp(false)
-		end
+		--local casterLevel = caster:GetLevel()
+		--for i=1,casterLevel-1 do
+	--		illusion:HeroLevelUp(false)
+	--	end
 		
 		-- Recreate the items of the caster
 		for itemSlot=0,5 do

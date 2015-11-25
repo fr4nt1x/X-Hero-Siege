@@ -2,7 +2,6 @@
 function end_game( event )
 	-- body
 	local caster = event.caster
-	local killer = event.attacker:GetPlayerOwner():GetAssignedHero()
+	GameRules:SetPostGameTime(35)
 	GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
-
 end

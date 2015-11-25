@@ -42,4 +42,15 @@ player reconnect
 
 DONE:
 
+- blademaster illusions now giving kills and shouldnt bug the game anymore on special event ending
 
+- player owned units get teleported to arena and to roshan, units of leavers get removed on this occasion
+
+- you get respawned if you were dead at the start of the roshan and arena event
+
+- Fixed special event triggers not working correctly
+
+- grom illusion working again as intended, 
+  kept the behaviour in extreme mode though, just with a limit of about 20 units at a time
+
+- Added special dragon attack
