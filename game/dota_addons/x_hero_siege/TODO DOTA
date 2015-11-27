@@ -54,3 +54,7 @@ DONE:
   kept the behaviour in extreme mode though, just with a limit of about 20 units at a time
 
 - Added special dragon attack
+
+- Moved level 5 time a little bit later, to have more time to buy stuff after special event
+
+-Fixed necromancers not having levelup skill

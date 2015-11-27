@@ -10,7 +10,7 @@
     // Stats
     //-------------------------------------------------------------------------------------
     "AbilityCastPoint" "0.5"
-    "AbilityCooldown"  "8"
+    "AbilityCooldown"  "20"
     "AbilityManaCost"  "75"
     "AbilityTextureName" "dark_troll_warlord_raise_dead"
 

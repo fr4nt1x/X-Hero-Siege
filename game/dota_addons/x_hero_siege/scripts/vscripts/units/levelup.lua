@@ -12,13 +12,22 @@ function upgrade_unit(event)
 	end
 
 	if GameMode.level_state.level >= 3 then
-		for i= 1,(GameMode.level_state.level-2)^2 do 
+		ability:ApplyDataDrivenModifier(unit,unit, "modifier_upgrade", nil)
+		local end_index = (GameMode.level_state.level-2)^2
+		local amount_of_stack = math.floor((end_index+1)*end_index*0.5)
+		unit:SetModifierStackCount("modifier_upgrade", unit, amount_of_stack)
+		unit:SetBaseMaxHealth(unit:GetMaxHealth() +amount_of_stack*health_bonus)
+		unit:SetHealth(unit:GetMaxHealth())
+
+		--[[
+		for i = 1,(GameMode.level_state.level-2)^2 do 
 			for j = 1,i do
 				ability:ApplyDataDrivenModifier(unit,unit , "modifier_upgrade", nil)
 				unit:SetBaseMaxHealth(unit:GetMaxHealth() +health_bonus)
 				unit:SetHealth(unit:GetMaxHealth())
 			end
 		end
+	]]
 	end
 
 end 

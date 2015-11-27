@@ -15,7 +15,7 @@
     {
       "01"
       {
-        "var_type"        "FIELD_FLOAT"
+        "var_type"        "FIELD_INTEGER"
         "bonus_armor"  "1"
       }
       "02"
@@ -48,11 +48,12 @@
           {
             "ScriptFile"  "units/levelup.lua"
             "Function"    "upgrade_unit"
-          }
+          } 
         }
       
 
       }
+      
       "modifier_upgrade"
       {
         "Passive" "0"

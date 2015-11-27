@@ -2105,7 +2105,6 @@
 	        {
 	          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_bonus"
 	          "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movement_bonus"
-	          "MODIFIER_PROPERTY_ABILITY_LAYOUT"              "6"
 	        }
 	        "ThinkInterval"  "1.0"
 	        "OnIntervalThink"
@@ -4566,7 +4565,7 @@
 	    {
 	      "01"
 	      {
-	        "var_type"        "FIELD_FLOAT"
+	        "var_type"        "FIELD_INTEGER"
 	        "bonus_armor"  "1"
 	      }
 	      "02"
@@ -4599,7 +4598,7 @@
 	          {
 	            "ScriptFile"  "units/levelup.lua"
 	            "Function"    "upgrade_unit"
-	          }
+	          } 
 	        }
 	      
 	
@@ -6703,7 +6702,7 @@
 	    // Stats
 	    //-------------------------------------------------------------------------------------
 	    "AbilityCastPoint" "0.5"
-	    "AbilityCooldown"  "8"
+	    "AbilityCooldown"  "20"
 	    "AbilityManaCost"  "75"
 	    "AbilityTextureName" "dark_troll_warlord_raise_dead"
 	
