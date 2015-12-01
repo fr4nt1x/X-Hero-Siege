@@ -3,7 +3,7 @@
     // General
     //-------------------------------------------------------------------------------------
     "BaseClass" "ability_datadriven"
-    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
     "MaxLevel"              "1"
     "RequiredLevel"        "-1"
     "LevelsBetweenUpgrades" "1"
@@ -20,7 +20,7 @@
       "modifier_spawn_banehallow"
       {
         "Passive" "1"
-        "IsHidden" "0"
+        "IsHidden" "1"
         "OnDeath"
         {
           "RunScript"

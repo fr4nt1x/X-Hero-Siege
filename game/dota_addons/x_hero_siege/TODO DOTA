@@ -6,9 +6,8 @@ dont skip magtheridon
 
 beast event getting finsihed without killing
 
-roshan event and blink
 
--Hero Image and All Hero Image challenge missing (Hero Image +100 all stats, All Hero Image grants immunity to spells and magic)
+-All Hero Image challenge missing ( All Hero Image grants immunity to spells and magic)
 
 -Challenges can be retried (used to be one try per player only)
 
@@ -16,14 +15,18 @@ roshan event and blink
 
 -New players will have no idea what to do after farming gates. A little tutorial path with some ground flares would be nice
 
-greevil end event to early
-
-special events end on item pickup
-
-Special event timing doesn't fit (Ramero Baristal)
 
 Special events and final wave
 
+Autocast vengeance
+
+Damage return shield
+
+multiple maps with difficulty
+
+blink in combination with check is path is possible
+
+Model spirit beast change to thunderhide
 
 
 
@@ -33,28 +36,25 @@ Change globals to be saved in the gameMode
 
 fix tower remove invulnerable without creeps spawn
 
-Damage over time from dead creeps can crash game
-
-Fix special events creeps
-
 player reconnect
+
+Stun before event lets units move after stun is finished, maybe remove stun effect
+
+Apply invulnerability to towers and ancient before event
+
+illusions and immolation and lifesteal
+
+name and buy tomes
+
+disconnected players receive skillpoints
+
+Respawn timers
+
 
 
 DONE:
 
-- blademaster illusions now giving kills and shouldnt bug the game anymore on special event ending
+Fixed grammatical errors in a message
 
-- player owned units get teleported to arena and to roshan, units of leavers get removed on this occasion
-
-- you get respawned if you were dead at the start of the roshan and arena event
-
-- Fixed special event triggers not working correctly
-
-- grom illusion working again as intended, 
-  kept the behaviour in extreme mode though, just with a limit of about 20 units at a time
-
-- Added special dragon attack
-
-- Moved level 5 time a little bit later, to have more time to buy stuff after special event
-
--Fixed necromancers not having levelup skill
+Changed how spiked carapace work, for crypt lord, spirit beast and shield
+It now returns the damage before mitigation due to armor 

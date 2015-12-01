@@ -669,4 +669,79 @@
 	    "VisionDaytimeRange"    "1200"                  // Range of vision at night time.
 	    "VisionNighttimeRange"    "1000"                  // Range of vision at night time.
 	}
+	//=================================================================================
+		// Creature: Sylvanas Windrunner
+		//=================================================================================
+		"npc_dota_hero_windrunner"
+		{
+			// General
+			//----------------------------------------------------------------
+			"override_hero"				"npc_dota_hero_windrunner"
+			"Model"						"models/heroes/windrunner/windrunner.vmdl"	 //Add model
+			"ModelScale"				"1"
+			"Level"						"3"
+			"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+			"HealthBarOffset"			"140"
+			
+			"AbilityLayout"		"6"
+			// Abilities
+			//----------------------------------------------------------------
+			"Ability1"					"windrunner_searing_arrows"	
+			"Ability2"					"dryad_critical_arrows"	 
+			"Ability3"					"windrunner_exploding_arrows"	 
+			"Ability4"					""	 
+			"Ability5"					""	 
+			"Ability6"					""	
+			// Armor
+			//----------------------------------------------------------------
+			"ArmorPhysical"				"0"
+			"MagicalResistance"			"0"
+			
+			// Attack
+			//----------------------------------------------------------------
+			"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+			"AttackDamageMin"			"45.0"
+			"AttackDamageMax"			"62.0"
+			"AttackDamageType"			"DAMAGE_TYPE_PHYSICAL"
+			"AttackRate"				"1.86"
+			"AttackAnimationPoint"		"0.56"
+			"AttackAcquisitionRange"	"600"
+			"AttackRange"				"600"
+			"ProjectileModel"			"particles/units/heroes/hero_windrunner/windrunner_base_attack.vpcf"	 //Add projectile
+			"ProjectileSpeed"			"1350"
+			
+					// Attributes
+			//----------------------------------------------------------------
+			"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
+			"AttributeBaseStrength"		"18"
+			"AttributeStrengthGain"		"1.9"
+			"AttributeBaseIntelligence"	"15"
+			"AttributeIntelligenceGain"	"2.6"
+			"AttributeBaseAgility"		"24"
+			"AttributeAgilityGain"		"2.5"
+			
+	
+			// Movement
+			//----------------------------------------------------------------
+			"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+			"MovementSpeed"				"330"
+			"MovementTurnRate"			"0.6"
+			
+			// Status
+			//----------------------------------------------------------------
+			"StatusHealth"				"450"
+			"StatusHealthRegen"			"10"
+			"StatusMana"				"300"
+			"StatusManaRegen"			"1"
+			
+			// Vision
+			//----------------------------------------------------------------
+			"VisionDaytimeRange"		"1400"
+			"VisionNighttimeRange"		"1300"
+			
+			"UnitRelationShipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+			
+			// Creature Data
+			//----------------------------------------------------------------
+		}
 }

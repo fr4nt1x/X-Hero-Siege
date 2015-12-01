@@ -1980,57 +1980,18 @@
 	        "Passive"       "1"
 	        "IsHidden"      "1"
 	        "IsBuff"      "1"
-	        "EffectName" ""
-	        "EffectAttachType" "follow_origin"
-	
-	
-	        "OnTakeDamage"
-	        // "%attack_damage" is set to the damage value after mitigation
-	        {
-	          "RemoveModifier"
+	        
+	         "OnAttacked"
+	          // "%attack_damage" is set to the damage value after mitigation
 	          {
-	            "ModifierName"  "modifier_spiked_carapace"
-	            "Target"     "CASTER"
-	          }
-	
-	          "ApplyModifier"
-	          {
-	            "ModifierName"  "modifier_apply_carapace"
-	            "Target"     "CASTER"
-	            "Duration"    "0.05"
-	          }
-	
-	          "Damage"
-	          {
-	            "Target"    "ATTACKER"
-	            "Type"      "DAMAGE_TYPE_PHYSICAL"
-	            "Damage"    "%attack_damage* %damage_return_factor"
-	          }
-	
-	          "FireEffect"
-	          {
-	            "EffectName"        "particles/units/heroes/hero_nyx_assassin/nyx_assassin_spiked_carapace_hit.vpcf"
-	            "EffectAttachType"  "follow_origin"
-	            "Target"            "TARGET"
-	          }
-	          
-	        }
-	      }
-	
-	      "modifier_apply_carapace"
-	      {
-	            "Passive"           "0"
-	            "IsHidden"          "1"
-	            "IsDebuff"          "0"
-	            "OnDestroy"
+	            "RunScript"
 	            {
-	              "ApplyModifier"
-	              {
-	                "ModifierName"  "modifier_spiked_carapace"
-	                "Target"     "CASTER"
-	              }
+	              "ScriptFile"  "heroes/hero_crypt_lord/spiked_carapace.lua"
+	              "Function"    "return_damage"
+	              "Attack_Damage" "%attack_damage"
 	            }
-	      }
+	          }
+	        }
 	    }
 	  }
 	"crypt_lord_stinger"
@@ -4603,6 +4564,7 @@
 	      
 	
 	      }
+	      
 	      "modifier_upgrade"
 	      {
 	        "Passive" "0"
@@ -7911,7 +7873,7 @@
 	      "01"
 	      {
 	        "var_type"        "FIELD_FLOAT"
-	        "damage_return_factor"  "0.1"
+	        "damage_return_factor"  "0.5"
 	      }
 	
 	    }
@@ -7925,7 +7887,7 @@
 	
 	    "Modifiers"
 	    {
-	      "modifier_spiked_carapace"
+	      "modifier_spiked_carapace_beast"
 	      {
 	        "Passive"       "1"
 	        "IsHidden"      "1"
@@ -7933,22 +7895,16 @@
 	        "EffectName" "particles/units/heroes/hero_nyx_assassin/nyx_assassin_spiked_carapace.vpcf"
 	        "EffectAttachType" "follow_origin"
 	
-	        "OnTakeDamage"
-	        // "%attack_damage" is set to the damage value after mitigation
-	        {
-	          "Damage"
+	         "OnAttacked"
+	          // "%attack_damage" is set to the damage value after mitigation
 	          {
-	            "Target"    "ATTACKER"
-	            "Type"      "DAMAGE_TYPE_PURE"
-	            "Damage"    "%attack_damage * %damage_return_factor"
+	            "RunScript"
+	            {
+	              "ScriptFile"  "heroes/hero_crypt_lord/spiked_carapace.lua"
+	              "Function"    "return_damage"
+	              "Attack_Damage" "%attack_damage"
+	            }
 	          }
-	          "FireEffect"
-	          {
-	            "EffectName"        "particles/units/heroes/hero_nyx_assassin/nyx_assassin_spiked_carapace_hit.vpcf"
-	            "EffectAttachType"  "follow_origin"
-	            "Target"            "TARGET"
-	          }
-	        }
 	      }
 	    }
 	  }
@@ -8781,4 +8737,177 @@
 	    "AbilityTextureName" ""
 	
 	  }
+	"windrunner_exploding_arrows"
+	{
+	    // General
+	    //-------------------------------------------------------------------------------------
+	    "BaseClass" "ability_datadriven"
+	    "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+	    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+	    "MaxLevel"              "2"
+	    "RequiredLevel"        "10"
+	    "LevelsBetweenUpgrades"  "5"
+	    // Stats
+	    //-------------------------------------------------------------------------------------
+	    "AbilityCastRange"  "600"
+	    "AbilityManaCost"   "10"
+	    "AbilityTextureName" "clinkz_searing_arrows"
+	    "precache"
+	    {
+	        "particle"  "particles/econ/items/drow/drow_bow_monarch/drow_frost_arrow_monarch.vpcf"
+	    }
+	
+	    // Special
+	    //-------------------------------------------------------------------------------------
+	    "AbilitySpecial"
+	    { 
+	        "01"
+	        {
+	            "var_type"  "FIELD_INTEGER"
+	            "bonus_damage"  "1500 3000"
+	        }
+	        "02"
+	        {
+	            "var_type"  "FIELD_INTEGER"
+	            "radius"  "250 350"
+	        }
+	    }
+	
+	    // Data Driven
+	    //-------------------------------------------------------------------------------------
+	    "Modifiers"
+	    { 
+	        "modifier_orb_exploding_arrows"
+	        {
+	            "Passive"   "1"
+	            "IsHidden"  "1"
+	            "Orb"
+	            {
+	                "Priority"  "DOTA_ORB_PRIORITY_ABILITY"
+	                "ProjectileName" "particles/econ/items/drow/drow_bow_monarch/drow_frost_arrow_monarch.vpcf"
+	                "CastAttack"    "1" //This ensures the effect doesn't fire every time
+	            }
+	
+	            "OnOrbFire"
+	            {
+	                "SpendMana"
+	                {
+	                    "Mana" "%AbilityManaCost"
+	                }
+	            }
+	
+	            "OnOrbImpact"
+	            {
+	
+	               "Damage"
+	              {
+	                "Target"
+	                {
+	                  "Center"    "TARGET"
+	                  "Radius"   "%radius"
+	                  "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	                  "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	                }
+	                "Type"      "DAMAGE_TYPE_PHYSICAL"
+	                "Damage"    " (%attack_damage + %bonus_damage)/3"
+	              }
+	              "Damage"
+	              {
+	                "Target"
+	                {
+	                  "Center"    "TARGET"
+	                  "Radius"   "2*%radius/3"
+	                  "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	                  "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	                }
+	                "Type"      "DAMAGE_TYPE_PHYSICAL"
+	                "Damage"    "(%attack_damage + %bonus_damage)/3"
+	              }
+	              "Damage"
+	              {
+	                "Target"
+	                {
+	                  "Center"    "TARGET"
+	                  "Radius"   "%radius/3"
+	                  "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	                  "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	                }
+	                "Type"      "DAMAGE_TYPE_PHYSICAL"
+	                "Damage"    "(%attack_damage + %bonus_damage)/3"
+	              }
+	          }
+	        }
+	    }
+	}    
+	"windrunner_searing_arrows"
+	{
+	    // General
+	    //-------------------------------------------------------------------------------------
+	    "BaseClass" "ability_datadriven"
+	    "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+	    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+	    "MaxLevel"              "4"
+	    "RequiredLevel"        "-1"
+	    "LevelsBetweenUpgrades"  "3"
+	    // Stats
+	    //-------------------------------------------------------------------------------------
+	    "AbilityCastRange"  "600"
+	    "AbilityManaCost"   "10"
+	    "AbilityTextureName" "clinkz_searing_arrows"
+	    "precache"
+	    {
+	        "particle"  "particles/units/heroes/hero_clinkz/clinkz_searing_arrow.vpcf"
+	    }
+	
+	    // Special
+	    //-------------------------------------------------------------------------------------
+	    "AbilitySpecial"
+	    { 
+	        "01"
+	        {
+	            "var_type"  "FIELD_INTEGER"
+	            "bonus_damage"  "250 750 2250 4000"
+	        }
+	    }
+	
+	    // Data Driven
+	    //-------------------------------------------------------------------------------------
+	    "Modifiers"
+	    { 
+	        "modifier_orb_searing_arrows"
+	        {
+	            "Passive"   "1"
+	            "IsHidden"  "1"
+	            "Orb"
+	            {
+	                "Priority"  "DOTA_ORB_PRIORITY_ABILITY"
+	                "ProjectileName" "particles/units/heroes/hero_clinkz/clinkz_searing_arrow.vpcf"
+	                "CastAttack"    "1" //This ensures the effect doesn't fire every time
+	            }
+	
+	            "OnOrbFire"
+	            {
+	                "SpendMana"
+	                {
+	                    "Mana" "%AbilityManaCost"
+	                }
+	            }
+	            
+	            "OnOrbImpact"
+	            {
+	
+	               "Damage"
+	               {
+	                   "Type" "DAMAGE_TYPE_PHYSICAL"
+	                   "Damage" "%bonus_damage"
+	                   "Target" "TARGET"
+	               }
+	          }
+	        }
+	    }
+	}    
 }
