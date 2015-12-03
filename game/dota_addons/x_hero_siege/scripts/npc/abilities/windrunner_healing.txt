@@ -1,0 +1,52 @@
+"windrunner_healing"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "-1"
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.5"
+    "AbilityCastRange"        "300"
+    "AbilityCooldown"  "20"
+    "AbilityManaCost"  "100"
+    "AbilityTextureName" "omniknight_purification"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+        "01"
+        {
+          "var_type" "FIELD_INTEGER"
+          "heal" "5000"
+        }
+    }
+
+    "precache"
+    {
+        "particle" "particles/units/heroes/hero_bloodseeker/bloodseeker_bloodbath_heal.vpcf"
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+        "Heal"
+        {
+          "Target"        "TARGET"
+          "HealAmount"  "%heal"
+        }
+        "FireEffect"
+        {
+          "EffectName"        "particles/units/heroes/hero_bloodseeker/bloodseeker_bloodbath_heal.vpcf"
+          "EffectAttachType"  "follow_overhead"
+          "Target"            "TARGET"
+        }
+    }
+
+  }

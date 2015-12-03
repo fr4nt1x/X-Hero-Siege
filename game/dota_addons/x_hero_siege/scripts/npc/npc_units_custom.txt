@@ -313,7 +313,7 @@
 			"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 			"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
 			"UnitRelationShipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-			
+			"vscripts" "ai/npc_avatar.lua"
 			// Creature Data
 			//----------------------------------------------------------------
 			"Creature"
@@ -2413,7 +2413,7 @@
 	
 	    "VisionDaytimeRange"    "1800"                  // Range of vision at night time.
 	    "VisionNighttimeRange"    "1800"                  // Range of vision at night time.
-	    "vscripts" ""
+	    "vscripts" "ai/npc_frost_infernal.lua"
 	
 	    "Creature"
 	    {
@@ -5413,8 +5413,8 @@
 	        // Bounty
 	        //----------------------------------------------------------------
 	        "BountyXP"          "150"     // Experience earn.
-	        "BountyGoldMin"       "74"     // Gold earned min.
-	        "BountyGoldMax"       "76"     // Gold earned max.
+	        "BountyGoldMin"       "250"     // Gold earned min.
+	        "BountyGoldMax"       "250"     // Gold earned max.
 	    
 	        // Bounds
 	        //----------------------------------------------------------------

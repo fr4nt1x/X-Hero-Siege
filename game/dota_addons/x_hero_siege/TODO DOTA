@@ -51,10 +51,22 @@ disconnected players receive skillpoints
 Respawn timers
 
 
-
 DONE:
 
 Fixed grammatical errors in a message
 
 Changed how spiked carapace work, for crypt lord, spirit beast and shield
 It now returns the damage before mitigation due to armor 
+
+Added tooltips.
+
+New hero windrunner
+
+only the host can open and close lanes.
+added transfer gold command
+
+reduced the amount of creep waves at the two top phases
+
+Avatar of vengeance autocast works properly
+
+frost infernal cast his frost bolt now.

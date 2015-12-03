@@ -45,13 +45,9 @@ end
 
 function delete_door( event)
 	-- body
-	local door = Entities:FindByName(nil, "door_magtheridon")
-	door:Kill()
+	
+    FireGameEventLocal("destroy_door", {door_name = "door_magtheridon", obstruction_name = "obstruction_magtheridon"})
 
-	local gridobs = Entities:FindAllByName("obstruction_magtheridon")
-	for _,obs in pairs(gridobs) do 
-		obs:SetEnabled(false, true)
-	end
 	local trigger = Entities:FindByName(nil, "trigger_top_waves_1")
 	trigger:Enable()
 end

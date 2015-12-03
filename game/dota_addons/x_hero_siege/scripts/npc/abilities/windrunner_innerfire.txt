@@ -1,0 +1,92 @@
+"windrunner_innerfire"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+    "MaxLevel"              "4"
+    "RequiredLevel"        "-1"
+    "LevelsBetweenUpgrades" "3"
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.5"
+    "AbilityCastRange"        "500"
+    "AbilityCooldown"  "20"
+    "AbilityManaCost"  "75"
+    "AbilityTextureName" "sven_warcry"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+        "01"
+        {
+          "var_type" "FIELD_INTEGER"
+          "bonus_damage_percentage" "10 20 30 40"
+        }
+        "02"
+        {
+          "var_type" "FIELD_FLOAT"
+          "duration" "60 60 60 60"
+        }
+        "03"
+        {
+          "var_type" "FIELD_FLOAT"
+          "armor_bonus" "10 20 40 80"
+        }
+    }
+
+    "precache"
+    {
+        "particle" "particles/units/heroes/hero_sven/sven_spell_warcry.vpcf"
+        "particle" "particles/econ/items/sven/sven_warcry_ti5/sven_warcry_buff_ti_5.vpcf"
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+        "ApplyModifier"
+        {
+            "ModifierName" "modifier_innerfire"
+            "Target" "TARGET"
+        }
+
+        "FireEffect"
+        {
+          "EffectName"        "particles/units/heroes/hero_sven/sven_spell_warcry.vpcf"
+          "EffectAttachType"  "follow_origin"
+          "Target"            "TARGET"
+        }
+    }
+
+    "Modifiers"
+    {
+      "modifier_innerfire"
+      {
+        "IsBuff" "1"
+        "IsHidden" "0"
+        "Passive" "0"
+        "IsPurgable" "1"
+        "Duration" "%duration"
+        // Modifier Events
+        //-----------------------------------------------------------------------------
+        "OnCreated"
+        {
+          "AttachEffect"
+          {
+            "Target" "TARGET"
+            "EffectName" "particles/econ/items/sven/sven_warcry_ti5/sven_warcry_buff_ti_5.vpcf"
+            "EffectAttachType" "follow_overhead"
+          }
+        }
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%bonus_damage_percentage"
+          "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
+        }
+      }
+    }    
+  }

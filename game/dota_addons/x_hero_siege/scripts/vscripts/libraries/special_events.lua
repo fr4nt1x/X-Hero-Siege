@@ -14,6 +14,9 @@ function specialEventRoshan()
 
   for _,unit in pairs(units) do
     if IsValidAlive(unit) then
+      unit:RemoveModifierByName("modifier_stunned")
+      unit:RemoveModifierByName("modifier_invulnerable")
+
       unit:AddNewModifier(nil, nil, "modifier_stunned", {IsHidden = true})
       unit:AddNewModifier(nil, nil, "modifier_invulnerable", {IsHidden = true})
     end
@@ -122,6 +125,8 @@ function specialEventArena()
   for _,unit in pairs(units) do
     
     if IsValidAlive(unit) then
+      unit:RemoveModifierByName("modifier_stunned")
+      unit:RemoveModifierByName("modifier_invulnerable")
       unit:AddNewModifier(nil, nil, "modifier_stunned", {IsHidden = true})
       unit:AddNewModifier(nil, nil, "modifier_invulnerable", {IsHidden = true})
     end
@@ -191,6 +196,8 @@ function endSpecialArena()
     if IsValidAlive(unit) then
       unit:RemoveModifierByName("modifier_stunned")
       unit:RemoveModifierByName("modifier_invulnerable")
+      unit:RemoveModifierByName("modifier_stunned")
+      unit:RemoveModifierByName("modifier_invulnerable")
     end
   end
   
@@ -228,6 +235,8 @@ function startKillEvent(hero)
   local units = FindUnitsInRadius( DOTA_TEAM_NEUTRALS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
   
   for _,unit in pairs(units) do
+    unit:RemoveModifierByName("modifier_stunned")
+    unit:RemoveModifierByName("modifier_invulnerable")
     unit:AddNewModifier(nil, nil, "modifier_stunned", {IsHidden = true})
     unit:AddNewModifier(nil, nil, "modifier_invulnerable", {IsHidden = true})
   end
@@ -236,6 +245,8 @@ function startKillEvent(hero)
   local units = FindUnitsInRadius( DOTA_TEAM_GOODGUYS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
   
   for _,unit in pairs(units) do
+    unit:RemoveModifierByName("modifier_stunned")
+    unit:RemoveModifierByName("modifier_invulnerable")
     unit:AddNewModifier(nil, nil, "modifier_stunned", {IsHidden = true})
     unit:AddNewModifier(nil, nil, "modifier_invulnerable", {IsHidden = true})
   end
@@ -327,6 +338,8 @@ function startWaveKillEvent(hero)
   local units = FindUnitsInRadius( DOTA_TEAM_NEUTRALS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
 
   for _,unit in pairs(units) do
+    unit:RemoveModifierByName("modifier_stunned")
+    unit:RemoveModifierByName("modifier_invulnerable")
     unit:AddNewModifier(nil, nil, "modifier_stunned", {IsHidden = true})
     unit:AddNewModifier(nil, nil, "modifier_invulnerable", {IsHidden = true})
   end
@@ -334,6 +347,8 @@ function startWaveKillEvent(hero)
   local units = FindUnitsInRadius( DOTA_TEAM_GOODGUYS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
   
   for _,unit in pairs(units) do
+    unit:RemoveModifierByName("modifier_stunned")
+    unit:RemoveModifierByName("modifier_invulnerable")
     unit:AddNewModifier(nil, nil, "modifier_stunned", {IsHidden = true})
     unit:AddNewModifier(nil, nil, "modifier_invulnerable", {IsHidden = true})
   end

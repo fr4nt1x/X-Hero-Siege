@@ -37,20 +37,11 @@ function killed_baracks( keys )
 		trigger:Enable()
 		local trigger = Entities:FindByName(nil,"trigger_phase2_right")
 		trigger:Enable()
-		GameMode.Phase2_openlanes = 0
-		local door = Entities:FindByName(nil,"door_left") 
-		door:Kill()
-		local door = Entities:FindByName(nil,"door_right") 
-		door:Kill()
-		local gridobs = Entities:FindAllByName("obstruction_left")
-		for _,obs in pairs(gridobs) do 
-			obs:SetEnabled(false, true)
-		end
 
-		local gridobs = Entities:FindAllByName("obstruction_right")
-		for _,obs in pairs(gridobs) do 
-			obs:SetEnabled(false, true)
-		end
+		GameMode.Phase2_openlanes = 0
+
+    	FireGameEventLocal("destroy_door", {door_name = "door_left", obstruction_name = "obstruction_left"})
+    	FireGameEventLocal("destroy_door", {door_name = "door_right", obstruction_name = "obstruction_right"})
 	end
 end
 
@@ -81,7 +72,6 @@ function killed_frost_tower_left(keys)
 		timer_wave_spawn = nil
 		Timers:RemoveTimer( timer_wave_message)
 		timer_wave_message = nil
-		print("FinalWave timer started")
 		Notifications:TopToAll({text="Warning. Final Wave incoming. Arriving in 20 seconds! Protect Your Base!" , duration=5.0})
 		Timers:CreateTimer(20,FinalWave)
 		local directions = {"west","north","east","south"}

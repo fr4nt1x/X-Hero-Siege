@@ -45,7 +45,8 @@ local AbilitiesHeroes = {npc_dota_hero_antimage = "demonhunter_roar",
                     npc_dota_hero_lich = "lich_frost_frenzy",
                     npc_dota_hero_phantom_assassin = "blink",
                     npc_dota_hero_zuus = "mountain_king_thunderspirit",
-                    npc_dota_hero_juggernaut = "blademaster_berserk"}
+                    npc_dota_hero_juggernaut = "blademaster_berserk",
+                    npc_dota_hero_windrunner = "windrunner_healing"}
 --[[
   This function should be used to set up Async precache calls at the beginning of the gameplay.
 

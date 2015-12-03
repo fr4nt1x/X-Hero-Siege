@@ -96,7 +96,7 @@
 	
 	        "Properties"
 	        {
-	            "MODIFIER_PROPERTY_EVASION_CONTANT" "%evasion_chance" 
+	            "MODIFIER_PROPERTY_EVASION_CONSTANT" "%evasion_chance" 
 	            "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed"
 	        }
 	  
@@ -376,7 +376,7 @@
 	    // General
 	    //-------------------------------------------------------------------------------------
 	    "BaseClass" "ability_datadriven"
-	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 	    "MaxLevel"              "1"
 	    "RequiredLevel"        "-1"
 	    "LevelsBetweenUpgrades" "1"
@@ -393,7 +393,7 @@
 	      "modifier_spawn_banehallow"
 	      {
 	        "Passive" "1"
-	        "IsHidden" "0"
+	        "IsHidden" "1"
 	        "OnDeath"
 	        {
 	          "RunScript"
@@ -1609,7 +1609,7 @@
 	      { 
 	        "Properties"
 	        {
-	          "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%hp_regen"
+	          "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%hp_regen"
 	        }
 	
 	        "States"
@@ -2109,7 +2109,7 @@
 	        "IsHidden" "1"
 	        "Properties"
 	        {
-	          "MODIFIER_PROPERTY_EVASION_CONTANT" "%bonus_evasion" 
+	          "MODIFIER_PROPERTY_EVASION_CONSTANT" "%bonus_evasion" 
 	        }
 	      }
 	    }
@@ -3123,7 +3123,7 @@
 	    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 	    "AbilityTextureName"      "skeleton_king_mortal_strike"
 	    "MaxLevel"             "4"
-	    "RequiredLevel"        "3"
+	    "RequiredLevel"        "-1"
 	    "LevelsBetweenUpgrades" "3"
 	
 	    // Special
@@ -4014,7 +4014,7 @@
 	        "IsHidden" "1"
 	        "Properties"
 	        {
-	          "MODIFIER_PROPERTY_EVASION_CONTANT" "%bonus_evasion" 
+	          "MODIFIER_PROPERTY_EVASION_CONSTANT" "%bonus_evasion" 
 	        }
 	      }
 	    }
@@ -6188,7 +6188,7 @@
 	        {
 	          "var_type" "FIELD_FLOAT"
 	          "duration" "60 90"
-	        }           
+	        }         
 	    }
 	
 	    "precache"
@@ -8737,6 +8737,140 @@
 	    "AbilityTextureName" ""
 	
 	  }
+	"windrunner_critical_arrows"
+	  {
+	    // General
+	    //-------------------------------------------------------------------------------------------------------------
+	    "BaseClass"       "ability_datadriven"
+	    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	    "AbilityTextureName"      "skeleton_king_mortal_strike"
+	    "MaxLevel"             "4"
+	    "RequiredLevel"        "8"
+	    "LevelsBetweenUpgrades" "3"
+	
+	    // Special
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilitySpecial"
+	    {
+	        "01"
+	        {
+	          "var_type"          "FIELD_INTEGER"
+	          "crit_mult"         "100 200 250 300"
+	        }
+	        "02"
+	        {
+	          "var_type"          "FIELD_INTEGER"
+	          "crit_chance"       "5 10 15 20"
+	        }
+	      }
+	
+	
+	      "Modifiers"
+	      {
+	        "modifier_mortal_strike"
+	        {
+	            "Passive"   "1"
+	            "IsHidden"  "1"
+	            "OnAttackStart"
+	            {
+	                "RemoveModifier"
+	                {
+	                    "ModifierName"  "modifier_mortal_strike_crit"
+	                    "Target"    "CASTER"
+	                }
+	
+	                "Random"
+	                {
+	                    "Chance" "%crit_chance"
+	                    "OnSuccess"
+	                    {
+	
+	                        "ApplyModifier"
+	                        {
+	                            "ModifierName"  "modifier_mortal_strike_crit"
+	                            "Target"      "CASTER"    
+	                        }        
+	                    }
+	                }
+	            }
+	        }
+	
+	        "modifier_mortal_strike_crit"
+	        {
+	            "IsHidden"  "1"
+	            "Properties"
+	            {
+	                "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "%crit_mult"
+	            }
+	
+	            "OnAttackLanded"
+	            {
+	                "RemoveModifier"
+	                {
+	                    "ModifierName"  "modifier_mortal_strike_crit"
+	                    "Target"      "CASTER"    
+	                }
+	            }
+	        }
+	      }
+	  }
+	"dryad_endurance_aura"
+	  {
+	    // General
+	    //-------------------------------------------------------------------------------------
+	    "BaseClass" "ability_datadriven"
+	    "AbilityBehavior"  "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+	    "MaxLevel"              "4"
+	    "RequiredLevel"        "-1"
+	    "LevelsBetweenUpgrades" "3"
+	
+	    // Stats
+	    //-------------------------------------------------------------------------------------
+	    "AbilityTextureName" "spirit_breaker_empowering_haste"
+	    "AbilitySpecial"
+	    {
+	      "01"
+	      {
+	        "var_type"      "FIELD_INTEGER"
+	        "bonus_attack_speed"      "50 100 150 200"
+	      }
+	      "02"
+	      {
+	        "var_type"      "FIELD_INTEGER"
+	        "bonus_movement_speed_percentage"      "10 20 30 40"
+	      }
+	      "03"
+	      {
+	        "var_type"      "FIELD_INTEGER"
+	        "radius"      "200"
+	      }
+	    }
+	    "Modifiers"
+	    { 
+	      "modifier_endurance_aura"
+	      {
+	        "Passive"       "1"
+	        "IsHidden"      "1"
+	        "IsBuff"      "1"
+	
+	        "Aura"        "modifier_endurance_buff"
+	        "Aura_Radius"     "%radius"
+	        "Aura_Teams"    "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	        "Aura_Types"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	      }
+	     "modifier_endurance_buff"
+	      { 
+	        "IsBuff" "1"
+	        "Properties"
+	        {
+	          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attack_speed"
+	          "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed_percentage" 
+	        }
+	      }
+	    }
+	  }
 	"windrunner_exploding_arrows"
 	{
 	    // General
@@ -8774,7 +8908,6 @@
 	            "radius"  "250 350"
 	        }
 	    }
-	
 	    // Data Driven
 	    //-------------------------------------------------------------------------------------
 	    "Modifiers"
@@ -8841,6 +8974,150 @@
 	        }
 	    }
 	}    
+	"windrunner_healing"
+	  {
+	    // General
+	    //-------------------------------------------------------------------------------------
+	    "BaseClass" "ability_datadriven"
+	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+	    "MaxLevel"              "1"
+	    "RequiredLevel"        "-1"
+	    // Stats
+	    //-------------------------------------------------------------------------------------
+	    "AbilityCastPoint" "0.5"
+	    "AbilityCastRange"        "300"
+	    "AbilityCooldown"  "20"
+	    "AbilityManaCost"  "100"
+	    "AbilityTextureName" "omniknight_purification"
+	    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	
+	    // Special
+	    //-------------------------------------------------------------------------------------
+	    "AbilitySpecial"
+	    {
+	        "01"
+	        {
+	          "var_type" "FIELD_INTEGER"
+	          "heal" "5000"
+	        }
+	    }
+	
+	    "precache"
+	    {
+	        "particle" "particles/units/heroes/hero_bloodseeker/bloodseeker_bloodbath_heal.vpcf"
+	    }
+	
+	    // Data Driven
+	    //-------------------------------------------------------------------------------------
+	    "OnSpellStart"
+	    {
+	        "Heal"
+	        {
+	          "Target"        "TARGET"
+	          "HealAmount"  "%heal"
+	        }
+	        "FireEffect"
+	        {
+	          "EffectName"        "particles/units/heroes/hero_bloodseeker/bloodseeker_bloodbath_heal.vpcf"
+	          "EffectAttachType"  "follow_overhead"
+	          "Target"            "TARGET"
+	        }
+	    }
+	
+	  }
+	"windrunner_innerfire"
+	  {
+	    // General
+	    //-------------------------------------------------------------------------------------
+	    "BaseClass" "ability_datadriven"
+	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+	    "MaxLevel"              "4"
+	    "RequiredLevel"        "-1"
+	    "LevelsBetweenUpgrades" "3"
+	    // Stats
+	    //-------------------------------------------------------------------------------------
+	    "AbilityCastPoint" "0.5"
+	    "AbilityCastRange"        "500"
+	    "AbilityCooldown"  "20"
+	    "AbilityManaCost"  "75"
+	    "AbilityTextureName" "sven_warcry"
+	    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	
+	    // Special
+	    //-------------------------------------------------------------------------------------
+	    "AbilitySpecial"
+	    {
+	        "01"
+	        {
+	          "var_type" "FIELD_INTEGER"
+	          "bonus_damage_percentage" "10 20 30 40"
+	        }
+	        "02"
+	        {
+	          "var_type" "FIELD_FLOAT"
+	          "duration" "60 60 60 60"
+	        }
+	        "03"
+	        {
+	          "var_type" "FIELD_FLOAT"
+	          "armor_bonus" "10 20 40 80"
+	        }
+	    }
+	
+	    "precache"
+	    {
+	        "particle" "particles/units/heroes/hero_sven/sven_spell_warcry.vpcf"
+	        "particle" "particles/econ/items/sven/sven_warcry_ti5/sven_warcry_buff_ti_5.vpcf"
+	    }
+	
+	    // Data Driven
+	    //-------------------------------------------------------------------------------------
+	    "OnSpellStart"
+	    {
+	        "ApplyModifier"
+	        {
+	            "ModifierName" "modifier_innerfire"
+	            "Target" "TARGET"
+	        }
+	
+	        "FireEffect"
+	        {
+	          "EffectName"        "particles/units/heroes/hero_sven/sven_spell_warcry.vpcf"
+	          "EffectAttachType"  "follow_origin"
+	          "Target"            "TARGET"
+	        }
+	    }
+	
+	    "Modifiers"
+	    {
+	      "modifier_innerfire"
+	      {
+	        "IsBuff" "1"
+	        "IsHidden" "0"
+	        "Passive" "0"
+	        "IsPurgable" "1"
+	        "Duration" "%duration"
+	        // Modifier Events
+	        //-----------------------------------------------------------------------------
+	        "OnCreated"
+	        {
+	          "AttachEffect"
+	          {
+	            "Target" "TARGET"
+	            "EffectName" "particles/econ/items/sven/sven_warcry_ti5/sven_warcry_buff_ti_5.vpcf"
+	            "EffectAttachType" "follow_overhead"
+	          }
+	        }
+	        "Properties"
+	        {
+	          "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%bonus_damage_percentage"
+	          "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
+	        }
+	      }
+	    }    
+	  }
 	"windrunner_searing_arrows"
 	{
 	    // General

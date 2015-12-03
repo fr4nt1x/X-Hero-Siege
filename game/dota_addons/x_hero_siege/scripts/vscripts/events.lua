@@ -486,104 +486,106 @@ function GameMode:OnPlayerChat(keys)
   local player = PlayerResource:GetPlayer(playerID)
   local numberOFPlayers = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
 
-  --[[  Run through player numbers but break at the first player that is there, so that only one player at the time has control
-  ]]
+--[[only the host can open and close lanes]]
   if GameMode.openLanes ~= nil then
-    for i = 0,numberOFPlayers-1 do
-        if playerID == i then
-        --[[
-            openlane command, adds the key "spawn"..lane to the GameMode.openlanes,
-            only if the baracks is alive
-          ]]
-          local i,j = string.find(text,"openlane_%d")
-          local lane = nil
-          if i ~= nil then
-             lane = string.sub(text,i,j)
-          end
-          if lane == text then
-            local i,j = string.find(lane,"%d")
-            lane = tonumber(string.sub(lane,i,j))
+    if IsValidEntity(player) and GameRules:PlayerHasCustomGameHostPrivileges(player) then
+    --[[
+        openlane command, adds the key "spawn"..lane to the GameMode.openlanes,
+        only if the baracks is alive
+      ]]
+      local i,j = string.find(text,"openlane_%d")
+      local lane = nil
+      if i ~= nil then
+         lane = string.sub(text,i,j)
+      end
+      if lane == text then
+        local i,j = string.find(lane,"%d")
+        lane = tonumber(string.sub(lane,i,j))
 
-            if lane <= 8 then
+        if lane <= 8 then
 
-              --Only if crypt is alive
-              local crypt = Entities:FindByName(nil, "crypt_p"..lane)
-              if IsValidAlive(crypt) then
-                GameMode.openLanes["spawn"..lane] = "wp_p"..lane.."_1"
-                local towers = Entities:FindAllByName("tower_p"..lane)
-                
-                for _,tower in pairs(towers)do
-                tower:RemoveModifierByName("modifier_invulnerable")
-                end 
-              end
-            end
-          end
-
-        --[[
-            Shortcut for openlane command, adds the key "spawn"..lane to the GameMode.openlanes,
-            only if the baracks is alive
-          ]]
-          local i,j = string.find(text,"ol_%d")
-          local lane = nil
-          if i ~= nil then
-             lane = string.sub(text,i,j)
-          end
-          if lane == text then
-            local i,j = string.find(lane,"%d")
-            lane = tonumber(string.sub(lane,i,j))
-            if lane <= 8 then
-
-              --Only if crypt is alive
-              local crypt = Entities:FindByName(nil, "crypt_p"..lane)
-              if IsValidAlive(crypt) then
-                GameMode.openLanes["spawn"..lane] = "wp_p"..lane.."_1"
-                local towers = Entities:FindAllByName("tower_p"..lane)
+          --Only if crypt is alive
+          local crypt = Entities:FindByName(nil, "crypt_p"..lane)
+          if IsValidAlive(crypt) then
+            GameMode.openLanes["spawn"..lane] = "wp_p"..lane.."_1"
+            local towers = Entities:FindAllByName("tower_p"..lane)
             
-                for _,tower in pairs(towers)do
-                tower:RemoveModifierByName("modifier_invulnerable")
-                end 
-              end
-            end
+            for _,tower in pairs(towers)do
+            tower:RemoveModifierByName("modifier_invulnerable")
+            end 
           end
-
-          local i,j = string.find(text,"closelane_%d")
-          local lane = nil
-          if i ~= nil then
-             lane = string.sub(text,i,j)
-          end
-          if lane == text then
-            local i,j = string.find(lane,"%d")
-            lane = tonumber(string.sub(lane,i,j))
-            if lane <= 8 then
-              GameMode.openLanes["spawn"..lane] = nil
-              local towers = Entities:FindAllByName("tower_p"..lane)
-          
-              for _,tower in pairs(towers)do
-                tower:AddNewModifier(nil,nil,"modifier_invulnerable",nil)
-              end 
-            end
-          end
-          
-          local i,j = string.find(text,"cl_%d")
-          local lane = nil
-          if i ~= nil then
-             lane = string.sub(text,i,j)
-          end
-          if lane == text then
-            local i,j = string.find(lane,"%d")
-            lane = tonumber(string.sub(lane,i,j))
-            if lane <= 8 then
-              GameMode.openLanes["spawn"..lane] = nil
-              local towers = Entities:FindAllByName("tower_p"..lane)
-          
-              for _,tower in pairs(towers)do
-                tower:AddNewModifier(nil,nil,"modifier_invulnerable",nil)
-              end 
-            end
-          end
-
-          break
         end
+      end
+
+    --[[
+        Shortcut for openlane command, adds the key "spawn"..lane to the GameMode.openlanes,
+        only if the baracks is alive
+      ]]
+      local i,j = string.find(text,"ol_%d")
+      local lane = nil
+      if i ~= nil then
+         lane = string.sub(text,i,j)
+      end
+      if lane == text then
+        local i,j = string.find(lane,"%d")
+        lane = tonumber(string.sub(lane,i,j))
+        if lane <= 8 then
+
+          --Only if crypt is alive
+          local crypt = Entities:FindByName(nil, "crypt_p"..lane)
+          if IsValidAlive(crypt) then
+            GameMode.openLanes["spawn"..lane] = "wp_p"..lane.."_1"
+            local towers = Entities:FindAllByName("tower_p"..lane)
+        
+            for _,tower in pairs(towers)do
+            tower:RemoveModifierByName("modifier_invulnerable")
+            end 
+          end
+        end
+      end
+    --[[
+        removes the key "spawn"..lane from the GameMode.openlanes,
+        only if the baracks is alive
+      ]]
+      local i,j = string.find(text,"closelane_%d")
+      local lane = nil
+      if i ~= nil then
+         lane = string.sub(text,i,j)
+      end
+      if lane == text then
+        local i,j = string.find(lane,"%d")
+        lane = tonumber(string.sub(lane,i,j))
+        if lane <= 8 then
+          GameMode.openLanes["spawn"..lane] = nil
+          local towers = Entities:FindAllByName("tower_p"..lane)
+      
+          for _,tower in pairs(towers)do
+            tower:AddNewModifier(nil,nil,"modifier_invulnerable",nil)
+          end 
+        end
+      end
+
+       --[[
+        shortcut for closelane command removes the key "spawn"..lane from the GameMode.openlanes,
+        only if the baracks is alive
+      ]]
+      local i,j = string.find(text,"cl_%d")
+      local lane = nil
+      if i ~= nil then
+         lane = string.sub(text,i,j)
+      end
+      if lane == text then
+        local i,j = string.find(lane,"%d")
+        lane = tonumber(string.sub(lane,i,j))
+        if lane <= 8 then
+          GameMode.openLanes["spawn"..lane] = nil
+          local towers = Entities:FindAllByName("tower_p"..lane)
+      
+          for _,tower in pairs(towers)do
+            tower:AddNewModifier(nil,nil,"modifier_invulnerable",nil)
+          end 
+        end
+      end
     end
   end
 
@@ -641,7 +643,7 @@ function GameMode:OnPlayerChat(keys)
       hero:ModifyIntellect(numberOfTomes*100)
     end
   end
-
+--[[transfers gold from one player to another]]
   local  i, j = string.find(text, "giff_%d_%d+")
   
   if text ~= nil and i ~=nil and text == string.sub(text,i,j) then
@@ -653,12 +655,30 @@ function GameMode:OnPlayerChat(keys)
 
     receiving_player = PlayerResource:GetPlayer(receiving_player-1)
 
-    if player ~= nil and receiving_player~=nil and receiving_player ~= player and player:GetAssignedHero():GetGold() >= tonumber(amount) and receiving_player~=nil then
+    if IsValidEntity(player) and IsValidEntity(receiving_player) and receiving_player ~= player and player:GetAssignedHero():GetGold() >= tonumber(amount) then
       PlayerResource:ModifyGold(receiving_player:GetPlayerID(),tonumber(amount), false, DOTA_ModifyGold_Unspecified)
       PlayerResource:ModifyGold(player:GetPlayerID(),-tonumber(amount), false, DOTA_ModifyGold_Unspecified)
     end
     
   end
 
+--[[transfers gold from one player to another]]
+  local  i, j = string.find(text, "transfer_%d_%d+")
+  
+  if text ~= nil and i ~=nil and text == string.sub(text,i,j) then
+    local i,j = string.find(text, "transfer")
+    local both_numbers = string.sub(text,j+2,-1)
+    i,j = string.find(both_numbers,"_")
+    local receiving_player = string.sub(both_numbers,1,i-1)
+    local amount = string.sub(both_numbers,j+1,-1)
+
+    receiving_player = PlayerResource:GetPlayer(receiving_player-1)
+
+    if IsValidEntity(player) and IsValidEntity(receiving_player) and receiving_player ~= player and player:GetAssignedHero():GetGold() >= tonumber(amount) then
+      PlayerResource:ModifyGold(receiving_player:GetPlayerID(),tonumber(amount), false, DOTA_ModifyGold_Unspecified)
+      PlayerResource:ModifyGold(player:GetPlayerID(),-tonumber(amount), false, DOTA_ModifyGold_Unspecified)
+    end
+    
+  end
 
 end

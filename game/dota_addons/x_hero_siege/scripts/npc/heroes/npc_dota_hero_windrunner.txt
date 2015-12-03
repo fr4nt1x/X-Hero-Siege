@@ -8,7 +8,6 @@
 		"override_hero"				"npc_dota_hero_windrunner"
 		"Model"						"models/heroes/windrunner/windrunner.vmdl"	 //Add model
 		"ModelScale"				"1"
-		"Level"						"3"
 		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
 		"HealthBarOffset"			"140"
 		
@@ -16,11 +15,11 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"windrunner_searing_arrows"	
-		"Ability2"					"dryad_critical_arrows"	 
-		"Ability3"					"windrunner_exploding_arrows"	 
-		"Ability4"					""	 
+		"Ability2"					"windrunner_critical_arrows"	 
+		"Ability3"					"dryad_endurance_aura"	 
+		"Ability4"					"windrunner_innerfire"	 
 		"Ability5"					""	 
-		"Ability6"					""	
+		"Ability6"					"windrunner_exploding_arrows"	
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"0"

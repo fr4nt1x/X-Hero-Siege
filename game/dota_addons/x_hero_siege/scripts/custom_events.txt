@@ -67,6 +67,11 @@
 		"hero_index"					"short"
 		"stun_duration"					"float"
 	}
+	"destroy_door"
+	{
+		"door_name"					"string"
+		"obstruction_name"				"string"
+	}
 
 	"setting_vote"
 	{

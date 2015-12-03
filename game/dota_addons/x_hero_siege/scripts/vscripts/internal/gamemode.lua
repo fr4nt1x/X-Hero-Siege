@@ -116,6 +116,7 @@ function GameMode:_InitGameMode()
   ListenToGameEvent("return_units_of_hero",  Dynamic_Wrap(GameMode, "ReturnUnitsOfHero"), self)
   ListenToGameEvent("teleport_hero_from_special_event",  Dynamic_Wrap(GameMode, "OnTeleportHeroFromSpecialEvent"), self)
   
+  ListenToGameEvent("destroy_door",  Dynamic_Wrap(GameMode, "DestroyDoor"), self)
   --ListenToGameEvent("dota_tutorial_shop_toggled", Dynamic_Wrap(GameMode, 'OnShopToggled'), self)
 
   --ListenToGameEvent('player_spawn', Dynamic_Wrap(GameMode, 'OnPlayerSpawn'), self)

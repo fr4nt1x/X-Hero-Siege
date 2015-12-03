@@ -337,18 +337,13 @@ function spawn_creeps_top_first()
   
   local creep = "npc_ghul_II"
 
-  if  numberOfTopWaves >= 16 then
-    local door = Entities:FindByName(nil,"door_top_1") 
-    door:Kill()
-    local gridobs = Entities:FindAllByName("obstruction_top_1")
-    for _,obs in pairs(gridobs) do 
-      obs:SetEnabled(false, true)
-    end
+  if  numberOfTopWaves >= 12 then
+    FireGameEventLocal("destroy_door", {door_name = "door_top_1", obstruction_name = "obstruction_top_1"})
     numberOfTopWaves = 0
     return nil
   end
   
-  if numberOfTopWaves >= 8 then
+  if numberOfTopWaves >= 6 then
     creep = "npc_death_ghost_tower"
   end
 
@@ -381,13 +376,8 @@ function spawn_creeps_top_second()
   
   local creep = "npc_orc_II"
   local number_of_creeps = 3
-  if  numberOfTopWaves >= 16 then
-    local door = Entities:FindByName(nil,"door_arthas") 
-    door:Kill()
-    local gridobs = Entities:FindAllByName("obstruction_arthas")
-    for _,obs in pairs(gridobs) do 
-      obs:SetEnabled(false, true)
-    end
+  if  numberOfTopWaves >= 12 then
+    FireGameEventLocal("destroy_door", {door_name = "door_arthas", obstruction_name = "obstruction_arthas"})
     numberOfTopWaves = nil
 
     local arthas = CreateUnitByName("npc_dota_hero_arthas",Entities:FindByName(nil,"spawn_arthas"):GetAbsOrigin(),true,nil,nil,DOTA_TEAM_NEUTRALS)
@@ -396,7 +386,7 @@ function spawn_creeps_top_second()
     return nil
   end
   
-  if numberOfTopWaves >= 8 then
+  if numberOfTopWaves >= 6 then
     creep = "npc_magnataur_final_wave"
     number_of_creeps = 3
   end
