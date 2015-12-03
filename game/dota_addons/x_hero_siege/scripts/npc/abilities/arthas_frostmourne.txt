@@ -94,7 +94,7 @@
 
         "Properties"
         {
-            "MODIFIER_PROPERTY_EVASION_CONTANT" "%evasion_chance" 
+            "MODIFIER_PROPERTY_EVASION_CONSTANT" "%evasion_chance" 
             "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed"
         }
   
