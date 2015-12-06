@@ -21,7 +21,7 @@
     "Ability5"        "illidan_bad_metamorphosis"
     "Ability6"        "top_bosses_gates"
     "Ability7"        "illidan_bad_buff"
-    "Ability8"        ""
+    "Ability8"        "difficulty_upgrade_boss"
     "Ability9"        ""
     "Ability10"       ""
     "Ability11"       ""

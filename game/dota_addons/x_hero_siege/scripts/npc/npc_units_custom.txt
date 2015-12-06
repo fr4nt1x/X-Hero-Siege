@@ -1962,7 +1962,7 @@
 	    "Ability5"        "arthas_holy_light"
 	    "Ability6"        "arthas_knights_armor"
 	    "Ability7"        "arthas_spawn_banehallow"
-	    "Ability8"        ""
+	    "Ability8"        "difficulty_upgrade_boss"
 	    "Ability9"        ""
 	    "Ability10"       ""
 	    "Ability11"       ""
@@ -2046,7 +2046,7 @@
 	    "Ability6"        "balanar_rain_of_chaos"
 	    "Ability7"        "top_bosses_gates"
 	    "Ability8"        "balanar_buff"
-	    "Ability9"        ""
+	    "Ability9"        "difficulty_upgrade_boss"
 	    "Ability10"       ""
 	    "Ability11"       ""
 	    "Ability12"       ""
@@ -2118,7 +2118,7 @@
 	    "Level"						"10"
 	    "AbilityLayout"             "6"
 	    
-	    "Ability1"        ""
+	    "Ability1"        "difficulty_upgrade_boss"
 	    "Ability2"        "grom_devotion_aura" 
 	    "Ability3"        "neutral_spell_immunity"
 	    "Ability4"        "demonhunter_vampiric_aura"
@@ -2205,7 +2205,7 @@
 	    "Ability4"        "neutral_critical"
 	    "Ability5"        "banehallow_permanent_immolation"
 	    "Ability6"        "banehallow_victory"
-	    "Ability7"        ""
+	    "Ability7"        "difficulty_upgrade_boss"
 	    "Ability8"        ""
 	    "Ability9"        ""
 	    "Ability10"       ""
@@ -2278,7 +2278,7 @@
 	    "Ability2"        "demonhunter_vampiric_aura" 
 	    "Ability3"        "arthas_holy_light"
 	    "Ability4"        "ramero_baristal"
-	    "Ability5"        ""
+	    "Ability5"        "difficulty_upgrade_boss"
 	    "Ability6"        ""
 	    "Ability7"        ""
 	    "Ability8"        ""
@@ -2363,7 +2363,7 @@
 	    "Ability4"        "endurance_aura"
 	    "Ability5"        "frost_infernal_frost_bolt"
 	    "Ability6"        "beasts_special_event"
-	    "Ability7"        ""
+	    "Ability7"        "difficulty_upgrade_boss"
 	    "Ability8"        ""
 	    "Ability9"        ""
 	    "Ability10"       ""
@@ -2442,7 +2442,7 @@
 	    "Ability4"        "grom_hellscream_bladefury"
 	    "Ability5"        "top_bosses_gates"
 	    "Ability6"        "grom_hellscream_buff"
-	    "Ability7"        ""
+	    "Ability7"        "difficulty_upgrade_boss"
 	    "Ability8"        ""
 	    "Ability9"        ""
 	    "Ability10"       ""
@@ -2519,7 +2519,7 @@
 	    
 	    "Ability1"        "devotion_aura"
 	    "Ability2"        "neutral_critical" 
-	    "Ability3"        ""
+	    "Ability3"        "difficulty_upgrade_boss"
 	    "Ability4"        ""
 	    "Ability5"        ""
 	    "Ability6"        ""
@@ -2608,7 +2608,7 @@
 	    "Ability5"        "illidan_bad_metamorphosis"
 	    "Ability6"        "top_bosses_gates"
 	    "Ability7"        "illidan_bad_buff"
-	    "Ability8"        ""
+	    "Ability8"        "difficulty_upgrade_boss"
 	    "Ability9"        ""
 	    "Ability10"       ""
 	    "Ability11"       ""
@@ -2688,7 +2688,7 @@
 	    "HeroSelectSoundEffect"     "Hero_Antimage.Pick"
 	
 	    "Ability1"        "demonhunter_negative_energy"
-	    "Ability2"        "" 
+	    "Ability2"        "difficulty_upgrade_boss" 
 	    "Ability3"        "demonhunter_evasion"
 	    "Ability4"        "grom_devotion_aura"
 	    "Ability5"        ""
@@ -2774,7 +2774,7 @@
 	    "Ability4"        "magtheridon_thunderclap"
 	    "Ability5"        "howl_of_terror"
 	    "Ability6"        "neutral_spell_immunity"
-	    "Ability7"        ""
+	    "Ability7"        "difficulty_upgrade_boss"
 	    "Ability8"        ""
 	    "Ability9"        ""
 	    "Ability10"       ""
@@ -2851,7 +2851,7 @@
 	    "Ability1"        "magtheridon_medium"
 	    "Ability2"        "neutral_evasion" 
 	    "Ability3"        "neutral_critical"
-	    "Ability4"        "difficulty_upgrade"
+	    "Ability4"        "difficulty_upgrade_boss"
 	    "Ability5"        ""
 	    "Ability6"        ""
 	    "Ability7"        ""
@@ -2929,7 +2929,7 @@
 	    
 	    "Ability1"        "neutral_evasion"
 	    "Ability2"        "neutral_critical" 
-	    "Ability3"        "difficulty_upgrade"
+	    "Ability3"        "difficulty_upgrade_boss"
 	    "Ability4"        ""
 	    "Ability5"        ""
 	    "Ability6"        ""
@@ -3014,7 +3014,7 @@
 	    "Ability5"        "proudmoore_divine_shield"
 	    "Ability6"        "top_bosses_gates"
 	    "Ability7"        "proudmoore_buff"
-	    "Ability8"        ""
+	    "Ability8"        "difficulty_upgrade_boss"
 	    "Ability9"        ""
 	    "Ability10"       ""
 	    "Ability11"       ""
@@ -3093,7 +3093,7 @@
 	    "Ability2"        "endurance_aura" 
 	    "Ability3"        "neutral_spell_immunity"
 	    "Ability4"        "proudmoore_hex"
-	    "Ability5"        ""
+	    "Ability5"        "difficulty_upgrade_boss"
 	    "Ability6"        ""
 	    "Ability7"        ""
 	    "Ability8"        ""
@@ -3175,7 +3175,7 @@
 	    "Ability2"        "proudmoore_divine_shield" 
 	    "Ability3"        "dryad_endurance_aura"
 	    "Ability4"        "ramero_baristal"
-	    "Ability5"        ""
+	    "Ability5"        "difficulty_upgrade_boss"
 	    "Ability6"        ""
 	    "Ability7"        ""
 	    "Ability8"        ""
@@ -3335,7 +3335,7 @@
 	    "Ability6"        "banehallow_permanent_immolation"
 	    "Ability7"        "spirit_beast_thorns"
 	    "Ability8"        "beasts_special_event"
-	    "Ability9"        ""
+	    "Ability9"        "difficulty_upgrade_boss"
 	    "Ability10"       ""
 	    "Ability11"       ""
 	    "Ability12"       ""
@@ -4481,6 +4481,78 @@
 	        } 
 	    }
 	 }   
+	//HEROS
+	"npc_healing_ward"
+	  {
+	    // General
+	    "BaseClass"         "npc_dota_creature"  // Class of entity of link to.
+	    "Model"             "models/heroes/juggernaut/jugg_healing_ward.vmdl"  // Model.
+	    "Level"             "1"
+	
+	    
+	    // Abilities
+	    //----------------------------------------------------------------
+	    
+	    "Ability1"          "neutral_spell_immunity"     // Ability 1.
+	    "Ability2"          ""      // Ability 2.
+	    "Ability3"          ""      // Ability 3.
+	    "Ability4"          ""      // Ability 4.
+	    "Ability5"          ""      // Ability 5.
+	    "Ability6"          ""      // Ability 6 - Extra.
+	    "Ability7"          ""      // Ability 7 - Extra.
+	    "Ability8"          ""      // Ability 8 - Extra.
+	
+	    // Armor
+	    //----------------------------------------------------------------
+	    "ArmorPhysical"       "25"     // Physical protection.
+	    "MagicalResistance"       "0"     // Magical protection.
+	
+	    // Attack
+	    //----------------------------------------------------------------
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"    // Type of attack - melee, ranged, etc.
+	
+	    "AttackDamageMin"     "1001"     // Damage range min.
+	    "AttackDamageMax"     "1003"     // Damage range max.
+	    "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
+	    "AttackRate"        "0.750"     // Speed of attack.
+	    "AttackAnimationPoint"    "0.3"   // Normalized time in animation cycle to attack.
+	    "AttackAcquisitionRange"  "600"   // Range within a target can be acquired.
+	    "AttackRange"       "600"   // Range within a target can be attacked.
+	
+	    // Bounty
+	    //----------------------------------------------------------------
+	    "BountyXP"          "40"     // Experience earn.
+	    "BountyGoldMin"       "3"     // Gold earned min.
+	    "BountyGoldMax"       "4"     // Gold earned max.
+	
+	    // Bounds
+	    //----------------------------------------------------------------
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SMALL"      // Hull type used for navigation/locomotion.
+	
+	    // Movement
+	    //----------------------------------------------------------------
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_NONE"     // Type of locomotion - ground, air
+	    "MovementSpeed"       "0"   // Speed
+	    "MovementTurnRate"      "0.6"   // Turning rate.
+	    "FollowRange"       "250"   // Distance to keep when following
+	
+	    // Status
+	    //----------------------------------------------------------------
+	    "StatusHealth"        "10000"     // Base health.
+	    "StatusHealthRegen"     "0.25"     // Health regeneration rate.
+	    "StatusMana"        "0"     // Base mana.
+	    "StatusManaRegen"     "0"     // Mana regeneration rate.
+	
+	    
+	    // Vision
+	    //----------------------------------------------------------------
+	    "VisionDaytimeRange"    "1000"   // Range of vision during day light.
+	    "VisionNighttimeRange"    "1200"   // Range of vision at night time.
+	
+	    // Bots
+	    //----------------------------------------------------------------
+	    "AttackDesire"        "10.5"   // How much bots want to attack them vs other non-hero things
+	  }  
 	//NIGHTELF
 	"npc_huntress"
 	  {
@@ -5045,6 +5117,156 @@
 	        {
 		}
 	    	}  
+	//HEROS
+	"npc_laser_trap_I"
+	  {
+	    // General
+	    "BaseClass"         "npc_dota_creature"  // Class of entity of link to.
+	    "Model"             "models/heroes/techies/fx_techiesfx_stasis.vmdl"  // Model.
+	    "Level"             "2"
+	    "ModelScale"                    "0.85"
+	    "AutoAttacksByDefault"         "1"
+	    "ProjectileModel"           "particles/units/heroes/hero_razor/razor_base_attack.vpcf" // Particle system model for projectile.
+	    "ProjectileSpeed"           "1400"       // Speed of projectile.
+	    
+	    // Abilities
+	    //----------------------------------------------------------------
+	    
+	    "Ability1"          "neutral_spell_immunity"     // Ability 1.
+	    "Ability2"          "black_dragon_splash_attack"      // Ability 2.
+	    "Ability3"          ""      // Ability 3.
+	    "Ability4"          ""      // Ability 4.
+	    "Ability5"          ""      // Ability 5.
+	    "Ability6"          ""      // Ability 6 - Extra.
+	    "Ability7"          ""      // Ability 7 - Extra.
+	    "Ability8"          ""      // Ability 8 - Extra.
+	
+	    // Armor
+	    //----------------------------------------------------------------
+	    "ArmorPhysical"       "25"     // Physical protection.
+	    "MagicalResistance"       "0"     // Magical protection.
+	
+	    // Attack
+	    //----------------------------------------------------------------
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"    // Type of attack - melee, ranged, etc.
+	
+	    "AttackDamageMin"     "1001"     // Damage range min.
+	    "AttackDamageMax"     "1003"     // Damage range max.
+	    "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
+	    "AttackRate"        "0.750"     // Speed of attack.
+	    "AttackAnimationPoint"    "0.3"   // Normalized time in animation cycle to attack.
+	    "AttackAcquisitionRange"  "600"   // Range within a target can be acquired.
+	    "AttackRange"       "600"   // Range within a target can be attacked.
+	
+	    // Bounty
+	    //----------------------------------------------------------------
+	    "BountyXP"          "40"     // Experience earn.
+	    "BountyGoldMin"       "3"     // Gold earned min.
+	    "BountyGoldMax"       "4"     // Gold earned max.
+	
+	    // Bounds
+	    //----------------------------------------------------------------
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SMALL"      // Hull type used for navigation/locomotion.
+	
+	    // Movement
+	    //----------------------------------------------------------------
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_NONE"     // Type of locomotion - ground, air
+	    "MovementSpeed"       "0"   // Speed
+	    "MovementTurnRate"      "0.6"   // Turning rate.
+	    "FollowRange"       "250"   // Distance to keep when following
+	
+	    // Status
+	    //----------------------------------------------------------------
+	    "StatusHealth"        "25000"     // Base health.
+	    "StatusHealthRegen"     "0.25"     // Health regeneration rate.
+	    "StatusMana"        "0"     // Base mana.
+	    "StatusManaRegen"     "0"     // Mana regeneration rate.
+	
+	    
+	    // Vision
+	    //----------------------------------------------------------------
+	    "VisionDaytimeRange"    "1000"   // Range of vision during day light.
+	    "VisionNighttimeRange"    "1200"   // Range of vision at night time.
+	
+	    // Bots
+	    //----------------------------------------------------------------
+	    "AttackDesire"        "1.5"   // How much bots want to attack them vs other non-hero things
+	  }  
+	//HEROS
+	"npc_laser_trap_II"
+	  {
+	    // General
+	    "BaseClass"         "npc_dota_creature"  // Class of entity of link to.
+	    "Model"             "models/heroes/techies/fx_techiesfx_stasis.vmdl"  // Model.
+	    "Level"             "2"
+	    "ModelScale"                    "0.85"
+	    "AutoAttacksByDefault"         "1"
+	    "ProjectileModel"           "particles/units/heroes/hero_razor/razor_base_attack.vpcf" // Particle system model for projectile.
+	    "ProjectileSpeed"           "1400"       // Speed of projectile.
+	    
+	    // Abilities
+	    //----------------------------------------------------------------
+	    
+	    "Ability1"          "neutral_spell_immunity"     // Ability 1.
+	    "Ability2"          "black_dragon_splash_attack"      // Ability 2.
+	    "Ability3"          ""      // Ability 3.
+	    "Ability4"          ""      // Ability 4.
+	    "Ability5"          ""      // Ability 5.
+	    "Ability6"          ""      // Ability 6 - Extra.
+	    "Ability7"          ""      // Ability 7 - Extra.
+	    "Ability8"          ""      // Ability 8 - Extra.
+	
+	    // Armor
+	    //----------------------------------------------------------------
+	    "ArmorPhysical"       "35"     // Physical protection.
+	    "MagicalResistance"       "0"     // Magical protection.
+	
+	    // Attack
+	    //----------------------------------------------------------------
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"    // Type of attack - melee, ranged, etc.
+	
+	    "AttackDamageMin"     "2001"     // Damage range min.
+	    "AttackDamageMax"     "2003"     // Damage range max.
+	    "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
+	    "AttackRate"        "0.50"     // Speed of attack.
+	    "AttackAnimationPoint"    "0.3"   // Normalized time in animation cycle to attack.
+	    "AttackAcquisitionRange"  "600"   // Range within a target can be acquired.
+	    "AttackRange"       "600"   // Range within a target can be attacked.
+	
+	    // Bounty
+	    //----------------------------------------------------------------
+	    "BountyXP"          "40"     // Experience earn.
+	    "BountyGoldMin"       "3"     // Gold earned min.
+	    "BountyGoldMax"       "4"     // Gold earned max.
+	
+	    // Bounds
+	    //----------------------------------------------------------------
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SMALL"      // Hull type used for navigation/locomotion.
+	
+	    // Movement
+	    //----------------------------------------------------------------
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_NONE"     // Type of locomotion - ground, air
+	    "MovementSpeed"       "0"   // Speed
+	    "MovementTurnRate"      "0.6"   // Turning rate.
+	    "FollowRange"       "250"   // Distance to keep when following
+	
+	    // Status
+	    //----------------------------------------------------------------
+	    "StatusHealth"        "25000"     // Base health.
+	    "StatusHealthRegen"     "0.25"     // Health regeneration rate.
+	    "StatusMana"        "0"     // Base mana.
+	    "StatusManaRegen"     "0"     // Mana regeneration rate.
+	
+	    
+	    // Vision
+	    //----------------------------------------------------------------
+	    "VisionDaytimeRange"    "1000"   // Range of vision during day light.
+	    "VisionNighttimeRange"    "1200"   // Range of vision at night time.
+	
+	    // Bots
+	    //----------------------------------------------------------------
+	    "AttackDesire"        "1.5"   // How much bots want to attack them vs other non-hero things
+	  }  
 	"npc_lich_frost_infernal"
 	{
 	
@@ -6440,6 +6662,306 @@
 	        } 
 	
 	    }
+	  }  
+	//HEROS
+	"npc_serpentine_ward_I"
+	  {
+	    // General
+	    "BaseClass"         "npc_dota_creature"  // Class of entity of link to.
+	    "Model"             "models/heroes/shadowshaman/shadowshaman_totem.vmdl"  // Model.
+	    "Level"             "2"
+	    "ModelScale"                    "0.85"
+	    "AutoAttacksByDefault"         "1"
+	    "ProjectileModel"           "particles/units/heroes/hero_shadowshaman/shadow_shaman_ward_base_attack.vpcf" // Particle system model for projectile.
+	    "ProjectileSpeed"           "900"       // Speed of projectile.
+	    
+	    // Abilities
+	    //----------------------------------------------------------------
+	    
+	    "Ability1"          "neutral_spell_immunity"     // Ability 1.
+	    "Ability2"          ""      // Ability 2.
+	    "Ability3"          ""      // Ability 3.
+	    "Ability4"          ""      // Ability 4.
+	    "Ability5"          ""      // Ability 5.
+	    "Ability6"          ""      // Ability 6 - Extra.
+	    "Ability7"          ""      // Ability 7 - Extra.
+	    "Ability8"          ""      // Ability 8 - Extra.
+	
+	    // Armor
+	    //----------------------------------------------------------------
+	    "ArmorPhysical"       "5"     // Physical protection.
+	    "MagicalResistance"       "0"     // Magical protection.
+	
+	    // Attack
+	    //----------------------------------------------------------------
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"    // Type of attack - melee, ranged, etc.
+	
+	    "AttackDamageMin"     "101"     // Damage range min.
+	    "AttackDamageMax"     "103"     // Damage range max.
+	    "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
+	    "AttackRate"        "1.50"     // Speed of attack.
+	    "AttackAnimationPoint"    "0.3"   // Normalized time in animation cycle to attack.
+	    "AttackAcquisitionRange"  "600"   // Range within a target can be acquired.
+	    "AttackRange"       "600"   // Range within a target can be attacked.
+	
+	    // Bounty
+	    //----------------------------------------------------------------
+	    "BountyXP"          "40"     // Experience earn.
+	    "BountyGoldMin"       "3"     // Gold earned min.
+	    "BountyGoldMax"       "4"     // Gold earned max.
+	
+	    // Bounds
+	    //----------------------------------------------------------------
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SMALL"      // Hull type used for navigation/locomotion.
+	
+	    // Movement
+	    //----------------------------------------------------------------
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_NONE"     // Type of locomotion - ground, air
+	    "MovementSpeed"       "0"   // Speed
+	    "MovementTurnRate"      "0.6"   // Turning rate.
+	    "FollowRange"       "250"   // Distance to keep when following
+	
+	    // Status
+	    //----------------------------------------------------------------
+	    "StatusHealth"        "2500"     // Base health.
+	    "StatusHealthRegen"     "0.25"     // Health regeneration rate.
+	    "StatusMana"        "0"     // Base mana.
+	    "StatusManaRegen"     "0"     // Mana regeneration rate.
+	
+	    
+	    // Vision
+	    //----------------------------------------------------------------
+	    "VisionDaytimeRange"    "1000"   // Range of vision during day light.
+	    "VisionNighttimeRange"    "1200"   // Range of vision at night time.
+	
+	    // Bots
+	    //----------------------------------------------------------------
+	    "AttackDesire"        "1.5"   // How much bots want to attack them vs other non-hero things
+	  }  
+	//HEROS
+	"npc_serpentine_ward_II"
+	  {
+	    // General
+	    "BaseClass"         "npc_dota_creature"  // Class of entity of link to.
+	    "Model"             "models/heroes/shadowshaman/shadowshaman_totem.vmdl"  // Model.
+	    "Level"             "2"
+	    "ModelScale"                    "0.90"
+	    "AutoAttacksByDefault"         "1"
+	    "ProjectileModel"           "particles/units/heroes/hero_shadowshaman/shadow_shaman_ward_base_attack.vpcf" // Particle system model for projectile.
+	    "ProjectileSpeed"           "900"       // Speed of projectile.
+	    
+	    // Abilities
+	    //----------------------------------------------------------------
+	    
+	    "Ability1"          "neutral_spell_immunity"     // Ability 1.
+	    "Ability2"          ""      // Ability 2.
+	    "Ability3"          ""      // Ability 3.
+	    "Ability4"          ""      // Ability 4.
+	    "Ability5"          ""      // Ability 5.
+	    "Ability6"          ""      // Ability 6 - Extra.
+	    "Ability7"          ""      // Ability 7 - Extra.
+	    "Ability8"          ""      // Ability 8 - Extra.
+	
+	    // Armor
+	    //----------------------------------------------------------------
+	    "ArmorPhysical"       "9"     // Physical protection.
+	    "MagicalResistance"       "0"     // Magical protection.
+	
+	    // Attack
+	    //----------------------------------------------------------------
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"    // Type of attack - melee, ranged, etc.
+	
+	    "AttackDamageMin"     "251"     // Damage range min.
+	    "AttackDamageMax"     "254"     // Damage range max.
+	    "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
+	    "AttackRate"        "1.30"     // Speed of attack.
+	    "AttackAnimationPoint"    "0.3"   // Normalized time in animation cycle to attack.
+	    "AttackAcquisitionRange"  "600"   // Range within a target can be acquired.
+	    "AttackRange"       "600"   // Range within a target can be attacked.
+	
+	    // Bounty
+	    //----------------------------------------------------------------
+	    "BountyXP"          "40"     // Experience earn.
+	    "BountyGoldMin"       "3"     // Gold earned min.
+	    "BountyGoldMax"       "4"     // Gold earned max.
+	
+	    // Bounds
+	    //----------------------------------------------------------------
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SMALL"      // Hull type used for navigation/locomotion.
+	
+	    // Movement
+	    //----------------------------------------------------------------
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_NONE"     // Type of locomotion - ground, air
+	    "MovementSpeed"       "0"   // Speed
+	    "MovementTurnRate"      "0.6"   // Turning rate.
+	    "FollowRange"       "250"   // Distance to keep when following
+	
+	    // Status
+	    //----------------------------------------------------------------
+	    "StatusHealth"        "5000"     // Base health.
+	    "StatusHealthRegen"     "0.25"     // Health regeneration rate.
+	    "StatusMana"        "0"     // Base mana.
+	    "StatusManaRegen"     "0"     // Mana regeneration rate.
+	
+	    
+	    // Vision
+	    //----------------------------------------------------------------
+	    "VisionDaytimeRange"    "1000"   // Range of vision during day light.
+	    "VisionNighttimeRange"    "1200"   // Range of vision at night time.
+	
+	    // Bots
+	    //----------------------------------------------------------------
+	    "AttackDesire"        "1.5"   // How much bots want to attack them vs other non-hero things
+	  }  
+	//HEROS
+	"npc_serpentine_ward_III"
+	  {
+	    // General
+	    "BaseClass"         "npc_dota_creature"  // Class of entity of link to.
+	    "Model"             "models/heroes/shadowshaman/shadowshaman_totem.vmdl"  // Model.
+	    "Level"             "2"
+	    "ModelScale"                    "0.90"
+	    "AutoAttacksByDefault"         "1"
+	    "ProjectileModel"           "particles/units/heroes/hero_shadowshaman/shadow_shaman_ward_base_attack.vpcf" // Particle system model for projectile.
+	    "ProjectileSpeed"           "900"       // Speed of projectile.
+	    
+	    // Abilities
+	    //----------------------------------------------------------------
+	    
+	    "Ability1"          "neutral_spell_immunity"     // Ability 1.
+	    "Ability2"          ""      // Ability 2.
+	    "Ability3"          ""      // Ability 3.
+	    "Ability4"          ""      // Ability 4.
+	    "Ability5"          ""      // Ability 5.
+	    "Ability6"          ""      // Ability 6 - Extra.
+	    "Ability7"          ""      // Ability 7 - Extra.
+	    "Ability8"          ""      // Ability 8 - Extra.
+	
+	    // Armor
+	    //----------------------------------------------------------------
+	    "ArmorPhysical"       "13"     // Physical protection.
+	    "MagicalResistance"       "0"     // Magical protection.
+	
+	    // Attack
+	    //----------------------------------------------------------------
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"    // Type of attack - melee, ranged, etc.
+	
+	    "AttackDamageMin"     "401"     // Damage range min.
+	    "AttackDamageMax"     "405"     // Damage range max.
+	    "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
+	    "AttackRate"        "0.9"     // Speed of attack.
+	    "AttackAnimationPoint"    "0.3"   // Normalized time in animation cycle to attack.
+	    "AttackAcquisitionRange"  "600"   // Range within a target can be acquired.
+	    "AttackRange"       "600"   // Range within a target can be attacked.
+	
+	    // Bounty
+	    //----------------------------------------------------------------
+	    "BountyXP"          "40"     // Experience earn.
+	    "BountyGoldMin"       "3"     // Gold earned min.
+	    "BountyGoldMax"       "4"     // Gold earned max.
+	
+	    // Bounds
+	    //----------------------------------------------------------------
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SMALL"      // Hull type used for navigation/locomotion.
+	
+	    // Movement
+	    //----------------------------------------------------------------
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_NONE"     // Type of locomotion - ground, air
+	    "MovementSpeed"       "0"   // Speed
+	    "MovementTurnRate"      "0.6"   // Turning rate.
+	    "FollowRange"       "250"   // Distance to keep when following
+	
+	    // Status
+	    //----------------------------------------------------------------
+	    "StatusHealth"        "10000"     // Base health.
+	    "StatusHealthRegen"     "0.25"     // Health regeneration rate.
+	    "StatusMana"        "0"     // Base mana.
+	    "StatusManaRegen"     "0"     // Mana regeneration rate.
+	
+	    
+	    // Vision
+	    //----------------------------------------------------------------
+	    "VisionDaytimeRange"    "1000"   // Range of vision during day light.
+	    "VisionNighttimeRange"    "1200"   // Range of vision at night time.
+	
+	    // Bots
+	    //----------------------------------------------------------------
+	    "AttackDesire"        "1.5"   // How much bots want to attack them vs other non-hero things
+	  }  
+	//HEROS
+	"npc_serpentine_ward_IV"
+	  {
+	    // General
+	    "BaseClass"         "npc_dota_creature"  // Class of entity of link to.
+	    "Model"             "models/heroes/shadowshaman/shadowshaman_totem.vmdl"  // Model.
+	    "Level"             "2"
+	    "ModelScale"                    "1.0"
+	    "AutoAttacksByDefault"         "1"
+	    "ProjectileModel"           "particles/units/heroes/hero_shadowshaman/shadow_shaman_ward_base_attack.vpcf" // Particle system model for projectile.
+	    "ProjectileSpeed"           "900"       // Speed of projectile.
+	    
+	    // Abilities
+	    //----------------------------------------------------------------
+	    
+	    "Ability1"          "neutral_spell_immunity"     // Ability 1.
+	    "Ability2"          ""      // Ability 2.
+	    "Ability3"          ""      // Ability 3.
+	    "Ability4"          ""      // Ability 4.
+	    "Ability5"          ""      // Ability 5.
+	    "Ability6"          ""      // Ability 6 - Extra.
+	    "Ability7"          ""      // Ability 7 - Extra.
+	    "Ability8"          ""      // Ability 8 - Extra.
+	
+	    // Armor
+	    //----------------------------------------------------------------
+	    "ArmorPhysical"       "21"     // Physical protection.
+	    "MagicalResistance"       "0"     // Magical protection.
+	
+	    // Attack
+	    //----------------------------------------------------------------
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"    // Type of attack - melee, ranged, etc.
+	
+	    "AttackDamageMin"     "551"     // Damage range min.
+	    "AttackDamageMax"     "555"     // Damage range max.
+	    "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
+	    "AttackRate"        "0.3"     // Speed of attack.
+	    "AttackAnimationPoint"    "0.3"   // Normalized time in animation cycle to attack.
+	    "AttackAcquisitionRange"  "600"   // Range within a target can be acquired.
+	    "AttackRange"       "600"   // Range within a target can be attacked.
+	
+	    // Bounty
+	    //----------------------------------------------------------------
+	    "BountyXP"          "40"     // Experience earn.
+	    "BountyGoldMin"       "3"     // Gold earned min.
+	    "BountyGoldMax"       "4"     // Gold earned max.
+	
+	    // Bounds
+	    //----------------------------------------------------------------
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SMALL"      // Hull type used for navigation/locomotion.
+	
+	    // Movement
+	    //----------------------------------------------------------------
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_NONE"     // Type of locomotion - ground, air
+	    "MovementSpeed"       "0"   // Speed
+	    "MovementTurnRate"      "0.6"   // Turning rate.
+	    "FollowRange"       "250"   // Distance to keep when following
+	
+	    // Status
+	    //----------------------------------------------------------------
+	    "StatusHealth"        "20000"     // Base health.
+	    "StatusHealthRegen"     "0.25"     // Health regeneration rate.
+	    "StatusMana"        "0"     // Base mana.
+	    "StatusManaRegen"     "0"     // Mana regeneration rate.
+	
+	    
+	    // Vision
+	    //----------------------------------------------------------------
+	    "VisionDaytimeRange"    "1000"   // Range of vision during day light.
+	    "VisionNighttimeRange"    "1200"   // Range of vision at night time.
+	
+	    // Bots
+	    //----------------------------------------------------------------
+	    "AttackDesire"        "1.5"   // How much bots want to attack them vs other non-hero things
 	  }  
 	"npc_shaman"
 	   	 	{

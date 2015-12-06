@@ -12,7 +12,7 @@
     "Ability1"        "magtheridon_medium"
     "Ability2"        "neutral_evasion" 
     "Ability3"        "neutral_critical"
-    "Ability4"        "difficulty_upgrade"
+    "Ability4"        "difficulty_upgrade_boss"
     "Ability5"        ""
     "Ability6"        ""
     "Ability7"        ""

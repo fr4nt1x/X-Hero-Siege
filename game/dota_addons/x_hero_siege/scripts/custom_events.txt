@@ -67,6 +67,15 @@
 		"hero_index"					"short"
 		"stun_duration"					"float"
 	}
+
+	"make_base_towers_invulnerable"
+	{
+	}
+
+	"make_base_towers_vulnerable"
+	{
+	}
+
 	"destroy_door"
 	{
 		"door_name"					"string"

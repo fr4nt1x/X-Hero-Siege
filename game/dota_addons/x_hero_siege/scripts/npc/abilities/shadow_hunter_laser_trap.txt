@@ -1,0 +1,62 @@
+"shadow_hunter_laser_trap"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
+
+    "MaxLevel"              "2"
+    "RequiredLevel"        "10"
+    "LevelsBetweenUpgrades" "5"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.25"
+    "AbilityCooldown"  "25"
+    "AbilityManaCost"  "30"
+    "AbilityTextureName" "techies_stasis_trap"
+    "AbilityCastRange"  "600"
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+        {
+          "var_type" "FIELD_INTEGER"
+          "duration" "120 120"
+        }
+    }
+
+    "precache"
+    {
+      "model"     "models/heroes/techies/fx_techiesfx_stasis.vmdl"
+      "particle"  "particles/units/heroes/hero_razor/razor_base_attack.vpcf"
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "heroes/hero_shadow_hunter/ward.lua"
+        "Function"    "spawn_laser_trap"
+        "Target"      "POINT"
+      }
+    }
+    "Modifiers"
+    {
+        "modifier_laser_trap"
+        {
+            "Passive"            "0"
+            "IsHidden"            "1"
+            "IsDebuff"            "0"
+
+            "States"
+            {
+                "MODIFIER_STATE_LOW_ATTACK_PRIORITY"        "MODIFIER_STATE_VALUE_ENABLED"
+            }
+        }
+    }
+  }

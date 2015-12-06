@@ -17,7 +17,7 @@
     "Ability5"        "arthas_holy_light"
     "Ability6"        "arthas_knights_armor"
     "Ability7"        "arthas_spawn_banehallow"
-    "Ability8"        ""
+    "Ability8"        "difficulty_upgrade_boss"
     "Ability9"        ""
     "Ability10"       ""
     "Ability11"       ""

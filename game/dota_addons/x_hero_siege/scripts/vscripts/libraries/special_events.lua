@@ -22,6 +22,8 @@ function specialEventRoshan()
     end
   end
 
+  FireGameEventLocal("make_base_towers_invulnerable", {})
+
   Timers:CreateTimer(SpecialEventRoshanDuration+5,stopEventRoshan)
 
   local heroes = HeroList:GetAllHeroes()
@@ -75,6 +77,8 @@ function endSpecialEventRoshan()
       unit:RemoveModifierByName("modifier_invulnerable")
     end
   end
+  
+  FireGameEventLocal("make_base_towers_vulnerable", {})
 
   local heroes = HeroList:GetAllHeroes()
 
@@ -131,7 +135,9 @@ function specialEventArena()
       unit:AddNewModifier(nil, nil, "modifier_invulnerable", {IsHidden = true})
     end
   end
-  
+
+  FireGameEventLocal("make_base_towers_invulnerable", {})
+
   Timers:CreateTimer(SpecialArenaDuration+5,endSpecialArena)
 
   GameRules:GetGameModeEntity():SetFixedRespawnTime(SpecialArenaDuration+5)
@@ -196,11 +202,11 @@ function endSpecialArena()
     if IsValidAlive(unit) then
       unit:RemoveModifierByName("modifier_stunned")
       unit:RemoveModifierByName("modifier_invulnerable")
-      unit:RemoveModifierByName("modifier_stunned")
-      unit:RemoveModifierByName("modifier_invulnerable")
     end
   end
-  
+
+  FireGameEventLocal("make_base_towers_vulnerable", {})
+
   FireGameEventLocal("teleport_all_units_to_hero",{stun_duration = 0.5})
 
   --FindUnitsInRadius( iTeamNumber, vPosition, hCacheUnit, flRadius, iTeamFilter, iTypeFilter, iFlagFilter, iOrder, bCanGrowCache )
@@ -240,7 +246,9 @@ function startKillEvent(hero)
     unit:AddNewModifier(nil, nil, "modifier_stunned", {IsHidden = true})
     unit:AddNewModifier(nil, nil, "modifier_invulnerable", {IsHidden = true})
   end
-  
+
+  FireGameEventLocal("make_base_towers_invulnerable", {})
+
   GameRules:GetGameModeEntity():SetFixedRespawnTime(SpecialEventKillsDuration)
   local units = FindUnitsInRadius( DOTA_TEAM_GOODGUYS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
   
@@ -288,6 +296,8 @@ function endKillEvent(event)
     unit:RemoveModifierByName("modifier_stunned")
     unit:RemoveModifierByName("modifier_invulnerable")
   end
+
+  FireGameEventLocal("make_base_towers_vulnerable", {})
 
   local hero = EntIndexToHScript(event.hero_index)
   
@@ -344,6 +354,8 @@ function startWaveKillEvent(hero)
     unit:AddNewModifier(nil, nil, "modifier_invulnerable", {IsHidden = true})
   end
 
+  FireGameEventLocal("make_base_towers_invulnerable", {})
+
   local units = FindUnitsInRadius( DOTA_TEAM_GOODGUYS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
   
   for _,unit in pairs(units) do
@@ -399,6 +411,8 @@ function endWaveKillEvent(event)
     unit:RemoveModifierByName("modifier_invulnerable")
   end
 
+  FireGameEventLocal("make_base_towers_vulnerable", {})
+  
   local hero = EntIndexToHScript(event.hero_index)
   
   if IsValidAlive(GameMode.baristal) then

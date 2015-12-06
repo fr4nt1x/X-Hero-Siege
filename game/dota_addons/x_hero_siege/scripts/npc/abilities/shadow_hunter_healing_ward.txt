@@ -1,0 +1,99 @@
+"shadow_hunter_healing_ward"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
+    "MaxLevel"              "1"
+    
+    "RequiredLevel"        "-1"
+    "LevelsBetweenUpgrades" "1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.25"
+    "AbilityCastRange"  "600"
+    "AbilityCooldown"  "15"
+    "AbilityManaCost"  "200"
+    "AbilityTextureName" "juggernaut_healing_ward"
+
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "heal_amount"  "2"
+      }
+      "02"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "aura_radius"  "500"
+      }
+
+      "03"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "duration"   "30"
+      }
+    }
+
+    "precache"
+    {
+      "model"     "models/heroes/juggernaut/jugg_healing_ward.vmdl"
+      "particle"  "particles/econ/items/juggernaut/bladekeeper_healing_ward/juggernaut_healing_ward_dc.vpcf"
+      "particle"  "particles/items2_fx/tranquil_boots_healing.vpcf"
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "heroes/hero_shadow_hunter/ward.lua"
+        "Function"    "spawn_healing_ward"
+        "Target"      "POINT"
+      }
+    }
+    "Modifiers"
+    {
+      "modifier_healing_ward_aura"
+      {
+        "Passive"      "0"
+        "IsHidden"      "1"
+        "IsDebuff"      "0"
+    
+        "EffectName"    "particles/econ/items/juggernaut/bladekeeper_healing_ward/juggernaut_healing_ward_dc.vpcf"
+        "EffectAttachType"  "follow_origin"
+
+        "Aura"        "modifier_healing_ward_buff"
+        "Aura_Radius"     "%aura_radius"
+        "Aura_Teams"    "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "Aura_Types"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "States"
+        {
+          "MODIFIER_STATE_LOW_ATTACK_PRIORITY"    "MODIFIER_STATE_VALUE_ENABLED"
+        }
+      }
+
+      "modifier_healing_ward_buff"
+      {
+        "Passive"      "0"
+        "IsHidden"      "0"
+        "IsDebuff"      "0"
+      
+        "EffectName"    "particles/items2_fx/tranquil_boots_healing.vpcf"
+        "EffectAttachType"  "follow_origin"
+      
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%heal_amount"
+        }
+
+
+      }
+    }
+  }

@@ -14,7 +14,7 @@
     "Ability2"        "endurance_aura" 
     "Ability3"        "neutral_spell_immunity"
     "Ability4"        "proudmoore_hex"
-    "Ability5"        ""
+    "Ability5"        "difficulty_upgrade_boss"
     "Ability6"        ""
     "Ability7"        ""
     "Ability8"        ""

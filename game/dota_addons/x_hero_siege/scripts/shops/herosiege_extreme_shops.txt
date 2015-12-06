@@ -1,0 +1,91 @@
+"dota_shops"
+{
+  "consumables"
+  {
+    "item" "item_ankh"
+    "item" "item_summon_ursa"
+    "item" "item_morbid_mask"
+    "item"  "item_boots_of_speed"
+    "item"  "item_cloak_of_immolation"
+    "item"  "item_claws_of_attack"
+    "item"  "item_bracers_of_protection"
+    "item"  "item_dagger_of_assassination"
+    "item"  "item_talisman_of_evasion"
+           
+  }
+
+  "attributes"
+  {
+
+  }
+
+  "weapons_armor"
+  {
+
+  }
+      
+  "misc"
+  {
+  
+  } 
+  
+  // Level 1 - Green Recipes
+  "basics"
+  {
+ 
+  }
+
+  // Level 2 - Blue Recipes
+  "support"
+  {
+
+  }
+        
+  "magics"      
+  {
+
+  }
+    
+  // Level 3 - Purple Recipes 
+  "defense"
+  {
+  
+  }
+      
+  "weapons"
+  {
+          
+          
+  }
+    
+  // Level 4 - Orange / Orb / Artifacts       
+  "artifacts"
+  { 
+   
+  }
+
+  "sideshop1"
+  {
+        "item" "item_healing_pot"
+        "item" "item_mana_pot"
+
+        "item" "item_tome_small"
+        "item" "item_tome_big"
+        "item" "item_tome_all"
+
+
+        "item"  "item_potion_of_spell_immunity"
+        "item"  "item_potion_of_invulnerability"
+
+  }
+
+  "sideshop2"
+  {
+
+  }
+  
+  "secretshop"
+  {             
+
+  } 
+}

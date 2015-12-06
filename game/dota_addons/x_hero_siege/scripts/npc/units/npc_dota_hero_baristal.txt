@@ -14,7 +14,7 @@
     "Ability2"        "demonhunter_vampiric_aura" 
     "Ability3"        "arthas_holy_light"
     "Ability4"        "ramero_baristal"
-    "Ability5"        ""
+    "Ability5"        "difficulty_upgrade_boss"
     "Ability6"        ""
     "Ability7"        ""
     "Ability8"        ""

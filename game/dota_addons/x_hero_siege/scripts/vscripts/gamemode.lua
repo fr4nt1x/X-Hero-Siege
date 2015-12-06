@@ -46,7 +46,8 @@ local AbilitiesHeroes = {npc_dota_hero_antimage = "demonhunter_roar",
                     npc_dota_hero_phantom_assassin = "blink",
                     npc_dota_hero_zuus = "mountain_king_thunderspirit",
                     npc_dota_hero_juggernaut = "blademaster_berserk",
-                    npc_dota_hero_windrunner = "windrunner_healing"}
+                    npc_dota_hero_windrunner = "windrunner_healing",
+                    npc_dota_hero_shadow_shaman = "shadow_hunter_healing_ward"}
 --[[
   This function should be used to set up Async precache calls at the beginning of the gameplay.
 
@@ -118,6 +119,8 @@ function GameMode:OnAllPlayersLoaded()
       GameMode.openLanes["spawn"..i] = "wp_p"..i.."_1"
     end
   end
+
+
 end
 
 --[[
@@ -236,6 +239,9 @@ function GameMode:OnGameInProgress()
   Timers:CreateTimer(30,printEvents)
   GameMode.FrostInfernalDead = false
   GameMode.SpiritBeastDead = false
+
+  local diff = {"Easy","Normal","Hard","Extreme"}
+  Notifications:TopToAll({text="DIFFICULTY:"..diff[GameRules:GetCustomGameDifficulty()], duration=10.0})
 end
 
 

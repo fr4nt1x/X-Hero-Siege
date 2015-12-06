@@ -1,0 +1,34 @@
+"shadow_hunter_vodoo_eyes"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"              "4"
+    "RequiredLevel"        "8"
+    "LevelsBetweenUpgrades" "2"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityTextureName" "faceless_void_backtrack"
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "bonus_evasion"      "15 20 25 30"
+      }
+    }
+    "Modifiers"
+    {
+      "modifier_evasion"
+      {
+        "Passive" "1"
+        "IsHidden" "1"
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_EVASION_CONSTANT" "%bonus_evasion" 
+        }
+      }
+    }
+  }

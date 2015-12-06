@@ -18,7 +18,7 @@
     "Ability6"        "banehallow_permanent_immolation"
     "Ability7"        "spirit_beast_thorns"
     "Ability8"        "beasts_special_event"
-    "Ability9"        ""
+    "Ability9"        "difficulty_upgrade_boss"
     "Ability10"       ""
     "Ability11"       ""
     "Ability12"       ""

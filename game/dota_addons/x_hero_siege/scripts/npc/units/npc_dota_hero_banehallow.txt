@@ -18,7 +18,7 @@
     "Ability4"        "neutral_critical"
     "Ability5"        "banehallow_permanent_immolation"
     "Ability6"        "banehallow_victory"
-    "Ability7"        ""
+    "Ability7"        "difficulty_upgrade_boss"
     "Ability8"        ""
     "Ability9"        ""
     "Ability10"       ""

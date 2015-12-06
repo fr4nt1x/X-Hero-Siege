@@ -1,0 +1,63 @@
+
+  "shadow_hunter_land_mine"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"             "techies_land_mines"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
+    "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_YES"
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"        "200"
+    "AbilityCastPoint"        "0.0 0.0 0.0 0.0"
+    
+    // Time   
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"       "20 15 10 5"
+  
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"       "50 100 150 200"
+
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "damage"          "1000 2000 4000 10000"
+      }
+      "02"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "small_radius"        "200"
+      }
+      "03"
+      {
+        "var_type"          "FIELD_INTEGER"
+        "big_radius"        "500"
+      }
+      "04"
+      {
+        "var_type"          "FIELD_FLOAT"
+        "activation_time"     "0.5"
+      }
+      "05"
+      {
+        "var_type"          "FIELD_FLOAT"
+        "explode_delay"       "0.3"
+      }
+      "06"
+      {
+        "var_type"          "FIELD_FLOAT"
+        "fade_time"         "2.0"
+      }   
+    }
+    "precache"
+      {
+        "model" "models/heroes/techies/fx_techiesfx_mine.vmdl"
+      }
+  }

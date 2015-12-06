@@ -16,7 +16,7 @@
     "Ability4"        "grom_hellscream_bladefury"
     "Ability5"        "top_bosses_gates"
     "Ability6"        "grom_hellscream_buff"
-    "Ability7"        ""
+    "Ability7"        "difficulty_upgrade_boss"
     "Ability8"        ""
     "Ability9"        ""
     "Ability10"       ""

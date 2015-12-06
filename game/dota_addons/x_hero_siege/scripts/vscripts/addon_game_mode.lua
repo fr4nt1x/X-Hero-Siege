@@ -39,6 +39,8 @@ function Precache( context )
   PrecacheItemByNameSync("lich_frost_frenzy", context)
   PrecacheItemByNameSync("blademaster_berserk", context)
   PrecacheItemByNameSync("windrunner_healing", context)
+  PrecacheItemByNameSync("shadow_hunter_healing_ward", context)
+  
   -- Entire heroes (sound effects/voice/models/particles) can be precached with PrecacheUnitByNameSync
   -- Custom units from npc_units_custom.txt can also have all of their abilities and precache{} blocks precached in this way
   PrecacheUnitByNameSync("npc_dota_hero_demonhunter", context)
@@ -67,6 +69,11 @@ function Precache( context )
   PrecacheUnitByNameSync("npc_carrion_beetle_II", context)
   PrecacheUnitByNameSync("npc_carrion_beetle_III", context)
   PrecacheUnitByNameSync("npc_carrion_beetle_IV", context)
+  
+  PrecacheUnitByNameSync("npc_serpentine_ward_I", context)
+  PrecacheUnitByNameSync("npc_serpentine_ward_II", context)
+  PrecacheUnitByNameSync("npc_serpentine_ward_III", context)
+  PrecacheUnitByNameSync("npc_serpentine_ward_IV", context)
 
   PrecacheUnitByNameSync("npc_ursa", context)
   PrecacheUnitByNameSync("npc_death_ghost_tower", context)

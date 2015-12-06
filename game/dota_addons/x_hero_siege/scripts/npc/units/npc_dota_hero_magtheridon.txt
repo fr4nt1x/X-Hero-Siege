@@ -15,7 +15,7 @@
     "Ability4"        "magtheridon_thunderclap"
     "Ability5"        "howl_of_terror"
     "Ability6"        "neutral_spell_immunity"
-    "Ability7"        ""
+    "Ability7"        "difficulty_upgrade_boss"
     "Ability8"        ""
     "Ability9"        ""
     "Ability10"       ""

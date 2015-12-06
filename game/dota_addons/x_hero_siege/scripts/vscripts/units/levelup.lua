@@ -16,6 +16,7 @@ function upgrade_unit(event)
 		local end_index = (GameMode.level_state.level-2)^2
 		local amount_of_stack = math.floor((end_index+1)*end_index*0.5)
 		unit:SetModifierStackCount("modifier_upgrade", unit, amount_of_stack)
+		unit:SetMaxHealth(unit:GetMaxHealth() +amount_of_stack*health_bonus)
 		unit:SetBaseMaxHealth(unit:GetMaxHealth() +amount_of_stack*health_bonus)
 		unit:SetHealth(unit:GetMaxHealth())
 

@@ -1,0 +1,62 @@
+"shadow_hunter_serpentine_ward"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
+
+    "MaxLevel"              "4"
+    "RequiredLevel"        "-1"
+    "LevelsBetweenUpgrades" "3"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.25"
+    "AbilityCooldown"  "6"
+    "AbilityManaCost"  "30"
+    "AbilityTextureName" "shadow_shaman_mass_serpent_ward"
+    "AbilityCastRange"  "600"
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+        {
+          "var_type" "FIELD_INTEGER"
+          "duration" "40 40 40 40"
+        }
+    }
+
+    "precache"
+    {
+
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "heroes/hero_shadow_hunter/ward.lua"
+        "Function"    "spawn_ward"
+        "Target"      "POINT"
+      }
+    }
+
+    "Modifiers"
+    {
+        "modifier_serpentine_ward"
+        {
+            "Passive"            "0"
+            "IsHidden"            "1"
+            "IsDebuff"            "0"
+
+            "States"
+            {
+                "MODIFIER_STATE_LOW_ATTACK_PRIORITY"        "MODIFIER_STATE_VALUE_ENABLED"
+            }
+        }
+    }
+  }

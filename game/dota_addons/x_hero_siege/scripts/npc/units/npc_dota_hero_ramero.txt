@@ -14,7 +14,7 @@
     "Ability2"        "proudmoore_divine_shield" 
     "Ability3"        "dryad_endurance_aura"
     "Ability4"        "ramero_baristal"
-    "Ability5"        ""
+    "Ability5"        "difficulty_upgrade_boss"
     "Ability6"        ""
     "Ability7"        ""
     "Ability8"        ""

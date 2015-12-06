@@ -5,23 +5,31 @@ HEROES:
 IMPLEMENTED:
 ############################################################################################
 
-	Naisha
+	Naisha 						NEUTRALISATION
 
 	Demonhunter
 
-	Priestress of the Moon
+	Priestress of the Moon 		LIGHTNING CHAOS
 
-	Crypt Lord 				BURROW IMPALE mächtiger
+	Crypt Lord 					BURROW IMPALE mächtiger
 
-	Tyrande (Dryad)			ZAUBER IMMUNITÄT
+	Tyrande (Dryad)				ZAUBER IMMUNITÄT
+
+	Warden (PA)
+	
+	Lich   						FROST CHAOS
+
+	Blademaster					PARTITION
+
+	Mountain king 				UPGRADED SPEllS
+
+	Sylvanas Windrunner
 
 ############################################################################################
 IN WORKING PROGRESS
 ############################################################################################
 	
-	Warden (PA)
-	
-	Lich   													FROST CHAOS
+	Shadow hunter (shaman)									HEX NEUTRAL FEINDLICH
 	
 ############################################################################################
 NOT IMPLEMENTED:
@@ -29,19 +37,11 @@ NOT IMPLEMENTED:
 	
 	Paladin 												LIGHT FRENZY
 
-
-
 	Archmage												WATER SHIELD
-
-	Mountain king
 
 	Bloodmage
 
-	Blademaster	
-
 	Tauren Chieftain
-
-	Shadow hunter (shaman)									HEX NEUTRAL FEINDLICH
 
 
 
@@ -51,15 +51,13 @@ NOT IMPLEMENTED:
 
 	Pit lord
 
-	Pandaren Brewmaster 									PARTITION
+	Pandaren Brewmaster 									
 
 	Kil'jaeden (shadow demon)
 
 	Arthas													KNIGHTS ARMOR
 
 	Jaina (Crystal maiden)
-
-	Sylvanas Windrunner
 
 	Marine
 

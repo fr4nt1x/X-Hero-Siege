@@ -11,7 +11,7 @@
     "Level"						"10"
     "AbilityLayout"             "6"
     
-    "Ability1"        ""
+    "Ability1"        "difficulty_upgrade_boss"
     "Ability2"        "grom_devotion_aura" 
     "Ability3"        "neutral_spell_immunity"
     "Ability4"        "demonhunter_vampiric_aura"

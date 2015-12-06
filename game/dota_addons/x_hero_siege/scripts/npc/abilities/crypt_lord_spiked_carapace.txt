@@ -49,6 +49,10 @@
               "Attack_Damage" "%attack_damage"
             }
           }
+          "Properties"
+          {
+            "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
+          }
         }
     }
   }

@@ -64,7 +64,7 @@
     {
       "RunScript"
       {
-        "ScriptFile"  "heroes/moon_priest/monsoon.lua"
+        "ScriptFile"  "heroes/hero_moon_priest/monsoon.lua"
         "Function"    "channel_end"
       }
     }
@@ -73,13 +73,13 @@
       {
         "modifier_monsoon"
         {
-        	"EffectName" "particles/moon_priest_monsoon.vpcf"
+        	"EffectName" "particles/hero_moon_priest.vpcf"
         	"EffectAttachType" "follow_origin"
         	"OnCreated"
         	{
         		"RunScript"
           		{
-          			"ScriptFile"	"heroes/moon_priest/monsoon.lua"
+          			"ScriptFile"	"heroes/hero_moon_priest/monsoon.lua"
           			"Function"		"modifier_start"
           		}
         	}

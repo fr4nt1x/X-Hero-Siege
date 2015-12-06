@@ -89,6 +89,11 @@ function GameMode:OnGameRulesStateChange(keys)
 
       print(category .. ": " .. highest_key)
     end
+    
+    print(GetMapName())
+    if GetMapName() == "herosiege_extreme" then
+      GameRules:SetCustomGameDifficulty(4)
+    end
   end
 end
 
@@ -101,8 +106,7 @@ function GameMode:OnSettingVote(keys)
   -- VoteTable is initialised in InitGameMode()
   if not mode.VoteTable[keys.category] then mode.VoteTable[keys.category] = {} end
   mode.VoteTable[keys.category][pid] = keys.vote
-
-
+  
   --PrintTable(mode.VoteTable)
 end
 

@@ -5,7 +5,7 @@ function GameMode:OnTeleportHeroToSpecialEvent(keys)
   local teleport_point = EntIndexToHScript(keys.teleport_entity_index) 
   local hero = EntIndexToHScript(keys.hero_index)
 
-  if IsValidEntity(hero) and IsValidEntity(teleport_point) then
+  if IsValidEntity(hero) and IsValidEntity(teleport_point) and  hero:IsRealHero() then
 
   	hero:Stop()
     hero.in_special_event = true
@@ -43,7 +43,8 @@ function GameMode:OnTeleportHeroFromSpecialEvent(keys)
   if stun_duration == nil then 
   	stun_duration = 1
   end
-  if IsValidEntity(hero) then
+
+  if IsValidEntity(hero) and hero:IsRealHero() then
 
   	hero:Stop()
     hero.in_special_event = false
@@ -81,7 +82,7 @@ function GameMode:TeleportUnitsToHero(keys)
 
   for _,v in pairs(units) do
     
-    if not v:IsRealHero() and IsValidAlive(v) then
+    if not v:IsRealHero() and IsValidAlive(v) and v:HasMovementCapability() then
 		local playerOwner = v:GetPlayerOwner()
 		if playerOwner == nil then
 			playerOwner = PlayerResource:GetPlayer(v:GetPlayerOwnerID())
@@ -116,7 +117,7 @@ function GameMode:ReturnUnitsOfHero(keys)
 	  
 	for _,v in pairs(units) do
 	    
-	    if not v:IsRealHero() and IsValidAlive(v) then
+	    if not v:IsRealHero() and IsValidAlive(v) and v:HasMovementCapability() then
 			local playerOwner = v:GetPlayerOwner()
 			if playerOwner == nil then
 				playerOwner = PlayerResource:GetPlayer(v:GetPlayerOwnerID())
@@ -132,6 +133,40 @@ function GameMode:ReturnUnitsOfHero(keys)
   end
 end
 
+
+function GameMode:MakeBaseTowersInvulnerable( keys )
+  -- body
+  local towers = Entities:FindAllByName("tower_base")
+
+  for _,tower in pairs(towers) do
+    if IsValidAlive(tower) then
+      tower:AddNewModifier(nil, nil, "modifier_invulnerable", {})
+    end
+  end
+
+  local ancient = Entities:FindByName(nil, "dota_goodguys_fort") 
+  if not ancient:HasModifier("modifier_invulnerable") then
+    ancient:AddNewModifier(nil, nil, "modifier_invulnerable", {})
+    ancient.MadeInvulnerable = true
+  end
+end
+
+function GameMode:MakeBaseTowersVulnerable( keys )
+  -- body
+  local towers = Entities:FindAllByName("tower_base")
+
+  for _,tower in pairs(towers) do
+    if IsValidAlive(tower) then
+      tower:RemoveModifierByName("modifier_invulnerable")
+    end
+  end
+
+  local ancient = Entities:FindByName(nil, "dota_goodguys_fort") 
+  if ancient.MadeInvulnerable then
+    ancient:RemoveModifierByName("modifier_invulnerable")
+    ancient.MadeInvulnerable = nil
+  end
+end
 -- destroys door and grid obstructions
 function GameMode:DestroyDoor( keys )
   -- body

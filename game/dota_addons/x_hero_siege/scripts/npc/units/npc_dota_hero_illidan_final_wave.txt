@@ -15,7 +15,7 @@
     "HeroSelectSoundEffect"     "Hero_Antimage.Pick"
 
     "Ability1"        "demonhunter_negative_energy"
-    "Ability2"        "" 
+    "Ability2"        "difficulty_upgrade_boss" 
     "Ability3"        "demonhunter_evasion"
     "Ability4"        "grom_devotion_aura"
     "Ability5"        ""

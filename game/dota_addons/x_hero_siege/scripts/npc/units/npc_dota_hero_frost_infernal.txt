@@ -16,7 +16,7 @@
     "Ability4"        "endurance_aura"
     "Ability5"        "frost_infernal_frost_bolt"
     "Ability6"        "beasts_special_event"
-    "Ability7"        ""
+    "Ability7"        "difficulty_upgrade_boss"
     "Ability8"        ""
     "Ability9"        ""
     "Ability10"       ""

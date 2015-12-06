@@ -19,7 +19,7 @@
     "Ability6"        "balanar_rain_of_chaos"
     "Ability7"        "top_bosses_gates"
     "Ability8"        "balanar_buff"
-    "Ability9"        ""
+    "Ability9"        "difficulty_upgrade_boss"
     "Ability10"       ""
     "Ability11"       ""
     "Ability12"       ""

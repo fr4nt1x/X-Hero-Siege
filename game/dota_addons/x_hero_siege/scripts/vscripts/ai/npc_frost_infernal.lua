@@ -13,7 +13,6 @@ function InfernalThink()
 	if not IsValidAlive(thisEntity) then
 		return nil
 	elseif Ability_Frost_bolt:IsFullyCastable() then
-		print("can cast frost bolt")
 		--FindUnitsInRadius( iTeamNumber, vPosition, hCacheUnit, flRadius, iTeamFilter, iTypeFilter, iFlagFilter, iOrder, bCanGrowCache )
 		local units = FindUnitsInRadius(thisEntity:GetTeamNumber(), thisEntity:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO+DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)		
 		if units ~= nil then

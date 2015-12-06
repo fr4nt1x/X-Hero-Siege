@@ -115,7 +115,10 @@ function GameMode:_InitGameMode()
   ListenToGameEvent("teleport_all_units_to_hero",  Dynamic_Wrap(GameMode, "TeleportUnitsToHero"), self)
   ListenToGameEvent("return_units_of_hero",  Dynamic_Wrap(GameMode, "ReturnUnitsOfHero"), self)
   ListenToGameEvent("teleport_hero_from_special_event",  Dynamic_Wrap(GameMode, "OnTeleportHeroFromSpecialEvent"), self)
-  
+
+  ListenToGameEvent("make_base_towers_invulnerable",  Dynamic_Wrap(GameMode, "MakeBaseTowersInvulnerable"), self)
+  ListenToGameEvent("make_base_towers_vulnerable",  Dynamic_Wrap(GameMode, "MakeBaseTowersVulnerable"), self)
+
   ListenToGameEvent("destroy_door",  Dynamic_Wrap(GameMode, "DestroyDoor"), self)
   --ListenToGameEvent("dota_tutorial_shop_toggled", Dynamic_Wrap(GameMode, 'OnShopToggled'), self)
 

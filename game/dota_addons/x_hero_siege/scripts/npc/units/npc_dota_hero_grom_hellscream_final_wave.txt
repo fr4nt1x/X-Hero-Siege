@@ -12,7 +12,7 @@
     
     "Ability1"        "devotion_aura"
     "Ability2"        "neutral_critical" 
-    "Ability3"        ""
+    "Ability3"        "difficulty_upgrade_boss"
     "Ability4"        ""
     "Ability5"        ""
     "Ability6"        ""

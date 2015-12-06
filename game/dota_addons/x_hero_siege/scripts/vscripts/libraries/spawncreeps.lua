@@ -58,9 +58,6 @@ spawn_dragon = false
 
 function SpawnCreeps()
   --Delete the timers if the final wave is imminent
-
-
-  print('This round '.. creepround)
   local spawns = {}
 
   -- holds the names of the first waypoints for each lane
@@ -290,21 +287,29 @@ function FinalWave()
 
   for _,hero in pairs(heroes) do
 
-    if hero:GetTeam() == DOTA_TEAM_GOODGUYS then
+    if IsValidEntity(hero) and hero:IsRealHero() and hero:GetTeam() == DOTA_TEAM_GOODGUYS then
+
+      hero:Stop()
 
       if not hero:IsAlive() then
         hero:RespawnHero(false, false, false)
-      end
+        hero.ankh_respawn = false
+        hero:SetRespawnsDisabled(false)
       
-      hero:AddNewModifier(nil, nil, "modifier_stunned", {Duration = 4,IsHidden = true})
-      hero:AddNewModifier(nil, nil, "modifier_invulnerable", {Duration = 4,IsHidden = true})
+        if hero.respawn_timer ~= nil then
+          Timers:RemoveTimer(hero.respawn_timer)
+          hero.respawn_timer = nil
+        end
+      end
 
       FindClearSpaceForUnit(hero, point, true)
-      PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),hero)
-      Timers:CreateTimer(2,function () PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),nil) 
-                            end)
-    end
+      hero:AddNewModifier(nil, nil, "modifier_stunned", {Duration = 2,IsHidden = true})
+      hero:AddNewModifier(nil, nil, "modifier_invulnerable", {Duration = 2,IsHidden = true})
 
+      PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),hero)
+      Timers:CreateTimer(1,function () PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),nil) 
+                              end)
+    end
   end
 
   local teleporters = Entities:FindAllByName("teleport")
@@ -340,11 +345,14 @@ function spawn_creeps_top_first()
   if  numberOfTopWaves >= 12 then
     FireGameEventLocal("destroy_door", {door_name = "door_top_1", obstruction_name = "obstruction_top_1"})
     numberOfTopWaves = 0
+    TimeBetweenCreepWavesTop = 7
     return nil
   end
   
   if numberOfTopWaves >= 6 then
     creep = "npc_death_ghost_tower"
+    --one more as in top, because one gets substracted before finish
+    TimeBetweenCreepWavesTop = 8
   end
 
   for i = 1,4 do 
@@ -354,6 +362,7 @@ function spawn_creeps_top_first()
         CreateUnitByName(creep, point, true, nil, nil, DOTA_TEAM_NEUTRALS) 
       end 
   end
+  TimeBetweenCreepWavesTop = TimeBetweenCreepWavesTop-1
   return TimeBetweenCreepWavesTop 
 end
 
@@ -379,7 +388,7 @@ function spawn_creeps_top_second()
   if  numberOfTopWaves >= 12 then
     FireGameEventLocal("destroy_door", {door_name = "door_arthas", obstruction_name = "obstruction_arthas"})
     numberOfTopWaves = nil
-
+    TimeBetweenCreepWavesTop = 7
     local arthas = CreateUnitByName("npc_dota_hero_arthas",Entities:FindByName(nil,"spawn_arthas"):GetAbsOrigin(),true,nil,nil,DOTA_TEAM_NEUTRALS)
     arthas:SetAngles(0, 180, 0)
     
@@ -388,6 +397,8 @@ function spawn_creeps_top_second()
   
   if numberOfTopWaves >= 6 then
     creep = "npc_magnataur_final_wave"
+    --one more as in top, because one gets substracted before finish
+    TimeBetweenCreepWavesTop = 8
     number_of_creeps = 3
   end
 
@@ -398,6 +409,7 @@ function spawn_creeps_top_second()
         CreateUnitByName(creep, point, true, nil, nil, DOTA_TEAM_NEUTRALS) 
       end 
   end
+  TimeBetweenCreepWavesTop = TimeBetweenCreepWavesTop-1
   return TimeBetweenCreepWavesTop 
 end
 
