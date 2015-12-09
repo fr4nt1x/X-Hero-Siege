@@ -239,6 +239,9 @@ function GameMode:OnAbilityChannelFinished(keys)
   local interrupted = keys.interrupted == 1
 end
 
+--npc_dota_hero_antimage = {"blink",1}
+local AbilitiesHeroes_XX = {npc_dota_hero_antimage = {"blink",1}}
+
 -- A player leveled up
 function GameMode:OnPlayerLevelUp(keys)
   DebugPrint('[BAREBONES] OnPlayerLevelUp')
@@ -247,6 +250,7 @@ function GameMode:OnPlayerLevelUp(keys)
   local player = EntIndexToHScript(keys.player)
   local level = keys.level
   local hero = nil
+
   if player ~= nil then
     hero = player:GetAssignedHero()
   else
@@ -254,6 +258,14 @@ function GameMode:OnPlayerLevelUp(keys)
   end
   if level >= 19 then
     hero:SetAbilityPoints(hero:GetAbilityPoints()-1) 
+  end
+  if level == 20 then
+    local ability = AbilitiesHeroes_XX[hero:GetUnitName()]
+    if ability ~= nil   then
+      hero:AddAbility(ability[1])
+      hero:UpgradeAbility(hero:FindAbilityByName(ability[1]))
+      hero:SwapAbilities(hero:GetAbilityByIndex(ability[2]):GetName(),ability[1],true,true)
+    end 
   end
 end
 
@@ -511,12 +523,16 @@ function GameMode:OnPlayerChat(keys)
           --Only if crypt is alive
           local crypt = Entities:FindByName(nil, "crypt_p"..lane)
           if IsValidAlive(crypt) then
-            GameMode.openLanes["spawn"..lane] = "wp_p"..lane.."_1"
             local towers = Entities:FindAllByName("tower_p"..lane)
+            local lane_level = 3
             
-            for _,tower in pairs(towers)do
-            tower:RemoveModifierByName("modifier_invulnerable")
+            for _,tower in pairs(towers) do
+              tower:RemoveModifierByName("modifier_invulnerable")
+              lane_level = lane_level -1
             end 
+
+            GameMode.openLanes["spawn"..lane] = {waypoint = "wp_p"..lane.."_1" , lane_level=lane_level, creeps_per_spawn = {2,3,3,2,2}}
+      
           end
         end
       end
@@ -538,12 +554,15 @@ function GameMode:OnPlayerChat(keys)
           --Only if crypt is alive
           local crypt = Entities:FindByName(nil, "crypt_p"..lane)
           if IsValidAlive(crypt) then
-            GameMode.openLanes["spawn"..lane] = "wp_p"..lane.."_1"
             local towers = Entities:FindAllByName("tower_p"..lane)
-        
-            for _,tower in pairs(towers)do
-            tower:RemoveModifierByName("modifier_invulnerable")
+            local lane_level = 3
+            
+            for _,tower in pairs(towers) do
+              tower:RemoveModifierByName("modifier_invulnerable")
+              lane_level = lane_level - 1
             end 
+
+            GameMode.openLanes["spawn"..lane] = {waypoint = "wp_p"..lane.."_1" , lane_level=lane_level, creeps_per_spawn = {2,3,3,2,2}}
           end
         end
       end

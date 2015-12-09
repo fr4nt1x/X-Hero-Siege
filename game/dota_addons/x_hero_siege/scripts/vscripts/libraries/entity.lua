@@ -45,6 +45,47 @@ function killed_baracks( keys )
 	end
 end
 
+function killed_baracks( keys )
+	-- body
+	caller = keys.caller
+
+
+	Timers:CreateTimer(function()
+    	local unit = CreateUnitByName("npc_magnataur_destroyer_crypt", caller:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_NEUTRALS)
+      	unit:SetInitialGoalEntity(waypoint)
+      	end)
+	--find the lanenumber of the killed rax
+	local i,j = string.find(caller:GetName(),"%d")
+	local lane = string.sub(caller:GetName(),i,j)
+	GameMode.openLanes["spawn"..lane] = nil
+	local openlanes = 0
+	
+
+	--count the number of lanes that still spawn creeps
+	for _,v in pairs(GameMode.openLanes) do
+		openlanes = openlanes+1
+	end
+	--if there all the baracks of openlanes were killed start the countdown to the final wave
+
+	if  openlanes == 0 then
+		print("secondphase")
+		
+		Timers:RemoveTimer(GameMode.timers.timer_creep_spawn)
+		GameMode.timers.timer_creep_spawn = nil
+
+		GameMode.openLanes = nil
+		
+		local trigger = Entities:FindByName(nil,"trigger_phase2_left")
+		trigger:Enable()
+		local trigger = Entities:FindByName(nil,"trigger_phase2_right")
+		trigger:Enable()
+
+		GameMode.Phase2_openlanes = 0
+
+    	FireGameEventLocal("destroy_door", {door_name = "door_left", obstruction_name = "obstruction_left"})
+    	FireGameEventLocal("destroy_door", {door_name = "door_right", obstruction_name = "obstruction_right"})
+	end
+end
 function trigger_second_wave_left()
 	-- body
 	DoEntFire("trigger_phase2_left","Kill",nil,0,nil,nil)
@@ -184,6 +225,13 @@ function spawn_deathghost( event )
     	local unit = CreateUnitByName("npc_death_ghost_tower", caller:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_NEUTRALS)
       	unit:SetInitialGoalEntity(waypoint)
       	end)
+
+ 	local text = caller:GetName()
+
+ 	local i,j = string.find(text,"%d")
+ 	local lane = tonumber(string.sub(text,i,j))
+ 	GameMode.openLanes["spawn"..lane]["lane_level"] = GameMode.openLanes["spawn"..lane]["lane_level"] +1
+
 end
 
 function start_top_waves( event )

@@ -1,0 +1,99 @@
+"paladin_terrifying_howl"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"       "ability_datadriven"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"      "vengefulspirit_wave_of_terror"
+    "AbilityUnitTargetTeam"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"        "0.5"
+
+    // Time   
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"       "20"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"       "100 125 150 175"
+    "MaxLevel"              "4"
+    "RequiredLevel"         "8"
+    "LevelsBetweenUpgrades" "3"
+
+    // Special  
+    //-------------------------------------------------------------------------------------------------------------
+      "AbilitySpecial"
+      {
+        "01"
+        {
+          "var_type"        "FIELD_FLOAT"
+          "duration"        "10"
+        }
+        "02"
+        {
+          "var_type"        "FIELD_INTEGER"
+          "radius"        "500"
+        }
+        "03"
+        {
+          "var_type"        "FIELD_INTEGER"
+          "damage_percent"        "-20 -30 -40 -50"
+        }
+       "04"
+        {
+          "var_type"        "FIELD_INTEGER"
+          "armor_reduction"        "-20 -40 -60 -80"
+        }
+      }
+
+   //precache
+      "precache"
+      {
+        "particle"  "particles/units/heroes/hero_lycan/lycan_howl_cast.vpcf"
+        "particle"  "particles/units/heroes/hero_vengeful/vengeful_wave_of_terror_recipient.vpcf"
+      }
+
+    //SpellStart
+    "OnSpellStart"
+    {
+        "ApplyModifier"
+        {
+            "ModifierName" "modifier_howl_of_terror_paladin"
+            "Target"
+            {
+              "Center"    "CASTER"
+              "Radius"   "%radius"
+              "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+              "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+            }
+        }
+        "FireEffect"
+        {
+          "EffectName"        "particles/units/heroes/hero_lycan/lycan_howl_cast.vpcf"
+          "EffectAttachType"  "follow_overhead"
+          "Target"            "CASTER"
+        }
+    }
+
+    "Modifiers"
+    {
+      "modifier_howl_of_terror_paladin"
+      {
+        "Duration" "%duration"
+        "EffectName" "particles/units/heroes/hero_vengeful/vengeful_wave_of_terror_recipient.vpcf"
+        "EffectAttachType" "attach_overhead"
+        
+        "IsPurgable"    "1"
+        "IsBuff"      "0"
+        "IsHidden" "0"
+        "IsDebuff"      "1"
+        
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%damage_percent"
+          "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"          "%armor_reduction"
+        }
+      }
+    }
+  }

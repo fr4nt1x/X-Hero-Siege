@@ -1,5 +1,72 @@
 "DOTAHeroes"
 {
+	"npc_dota_hero_archmage"
+		{
+			// General
+			//----------------------------------------------------------------
+			"override_hero"				"npc_dota_hero_keeper_of_the_light"	 //Add npc_dota_hero internal name
+			
+			// Abilities
+			//----------------------------------------------------------------
+			"Ability1"					"archmage_blizzard"	 //Reference: AInv
+			"Ability2"					"archmage_water_elemental"	 //Reference: AHbz
+			"Ability3"					"archmage_debilitation_aura"	 //Reference: AHab
+			"Ability4"					"archmage_frost_bolt"	 //Reference: AHwe
+			"Ability5"					""	 //Reference: AHmt
+			"Ability6"					"archmage_starfall"	 //Reference: AHmt
+			// Armor
+			//----------------------------------------------------------------
+			"ArmorPhysical"				"0"
+			"MagicalResistance"			"0"
+			
+			// Attack
+			//----------------------------------------------------------------
+			"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+			"AttackDamageMin"			"45.0"
+			"AttackDamageMax"			"55.0"
+			"AttackDamageType"			"DAMAGE_TYPE_PHYSICAL"
+			"AttackRate"				"2.13"
+			"AttackAnimationPoint"		"0.55"
+			"AttackAcquisitionRange"	"600"
+			"AttackRange"				"600"
+	
+			
+			// Attributes
+			//----------------------------------------------------------------
+			"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
+			"AttributeBaseStrength"		"14"
+			"AttributeStrengthGain"		"1.8"
+			"AttributeBaseIntelligence"	"24"
+			"AttributeIntelligenceGain"	"3.2"
+			"AttributeBaseAgility"		"17"
+			"AttributeAgilityGain"		"1"
+			
+			
+	
+			
+			// Movement
+			//----------------------------------------------------------------
+			"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+			"MovementSpeed"				"320"
+			"MovementTurnRate"			"0.5"
+			
+			// Status
+			//----------------------------------------------------------------
+			"StatusHealth"				"400"
+			"StatusHealthRegen"			"10.00"
+			"StatusMana"				"300"
+			"StatusManaRegen"			"5"
+			
+			// Vision
+			//----------------------------------------------------------------
+			"VisionDaytimeRange"		"1800"
+			"VisionNighttimeRange"		"1300"
+			
+	
+			
+			// Creature Data
+			//----------------------------------------------------------------
+		}
 	//=================================================================================
 	// Creature: Blademaster
 	// Description: "Cunning Hero, adept at quickly killing individual units and creating confusion among enemies. Can learn Mirror Image, Wind Walk, Critical Strike and Bladestorm. |n|n|cffffcc00Attacks land units.|r"
@@ -588,6 +655,71 @@
 		// Creature Data
 		//----------------------------------------------------------------
 	}
+	"npc_dota_hero_paladin"
+		{
+			// General
+			//----------------------------------------------------------------
+			"override_hero"				"npc_dota_hero_omniknight"	 //Add npc_dota_hero internal name
+			"AbilityLayout"				"6"
+			// Abilities
+			//----------------------------------------------------------------
+			"Ability1"					"paladin_healing_wave"	 //Reference: AInv
+			"Ability2"					"paladin_terrifying_howl"	 //Reference: AHhb
+			"Ability3"					"paladin_fan_of_light"	 //Reference: AHds
+			"Ability4"					"paladin_devotion_aura"	 //Reference: AHre
+			"Ability5"					"paladin_pure_light"	 //Reference: AHad
+			"Ability6"					""	 //Reference: AHad
+			// Armor
+			//----------------------------------------------------------------
+			"ArmorPhysical"				"2"
+			"MagicalResistance"			"0"
+			
+			// Attack
+			//----------------------------------------------------------------
+			"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+			"AttackDamageMin"			"62.0"
+			"AttackDamageMax"			"70.0"
+			"AttackDamageType"			"DAMAGE_TYPE_PHYSICAL"
+			"AttackRate"				"2.2"
+			"AttackAnimationPoint"		"0.433"
+			"AttackAcquisitionRange"	"600"
+			"AttackRange"				"125"
+			
+			// Attributes
+			//----------------------------------------------------------------
+			"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
+			"AttributeBaseStrength"		"25"
+			"AttributeStrengthGain"		"7"
+			"AttributeBaseIntelligence"	"17"
+			"AttributeIntelligenceGain"	"1.8"
+			"AttributeBaseAgility"		"13"
+			"AttributeAgilityGain"		"1.5"
+			
+			
+			// Movement
+			//----------------------------------------------------------------
+			"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+			"MovementSpeed"				"400"
+			"MovementTurnRate"			"0.6"
+			
+			// Status
+			//----------------------------------------------------------------
+			"StatusHealth"				"400"
+			"StatusHealthRegen"			"10"
+			"StatusMana"				"100"
+			"StatusManaRegen"			"5"
+			
+			// Vision
+			//----------------------------------------------------------------
+			"VisionDaytimeRange"		"1800"
+			"VisionNighttimeRange"		"1300"
+			
+	
+			"UnitRelationShipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+			
+			// Creature Data
+			//----------------------------------------------------------------
+		}
 	//=================================================================================
 	// Creature: Shadow Hunter
 	// Description: "Cunning Hero, adept at healing magics and voodoo curses. Can learn Healing Wave, Hex, Serpent Ward and Big Bad Voodoo. |n|n|cffffcc00Attacks land and air units.|r"

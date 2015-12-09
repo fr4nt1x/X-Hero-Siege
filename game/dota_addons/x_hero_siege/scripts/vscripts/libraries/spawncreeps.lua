@@ -52,7 +52,6 @@ waves_between_dragons = {28,56,84,108}
 --only in extreme mode needs to be after the normal dragon attack
 waves_between_special_dragon_attack = {38,72,100,120}
 
-creeps_per_wave = 2
 
 spawn_dragon = false
 
@@ -66,7 +65,9 @@ function SpawnCreeps()
   -- get the coordinates where to spawn the creeps and the waypoint where they should walk
 
     local point = Entities:FindByName(nil, spawn):GetAbsOrigin()
-    local waypoint = Entities:FindByName(nil,way)
+    local waypoint = Entities:FindByName(nil,way["waypoint"])
+    local level = math.min(GameMode.level_state.level + way["lane_level"],5)
+
     --Check if levellup was so that a dragon has to be spawned
     if spawn_dragon then
       Timers:CreateTimer(function()
@@ -74,9 +75,9 @@ function SpawnCreeps()
       unit:SetInitialGoalEntity(waypoint)
       end)
     end
-    if GameMode.level_state.level <= 2 then
+    if level <= 2 then
       for i = 1,2 do 
-        for j = 1,creeps_per_wave do
+        for j = 1,way["creeps_per_spawn"][level] do
         Timers:CreateTimer(function()
           local unit = CreateUnitByName(creepsToSpawn[(creepround % 4)+1][i], point+RandomVector(RandomInt(0, 50)), true, nil, nil, DOTA_TEAM_NEUTRALS)
           unit:SetMustReachEachGoalEntity(true)
@@ -85,8 +86,8 @@ function SpawnCreeps()
         end
       end
     else
-      for i = 1,math.min(GameMode.level_state.level,4) do 
-        for j = 1,creeps_per_wave do
+      for i = 1,math.min(level,4) do 
+        for j = 1,way["creeps_per_spawn"][level] do
         Timers:CreateTimer(function()
           local unit = CreateUnitByName(creepsToSpawn[(creepround % 4)+1][i], point+RandomVector(RandomInt(0, 50)), true, nil, nil, DOTA_TEAM_NEUTRALS)
           unit:SetInitialGoalEntity(waypoint)
@@ -112,18 +113,8 @@ function SpawnCreeps()
     --increment the level
     GameMode.level_state.level = GameMode.level_state.level +1
 
-    --change the number of spawned creeps at the first level up, which only does that, creeps don't get better
-    if GameMode.level_state.level == 2 then
-      creeps_per_wave = 3
-
     --print the level up msg only when the creeps actually get stronger
-    elseif GameMode.level_state.level > 2 then
-      
-      --reset the creeps to 2 per type as soons as all 4 types get spawned to reduce lag
-      if GameMode.level_state.level == 4 then 
-        creeps_per_wave = 2
-      end
-      
+    if GameMode.level_state.level > 2 then 
       local msg = "Level "..(GameMode.level_state.level-1).." time. The creeps got stronger!"
       Notifications:TopToAll({text=msg, duration=5.0})
     end
@@ -146,7 +137,6 @@ function SpawnCreeps()
     --send msg
     Notifications:TopToAll({text="Dragon Attack next Creep wave!", duration=5.0})
     spawn_dragon = true
-    print("DRAGONLEVEL"..GameMode.level_state.dragonlevel)
   end
   
   -- integer tells you how many rounds of special dragons get spawned 4 = 4 rounds

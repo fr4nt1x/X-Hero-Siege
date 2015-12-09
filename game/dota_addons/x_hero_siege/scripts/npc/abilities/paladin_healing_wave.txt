@@ -1,0 +1,86 @@
+
+"paladin_healing_wave"
+{
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"             "ability_datadriven"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+    "AbilityTextureName"            "dazzle_shadow_wave"
+
+    // Precache
+    //-------------------------------------------------------------------------------------------------------------
+    "precache"
+    {
+        "soundfile"         "soundevents/game_sounds_heroes/game_sounds_dazzle.vsndevts"
+        "particle"          "particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf"
+    }
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastRange"              "900"
+    "AbilityCastPoint"              "0.3 0.3 0.3 0.3"
+    
+    // Time     
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"               "12 10 8 6"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"               "80 90 100 110"
+    
+    "RequiredLevel"                 "-1"
+    "MaxLevel"                      "4"
+    "LevelsBetweenUpgrades"         "3"
+        
+    // Special
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+        "01"
+        {   
+            "var_type"          "FIELD_INTEGER"
+            "max_targets"       "8 8 8 8"
+        }
+        "02"
+        {   
+            "var_type"          "FIELD_INTEGER"
+            "tooltip_max_targets_inc_dazzle"        "9 9 9 9"
+        }
+        "03"
+        {
+            "var_type"          "FIELD_INTEGER"
+            "healing"            "1000 5000 8000 10000"
+        }
+    }
+
+    "OnSpellStart"
+    {
+        "FireSound"
+        {
+            "EffectName"    "Hero_Dazzle.Shadow_Wave"
+            "Target"        "CASTER"
+        }
+
+        "FireEffect"
+        {
+            "EffectName"        "particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf"
+            "EffectAttachType"  "start_at_customorigin"
+            
+            "ControlPointEntities"
+            {
+                "CASTER"    "attach_attack1"
+                "TARGET"    "follow_origin"
+            }
+        }
+
+        "RunScript"
+        {
+            "ScriptFile"    "heroes/hero_paladin/paladin_healing_wave.lua"
+            "Function"      "ShadowWave"
+            "shadow_wave_particle"  "particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf"
+        }
+    }
+}
+

@@ -1,0 +1,120 @@
+"paladin_taunt"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"       "ability_datadriven"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityTextureName"      "axe_berserkers_call"
+    "AbilityUnitTargetTeam"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AOERadius"               "%radius"
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"        "0.1"
+
+    // Time   
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"       "15"
+
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"       "100"
+    "MaxLevel"              "1"
+    "RequiredLevel"         "-1"
+
+    // Special  
+    //-------------------------------------------------------------------------------------------------------------
+      "AbilitySpecial"
+      {
+        "01"
+        {
+          "var_type"        "FIELD_FLOAT"
+          "duration"        "30"
+        }
+        "02"
+        {
+          "var_type"        "FIELD_INTEGER"
+          "radius"        "1000"
+        }
+        "03"
+        {
+          "var_type"        "FIELD_INTEGER"
+          "max_targets"        "20"
+        }
+
+      }
+
+   //precache
+      "precache"
+      {
+        "particle"  "particles/econ/items/axe/axe_helm_shoutmask/axe_beserkers_call_owner_shoutmask.vpcf"
+        "particle"  "particles/econ/items/axe/axe_helm_shoutmask/axe_beserkers_call_buff_shout_mask.vpcf"
+        "soundfile" "soundevents/game_sounds_heroes/game_sounds_axe.vsndevts"
+      }
+
+    //SpellStart
+    "OnSpellStart"
+    {
+        "ApplyModifier"
+        {
+            "ModifierName" "modifier_taunt"
+            "Target"
+            {
+              "Center"    "CASTER"
+              "Radius"   "%radius"
+              "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+              "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+              "MaxTargets" "%max_targets"
+
+            }
+        }
+
+        "FireEffect"
+        {
+          "EffectName"        "particles/econ/items/axe/axe_helm_shoutmask/axe_beserkers_call_owner_shoutmask.vpcf"
+          "EffectAttachType"  "follow_overhead"
+          "Target"            "CASTER"
+        }
+
+        "FireSound"
+        {
+          "EffectName"  "Hero_Axe.Berserkers_Call"
+          "Target"     "CASTER"
+        }
+    }
+
+    "Modifiers"
+    {
+      "modifier_taunt"
+      {
+        "Duration" "%duration"
+        "EffectName" "particles/econ/items/axe/axe_helm_shoutmask/axe_beserkers_call_buff_shout_mask.vpcf"
+        "EffectAttachType" "follow_overhead"
+        
+        "IsPurgable"    "1"
+        "IsBuff"      "0"
+        "IsHidden" "0"
+        "IsDebuff"      "0"
+        "OnCreated"
+        {
+          "RunScript"
+          {
+            "ScriptFile"  "heroes/hero_paladin/taunt.lua"
+            "Function"    "force_attack"
+          }
+        }
+       "OnDestroy"
+        {
+          "RunScript"
+          {
+            "ScriptFile"  "heroes/hero_paladin/taunt.lua"
+            "Function"    "force_attack_remove"
+          }
+        }
+        "States"
+        {
+          "MODIFIER_STATE_COMMAND_RESTRICTED"     "MODIFIER_STATE_VALUE_ENABLED"
+          "MODIFIER_STATE_NO_UNIT_COLLISION"      "MODIFIER_STATE_VALUE_ENABLED"
+        }
+      }
+    }
+  }

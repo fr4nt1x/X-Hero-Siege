@@ -1,0 +1,67 @@
+"npc_dota_hero_archmage"
+	{
+		// General
+		//----------------------------------------------------------------
+		"override_hero"				"npc_dota_hero_keeper_of_the_light"	 //Add npc_dota_hero internal name
+		
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"archmage_blizzard"	 //Reference: AInv
+		"Ability2"					"archmage_water_elemental"	 //Reference: AHbz
+		"Ability3"					"archmage_debilitation_aura"	 //Reference: AHab
+		"Ability4"					"archmage_frost_bolt"	 //Reference: AHwe
+		"Ability5"					""	 //Reference: AHmt
+		"Ability6"					"archmage_starfall"	 //Reference: AHmt
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"0"
+		
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"45.0"
+		"AttackDamageMax"			"55.0"
+		"AttackDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AttackRate"				"2.13"
+		"AttackAnimationPoint"		"0.55"
+		"AttackAcquisitionRange"	"600"
+		"AttackRange"				"600"
+
+		
+		// Attributes
+		//----------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"		"14"
+		"AttributeStrengthGain"		"1.8"
+		"AttributeBaseIntelligence"	"24"
+		"AttributeIntelligenceGain"	"3.2"
+		"AttributeBaseAgility"		"17"
+		"AttributeAgilityGain"		"1"
+		
+		
+
+		
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"320"
+		"MovementTurnRate"			"0.5"
+		
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"400"
+		"StatusHealthRegen"			"10.00"
+		"StatusMana"				"300"
+		"StatusManaRegen"			"5"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1800"
+		"VisionNighttimeRange"		"1300"
+		
+
+		
+		// Creature Data
+		//----------------------------------------------------------------
+	}

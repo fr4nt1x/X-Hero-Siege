@@ -25,17 +25,21 @@ IMPLEMENTED:
 
 	Sylvanas Windrunner
 
+	Shadow hunter (shaman)									HEX NEUTRAL FEINDLICH
+
+	Paladin 												LIGHT FRENZY
+
 ############################################################################################
 IN WORKING PROGRESS
 ############################################################################################
 	
-	Shadow hunter (shaman)									HEX NEUTRAL FEINDLICH
+
 	
 ############################################################################################
 NOT IMPLEMENTED:
 ############################################################################################
 	
-	Paladin 												LIGHT FRENZY
+
 
 	Archmage												WATER SHIELD
 
@@ -43,9 +47,7 @@ NOT IMPLEMENTED:
 
 	Tauren Chieftain
 
-
-
-	DreadLord
+	DreadLord												CHAOSREGEN
 
 	Beastmaster 											TERROR WOLF
 
@@ -63,7 +65,7 @@ NOT IMPLEMENTED:
 
 	Rifleman												WEAPONS UPGRADE
 
-	Banehallow
+	Banehallow												CHAOSREGEN (ARCHIMONDE)
 
 	Shandris (Lina)
 

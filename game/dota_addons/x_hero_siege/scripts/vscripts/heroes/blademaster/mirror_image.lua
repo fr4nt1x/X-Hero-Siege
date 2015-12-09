@@ -1,3 +1,4 @@
+
 --[[Author: Pizzalol, Noya, Ractidous
 	Date: 08.04.2015.
 	Creates illusions while shuffling the positions]]
@@ -98,7 +99,7 @@ function Phantasm( keys )
 		-- Recreate the items of the caster
 		for itemSlot=0,5 do
 			local item = caster:GetItemInSlot(itemSlot)
-			if item ~= nil then
+			if item ~= nil and item:GetName() ~= "item_cloak_of_immolation" then
 				local itemName = item:GetName()
 				local newItem = CreateItem(itemName, illusion, illusion)
 				illusion:AddItem(newItem)

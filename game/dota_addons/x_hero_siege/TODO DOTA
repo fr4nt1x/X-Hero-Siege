@@ -58,8 +58,14 @@ Respawn timers
 
 explosive arrows and creeps kill
 
+lane creeps get stronger with amount of towers destroyed. (each tower increases level by 1, until max)
+
+Change precache of lane creeps
+
 
 DONE:
 
+Blademaster's illusions no longer have cloak of immolation
 
+added level from tower
 

@@ -47,7 +47,8 @@ local AbilitiesHeroes = {npc_dota_hero_antimage = "demonhunter_roar",
                     npc_dota_hero_zuus = "mountain_king_thunderspirit",
                     npc_dota_hero_juggernaut = "blademaster_berserk",
                     npc_dota_hero_windrunner = "windrunner_healing",
-                    npc_dota_hero_shadow_shaman = "shadow_hunter_healing_ward"}
+                    npc_dota_hero_shadow_shaman = "shadow_hunter_healing_ward",
+                    npc_dota_hero_omniknight = "paladin_taunt"}
 --[[
   This function should be used to set up Async precache calls at the beginning of the gameplay.
 
@@ -102,7 +103,7 @@ function GameMode:OnAllPlayersLoaded()
 
   GameMode.timers = {}
   GameMode.openLanes = {}
-  
+
   local number_players = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
   wave_kills_for_event = 55
   for i = 1,number_players do
@@ -111,12 +112,16 @@ function GameMode:OnAllPlayersLoaded()
 
   if PlayerResource:GetPlayerCount() >= 8 then
     for i = 1,8 do
-      GameMode.openLanes["spawn"..i] = "wp_p"..i.."_1"
+      
+      --hold the first waypoint, level of the lane, creeps per wave
+      GameMode.openLanes["spawn"..i] = {waypoint = "wp_p"..i.."_1" , lane_level=0, creeps_per_spawn = {2,3,3,2,2}}
     end
     
   else
     for i = 1,PlayerResource:GetPlayerCount() do
-      GameMode.openLanes["spawn"..i] = "wp_p"..i.."_1"
+
+      --hold the first waypoint, level of the lane, creeps per wave
+      GameMode.openLanes["spawn"..i] = {waypoint = "wp_p"..i.."_1" , lane_level=0, creeps_per_spawn = {2,3,3,2,2}}
     end
   end
 

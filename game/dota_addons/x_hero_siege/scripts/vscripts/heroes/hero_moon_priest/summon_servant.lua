@@ -4,7 +4,7 @@ function spawn_servant( event )
 
 	local hero = event.caster
 	local ability = event.ability
-	local duration = ability:GetLevelSpecialValueFor("max_servants", ability:GetLevel()-1)
+	local duration = ability:GetLevelSpecialValueFor("duration", ability:GetLevel()-1)
 	local servant_units = ability:GetLevelSpecialValueFor("servant_units", ability:GetLevel()-1)
 
 	local unitsToSpawn = {"npc_water_servant_I","npc_water_servant_II","npc_water_servant_III","npc_water_servant_III"}
@@ -16,6 +16,7 @@ function spawn_servant( event )
 			local unit = CreateUnitByName(unitsToSpawn[ability:GetLevel()], hero:GetAbsOrigin()+150*hero:GetForwardVector(), true, nil, hero, hero:GetTeam())
 			unit:SetControllableByPlayer(hero:GetPlayerOwnerID(), true)
 			ability:ApplyDataDrivenModifier(hero, unit, "modifier_water_servant", {})
+			unit:AddNewModifier(hero,nil, "modifier_kill", {Duration = duration})
 			table.insert(hero.servants,1,unit)
 		end
 	end 

@@ -1,0 +1,118 @@
+"archmage_starfall"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "MaxLevel"              "2"
+    "LevelsBetweenUpgrades" "5"
+    "RequiredLevel"        "10"
+    "AbilityChannelTime" 	"20"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.1"
+    "AbilityCooldown"  "120"
+    "AbilityCastRange" "300"
+    "AbilityManaCost"  "300 700"
+    "AbilityTextureName" "mirana_starfall"
+    "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "ticktime"      "0.8 0.4"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "damage_per_tick"      "1500 2500"
+      }
+      "03"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "radius"      "650"
+      }
+      "04"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "delay"      "0.4"
+      }
+    }
+
+    "OnSpellStart"
+    {
+  		"ApplyModifier"
+  		{
+  			"ModifierName"	"modifier_starfall"
+  			"Target"		"CASTER"
+  		}
+      "FireSound"
+      {
+        "EffectName"  "Ability.Starfall"
+        "Target"     "CASTER"
+      }
+    }
+    "OnChannelFinish"
+    {
+      "RemoveModifier"
+      {
+        "ModifierName"  "modifier_starfall"
+        "Target"     "CASTER"
+      }
+    }
+
+    "Modifiers"
+      {
+        "modifier_starfall"
+        {
+
+        	"IsHidden"  "0"
+        	"ThinkInterval"  "%ticktime"
+        	"OnIntervalThink"
+        	{
+            "FireEffect"
+            {
+              "EffectName"        "particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"
+              "EffectAttachType"  "follow_origin"
+
+              "Target"
+              {
+                "Center"    "CASTER"
+                "Radius"   "%radius"
+                "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+              }
+            }
+            "DelayedAction"
+            {
+              "Delay"     "%delay"
+              "Action"    
+              {
+                "Damage"
+                {
+                  "Target"
+                  {
+                    "Center"    "CASTER"
+                    "Radius"   "%radius"
+                    "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                    "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                  }
+                  "Type"      "DAMAGE_TYPE_MAGICAL"
+                  "Damage"    "%damage_per_tick"
+                }   
+              }
+            } 
+        	}
+        }
+      } 
+
+    "precache"
+    {
+      "particle"  "particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"
+      "soundfile" "soundevents/game_sounds_heroes/game_sounds_mirana.vsndevts"
+    }
+  }  

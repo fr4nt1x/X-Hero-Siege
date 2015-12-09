@@ -1,0 +1,82 @@
+"difficulty_upgrade_ramero_baristal"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "-1"
+    "LevelsBetweenUpgrades" "1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityTextureName" ""
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_armor"  "20"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_damage"     "400"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_health"     "10000"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "cooldown_reduction"     "5"
+      }
+      "05"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "attack_speed_bonus"     "50"
+      }
+    }
+
+
+
+
+    "Modifiers"
+    {
+
+      "modifier_on_spawn_diff"
+      {
+        "Passive"      "1"
+        "IsHidden"      "1"
+        "IsDebuff"      "0"
+
+        "OnCreated"
+        {
+          "RunScript"
+          {
+            "ScriptFile"  "units/difficulty_units.lua"
+            "Function"    "upgrade_boss"
+          }
+        }
+      
+
+      }
+      "modifier_upgrade_boss_diff"
+      {
+        "Passive" "0"
+        "IsHidden" "1"
+        "IsPurgable"    "0"
+        "Attributes"    "MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+        "Properties"
+        {
+            "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%bonus_armor"
+            "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%bonus_damage"
+            "MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE"     "%cooldown_reduction"
+            "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"  "%attack_speed_bonus"
+
+        }
+      }
+    }
+  }

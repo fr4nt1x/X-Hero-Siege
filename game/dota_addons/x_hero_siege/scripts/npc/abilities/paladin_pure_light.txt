@@ -1,0 +1,120 @@
+"paladin_pure_light"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT"
+    "MaxLevel"              "2"
+    "RequiredLevel"        "10"
+    "LevelsBetweenUpgrades"  "5"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.5"
+    "AbilityCooldown"  "60 30"
+    "AbilityManaCost"  "500 500"
+    "AbilityTextureName" "wisp_spirits"
+
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+        {
+          "var_type" "FIELD_FLOAT"
+          "duration" "120 120"
+        }
+      "02"
+        {
+          "var_type" "FIELD_INTEGER"
+          "units" "1 1"
+        }
+       "03"
+        {
+          "var_type" "FIELD_INTEGER"
+          "units_I" "1 0"
+        }
+        "04"
+        {
+          "var_type" "FIELD_INTEGER"
+          "units_II" "0 1"
+        }
+    }
+
+    "precache"
+    {
+      "particle"  "particles/units/heroes/hero_wisp/wisp_ambient.vpcf"
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+        "SpawnUnit"
+        {
+          "Target" "POINT"
+          "Duration" "%duration"
+          "UnitName"    "npc_pure_light_I"
+          "UnitCount"    "%units_I"
+          "GrantsGold"  "1"
+          "GrantsXP"    "1"
+          "SpawnRadius"  "50"
+          "OnSpawn"
+          {
+            "ApplyModifier"
+            {
+              "ModifierName"  "modifier_pure_light"
+              "Target"     "TARGET"
+              "Duration"    "%duration"
+            }
+          }
+        }
+        "SpawnUnit"
+        {
+          "Target" "POINT"
+          "Duration" "%duration"
+          "UnitName"    "npc_pure_light_II"
+          "UnitCount"    "%units_II"
+          "GrantsGold"  "1"
+          "GrantsXP"    "1"
+          "SpawnRadius"  "50"
+          "OnSpawn"
+          {
+            "ApplyModifier"
+            {
+              "ModifierName"  "modifier_pure_light"
+              "Target"     "TARGET"
+              "Duration"    "%duration"
+            }
+          }
+        }
+    }
+    "Modifiers"
+    {
+
+      "modifier_pure_light"
+      {
+        "Passive"      "0"
+        "IsHidden"      "1"
+        "IsDebuff"      "0"
+        "EffectName"    "particles/units/heroes/hero_wisp/wisp_ambient.vpcf"
+        "EffectAttachType"  "follow_overhead"
+      
+    
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL" "1"
+          "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL"  "1"
+          "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE"     "1"
+        }
+       "States"
+          {
+            "MODIFIER_STATE_NO_HEALTH_BAR"   "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_NO_UNIT_COLLISION"  "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_ATTACK_IMMUNE"      "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_MAGIC_IMMUNE"       "MODIFIER_STATE_VALUE_ENABLED"
+          }
+      }
+    }
+  }

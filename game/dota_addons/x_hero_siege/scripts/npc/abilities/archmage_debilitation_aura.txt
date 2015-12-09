@@ -1,0 +1,52 @@
+"archmage_debilitation_aura"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior"  "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+    "MaxLevel"             "4"
+    "RequiredLevel"        "-1"
+    "LevelsBetweenUpgrades" "3"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityTextureName" "nevermore_dark_lord"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "minus_armor"      "-10 -15 -20 -25"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "radius"      "900"
+      }
+    }
+    "Modifiers"
+    {
+      "modifier_debilitation_aura"
+      {
+        "Passive"       "1"
+        "IsHidden"      "1"
+        "IsBuff"      "1"
+
+        "Aura"        "modifier_debilitation_buff"
+        "Aura_Radius"     "%radius"
+        "Aura_Teams"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "Aura_Types"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+      }
+     
+      "modifier_debilitation_buff"
+      { 
+        "IsPurgable" "0"
+        "IsDebuff" "1"
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%minus_armor" 
+        }
+      }
+    }
+  }
