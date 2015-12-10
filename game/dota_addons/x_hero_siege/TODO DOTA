@@ -2,37 +2,20 @@ TODO DOTA:
 
 spawn banehallow stuff
 
-dont skip magtheridon
-
-beast event getting finsihed without killing
-
-
 -All Hero Image challenge missing ( All Hero Image grants immunity to spells and magic)
-
--Challenges can be retried (used to be one try per player only)
 
 -Glyphs at the bottom left is missing (can't remember what they did, restore health?)
 
 -New players will have no idea what to do after farming gates. A little tutorial path with some ground flares would be nice
 
-
 Special events and final wave
-
-Autocast vengeance
-
-Damage return shield
-
-multiple maps with difficulty
 
 blink in combination with check is path is possible
 
 Model spirit beast change to thunderhide
 
-shadow hunter wards low priority
+Roshan ai
 
-Roshan doesn't use grow
-
-shadow hunter mines don't show
 
 
 
@@ -40,32 +23,19 @@ IMPORTANT:
 
 Change globals to be saved in the gameMode
 
-fix tower remove invulnerable without creeps spawn
-
 player reconnect
-
-Stun before event lets units move after stun is finished, maybe remove stun effect
-
-Apply invulnerability to towers and ancient before event
-
-illusions and immolation and lifesteal
-
-name and buy tomes
 
 disconnected players receive skillpoints
 
 Respawn timers
 
-explosive arrows and creeps kill
+Show timers for how long you have to finish events same for roshan
 
-lane creeps get stronger with amount of towers destroyed. (each tower increases level by 1, until max)
-
-Change precache of lane creeps
 
 
 DONE:
 
 Blademaster's illusions no longer have cloak of immolation
 
-added level from tower
+lane creeps get stronger with amount of towers destroyed. (each tower increases level by 1, until max)
 

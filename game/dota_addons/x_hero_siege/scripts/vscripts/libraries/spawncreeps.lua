@@ -119,12 +119,13 @@ function SpawnCreeps()
       Notifications:TopToAll({text=msg, duration=5.0})
     end
     
-    --Precache the next creeps that get spawned
+    --[[Precache the next creeps that get spawned
     if GameMode.level_state.level <= 4 then
       for i = 1,4 do
         PrecacheUnitByNameAsync(creepsToSpawn[i][GameMode.level_state.level], function() end) 
       end
     end
+    --]]
   end
 
   -- integer tells you how many rounds of dragons get spawned 4 = 4 rounds

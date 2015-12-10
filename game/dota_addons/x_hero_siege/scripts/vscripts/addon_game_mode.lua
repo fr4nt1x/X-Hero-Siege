@@ -41,6 +41,7 @@ function Precache( context )
   PrecacheItemByNameSync("windrunner_healing", context)
   PrecacheItemByNameSync("shadow_hunter_healing_ward", context)
   PrecacheItemByNameSync("paladin_taunt", context)
+  PrecacheItemByNameSync("archmage_spell_shield", context)
 
   -- Entire heroes (sound effects/voice/models/particles) can be precached with PrecacheUnitByNameSync
   -- Custom units from npc_units_custom.txt can also have all of their abilities and precache{} blocks precached in this way
@@ -88,28 +89,26 @@ function Precache( context )
 
   PrecacheUnitByNameSync("npc_ghul", context)
   PrecacheUnitByNameSync("npc_fiend", context)
---[[  PrecacheUnitByNameSync("npc_necromancer", context)
+  PrecacheUnitByNameSync("npc_necromancer", context)
   PrecacheUnitByNameSync("npc_skeleton_mage", context)
   PrecacheUnitByNameSync("npc_abomination", context)
   PrecacheUnitByNameSync("npc_frost_wyrm", context)
 --]]
   PrecacheUnitByNameSync("npc_archer", context)
   PrecacheUnitByNameSync("npc_huntress", context)
-  --[[PrecacheUnitByNameSync("npc_druid", context)
+  PrecacheUnitByNameSync("npc_druid", context)
   PrecacheUnitByNameSync("npc_chimera", context)
   PrecacheUnitByNameSync("npc_mountain_giant", context)
   --]]
 
   PrecacheUnitByNameSync("npc_soldier", context)
   PrecacheUnitByNameSync("npc_sharpshooter", context)
-  
-  --[[PrecacheUnitByNameSync("npc_priest", context)
+  PrecacheUnitByNameSync("npc_priest", context)
   PrecacheUnitByNameSync("npc_knight", context)
   PrecacheUnitByNameSync("npc_spellbreaker", context)
   --]]
   PrecacheUnitByNameSync("npc_berserker", context)
   PrecacheUnitByNameSync("npc_grunt", context)
-  --[[
   PrecacheUnitByNameSync("npc_shaman", context)
   PrecacheUnitByNameSync("npc_tauren", context)
   PrecacheUnitByNameSync("npc_kodo_beast", context)  
