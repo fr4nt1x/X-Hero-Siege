@@ -18,7 +18,6 @@ Roshan ai
 
 
 
-
 IMPORTANT:
 
 Change globals to be saved in the gameMode
@@ -31,11 +30,9 @@ Respawn timers
 
 Show timers for how long you have to finish events same for roshan
 
-
+bane healing
 
 DONE:
 
-Blademaster's illusions no longer have cloak of immolation
-
-lane creeps get stronger with amount of towers destroyed. (each tower increases level by 1, until max)
+	Level up gives bountyupgrade now. Only the time dependent level up.
 

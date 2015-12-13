@@ -137,7 +137,7 @@ function killed_frost_tower_right(keys)
 		Timers:RemoveTimer( timer_wave_message)
 		timer_wave_message = nil
 		DebugPrint("FinalWave timer started")
-		Notifications:TopToAll({text="Warning. Final Wave incoming. Arriving in 20 seconds! Protect Your Basis!" , duration=5.0})
+		Notifications:TopToAll({text="Warning. Final Wave incoming. Arriving in 20 seconds! Protect Your Base!" , duration=5.0})
 		Timers:CreateTimer(20,FinalWave)
 		local directions = {"west","north","east","south"}
 		for _,direction in pairs(directions) do

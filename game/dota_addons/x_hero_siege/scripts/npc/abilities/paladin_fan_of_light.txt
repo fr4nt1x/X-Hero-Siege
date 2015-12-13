@@ -33,13 +33,14 @@
         "02"
         {
             "var_type" "FIELD_INTEGER"
-            "damage" "150 300 600 1200"
+            "damage" "250 450 800 1800"
         }
     }
 
    
     "precache"
     {
+        "soundfile" "soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
         "particle"  "particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf"
     }
     "OnProjectileHitUnit"
@@ -58,6 +59,12 @@
         //-------------------------------------------------------------------------------------
         "OnSpellStart"
         {
+            "FireSound"
+              {
+                "EffectName"  "Hero_Omniknight.Purification"
+                "Target"     "CASTER"
+              }
+
             "ActOnTargets"
             {
                 "Target"

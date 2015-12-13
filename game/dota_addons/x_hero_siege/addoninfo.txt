@@ -1,6 +1,6 @@
 "AddonInfo"
 {
-	"maps"			"herosiege herosiege_extreme"
+	"maps"			"herosiege"
 	"IsPlayable"	"1"
 	"TeamCount"		"1"
 	

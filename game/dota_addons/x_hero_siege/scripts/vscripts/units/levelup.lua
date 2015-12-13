@@ -6,7 +6,7 @@ function upgrade_unit(event)
 	local unit = event.caster
 	local ability = event.ability
 	local health_bonus = ability:GetLevelSpecialValueFor("bonus_health", ability:GetLevel()-1)
-
+	local bounty = ability:GetLevelSpecialValueFor("bonus_bounty", ability:GetLevel()-1)
 	if not IsValidAlive(unit) or ability == nil then
 		return nil
 	end
@@ -15,10 +15,13 @@ function upgrade_unit(event)
 		ability:ApplyDataDrivenModifier(unit,unit, "modifier_upgrade", nil)
 		local end_index = (GameMode.level_state.level-2)^2
 		local amount_of_stack = math.floor((end_index+1)*end_index*0.5)
+		unit:SetMaximumGoldBounty(unit:GetMaximumGoldBounty()+amount_of_stack*bounty)
+		unit:SetMinimumGoldBounty(unit:GetMinimumGoldBounty()+amount_of_stack*bounty)
 		unit:SetModifierStackCount("modifier_upgrade", unit, amount_of_stack)
 		unit:SetMaxHealth(unit:GetMaxHealth() +amount_of_stack*health_bonus)
 		unit:SetBaseMaxHealth(unit:GetMaxHealth() +amount_of_stack*health_bonus)
 		unit:SetHealth(unit:GetMaxHealth())
+
 
 		--[[
 		for i = 1,(GameMode.level_state.level-2)^2 do 

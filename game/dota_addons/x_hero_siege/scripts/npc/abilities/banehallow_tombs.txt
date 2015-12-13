@@ -1,0 +1,65 @@
+"banehallow_tombs"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "-1"
+    "LevelsBetweenUpgrades" "1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityTextureName" ""
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "regen"  "5"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "duration"  "5"
+      }
+    }
+
+
+
+
+    "Modifiers"
+    {
+      "modifier_banehallow_apply_heal"
+      {
+        "Passive" "0"
+        "IsHidden" "1"
+        "IsPurgable"    "0"
+        "IsBuff"        "0"
+        "ThinkInterval" "5"
+        "OnIntervalThink"
+        {
+          "RunScript"
+          {
+            "ScriptFile"  "heroes/npc_hero_banehallow/tombs.lua"
+            "Function"    "applyRegeneration"
+          }
+        }
+
+      }
+
+      "modifier_banehallow_heal"
+      {
+        "Passive" "0"
+        "IsHidden" "1"
+        "IsPurgable"    "0"
+        "Duration"      "%duration"
+        "IsBuff"        "1"
+        "Attributes"    "MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+        "Properties"
+        {
+            "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%regen"
+        }
+      }
+    }
+  }
