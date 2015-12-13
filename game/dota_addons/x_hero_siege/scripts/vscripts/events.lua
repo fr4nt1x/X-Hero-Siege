@@ -240,7 +240,7 @@ function GameMode:OnAbilityChannelFinished(keys)
 end
 
 --npc_dota_hero_antimage = {"blink",1}
-local AbilitiesHeroes_XX = {npc_dota_hero_antimage = {"blink",1}}
+--local AbilitiesHeroes_XX = {npc_dota_hero_antimage = {"blink",1}}
 
 -- A player leveled up
 function GameMode:OnPlayerLevelUp(keys)

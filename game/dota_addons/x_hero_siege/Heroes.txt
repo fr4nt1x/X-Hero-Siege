@@ -25,9 +25,11 @@ IMPLEMENTED:
 
 	Sylvanas Windrunner
 
-	Shadow hunter (shaman)									HEX NEUTRAL FEINDLICH
+	Shadow hunter (shaman)		HEX NEUTRAL FEINDLICH
 
-	Paladin 												LIGHT FRENZY
+	Paladin 					LIGHT FRENZY
+
+	Archmage					WATER SHIELD
 
 ############################################################################################
 IN WORKING PROGRESS
@@ -38,10 +40,6 @@ IN WORKING PROGRESS
 ############################################################################################
 NOT IMPLEMENTED:
 ############################################################################################
-	
-
-
-	Archmage												WATER SHIELD
 
 	Bloodmage
 
