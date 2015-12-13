@@ -10,7 +10,7 @@
 	  
 	  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
 	  "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH"
-	  "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+	  "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 	  "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
 	  "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_5"
 	
@@ -330,6 +330,86 @@
 	      "soundfile" "soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
 	    }
 	  }
+	
+	"archmage_spell_shield"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	  	"AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"omniknight_guardian_angel"
+		"MaxLevel"						"1"
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.25"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"5.0"
+		"AbilityCastRange"				"700"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"90"
+			}
+		}
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"			"soundevents/voscripts/game_sounds_vo_omniknight.vsndevts"
+			"particle"			"particles/units/heroes/hero_omniknight/omniknight_repel_buff.vpcf"
+		}
+	
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Omniknight.Repel"
+				"Target"		"CASTER"
+			}
+	
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_spell_shield"
+				"Target"		"TARGET"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_spell_shield"
+			{
+				"IsPurgable"		"0"
+				"IsBuff"			"1"
+				"IsDebuff"			"0"
+	
+				"Duration"			"%duration"
+				"EffectName"	"particles/units/heroes/hero_omniknight/omniknight_repel_buff.vpcf"
+	
+				"Properties"
+				{
+			        "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL"  "1"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
 	"archmage_starfall"
 	  {
 	    // General
@@ -1401,6 +1481,70 @@
 	    {
 	      "particle"  "particles/frostivus_gameplay/frostivus_skeletonking_hellfireblast.vpcf"
 	
+	    }
+	  }
+	"banehallow_tombs"
+	  {
+	    // General
+	    //-------------------------------------------------------------------------------------
+	    "BaseClass" "ability_datadriven"
+	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	    "MaxLevel"              "1"
+	    "RequiredLevel"        "-1"
+	    "LevelsBetweenUpgrades" "1"
+	
+	    // Stats
+	    //-------------------------------------------------------------------------------------
+	    "AbilityTextureName" ""
+	    "AbilitySpecial"
+	    {
+	      "01"
+	      {
+	        "var_type"        "FIELD_INTEGER"
+	        "regen"  "5"
+	      }
+	      "02"
+	      {
+	        "var_type"        "FIELD_FLOAT"
+	        "duration"  "5"
+	      }
+	    }
+	
+	
+	
+	
+	    "Modifiers"
+	    {
+	      "modifier_banehallow_apply_heal"
+	      {
+	        "Passive" "0"
+	        "IsHidden" "0"
+	        "IsPurgable"    "0"
+	        "IsBuff"        "0"
+	        "ThinkInterval" "5"
+	        "OnIntervalThink"
+	        {
+	          "RunScript"
+	          {
+	            "ScriptFile"  "heroes/npc_hero_banehallow/tombs.lua"
+	            "Function"    "applyRegeneration"
+	          }
+	        }
+	
+	      }
+	
+	      "modifier_banehallow_heal"
+	      {
+	        "Passive" "0"
+	        "IsHidden" "0"
+	        "IsPurgable"    "0"
+	        "IsBuff"        "1"
+	        "Attributes"    "MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+	        "Properties"
+	        {
+	            "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%regen"
+	        }
+	      }
 	    }
 	  }
 	"banehallow_victory"
@@ -3296,7 +3440,7 @@
 	      "01"
 	      {
 	        "var_type"        "FIELD_INTEGER"
-	        "bonus_armor"  "2"
+	        "bonus_armor"  "1"
 	      }
 	      "02"
 	      {
@@ -3306,7 +3450,7 @@
 	      "03"
 	      {
 	        "var_type"        "FIELD_INTEGER"
-	        "bonus_health"     "200"
+	        "bonus_health"     "190"
 	      }
 	    }
 	
@@ -4288,6 +4432,11 @@
 	
 	    "OnSpellStart"
 	    { 
+	      "FireSound"
+	      {
+	        "EffectName"  "Hero_Ancient_Apparition.IceVortexCast"
+	        "Target"     "CASTER"
+	      }
 	      "TrackingProjectile"
 	      {
 	        "Target"             "TARGET"
@@ -4311,6 +4460,7 @@
 	    "precache"
 	    {
 	      "particle"  "particles/items2_fx/skadi_projectile.vpcf"
+	      "soundfile" "soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
 	    }
 	  }
   //=================================================================================================================
@@ -5210,8 +5360,8 @@
 	    {
 	      "01"
 	      {
-	        "var_type"        "FIELD_INTEGER"
-	        "bonus_armor"  "1"
+	        "var_type"        "FIELD_FLOAT"
+	        "bonus_armor"  "0.5"
 	      }
 	      "02"
 	      {
@@ -5221,7 +5371,12 @@
 	      "03"
 	      {
 	        "var_type"        "FIELD_INTEGER"
-	        "bonus_health"     "150"
+	        "bonus_health"     "100"
+	      }
+	      "04"
+	      {
+	        "var_type"        "FIELD_INTEGER"
+	        "bonus_bounty"     "1"
 	      }
 	    }
 	
@@ -7726,13 +7881,14 @@
 	        "02"
 	        {
 	            "var_type" "FIELD_INTEGER"
-	            "damage" "150 300 600 1200"
+	            "damage" "250 450 800 1800"
 	        }
 	    }
 	
 	   
 	    "precache"
 	    {
+	        "soundfile" "soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
 	        "particle"  "particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf"
 	    }
 	    "OnProjectileHitUnit"
@@ -7751,6 +7907,12 @@
 	        //-------------------------------------------------------------------------------------
 	        "OnSpellStart"
 	        {
+	            "FireSound"
+	              {
+	                "EffectName"  "Hero_Omniknight.Purification"
+	                "Target"     "CASTER"
+	              }
+	
 	            "ActOnTargets"
 	            {
 	                "Target"
@@ -9578,7 +9740,7 @@
 	                  "Type" "DAMAGE_TYPE_PHYSICAL"
 	                }
 	
-	                "AttachEffect"
+	                "FireEffect"
 	                {
 	                  "Target" "CASTER"
 	                  "EffectName" "particles/units/heroes/hero_brewmaster/brewmaster_pulverize.vpcf"

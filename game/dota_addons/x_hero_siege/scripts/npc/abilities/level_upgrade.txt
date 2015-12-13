@@ -15,8 +15,8 @@
     {
       "01"
       {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_armor"  "1"
+        "var_type"        "FIELD_FLOAT"
+        "bonus_armor"  "0.5"
       }
       "02"
       {
@@ -26,7 +26,12 @@
       "03"
       {
         "var_type"        "FIELD_INTEGER"
-        "bonus_health"     "150"
+        "bonus_health"     "100"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "bonus_bounty"     "1"
       }
     }
 

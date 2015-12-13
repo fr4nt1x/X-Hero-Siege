@@ -41,5 +41,8 @@ function DruidThink()
 			Ability_trueform:ToggleAbility()
 		end
 	end
+	if thisEntity:GetInitialGoalEntity() == nil then
+		thisEntity:SetInitialGoalEntity(Entities:FindByName(nil, "base"))
+	end
 	return 2
 end

@@ -12,6 +12,10 @@
 		"Ability4"					"archmage_frost_bolt"	 //Reference: AHwe
 		"Ability5"					""	 //Reference: AHmt
 		"Ability6"					"archmage_starfall"	 //Reference: AHmt
+		"Ability7"		""
+		"Ability8"		""
+		"Ability9"		""
+		"Ability10"		""
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"0"

@@ -5,7 +5,10 @@ require('libraries/notifications')
   The Variables that have to be saved in the GameMode Entity are declared in OnAllPlayersLoaded
 ]]
 
-local creepsToSpawn = {{"npc_soldier","npc_sharpshooter","npc_priest","npc_knight","npc_spellbreaker"},{"npc_archer","npc_huntress","npc_druid","npc_chimera","npc_mountain_giant"},{"npc_ghul","npc_fiend","npc_necromancer","npc_abomination","npc_frost_wyrm"},{"npc_grunt","npc_berserker","npc_shaman","npc_tauren","npc_kodo_beast"}}
+local creepsToSpawn = {{"npc_soldier","npc_sharpshooter","npc_priest","npc_knight","npc_spellbreaker"},
+                       {"npc_archer","npc_huntress","npc_druid","npc_chimera","npc_mountain_giant"},  
+                       {"npc_ghul","npc_fiend","npc_necromancer","npc_abomination","npc_frost_wyrm"},
+                       {"npc_grunt","npc_berserker","npc_shaman","npc_tauren","npc_kodo_beast"}}
 
 --Holds which race to spawn cycles through 0,1,2,3
 local creepround = 0
@@ -45,7 +48,7 @@ SpecialEventRoshanDuration = 1.1*60
 TimeBetweenCreepSpawn = 15
 TimeSpecialArena = 60*22
 
-waves_between_levels = {10,44,68,93}
+waves_between_levels = {1,2,50,54}--{10,44,68,93}
 
 waves_between_dragons = {28,56,84,108}
 

@@ -37,6 +37,9 @@ function PriestThink()
 			end
 		end
 	end
+	if thisEntity:GetInitialGoalEntity() == nil then
+		thisEntity:SetInitialGoalEntity(Entities:FindByName(nil, "base"))
+	end
 	return 2
 
 end

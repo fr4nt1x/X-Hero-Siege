@@ -35,6 +35,11 @@
 
     "OnSpellStart"
     { 
+      "FireSound"
+      {
+        "EffectName"  "Hero_Ancient_Apparition.IceVortexCast"
+        "Target"     "CASTER"
+      }
       "TrackingProjectile"
       {
         "Target"             "TARGET"
@@ -58,5 +63,6 @@
     "precache"
     {
       "particle"  "particles/items2_fx/skadi_projectile.vpcf"
+      "soundfile" "soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
     }
   }

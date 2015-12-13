@@ -1,4 +1,6 @@
 require('libraries/tools')
+require('libraries/notifications')
+
 
 
 function specialEventRoshan()
@@ -9,7 +11,10 @@ function specialEventRoshan()
       v.endTime = v.endTime + SpecialEventRoshanDuration+4+5
     end
   end
-
+  
+  local msg = "Special Event: You can't kill Roshan. Just survive for "..sec2Min(SpecialEventRoshanDuration).." minutes to get bonus gold."
+  Notifications:TopToAll({text=msg, duration=5.0})
+  
   local units = FindUnitsInRadius( DOTA_TEAM_NEUTRALS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
 
   for _,unit in pairs(units) do
@@ -124,6 +129,8 @@ function specialEventArena()
       v.endTime = v.endTime + SpecialArenaDuration+5+2
     end
   end
+  local msg = "Special Event Arena: Kill as many units as you can. You have "..sec2Min(SpecialArenaDuration).." minutes."
+  Notifications:TopToAll({text=msg, duration=5.0})
   local units = FindUnitsInRadius( DOTA_TEAM_NEUTRALS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
 
   for _,unit in pairs(units) do
@@ -238,6 +245,8 @@ function startKillEvent(hero)
     end
   end
 
+  local msg = "Special Event Arena: Kill Ramero for a powerful item. You have "..sec2Min(SpecialEventKillsDuration).." minutes."
+  Notifications:TopToAll({text=msg, duration=5.0})
   local units = FindUnitsInRadius( DOTA_TEAM_NEUTRALS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
   
   for _,unit in pairs(units) do
@@ -343,6 +352,8 @@ function startWaveKillEvent(hero)
     end
   end
 
+  local msg = "Special Event Arena: Kill Ramero and Baristal for a powerful item. You have "..sec2Min(SpecialEventWaveKillsDuration).." minutes."
+  Notifications:TopToAll({text=msg, duration=5.0})
   GameRules:GetGameModeEntity():SetFixedRespawnTime(SpecialEventWaveKillsDuration)
   
   local units = FindUnitsInRadius( DOTA_TEAM_NEUTRALS,Vector(0,0,0), nil,  FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false )
@@ -529,7 +540,10 @@ function startFrostInfernalEvent(event)
   if IsValidEntity(hero) then
     --Fire the game event to teleport hero to the event
     FireGameEventLocal("teleport_hero_to_special_event", {hero_index = hero:GetEntityIndex() , teleport_entity_index = point_hero:GetEntityIndex()})
+    local msg = "Special Event: Kill Frost Infernal for a powerful item. You have "..sec2Min(SpecialEventFrostInfernalDuration).." minutes."
+    Notifications:Top(hero:GetPlayerOwnerID(),{text=msg, duration=5.0})
   end
+
 
 end
 
@@ -629,6 +643,8 @@ function startSpiritBeastEvent(event)
   if IsValidEntity(hero) then
     --Fire the game event to teleport hero to the event
     FireGameEventLocal("teleport_hero_to_special_event", {hero_index = hero:GetEntityIndex() , teleport_entity_index = point_hero:GetEntityIndex()})
+    local msg = "Special Event: Kill Spirit Beast for a powerful item. You have "..sec2Min(SpecialEventFrostInfernalDuration).." minutes."
+    Notifications:Top(hero:GetPlayerOwnerID(),{text=msg, duration=5.0})
   end
   
 end
@@ -716,7 +732,6 @@ function startIllusionEvent(event)
   GameMode.illusion_event = hero:GetEntityIndex() 
 
   GameMode.heroid_doing_illusions = hero:GetEntityIndex() 
-  print(hero:GetName(),GameMode.heroid_doing_illusions)
   local point_hero = Entities:FindByName(nil, "point_hero_special_event_illusions")
   local point_beast = Entities:FindByName(nil, "spawn_illusions"):GetAbsOrigin()
 
@@ -747,6 +762,8 @@ function startIllusionEvent(event)
   if IsValidEntity(hero) then
     --Fire the game event to teleport hero to the event
     FireGameEventLocal("teleport_hero_to_special_event", {hero_index = hero:GetEntityIndex() , teleport_entity_index = point_hero:GetEntityIndex()})
+    local msg = "Special Event: Kill your illusion for 100 bonus stats. You have "..sec2Min(SpecialEventFrostInfernalDuration).." minutes."
+    Notifications:Top(hero:GetPlayerOwnerID(),{text=msg, duration=5.0})
   end
 
   hero.illusion_done = true
@@ -782,7 +799,6 @@ function endIllusionEvent(event)
   end
 
   local hero = EntIndexToHScript(event.hero_index)
-  print(hero:GetName(),event.hero_index)
   if not GameMode.illusion:IsNull() and  GameMode.illusion:IsAlive() then
     GameMode.illusion:RemoveSelf()
   end

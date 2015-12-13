@@ -69,7 +69,7 @@
                   "Type" "DAMAGE_TYPE_PHYSICAL"
                 }
 
-                "AttachEffect"
+                "FireEffect"
                 {
                   "Target" "CASTER"
                   "EffectName" "particles/units/heroes/hero_brewmaster/brewmaster_pulverize.vpcf"
