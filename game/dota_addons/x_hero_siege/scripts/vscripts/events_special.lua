@@ -25,8 +25,21 @@ function GameMode:OnTeleportHeroToSpecialEvent(keys)
     hero:AddNewModifier(nil, nil, "modifier_stunned", {Duration = 5,IsHidden = true})
     hero:AddNewModifier(nil, nil, "modifier_invulnerable", {Duration = 5,IsHidden = true})
 
-    PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),hero)
-    Timers:CreateTimer(4,function () PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),nil) 
+    FireGameEventLocal("force_camera_on_entity",{playerID= hero:GetPlayerOwnerID(),entity_index = hero:GetEntityIndex(),duration = 4})
+
+  end
+end
+
+-- forces the camera target to the given entity for the given duration
+function GameMode:ForceCameraOnEntity(keys)
+
+  local duration = keys.duration
+  local target = EntIndexToHScript(keys.entity_index)
+  local playerID = keys.playerID
+
+  if IsValidEntity(target) then
+    PlayerResource:SetCameraTarget(playerID,target)
+    Timers:CreateTimer(duration,function () PlayerResource:SetCameraTarget(playerID,nil) 
                             end)
   end
 end
@@ -63,6 +76,7 @@ function GameMode:OnTeleportHeroFromSpecialEvent(keys)
     FindClearSpaceForUnit(hero, teleport_point, true)
     hero:AddNewModifier(nil, nil, "modifier_stunned", {Duration =stun_duration,IsHidden = true})
     hero:AddNewModifier(nil, nil, "modifier_invulnerable", {Duration = stun_duration,IsHidden = true})
+    
     PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),hero)
     Timers:CreateTimer(stun_duration,function () PlayerResource:SetCameraTarget(hero:GetPlayerOwnerID(),nil) 
                             end)

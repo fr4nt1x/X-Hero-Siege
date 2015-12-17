@@ -259,14 +259,14 @@ function GameMode:OnPlayerLevelUp(keys)
   if level >= 19 then
     hero:SetAbilityPoints(hero:GetAbilityPoints()-1) 
   end
-  if level == 20 then
+  --[[if level == 20 then
     local ability = AbilitiesHeroes_XX[hero:GetUnitName()]
     if ability ~= nil   then
       hero:AddAbility(ability[1])
       hero:UpgradeAbility(hero:FindAbilityByName(ability[1]))
       hero:SwapAbilities(hero:GetAbilityByIndex(ability[2]):GetName(),ability[1],true,true)
     end 
-  end
+  end--]]
 end
 
 -- A player last hit a creep, a tower, or a hero
@@ -402,6 +402,17 @@ function GameMode:OnEntityKilled( keys )
   local damagebits = keys.damagebits -- This might always be 0 and therefore useless
 
   -- Put code here to handle when an entity gets killed
+
+  --check if hero was in special arena and if he doesn't ankh respawn end the arena
+  if killedUnit:IsRealHero() and IsValidEntity(killedUnit) then
+    --fires the event to stop the events the hero was in atm only kill event and wave kill event
+
+    if not killedUnit.ankh_respawn then
+      for key,event in pairs(killedUnit.which_special_events) do
+        Timers:CreateTimer( 5,function () FireGameEventLocal(event, {hero_index = killedUnit:GetEntityIndex()}) end)
+      end
+    end  
+  end
 end
 
 
@@ -566,6 +577,46 @@ function GameMode:OnPlayerChat(keys)
           end
         end
       end
+      --[[
+        openlane all command, all keys spawn to gamemode.openlanes,
+        only if the baracks is alive
+      ]]
+      if text == "openlane_all" then
+        for lane = 1,8 do
+          --Only if crypt is alive
+          local crypt = Entities:FindByName(nil, "crypt_p"..lane)
+          if IsValidAlive(crypt) then
+            local towers = Entities:FindAllByName("tower_p"..lane)
+            local lane_level = 3
+            
+            for _,tower in pairs(towers) do
+              tower:RemoveModifierByName("modifier_invulnerable")
+              lane_level = lane_level -1
+            end 
+            GameMode.openLanes["spawn"..lane] = {waypoint = "wp_p"..lane.."_1" , lane_level=lane_level, creeps_per_spawn = {2,3,3,2,2}}
+          end
+        end
+      end
+            --[[
+        openlane all command short, all keys spawn to gamemode.openlanes,
+        only if the baracks is alive
+      ]]
+      if text == "ol_all" then
+        for lane = 1,8 do
+          --Only if crypt is alive
+          local crypt = Entities:FindByName(nil, "crypt_p"..lane)
+          if IsValidAlive(crypt) then
+            local towers = Entities:FindAllByName("tower_p"..lane)
+            local lane_level = 3
+            
+            for _,tower in pairs(towers) do
+              tower:RemoveModifierByName("modifier_invulnerable")
+              lane_level = lane_level -1
+            end 
+            GameMode.openLanes["spawn"..lane] = {waypoint = "wp_p"..lane.."_1" , lane_level=lane_level, creeps_per_spawn = {2,3,3,2,2}}
+          end
+        end
+      end
     --[[
         removes the key "spawn"..lane from the GameMode.openlanes,
         only if the baracks is alive
@@ -607,6 +658,36 @@ function GameMode:OnPlayerChat(keys)
           for _,tower in pairs(towers)do
             tower:AddNewModifier(nil,nil,"modifier_invulnerable",nil)
           end 
+        end
+      end
+    --[[
+        removes the key "spawn"..lane from the GameMode.openlanes,
+      ]]
+
+      if text == "closelane_all" then
+        for lane = 1,8 do
+          if lane <= 8 then
+            GameMode.openLanes["spawn"..lane] = nil
+            local towers = Entities:FindAllByName("tower_p"..lane)
+            for _,tower in pairs(towers)do
+              tower:AddNewModifier(nil,nil,"modifier_invulnerable",nil)
+            end 
+          end
+        end
+      end
+      --[[
+        removes the key "spawn"..lane from the GameMode.openlanes,
+      ]]
+
+      if text == "cl_all" then
+        for lane = 1,8 do
+          if lane <= 8 then
+            GameMode.openLanes["spawn"..lane] = nil
+            local towers = Entities:FindAllByName("tower_p"..lane)
+            for _,tower in pairs(towers)do
+              tower:AddNewModifier(nil,nil,"modifier_invulnerable",nil)
+            end 
+          end
         end
       end
     end

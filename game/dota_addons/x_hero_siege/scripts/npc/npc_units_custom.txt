@@ -353,7 +353,7 @@
 	 
 			// Armor
 			//----------------------------------------------------------------
-			"ArmorPhysical"				"10"		// Physical protection.
+			"ArmorPhysical"				"200"		// Physical protection.
 			"MagicalResistance"				"0"			// Magical protection.
 	 
 			// Attack
@@ -388,7 +388,6 @@
 			// Bounds
 			//----------------------------------------------------------------
 			"BoundsHullName"			"DOTA_HULL_SIZE_HUGE"			// Hull type used for navigation/locomotion.
-			"ProjectileCollisionSize"	"50"
 			"RingRadius"				"90"
 			"HealthBarOffset"			"260"
 	 
@@ -400,17 +399,12 @@
 	 
 			// Status
 			//----------------------------------------------------------------
-			"StatusHealth"				"10000"		// Base health.
+			"StatusHealth"				"50000"		// Base health.
 			"StatusHealthRegen"			"0.01"			// Health regeneration rate.
 			"StatusMana"				"0"			// Base mana.
 			"StatusManaRegen"			"0"			// Mana regeneration rate.
 	 
-			// Team
-			//----------------------------------------------------------------
-			"TeamName"					"DOTA_TEAM_BADGUYS"			// Team name.
-			"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
 			"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
-			"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 	 
 			// Vision
 			//----------------------------------------------------------------
@@ -3710,6 +3704,84 @@
 	    {
 	    }
 	  }
+	"npc_dreadlord_infernal_I"
+	  {
+	    // General
+	    "BaseClass"         "npc_dota_creature"  // Class of entity of link to.
+	    "Model"             "models/items/warlock/golem/obsidian_golem/obsidian_golem.vmdl"  // Model.
+	    "ProjectileModel"            ""
+	    "ProjectileSpeed"                   ""
+	    "SoundSet"          ""          // Name of sound set.
+	    "Level"             "10"
+	    "ModelScale"                    "1.0"
+	    // Abilities
+	    //----------------------------------------------------------------
+	    
+	    "Ability1"          "neutral_spell_immunity"     // Ability 1.
+	    "Ability2"          "permanent_immolation"      // Ability 2.
+	    "Ability3"          "neutral_bash"      // Ability 3.
+	    "Ability4"          ""      // Ability 4.
+	    "Ability5"          ""      // Ability 5.
+	    "Ability6"          ""      // Ability 6 - Extra.
+	    "Ability7"          ""      // Ability 7 - Extra.
+	    "Ability8"          ""      // Ability 8 - Extra.
+	
+	    // Armor
+	    //----------------------------------------------------------------
+	    "ArmorPhysical"       "100"     // Physical protection.
+	    "MagicalResistance"       "0"     // Magical protection.
+	
+	    // Attack
+	    //----------------------------------------------------------------
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"    // Type of attack - melee, ranged, etc.
+	    "AttackDamageMin"     "1500"     // Damage range min.
+	    "AttackDamageMax"     "1512"     // Damage range max.
+	    "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
+	    "AttackRate"        ".9"     // Speed of attack.
+	    "AttackAnimationPoint"    "0.26"   // Normalized time in animation cycle to attack.
+	    "AttackAcquisitionRange"  "600"   // Range within a target can be acquired.
+	    "AttackRange"       "150"   // Range within a target can be attacked.
+	
+	    // Bounty
+	    //----------------------------------------------------------------
+	    "BountyXP"          "150"     // Experience earn.
+	    "BountyGoldMin"       "1000"     // Gold earned min.
+	    "BountyGoldMax"       "1000"     // Gold earned max.
+	
+	    // Bounds
+	    //----------------------------------------------------------------
+	    "BoundsHullName"      "DOTA_HULL_SIZE_HERO"      // Hull type used for navigation/locomotion.
+	
+	    // Movement
+	    //----------------------------------------------------------------
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"     // Type of locomotion - ground, air
+	    "MovementSpeed"       "315"   // Speed
+	    "MovementTurnRate"      "0.4"   // Turning rate.
+	    "FollowRange"       "250"   // Distance to keep when following
+	
+	    // Status
+	    //----------------------------------------------------------------
+	    "StatusHealth"        "40000"     // Base health.
+	    "StatusHealthRegen"     "2"     // Health regeneration rate.
+	    "StatusMana"        "5000"     // Base mana.
+	    "StatusManaRegen"     "0.67"     // Mana regeneration rate.
+	
+	    
+	    // Vision
+	    //----------------------------------------------------------------
+	    "VisionDaytimeRange"    "1000"   // Range of vision during day light.
+	    "VisionNighttimeRange"    "800"   // Range of vision at night time.
+	
+	    // Bots
+	    //----------------------------------------------------------------
+	    "AttackDesire"        "1.5"   // How much bots want to attack them vs other non-hero things
+	    "Creature"
+	    {
+	       "AttachWearables"   
+	        {
+	        } 
+	    }
+	  }  
 	"npc_druid"
 	      {
 	        // General
@@ -6591,6 +6663,153 @@
 	        } 
 	    }
 	  }  
+	//HEROS
+	"npc_phoenix_egg"
+	  {
+	    // General
+	    "BaseClass"         "npc_dota_creature"  // Class of entity of link to.
+	    "Model"             "models/heroes/phoenix/phoenix_egg.vmdl"  // Model.
+	    "ModelScale"                "0.5"
+	    "Level"             "1"
+	
+	    
+	    // Abilities
+	    //----------------------------------------------------------------
+	    
+	    "Ability1"          "neutral_spell_immunity"     // Ability 1.
+	    "Ability2"          ""      // Ability 2.
+	    "Ability3"          ""      // Ability 3.
+	    "Ability4"          ""      // Ability 4.
+	    "Ability5"          ""      // Ability 5.
+	    "Ability6"          ""      // Ability 6 - Extra.
+	    "Ability7"          ""      // Ability 7 - Extra.
+	    "Ability8"          ""      // Ability 8 - Extra.
+	
+	    // Armor
+	    //----------------------------------------------------------------
+	    "ArmorPhysical"       "100"     // Physical protection.
+	    "MagicalResistance"       "80"     // Magical protection.
+	
+	    // Attack
+	    //----------------------------------------------------------------
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_NO_ATTACK"    // Type of attack - melee, ranged, etc.
+	
+	    "AttackDamageMin"     "1001"     // Damage range min.
+	    "AttackDamageMax"     "1003"     // Damage range max.
+	    "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
+	    "AttackRate"        "0.750"     // Speed of attack.
+	    "AttackAnimationPoint"    "0.3"   // Normalized time in animation cycle to attack.
+	    "AttackAcquisitionRange"  "600"   // Range within a target can be acquired.
+	    "AttackRange"       "600"   // Range within a target can be attacked.
+	
+	    // Bounty
+	    //----------------------------------------------------------------
+	    "BountyXP"          "40"     // Experience earn.
+	    "BountyGoldMin"       "3"     // Gold earned min.
+	    "BountyGoldMax"       "4"     // Gold earned max.
+	
+	    // Bounds
+	    //----------------------------------------------------------------
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SMALL"      // Hull type used for navigation/locomotion.
+	
+	    // Movement
+	    //----------------------------------------------------------------
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_NONE"     // Type of locomotion - ground, air
+	    "MovementSpeed"       "0"   // Speed
+	    "MovementTurnRate"      "0.6"   // Turning rate.
+	    "FollowRange"       "250"   // Distance to keep when following
+	
+	    // Status
+	    //----------------------------------------------------------------
+	    "StatusHealth"        "25000"     // Base health.
+	    "StatusHealthRegen"     "0.25"     // Health regeneration rate.
+	    "StatusMana"        "0"     // Base mana.
+	    "StatusManaRegen"     "0"     // Mana regeneration rate.
+	
+	    
+	    // Vision
+	    //----------------------------------------------------------------
+	    "VisionDaytimeRange"    "1000"   // Range of vision during day light.
+	    "VisionNighttimeRange"    "1200"   // Range of vision at night time.
+	
+	  }  
+	"npc_phoenix_I"
+	{
+	
+	    "BaseClass"     "npc_dota_creature"
+	    "Model"						"models/heroes/phoenix/phoenix_bird.vmdl"			// Model.
+		"SoundSet"					"npc_dota_hero_phoenix"							// Name of sound set.
+		"ConsideredHero"			"0"
+	
+	    "ModelScale"                "1.0"
+	    "AbilityLayout"             "6"
+	    "Level"						"20"
+	
+	    "Ability1"        "phoenix_fire_attack"
+	    "Ability2"        "" 
+	    "Ability3"        "neutral_spell_immunity"
+	    "Ability4"        ""
+	    "Ability5"        ""
+	    "Ability6"        ""
+	    "Ability7"        ""
+	    "Ability8"        ""
+	    "Ability9"        ""
+	    "Ability10"       ""
+	    "Ability11"       ""
+	    "Ability12"       ""
+	    "Ability13"       ""
+	    "Ability14"       ""
+	    "Ability15"       ""
+	    "Ability16"       ""
+	
+	    "ArmorPhysical"       "25"                  // Physical protection.
+	    "MagicalResistance"       "0"                 // Magical protection (percentage).
+	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+	    "AttackDamageMin"     "2500"                   // Damage range min.
+	    "AttackDamageMax"     "2515"                   // Damage range max.
+	    "AttackRate"                "0.7"                                  // Speed of attack.
+	    "AttackAnimationPoint"      "0.43"                                   // Normalized time in animation cycle to attack.
+	    "AttackAcquisitionRange"    "1000"                                   // Range within a target can be acquired.
+	    "AttackRange"               "600"                                   // Range within a target can be attacked.
+	    "ProjectileModel"           "particles/units/heroes/hero_phoenix/phoenix_base_attack.vpcf"                                     // Particle system model for projectile.
+	    "ProjectileSpeed"           "1200"                                     // Speed of projectile.
+	    
+	    "AttributePrimary"      "DOTA_ATTRIBUTE_STRENGTH"
+	    "AttributeBaseStrength"   "100"                   // Base strength
+	    "AttributeStrengthGain"   "20"                   // Strength bonus per level.
+	    "AttributeBaseIntelligence" "100"                   // Base intelligence
+	    "AttributeIntelligenceGain" "20"                   // Intelligence bonus per level.
+	    "AttributeBaseAgility"    "100"                   // Base agility
+	    "AttributeAgilityGain"    "20"                   // Agility bonus per level.
+	
+	    "BountyXP"          "300"                 // Experience earn.
+	    "BountyGoldMin"       "1000"                   // Gold earned min.
+	    "BountyGoldMax"       "1000"                   // Gold earned max.
+	
+	    "BoundsHullName"      "DOTA_HULL_SIZE_HERO"
+	    //"RingRadius"        "70"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_FLY"
+	    "MovementSpeed"       "315"                 // Speed.
+	    "MovementTurnRate"      "0.4"                 // Turning rate.
+	
+	    "StatusHealth"        "25000"                 // Base health.
+	    "StatusHealthRegen"     "-100.0"                 // Health regeneration rate.
+	    "StatusMana"        "0"                   // Base mana.
+	    "StatusManaRegen"     "0"                 // Mana regeneration rate.
+	
+	    "VisionDaytimeRange"    "1800"                  // Range of vision at night time.
+	    "VisionNighttimeRange"    "1800"                  // Range of vision at night time.
+	
+	    "Creature"
+	    {
+	        "AttachWearables" // Default npc_dota_hero_phoenix
+	        {
+	            "1" { "ItemDef" "535" } // Phoenix's Ambient Effects
+	        }
+	    }
+	}
 	"npc_priest"
 	      {
 	        // General
@@ -6902,6 +7121,256 @@
 	        {
 	        } 
 	
+	    }
+	  }  
+	//HEROS
+	"npc_sea_elemental_I"
+	  {
+	    // General
+	    "BaseClass"         "npc_dota_creature"  // Class of entity of link to.
+	    "Model"             "models/heroes/morphling/morphling.vmdl"  // Model.
+	    "ProjectileModel"            "particles/units/heroes/hero_morphling/morphling_base_attack.vpcf"
+	    "Level"             "1"
+	    "ModelScale"                    "0.7"
+	    "AutoAttacksByDefault"         "1"
+	    // Abilities
+	    //----------------------------------------------------------------
+	    
+	    "Ability1"          ""     // Ability 1.
+	    "Ability2"          ""      // Ability 2.
+	    "Ability3"          ""      // Ability 3.
+	    "Ability4"          ""      // Ability 4.
+	    "Ability5"          ""      // Ability 5.
+	    "Ability6"          ""      // Ability 6 - Extra.
+	    "Ability7"          ""      // Ability 7 - Extra.
+	    "Ability8"          ""      // Ability 8 - Extra.
+	
+	    // Armor
+	    //----------------------------------------------------------------
+	    "ArmorPhysical"       "0"     // Physical protection.
+	    "MagicalResistance"       "0"     // Magical protection.
+	
+	    // Attack
+	    //----------------------------------------------------------------
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"    // Type of attack - melee, ranged, etc.
+	    "AttackDamageMin"     "200"     // Damage range min.
+	    "AttackDamageMax"     "215"     // Damage range max.
+	    "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
+	    "AttackRate"        "1.20"     // Speed of attack.
+	    "AttackAnimationPoint"    "0.6"   // Normalized time in animation cycle to attack.
+	    "AttackAcquisitionRange"  "500"   // Range within a target can be acquired.
+	    "AttackRange"       "600"   // Range within a target can be attacked.
+	
+	    // Bounty
+	    //----------------------------------------------------------------
+	    "BountyXP"          "40"     // Experience earn.
+	    "BountyGoldMin"       "0"     // Gold earned min.
+	    "BountyGoldMax"       "0"     // Gold earned max.
+	
+	    // Bounds
+	    //----------------------------------------------------------------
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SMALL"      // Hull type used for navigation/locomotion.
+	
+	    // Movement
+	    //----------------------------------------------------------------
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"     // Type of locomotion - ground, air
+	    "MovementSpeed"       "270"   // Speed
+	    "MovementTurnRate"      "0.5"   // Turning rate.
+	    "FollowRange"       "250"   // Distance to keep when following
+	
+	    // Status
+	    //----------------------------------------------------------------
+	    "StatusHealth"        "3000"     // Base health.
+	    "StatusHealthRegen"     "2"     // Health regeneration rate.
+	    "StatusMana"        "0"     // Base mana.
+	    "StatusManaRegen"     "0"     // Mana regeneration rate.
+	
+	    
+	    // Vision
+	    //----------------------------------------------------------------
+	    "VisionDaytimeRange"    "800"   // Range of vision during day light.
+	    "VisionNighttimeRange"    "600"   // Range of vision at night time.
+	
+	    // Bots
+	    //----------------------------------------------------------------
+	    "AttackDesire"        "1.5"   // How much bots want to attack them vs other non-hero things
+	    	"Creature"
+	    {
+	        "AttachWearables" // The Roiling Surge
+	        {
+	            "1" { "ItemDef" "7688" } // Curl of the Roiling Surge
+	            "2" { "ItemDef" "7691" } // Drift of the Roiling Surge
+	            "3" { "ItemDef" "7687" } // Spray of the Roiling Surge
+	            "4" { "ItemDef" "7689" } // Crest of the Roiling Surge
+	            "5" { "ItemDef" "7690" } // Swell of the Roiling Surge
+	        }
+	    }
+	  }  
+	//HEROS
+	"npc_sea_elemental_II"
+	  {
+	    // General
+	    "BaseClass"         "npc_dota_creature"  // Class of entity of link to.
+	    "Model"             "models/heroes/morphling/morphling.vmdl"  // Model.
+	    "ProjectileModel"            "particles/units/heroes/hero_morphling/morphling_base_attack.vpcf"
+	    "Level"             "2"
+	    "ModelScale"                    "0.8"
+	    "AutoAttacksByDefault"         "1"
+	    // Abilities
+	    //----------------------------------------------------------------
+	    
+	    "Ability1"          ""     // Ability 1.
+	    "Ability2"          ""      // Ability 2.
+	    "Ability3"          ""      // Ability 3.
+	    "Ability4"          ""      // Ability 4.
+	    "Ability5"          ""      // Ability 5.
+	    "Ability6"          ""      // Ability 6 - Extra.
+	    "Ability7"          ""      // Ability 7 - Extra.
+	    "Ability8"          ""      // Ability 8 - Extra.
+	
+	    // Armor
+	    //----------------------------------------------------------------
+	    "ArmorPhysical"       "5"     // Physical protection.
+	    "MagicalResistance"       "0"     // Magical protection.
+	
+	    // Attack
+	    //----------------------------------------------------------------
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"    // Type of attack - melee, ranged, etc.
+	    "AttackDamageMin"     "301"     // Damage range min.
+	    "AttackDamageMax"     "315"     // Damage range max.
+	    "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
+	    "AttackRate"        "1.05"     // Speed of attack.
+	    "AttackAnimationPoint"    "0.6"   // Normalized time in animation cycle to attack.
+	    "AttackAcquisitionRange"  "500"   // Range within a target can be acquired.
+	    "AttackRange"       "600"   // Range within a target can be attacked.
+	
+	    // Bounty
+	    //----------------------------------------------------------------
+	    "BountyXP"          "40"     // Experience earn.
+	    "BountyGoldMin"       "0"     // Gold earned min.
+	    "BountyGoldMax"       "0"     // Gold earned max.
+	
+	    // Bounds
+	    //----------------------------------------------------------------
+	    "BoundsHullName"      "DOTA_HULL_SIZE_SMALL"      // Hull type used for navigation/locomotion.
+	
+	    // Movement
+	    //----------------------------------------------------------------
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"     // Type of locomotion - ground, air
+	    "MovementSpeed"       "270"   // Speed
+	    "MovementTurnRate"      "0.5"   // Turning rate.
+	    "FollowRange"       "250"   // Distance to keep when following
+	
+	    // Status
+	    //----------------------------------------------------------------
+	    "StatusHealth"        "8000"     // Base health.
+	    "StatusHealthRegen"     "2"     // Health regeneration rate.
+	    "StatusMana"        "0"     // Base mana.
+	    "StatusManaRegen"     "0"     // Mana regeneration rate.
+	
+	    
+	    // Vision
+	    //----------------------------------------------------------------
+	    "VisionDaytimeRange"    "800"   // Range of vision during day light.
+	    "VisionNighttimeRange"    "600"   // Range of vision at night time.
+	
+	    // Bots
+	    //----------------------------------------------------------------
+	    "AttackDesire"        "1.5"   // How much bots want to attack them vs other non-hero things
+	    	"Creature"
+	    {
+	        "AttachWearables" // The Roiling Surge
+	        {
+	            "1" { "ItemDef" "7688" } // Curl of the Roiling Surge
+	            "2" { "ItemDef" "7691" } // Drift of the Roiling Surge
+	            "3" { "ItemDef" "7687" } // Spray of the Roiling Surge
+	            "4" { "ItemDef" "7689" } // Crest of the Roiling Surge
+	            "5" { "ItemDef" "7690" } // Swell of the Roiling Surge
+	        }
+	    }
+	  }  
+	//HEROS
+	"npc_sea_elemental_III"
+	  {
+	    // General
+	    "BaseClass"         "npc_dota_creature"  // Class of entity of link to.
+	    "Model"             "models/heroes/morphling/morphling.vmdl"  // Model.
+	    "Level"             "3"
+	    "ModelScale"                    "1.0"
+	    "ProjectileModel"            "particles/units/heroes/hero_morphling/morphling_base_attack.vpcf"
+	    "ProjectileSpeed"                   "900"
+	    "AutoAttacksByDefault"         "1"
+	    // Abilities
+	    //----------------------------------------------------------------
+	    
+	    "Ability1"          ""     // Ability 1.
+	    "Ability2"          ""      // Ability 2.
+	    "Ability3"          ""      // Ability 3.
+	    "Ability4"          ""      // Ability 4.
+	    "Ability5"          ""      // Ability 5.
+	    "Ability6"          ""      // Ability 6 - Extra.
+	    "Ability7"          ""      // Ability 7 - Extra.
+	    "Ability8"          ""      // Ability 8 - Extra.
+	
+	    // Armor
+	    //----------------------------------------------------------------
+	    "ArmorPhysical"       "10"     // Physical protection.
+	    "MagicalResistance"       "0"     // Magical protection.
+	
+	    // Attack
+	    //----------------------------------------------------------------
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"    // Type of attack - melee, ranged, etc.
+	    "AttackDamageMin"     "501"     // Damage range min.
+	    "AttackDamageMax"     "515"     // Damage range max.
+	    "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
+	    "AttackRate"        "0.9"     // Speed of attack.
+	    "AttackAnimationPoint"    "0.6"   // Normalized time in animation cycle to attack.
+	    "AttackAcquisitionRange"  "500"   // Range within a target can be acquired.
+	    "AttackRange"       "600"   // Range within a target can be attacked.
+	
+	    // Bounty
+	    //----------------------------------------------------------------
+	    "BountyXP"          "40"     // Experience earn.
+	    "BountyGoldMin"       "0"     // Gold earned min.
+	    "BountyGoldMax"       "0"     // Gold earned max.
+	
+	    // Bounds
+	    //----------------------------------------------------------------
+	    "BoundsHullName"      "DOTA_HULL_SIZE_HERO"      // Hull type used for navigation/locomotion.
+	
+	    // Movement
+	    //----------------------------------------------------------------
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"     // Type of locomotion - ground, air
+	    "MovementSpeed"       "270"   // Speed
+	    "MovementTurnRate"      "0.5"   // Turning rate.
+	    "FollowRange"       "250"   // Distance to keep when following
+	
+	    // Status
+	    //----------------------------------------------------------------
+	    "StatusHealth"        "20000"     // Base health.
+	    "StatusHealthRegen"     "2"     // Health regeneration rate.
+	    "StatusMana"        "0"     // Base mana.
+	    "StatusManaRegen"     "0"     // Mana regeneration rate.
+	
+	    
+	    // Vision
+	    //----------------------------------------------------------------
+	    "VisionDaytimeRange"    "800"   // Range of vision during day light.
+	    "VisionNighttimeRange"    "600"   // Range of vision at night time.
+	
+	    // Bots
+	    //----------------------------------------------------------------
+	    "AttackDesire"        "1.5"   // How much bots want to attack them vs other non-hero things
+	    	"Creature"
+	    {
+	        "AttachWearables" // The Roiling Surge
+	        {
+	            "1" { "ItemDef" "7688" } // Curl of the Roiling Surge
+	            "2" { "ItemDef" "7691" } // Drift of the Roiling Surge
+	            "3" { "ItemDef" "7687" } // Spray of the Roiling Surge
+	            "4" { "ItemDef" "7689" } // Crest of the Roiling Surge
+	            "5" { "ItemDef" "7690" } // Swell of the Roiling Surge
+	        }
 	    }
 	  }  
 	//HEROS
@@ -9039,14 +9508,15 @@
 	    "AttackDesire"        "1.5"   // How much bots want to attack them vs other non-hero things
 	    	"Creature"
 	    {
-	           "AttachWearables"   
+	        "AttachWearables" // Default npc_dota_hero_morphling
 	        {
-	            "Wearable1" { "ItemDef" "573" }
-	            "Wearable2" { "ItemDef" "574" }
-	            "Wearable3" { "ItemDef" "575" }
-	            "Wearable4" { "ItemDef" "576" }
-	            "Wearable5" { "ItemDef" "577" }
-	        } 
+	            "1" { "ItemDef" "575" } // Morphling's Back
+	            "2" { "ItemDef" "574" } // Morphling's Shoulders
+	            "3" { "ItemDef" "573" } // Morphling's Head
+	            "4" { "ItemDef" "576" } // Morphling's Arms
+	            "5" { "ItemDef" "507" } // Morphling's Ambient Effects
+	            "6" { "ItemDef" "577" } // Morphling's Miscellaneous
+	        }
 	    }
 	  }  
 	//HEROS
@@ -9122,14 +9592,15 @@
 	    "AttackDesire"        "1.5"   // How much bots want to attack them vs other non-hero things
 	    	"Creature"
 	    {
-	           "AttachWearables"   
+	        "AttachWearables" // Default npc_dota_hero_morphling
 	        {
-	            "Wearable1" { "ItemDef" "573" }
-	            "Wearable2" { "ItemDef" "574" }
-	            "Wearable3" { "ItemDef" "575" }
-	            "Wearable4" { "ItemDef" "576" }
-	            "Wearable5" { "ItemDef" "577" }
-	        } 
+	            "1" { "ItemDef" "575" } // Morphling's Back
+	            "2" { "ItemDef" "574" } // Morphling's Shoulders
+	            "3" { "ItemDef" "573" } // Morphling's Head
+	            "4" { "ItemDef" "576" } // Morphling's Arms
+	            "5" { "ItemDef" "507" } // Morphling's Ambient Effects
+	            "6" { "ItemDef" "577" } // Morphling's Miscellaneous
+	        }
 	    }
 	  }  
 	//HEROS
@@ -9206,14 +9677,15 @@
 	    "AttackDesire"        "1.5"   // How much bots want to attack them vs other non-hero things
 	    	"Creature"
 	    {
-	           "AttachWearables"   
+	        "AttachWearables" // Default npc_dota_hero_morphling
 	        {
-	            "Wearable1" { "ItemDef" "573" }
-	            "Wearable2" { "ItemDef" "574" }
-	            "Wearable3" { "ItemDef" "575" }
-	            "Wearable4" { "ItemDef" "576" }
-	            "Wearable5" { "ItemDef" "577" }
-	        } 
+	            "1" { "ItemDef" "575" } // Morphling's Back
+	            "2" { "ItemDef" "574" } // Morphling's Shoulders
+	            "3" { "ItemDef" "573" } // Morphling's Head
+	            "4" { "ItemDef" "576" } // Morphling's Arms
+	            "5" { "ItemDef" "507" } // Morphling's Ambient Effects
+	            "6" { "ItemDef" "577" } // Morphling's Miscellaneous
+	        }
 	    }
 	  }  
 	//HEROS

@@ -65,7 +65,8 @@ function GameMode:_InitGameMode()
   --ListenToGameEvent('dota_ability_channel_finished', Dynamic_Wrap(GameMode, 'OnAbilityChannelFinished'), self)
 
   --ListenToGameEvent('dota_player_learned_ability', Dynamic_Wrap(GameMode, 'OnPlayerLearnedAbility'), self)
-  --ListenToGameEvent('entity_killed', Dynamic_Wrap(GameMode, 'OnEntityKilled'), self)
+  
+  ListenToGameEvent('entity_killed', Dynamic_Wrap(GameMode, 'OnEntityKilled'), self)
   
   --needed because it sets the user id
   ListenToGameEvent('player_connect_full', Dynamic_Wrap(GameMode, 'OnConnectFull'), self)
@@ -119,6 +120,7 @@ function GameMode:_InitGameMode()
   ListenToGameEvent("make_base_towers_invulnerable",  Dynamic_Wrap(GameMode, "MakeBaseTowersInvulnerable"), self)
   ListenToGameEvent("make_base_towers_vulnerable",  Dynamic_Wrap(GameMode, "MakeBaseTowersVulnerable"), self)
 
+  ListenToGameEvent("force_camera_on_entity",  Dynamic_Wrap(GameMode, "ForceCameraOnEntity"), self)
   ListenToGameEvent("destroy_door",  Dynamic_Wrap(GameMode, "DestroyDoor"), self)
   --ListenToGameEvent("dota_tutorial_shop_toggled", Dynamic_Wrap(GameMode, 'OnShopToggled'), self)
 

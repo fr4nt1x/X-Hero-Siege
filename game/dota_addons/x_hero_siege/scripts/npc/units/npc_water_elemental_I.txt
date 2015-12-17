@@ -71,13 +71,14 @@
     "AttackDesire"        "1.5"   // How much bots want to attack them vs other non-hero things
     	"Creature"
     {
-           "AttachWearables"   
+        "AttachWearables" // Default npc_dota_hero_morphling
         {
-            "Wearable1" { "ItemDef" "573" }
-            "Wearable2" { "ItemDef" "574" }
-            "Wearable3" { "ItemDef" "575" }
-            "Wearable4" { "ItemDef" "576" }
-            "Wearable5" { "ItemDef" "577" }
-        } 
+            "1" { "ItemDef" "575" } // Morphling's Back
+            "2" { "ItemDef" "574" } // Morphling's Shoulders
+            "3" { "ItemDef" "573" } // Morphling's Head
+            "4" { "ItemDef" "576" } // Morphling's Arms
+            "5" { "ItemDef" "507" } // Morphling's Ambient Effects
+            "6" { "ItemDef" "577" } // Morphling's Miscellaneous
+        }
     }
   }  

@@ -23,7 +23,7 @@
 		"AttackDamageMin"			"62.0"
 		"AttackDamageMax"			"70.0"
 		"AttackDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"AttackRate"				"2.2"
+		"AttackRate"				"2.1"
 		"AttackAnimationPoint"		"0.433"
 		"AttackAcquisitionRange"	"600"
 		"AttackRange"				"125"

@@ -10,11 +10,32 @@ spawn banehallow stuff
 
 Special events and final wave
 
+Special events on death
+
 blink in combination with check is path is possible
 
 Model spirit beast change to thunderhide
 
 Roshan ai
+
+stat board
+
+roshan has truesight?
+
+drop a sellable flag after each 
+
+
+
+EXTREMEM MODE IDEAS:
+
+1) Death is permanent, ankhs still working.
+2) Additional creeps (mb like heroes from vanilla) :
+Type A: will explode on death dealing magic or pure damage (orcs)
+Type B: active desolation debuff, like slardar's/bh's one (night elves)
+Type C: disarm (humans)
+Type D: decrepify (undead)
+3) On illusion event 3 illusions spawns instead of one (If you enter the arena at game start you will die after exactly 3 hits, therefore 3 illusions)
+4) Magnus globally casts his aoe-based fire spell since start (after some warning, like red circles on the ground when casting meteor in Diablo, you know what I mean)
 
 
 
@@ -26,13 +47,40 @@ player reconnect
 
 disconnected players receive skillpoints
 
-Respawn timers
+paladin healing wave cast on no target
 
-Show timers for how long you have to finish events same for roshan
+make threat ability  berserkers call
 
-bane healing
+descriptions to summon units
+
+change boss spawn, or dont skip arenas
+
+fountain of health
+
+notification before roshan
+
+tp scroll
+
+orb of darkness, fire and shock
+
+give summons pure orb attackss
+
 
 DONE:
+	
+	Compile Map
 
 	Level up gives bountyupgrade now. Only the time dependent level up.
 
+	forced cameras to watch ramero and baristal for first few seconds
+	increased the starting gold on easy 
+
+	finish kill and wave event on hero death
+
+	Added bane tombs that apply healing, no visual right now
+	
+	NEW HEROES:
+
+	JAINA, DREADLORD, BLOODMAGE
+
+	remove units on start

@@ -6,7 +6,7 @@
     "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
     "MaxLevel"              "2"
     "RequiredLevel"        "10"
-    "LevelBetweenUpgrades"  "5"
+    "LevelsBetweenUpgrades"  "5"
 
     // Stats
     //-------------------------------------------------------------------------------------

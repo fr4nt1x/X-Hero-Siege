@@ -29,7 +29,9 @@ function despawn_servant(event)
 	for k,v in pairs(hero.servants) do
 		if v == unit then
 			table.remove(hero.servants,k)
-			unit:RemoveSelf()
+			if IsValidEntity(unit) then
+				unit:RemoveSelf()
+			end
 			break
 		end
 	end

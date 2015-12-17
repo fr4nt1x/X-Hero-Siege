@@ -49,7 +49,10 @@ local AbilitiesHeroes = {npc_dota_hero_antimage = "demonhunter_roar",
                     npc_dota_hero_windrunner = "windrunner_healing",
                     npc_dota_hero_shadow_shaman = "shadow_hunter_healing_ward",
                     npc_dota_hero_omniknight = "paladin_taunt",
-                    npc_dota_hero_keeper_of_the_light = "archmage_spell_shield"}
+                    npc_dota_hero_keeper_of_the_light = "archmage_spell_shield",
+                    npc_dota_hero_night_stalker = "dreadlord_sleep",
+                    npc_dota_hero_crystal_maiden = "jaina_mana_shield",
+                    npc_dota_hero_invoker = "bloodmage_chains"}
 --[[
   This function should be used to set up Async precache calls at the beginning of the gameplay.
 
@@ -145,7 +148,7 @@ function GameMode:OnHeroInGame(hero)
 
   if  IsValidEntity(hero) and IsValidEntity(hero:GetPlayerOwner()) and hero:IsRealHero() and hero:GetTeam() == DOTA_TEAM_GOODGUYS then
     if difficulty == 1 then
-      hero:SetGold(8000, false)
+      hero:SetGold(20000, false)
     elseif difficulty == 2 then
       hero:SetGold(500, false)
     elseif difficulty == 3 then
@@ -159,6 +162,8 @@ function GameMode:OnHeroInGame(hero)
     --local item = CreateItem("item_tome_big", hero, hero)
     --hero:AddItem(item)
     --hero:AddNewModifier(hero, nil,  "modifier_item_ultimate_scepter", {})
+
+    hero.which_special_events = {}
     hero.in_special_event = false
     hero.wave_kills = 0
     hero.creep_kills  =0
@@ -178,11 +183,11 @@ function GameMode:OnHeroInGame(hero)
     -- local ability = unit:FindAbilityByName("ramero_baristal")
     --ability:ApplyDataDrivenModifier(unit, unit, "modifier_baristal", {})
     unit:SetControllableByPlayer(player, true)
-    --]]
-    --[[for j = 1,15 do
-    illusion = CreateUnitByName("npc_ghul_II",point:GetAbsOrigin()+Vector(200,0,0),true,hero,nil,DOTA_TEAM_NEUTRALS)
+    
+    for j = 1,40 do
+    illusion = CreateUnitByName("npc_ghul_II",point:GetAbsOrigin()+Vector(1000,0,0),true,hero,nil,DOTA_TEAM_NEUTRALS)
     illusion:SetControllableByPlayer(player, true)
-    end--]]
+    end
     --[[  
     illusion = CreateUnitByName("npc_dragon_level_III",point:GetAbsOrigin(),true,hero,nil,DOTA_TEAM_GOODGUYS)
 

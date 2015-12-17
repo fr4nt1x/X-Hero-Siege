@@ -62,6 +62,13 @@
 		"stun_duration"					"float"
 	}
 	
+	"force_camera_on_entity"
+	{
+		"entity_index"					"short"
+		"duration"						"float"
+		"playerID"						"short"
+	}
+
 	"return_units_of_hero"
 	{
 		"hero_index"					"short"

@@ -54,7 +54,6 @@
         "Passive"      "0"
         "IsHidden"      "1"
         "IsDebuff"      "0"
-        "Duration"      "%duration"
         "OnDestroy"
           {
             "RunScript"

@@ -279,10 +279,21 @@ function startKillEvent(hero)
                                                 end)
 
   if IsValidEntity(hero) then
+
     hero.old_position_kills = hero:GetAbsOrigin()
     --Fire the game event to teleport hero to the event
     FireGameEventLocal("teleport_hero_to_special_event", {hero_index = hero:GetEntityIndex() , teleport_entity_index = point:GetEntityIndex()})
     FireGameEventLocal("return_units_of_hero",{hero_index = hero:GetEntityIndex(),stun_duration = 5})
+
+    hero.which_special_events["kill_event"] = "end_special_event_kills"
+
+    for i = 1,PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) do
+      local playerid = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, i)
+      if playerid ~= hero:GetPlayerOwnerID() then
+        FireGameEventLocal("force_camera_on_entity",{playerID= playerid,entity_index = hero:GetEntityIndex(),duration = 4})
+      end
+    end
+  
   end
 end
 
@@ -309,7 +320,9 @@ function endKillEvent(event)
   FireGameEventLocal("make_base_towers_vulnerable", {})
 
   local hero = EntIndexToHScript(event.hero_index)
-  
+
+  hero.which_special_events["kill_event"] = nil
+
   if IsValidAlive(GameMode.ramero) then
     GameMode.ramero:RemoveSelf()
     GameMode.kill_event_happened = false
@@ -395,6 +408,14 @@ function startWaveKillEvent(hero)
     --Fire the game event to teleport hero to the event
     FireGameEventLocal("teleport_hero_to_special_event", {hero_index = hero:GetEntityIndex() , teleport_entity_index = point:GetEntityIndex()})
     FireGameEventLocal("return_units_of_hero",{hero_index = hero:GetEntityIndex(),stun_duration = 5})
+    hero.which_special_events["wave_kill_event"] = "end_special_event_wave_kills"
+
+    for i = 1,PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) do
+      local playerid = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, i)
+      if playerid ~= hero:GetPlayerOwnerID() then
+        FireGameEventLocal("force_camera_on_entity",{playerID= playerid,entity_index = hero:GetEntityIndex(),duration = 4})
+      end
+    end
 
   end
 
@@ -426,6 +447,8 @@ function endWaveKillEvent(event)
   
   local hero = EntIndexToHScript(event.hero_index)
   
+  hero.which_special_events["wave_kill_event"] = nil
+
   if IsValidAlive(GameMode.baristal) then
     GameMode.baristal:RemoveSelf()
     GameMode.wave_event_happened = false
@@ -512,9 +535,6 @@ function startFrostInfernalEvent(event)
 
   local hero = event.activator
 
-  GameRules:GetGameModeEntity():SetFixedRespawnTime(SpecialEventFrostInfernalDuration)
-
-
   local triggers = Entities:FindAllByName("trigger_frost_infernal_return")
   for _,v in pairs(triggers) do
     v:Enable()
@@ -553,7 +573,6 @@ function endFrostInfernalEvent(event)
     return nil
   end
   GameMode.event_choice_occupied = false
-  GameRules:GetGameModeEntity():SetFixedRespawnTime(-1)
   
   --enable special event triggers
   local triggers_choice = Entities:FindAllByName("trigger_special_event_choice")
@@ -614,7 +633,6 @@ function startSpiritBeastEvent(event)
     return nil
   end
 
-  GameRules:GetGameModeEntity():SetFixedRespawnTime(SpecialEventFrostInfernalDuration)
 
   local triggers = Entities:FindAllByName("trigger_frost_infernal_return")
   
@@ -655,7 +673,7 @@ function endSpiritBeastEvent(event)
     return nil
   end
   GameMode.event_choice_occupied = false
-  GameRules:GetGameModeEntity():SetFixedRespawnTime(-1)
+
   --enable special event triggers
   local triggers_choice = Entities:FindAllByName("trigger_special_event_choice")
   local triggers_events = Entities:FindAllByName("trigger_special_event")
@@ -721,7 +739,6 @@ function startIllusionEvent(event)
     return nil
   end
 
-  GameRules:GetGameModeEntity():SetFixedRespawnTime(SpecialEventFrostInfernalDuration)
 
   local triggers = Entities:FindAllByName("trigger_illusion_return")
   
@@ -779,7 +796,7 @@ function endIllusionEvent(event)
   end
   
   GameMode.event_choice_occupied = false
-  GameRules:GetGameModeEntity():SetFixedRespawnTime(-1)
+  
   --enable special event triggers
   local triggers_choice = Entities:FindAllByName("trigger_special_event_choice")
   local triggers_events = Entities:FindAllByName("trigger_special_event")
