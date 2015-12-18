@@ -1,0 +1,98 @@
+//Magtheridon
+"bloodmage_chains"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "-1"
+    "AbilityChannelTime" 	"10"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.5"
+    "AbilityCooldown"  "12"
+    "AbilityCastRange" "800"
+    "AbilityTextureName" "batrider_flaming_lasso"
+    "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "ticktime"      "1"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "damage_per_tick"      "50"
+      }
+
+    }
+
+    "OnSpellStart"
+    {
+      "ApplyModifier"
+      {
+        "ModifierName"  "modifier_bloodmage_chains"
+        "Target"     "TARGET"
+      }
+    }
+    "OnChannelFinish"
+    {
+      "RemoveModifier"
+      {
+        "ModifierName"  "modifier_bloodmage_chains"
+        "Target"     "TARGET"
+      }
+    }
+
+    "Modifiers"
+      {
+        "modifier_bloodmage_chains"
+        {
+          	"IsHidden"  "0"
+          	"ThinkInterval"  "%ticktime"
+            "OnCreated"
+            {
+              "AttachEffect"
+              {
+                "EffectName"        "particles/units/heroes/hero_shadowshaman/shadowshaman_shackle.vpcf"
+                "EffectAttachType"  "follow_origin"
+                "Target"            "TARGET"
+                "ControlPointEntities"
+                  {
+                      "TARGET"    "attach_hitloc" // Control Point 0
+                      "TARGET"    "attach_hitloc" // Control Point 1
+                      "TARGET"    "attach_hitloc" // Control Point 1
+                      "TARGET"    "attach_hitloc" // Control Point 1
+                      "TARGET"    "attach_hitloc" // Control Point 1
+                      "CASTER"    "attach_hitloc" // Control Point 1
+                      "CASTER"    "attach_hitloc" // Control Point 1
+                  }
+              }
+            }
+           
+          	"OnIntervalThink"
+          	{
+              "Damage"
+              {
+                "Target"    "TARGET"
+                "Type"      "DAMAGE_TYPE_MAGICAL"
+                "Damage"    "%damage_per_tick"
+              }
+          	}
+            "States"
+            {
+              "MODIFIER_STATE_STUNNED"    "MODIFIER_STATE_VALUE_ENABLED"
+            }
+        }
+      }
+    "precache"
+    {
+      "particle" "particles/units/heroes/hero_shadowshaman/shadowshaman_shackle.vpcf"
+    }
+  }  

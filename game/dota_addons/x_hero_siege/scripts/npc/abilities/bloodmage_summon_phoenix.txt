@@ -1,0 +1,94 @@
+"bloodmage_summon_phoenix"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "MaxLevel"              "2"
+    "RequiredLevel"        "10"
+    "LevelsBetweenUpgrades"  "5"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.5"
+    "AbilityCooldown"  "121"
+    "AbilityManaCost"  "125 175"
+    "AbilityTextureName" "phoenix_icarus_dive"
+
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+        {
+          "var_type" "FIELD_FLOAT"
+          "damage_per_second" "-100"
+        }
+      "02"
+        {
+          "var_type" "FIELD_INTEGER"
+          "units" "1 2"
+        }
+        "03"
+        {
+          "var_type" "FIELD_INTEGER"
+          "respawn_duration" "20 20"
+        }
+    }
+
+    "precache"
+    {
+    }
+
+    "Modifiers"
+    {
+      "modifier_phoenix_rebirth"
+      {
+        "Passive"      "0"
+        "IsHidden"      "1"
+        "IsDebuff"      "0"
+        
+        "OnDeath"
+        {
+          "RunScript"
+          {
+            "ScriptFile"  "heroes/bloodmage/summon_phoenix.lua"
+            "Function"    "spawn_egg"
+          }
+        }
+      }
+
+      "modifier_egg"
+      {
+        "Passive"      "0"
+        "IsHidden"      "1"
+        "IsDebuff"      "0"
+        "Duration"      "%respawn_duration"
+
+        "OnDestroy"
+        {
+          "RunScript"
+          {
+            "ScriptFile"  "heroes/bloodmage/summon_phoenix.lua"
+            "Function"    "spawn_phoenix_from_egg"
+          }
+        }
+        "States"
+        {
+          "MODIFIER_STATE_LOW_ATTACK_PRIORITY"    "MODIFIER_STATE_VALUE_ENABLED"
+        }
+      }
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "heroes/bloodmage/summon_phoenix.lua"
+        "Function"    "spawn_phoenix"
+      }
+    }
+  }

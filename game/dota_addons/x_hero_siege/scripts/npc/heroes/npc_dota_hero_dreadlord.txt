@@ -1,0 +1,64 @@
+
+	"npc_dota_hero_dreadlord"
+	{
+		// General
+		//----------------------------------------------------------------
+		"override_hero"				"npc_dota_hero_night_stalker"	 //Add npc_dota_hero internal name
+		"AbilityLayout"				"6"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"dreadlord_crypt_swarm"	 //Reference: AInv
+		"Ability2"					"dreadlord_chaos"	 //Reference: AUav
+		"Ability3"					"dreadlord_aura_of_blight"	 //Reference: AUsl
+		"Ability4"					"dreadlord_death_coil"	 //Reference: AUcs
+		"Ability5"					""	 //Reference: AUin
+		"Ability6"					"dreadlord_inferno"	 //Reference: AUcs
+		"Ability7"					""	 //Reference: AUin
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"0"
+		
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"52.0"
+		"AttackDamageMax"			"68.0"
+		"AttackDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AttackRate"				"1.8"
+		"AttackAnimationPoint"		"0.55"
+		"AttackAcquisitionRange"	"500"
+		"AttackRange"				"120"
+		
+		// Attributes
+		//----------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"		"30"
+		"AttributeStrengthGain"		"4.0"
+		"AttributeBaseIntelligence"	"18"
+		"AttributeIntelligenceGain"	"2.5"
+		"AttributeBaseAgility"		"16"
+		"AttributeAgilityGain"		"1"
+		
+		
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"286"
+		"MovementTurnRate"			"0.5"
+		
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"450"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"150"
+		"StatusManaRegen"			"0.01"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1300"
+		"VisionNighttimeRange"		"1400"
+		
+	}

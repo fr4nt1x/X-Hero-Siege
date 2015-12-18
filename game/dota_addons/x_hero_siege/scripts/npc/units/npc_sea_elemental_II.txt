@@ -1,0 +1,83 @@
+//HEROS
+"npc_sea_elemental_II"
+  {
+    // General
+    "BaseClass"         "npc_dota_creature"  // Class of entity of link to.
+    "Model"             "models/heroes/morphling/morphling.vmdl"  // Model.
+    "ProjectileModel"            "particles/units/heroes/hero_morphling/morphling_base_attack.vpcf"
+    "Level"             "2"
+    "ModelScale"                    "0.8"
+    "AutoAttacksByDefault"         "1"
+    // Abilities
+    //----------------------------------------------------------------
+    
+    "Ability1"          ""     // Ability 1.
+    "Ability2"          ""      // Ability 2.
+    "Ability3"          ""      // Ability 3.
+    "Ability4"          ""      // Ability 4.
+    "Ability5"          ""      // Ability 5.
+    "Ability6"          ""      // Ability 6 - Extra.
+    "Ability7"          ""      // Ability 7 - Extra.
+    "Ability8"          ""      // Ability 8 - Extra.
+
+    // Armor
+    //----------------------------------------------------------------
+    "ArmorPhysical"       "5"     // Physical protection.
+    "MagicalResistance"       "0"     // Magical protection.
+
+    // Attack
+    //----------------------------------------------------------------
+    "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"    // Type of attack - melee, ranged, etc.
+    "AttackDamageMin"     "301"     // Damage range min.
+    "AttackDamageMax"     "315"     // Damage range max.
+    "AttackDamageType"      "DAMAGE_TYPE_ArmorPhysical"
+    "AttackRate"        "1.05"     // Speed of attack.
+    "AttackAnimationPoint"    "0.6"   // Normalized time in animation cycle to attack.
+    "AttackAcquisitionRange"  "500"   // Range within a target can be acquired.
+    "AttackRange"       "600"   // Range within a target can be attacked.
+
+    // Bounty
+    //----------------------------------------------------------------
+    "BountyXP"          "40"     // Experience earn.
+    "BountyGoldMin"       "0"     // Gold earned min.
+    "BountyGoldMax"       "0"     // Gold earned max.
+
+    // Bounds
+    //----------------------------------------------------------------
+    "BoundsHullName"      "DOTA_HULL_SIZE_SMALL"      // Hull type used for navigation/locomotion.
+
+    // Movement
+    //----------------------------------------------------------------
+    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"     // Type of locomotion - ground, air
+    "MovementSpeed"       "270"   // Speed
+    "MovementTurnRate"      "0.5"   // Turning rate.
+    "FollowRange"       "250"   // Distance to keep when following
+
+    // Status
+    //----------------------------------------------------------------
+    "StatusHealth"        "8000"     // Base health.
+    "StatusHealthRegen"     "2"     // Health regeneration rate.
+    "StatusMana"        "0"     // Base mana.
+    "StatusManaRegen"     "0"     // Mana regeneration rate.
+
+    
+    // Vision
+    //----------------------------------------------------------------
+    "VisionDaytimeRange"    "800"   // Range of vision during day light.
+    "VisionNighttimeRange"    "600"   // Range of vision at night time.
+
+    // Bots
+    //----------------------------------------------------------------
+    "AttackDesire"        "1.5"   // How much bots want to attack them vs other non-hero things
+    	"Creature"
+    {
+        "AttachWearables" // The Roiling Surge
+        {
+            "1" { "ItemDef" "7688" } // Curl of the Roiling Surge
+            "2" { "ItemDef" "7691" } // Drift of the Roiling Surge
+            "3" { "ItemDef" "7687" } // Spray of the Roiling Surge
+            "4" { "ItemDef" "7689" } // Crest of the Roiling Surge
+            "5" { "ItemDef" "7690" } // Swell of the Roiling Surge
+        }
+    }
+  }  

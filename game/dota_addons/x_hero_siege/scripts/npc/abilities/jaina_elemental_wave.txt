@@ -1,0 +1,122 @@
+"jaina_elemental_wave"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE |  DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+
+    "MaxLevel"              "2"
+    "RequiredLevel"        "10"
+    "LevelsBetweenUpgrades" "5"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.2"
+    "AOERadius"         "%radius"
+    "AbilityCooldown"  "120"
+    "AbilityChannelTime"  "30"
+    "AbilityManaCost"  "500"
+    "AbilityTextureName" "morphling_replicate"
+    "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "damage_per_elemental"      "150 300"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "distance"      "900"
+      }
+      "03"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "speed"      "500"
+      }
+      "04"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "time_between_elementals"      "0.1 0.1"
+      }
+      "05"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "elementals_per_tick"      "1 2"
+      }
+      "06"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "radius_explosion"      "300 300"
+      }
+      "07"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "radius"      "1000"
+      }
+
+    }
+
+    "OnSpellStart"
+    { 
+
+      "ApplyModifier"
+      {
+        "ModifierName"  "modifier_spawn_elementals"
+        "Target"     "CASTER"
+      }
+    }
+    "OnProjectileHitUnit"
+    {
+      "DeleteOnHit"  "1"
+      "Damage"
+      {
+
+        "Target"
+        {
+          "Center"    "TARGET"
+          "Radius"   "%radius_explosion"
+          "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+          "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        }
+        "Type"      "DAMAGE_TYPE_MAGICAL"
+        "Damage"    "%damage_per_elemental"
+      }
+    }
+
+    "OnChannelFinish"
+    {
+      "RemoveModifier"
+      {
+        "ModifierName"  "modifier_spawn_elementals"
+        "Target"     "CASTER"
+      }
+    }
+
+    "Modifiers"
+      {
+        "modifier_spawn_elementals" 
+        {
+          "IsHidden" "1"
+          "ThinkInterval"  "%time_between_elementals"
+          "OnIntervalThink"
+          {
+            "RunScript"
+            {
+              "ScriptFile"  "heroes/jaina/stampede.lua"
+              "Function"    "create_projectile"
+            }
+          }
+        }
+      }
+
+
+    "precache"
+    {
+      "particle"  "particles/units/heroes/hero_jaina/jaina_elemental_wave_elemental.vpcf"
+    }
+  }

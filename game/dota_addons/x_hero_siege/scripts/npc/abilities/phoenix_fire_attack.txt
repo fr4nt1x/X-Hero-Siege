@@ -1,0 +1,126 @@
+"phoenix_fire_attack"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"       "ability_datadriven"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+    "AbilityTextureName"      "invoker_exort"
+    "MaxLevel"             "4"
+    "RequiredLevel"        "-1"
+    "LevelsBetweenUpgrades" "3"
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type" "FIELD_INTEGER"
+            "radius" "600"
+        }
+        "02"
+        {
+            "var_type" "FIELD_INTEGER"
+            "damage_per_second" "30"
+        }
+        "03"
+        {
+            "var_type" "FIELD_INTEGER"
+            "damage" "300"
+        }
+       "05"
+        {
+            "var_type" "FIELD_INTEGER"
+            "duration" "9"
+        }
+        "06"
+        {
+            "var_type" "FIELD_INTEGER"
+            "max_targets" "2"
+        }
+    }
+
+   
+    "precache"
+    {
+        "particle" "particles/units/heroes/hero_phoenix/phoenix_base_attack.vpcf"
+    }
+    "OnProjectileHitUnit"
+        {
+            "Damage"
+            {
+                "Type" "DAMAGE_TYPE_MAGICAL"
+                "Damage" "%damage"
+                "Target" "TARGET"
+            }
+            "ApplyModifier"
+            {
+                "ModifierName"    "modifier_phoenix_burn"
+                "Target"         "TARGET"
+                "Duration"        "%duration"
+            }
+            "DeleteOnHit" "1"
+
+        }
+    "Modifiers"
+    {
+      "modifier_phoenix_burn"
+      {
+        "Passive"            "0"
+        "IsHidden"            "0"
+        "IsDebuff"            "1"
+        "ThinkInterval"  "1.0"
+        "OnIntervalThink"
+        {
+            "Damage"
+            {
+                "Target"        "TARGET"
+                "Type"            "DAMAGE_TYPE_MAGICAL"
+                "Damage"        "%damage_per_second"
+            }
+        }
+        "EffectName"        "particles/units/heroes/hero_phoenix/phoenix_fire_spirit_burn.vpcf"
+        "EffectAttachType"    "follow_origin"
+      
+      }
+
+      "modifier_phoenix_fire_attack"
+      {
+        "Passive"      "1"
+        "IsHidden"      "1"
+        "IsDebuff"      "0"
+        "IsPurgable" "0"
+         // Data Driven
+        //-------------------------------------------------------------------------------------
+        "OnAttack"
+        {
+            "ActOnTargets"
+            {
+                "Target"
+                {
+                    "Center" "CASTER"
+                    "Radius" "%radius"
+                    "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY" 
+                    "Types" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+                    "Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+                    "MaxTargets" "%max_targets"
+                    "Random"     "1"
+                }
+                "Action"
+                {
+                    "TrackingProjectile"
+                    {
+                        "Target" "TARGET"
+                        "EffectName" "particles/units/heroes/hero_phoenix/phoenix_base_attack.vpcf"
+                        "Dodgeable" "1"
+                        "ProvidesVision" "1"
+                        "VisionRadius" "150"
+                        "MoveSpeed" "900"
+                        "SourceAttachment" "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+                    }
+                }
+            }
+        } 
+      }
+    }
+   
+  }

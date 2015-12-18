@@ -1,0 +1,64 @@
+
+	"npc_dota_hero_jaina"
+	{
+		// General
+		//----------------------------------------------------------------
+		"override_hero"				"npc_dota_hero_crystal_maiden"	 //Add npc_dota_hero internal name
+		"AbilityLayout"				"6"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"jaina_wave"	 //Reference: AInv
+		"Ability2"					"jaina_sea_elemental"	 //Reference: AUav
+		"Ability3"					"jaina_frost_paralysis_aura"	 //Reference: AUsl
+		"Ability4"					"jaina_life_mana_drain"	 //Reference: AUcs
+		"Ability5"					"jaina_elemental_wave"	 //Reference: AUin
+		"Ability6"					""	 //Reference: AUcs
+		"Ability7"					""	 //Reference: AUin
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"0"
+		
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"47.0"
+		"AttackDamageMax"			"58.0"
+		"AttackDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AttackRate"				"2.1"
+		"AttackAnimationPoint"		"0.55"
+		"AttackAcquisitionRange"	"600"
+		"AttackRange"				"600"
+
+		// Attributes
+		//----------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"		"15"
+		"AttributeStrengthGain"		"1.8"
+		"AttributeBaseIntelligence"	"24"
+		"AttributeIntelligenceGain"	"3.2"
+		"AttributeBaseAgility"		"17"
+		"AttributeAgilityGain"		"1"
+		
+		
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"286"
+		"MovementTurnRate"			"0.5"
+		
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"350"
+		"StatusHealthRegen"			"10"
+		"StatusMana"				"150"
+		"StatusManaRegen"			"5"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1300"
+		"VisionNighttimeRange"		"1200"
+		
+	}
