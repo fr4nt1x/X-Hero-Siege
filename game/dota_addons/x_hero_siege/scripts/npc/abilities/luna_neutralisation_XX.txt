@@ -1,0 +1,106 @@
+"luna_neutralisation_XX"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_YES"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "20"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.3"
+    "AbilityCooldown"  "120"
+    "AbilityCastRange" "800"
+    "AbilityManaCost"  "500"
+    "AbilityTextureName" "ancient_apparition_ice_vortex"
+    "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "duration"      "10"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "attack_damage_reduction"      "50"
+      }
+      "03"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "damage_per_tick"      "1000"
+      }
+      "04"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "ticktime"      "1"
+      }
+    }
+
+    "OnSpellStart"
+    { 
+      "FireSound"
+      {
+        "EffectName"  "Hero_Ancient_Apparition.IceVortexCast"
+        "Target"     "CASTER"
+      }
+
+      "ApplyModifier"
+      {
+        "ModifierName"  "modifier_neutralisation"
+        "Target" 
+            {
+                "Center"    "TARGET"
+                "Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+            }
+        "Duration"    "%duration"
+      }
+    }
+    "Modifiers"
+    {
+      "modifier_neutralisation"
+      {
+        "Passive"      "0"
+        "IsHidden"      "0"
+        "IsDebuff"      "1"
+
+        "EffectName"    "particles/generic_gameplay/generic_silence.vpcf"
+        "EffectAttachType"  "follow_overhead"
+    
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attack_damage_reduction"
+        }
+
+        "States"
+        {
+          "MODIFIER_STATE_SILENCED"    "MODIFIER_STATE_VALUE_ENABLED"
+        }
+
+        "ThinkInterval"  "%ticktime"
+        "OnIntervalThink"
+        {
+          "Damage"
+          {
+            "Target"    "TARGET"
+            "Type"      "DAMAGE_TYPE_MAGICAL"
+            "Damage"    "%damage_per_tick"
+          }
+        }
+
+      }
+    }
+
+    "precache"
+    {
+      "particle"    "particles/generic_gameplay/generic_silence.vpcf"
+      "soundfile" "soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
+    }
+  }

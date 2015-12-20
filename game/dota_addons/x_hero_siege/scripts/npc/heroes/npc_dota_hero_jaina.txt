@@ -10,11 +10,10 @@
 		//----------------------------------------------------------------
 		"Ability1"					"jaina_wave"	 //Reference: AInv
 		"Ability2"					"jaina_sea_elemental"	 //Reference: AUav
-		"Ability3"					"jaina_frost_paralysis_aura"	 //Reference: AUsl
-		"Ability4"					"jaina_life_mana_drain"	 //Reference: AUcs
-		"Ability5"					"jaina_elemental_wave"	 //Reference: AUin
-		"Ability6"					""	 //Reference: AUcs
-		"Ability7"					""	 //Reference: AUin
+		"Ability3"					"jaina_life_mana_drain"	 //Reference: AUsl
+		"Ability4"					"jaina_elemental_wave"	 //Reference: AUcs
+		"Ability5"					""	 //Reference: AUin
+		"Ability6"					"jaina_frost_paralysis_aura"	 //Reference: AUcs
 
 		// Armor
 		//----------------------------------------------------------------

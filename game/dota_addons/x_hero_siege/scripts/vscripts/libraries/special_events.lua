@@ -555,7 +555,7 @@ function startFrostInfernalEvent(event)
   --local ability = ramero:FindAbilityByName("ramero_baristal")
   --ability:ApplyDataDrivenModifier(ramero, ramero, "modifier_ramero", {})
 
-  Timers:CreateTimer( SpecialEventFrostInfernalDuration+5,function () FireGameEventLocal("end_special_event_frost_infernal", {hero_index = hero:GetEntityIndex()}) 
+  GameMode.infernal_end_timer = Timers:CreateTimer( SpecialEventFrostInfernalDuration+5,function () FireGameEventLocal("end_special_event_frost_infernal", {hero_index = hero:GetEntityIndex()}) 
                                                 end)
   if IsValidEntity(hero) then
     --Fire the game event to teleport hero to the event
@@ -598,6 +598,11 @@ function endFrostInfernalEvent(event)
   
   local point = Entities:FindByName(nil, "base" ):GetAbsOrigin()
   
+  if GameMode.infernal_end_timer ~= nil then
+    Timers:RemoveTimer(GameMode.infernal_end_timer)
+    GameMode.infernal_end_timer = nil
+  end
+
   if IsValidEntity(hero) then
     FireGameEventLocal("teleport_hero_from_special_event", {hero_index = hero:GetEntityIndex(),stun_duration = 0.5 , teleport_point_x =point[1], teleport_point_y = point[2], teleport_point_z = point[3]})
     FireGameEventLocal("return_units_of_hero",{hero_index = hero:GetEntityIndex(), stun_duration = 0.5})
@@ -656,8 +661,9 @@ function startSpiritBeastEvent(event)
   --local ability = ramero:FindAbilityByName("ramero_baristal")
   --ability:ApplyDataDrivenModifier(ramero, ramero, "modifier_ramero", {})
 
-  Timers:CreateTimer( SpecialEventFrostInfernalDuration+5,function () FireGameEventLocal("end_special_event_spirit_beast", {hero_index = hero:GetEntityIndex()}) 
+  GameMode.spirit_beast_end_timer = Timers:CreateTimer( SpecialEventFrostInfernalDuration+5,function () FireGameEventLocal("end_special_event_spirit_beast", {hero_index = hero:GetEntityIndex()}) 
                                                 end)
+
   if IsValidEntity(hero) then
     --Fire the game event to teleport hero to the event
     FireGameEventLocal("teleport_hero_to_special_event", {hero_index = hero:GetEntityIndex() , teleport_entity_index = point_hero:GetEntityIndex()})
@@ -700,6 +706,11 @@ function endSpiritBeastEvent(event)
 
   local point = Entities:FindByName(nil, "base" ):GetAbsOrigin()
   
+  if GameMode.spirit_beast_end_timer ~= nil then
+    Timers:RemoveTimer(GameMode.spirit_beast_end_timer)
+    GameMode.spirit_beast_end_timer = nil
+  end
+
   if IsValidEntity(hero) then
     FireGameEventLocal("teleport_hero_from_special_event", {hero_index = hero:GetEntityIndex(),stun_duration = 0.5 , teleport_point_x =point[1], teleport_point_y = point[2], teleport_point_z = point[3]})
     FireGameEventLocal("return_units_of_hero",{hero_index = hero:GetEntityIndex(), stun_duration = 0.5})
@@ -774,7 +785,7 @@ function startIllusionEvent(event)
   GameMode.illusion:AddNewModifier(nil, nil, "modifier_stunned", {Duration = 5,IsHidden = true})
   GameMode.illusion:AddNewModifier(nil, nil, "modifier_invulnerable", {Duration = 5,IsHidden = true})
 
-  Timers:CreateTimer( SpecialEventFrostInfernalDuration+5,function () FireGameEventLocal("end_special_event_illusion", {hero_index = hero:GetEntityIndex()}) 
+  GameMode.illusion_end_timer = Timers:CreateTimer( SpecialEventFrostInfernalDuration+5,function () FireGameEventLocal("end_special_event_illusion", {hero_index = hero:GetEntityIndex()}) 
                                                 end)
   if IsValidEntity(hero) then
     --Fire the game event to teleport hero to the event
@@ -822,6 +833,11 @@ function endIllusionEvent(event)
 
   local point = Entities:FindByName(nil, "base" ):GetAbsOrigin()
   
+  if GameMode.illusion_end_timer ~= nil then
+    Timers:RemoveTimer(GameMode.illusion_end_timer)
+    GameMode.illusion_end_timer = nil
+  end
+
   if IsValidEntity(hero) then
     FireGameEventLocal("teleport_hero_from_special_event", {hero_index = hero:GetEntityIndex(),stun_duration = 0.5 , teleport_point_x =point[1], teleport_point_y = point[2], teleport_point_z = point[3]})
     FireGameEventLocal("return_units_of_hero",{hero_index = hero:GetEntityIndex(), stun_duration = 0.5})

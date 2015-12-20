@@ -1,0 +1,34 @@
+"demonhuner_spell_resistance_XX"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "-1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityTextureName" "antimage_spell_shield"
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"      "FIELD_INTEGER"
+            "resistance"      "100"
+        }
+    }
+    "Modifiers"
+    {
+      "modifier_spell_block"
+      {
+        "Passive" "1"
+        "IsHidden" "0"
+        "IsBuff" "1"
+        "Properties"
+        {
+            "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"    "%resistance"
+        }
+      }
+    }
+  }

@@ -45,6 +45,7 @@ function Precache( context )
   PrecacheItemByNameSync("dreadlord_sleep", context)
   PrecacheItemByNameSync("jaina_mana_shield", context)
   PrecacheItemByNameSync("bloodmage_chains", context)
+  PrecacheItemByNameSync("moon_priest_lightning_chaos_XX", context)
   
   -- Entire heroes (sound effects/voice/models/particles) can be precached with PrecacheUnitByNameSync
   -- Custom units from npc_units_custom.txt can also have all of their abilities and precache{} blocks precached in this way

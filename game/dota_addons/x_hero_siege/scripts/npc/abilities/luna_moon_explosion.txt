@@ -64,7 +64,7 @@
     { 
       "ApplyModifier"
       {
-        "ModifierName"  "modifier_spawn_meteor"
+        "ModifierName"  "modifier_moon_explosion"
         "Target"     "CASTER"
         "Duration" "%duration"
       }
@@ -73,7 +73,7 @@
 
     "Modifiers"
       {
-        "modifier_spawn_meteor" 
+        "modifier_moon_explosion" 
         {
           "IsHidden" "1"
           "ThinkInterval"  "%time_between_explosions"

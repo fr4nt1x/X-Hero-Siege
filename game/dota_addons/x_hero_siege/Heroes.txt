@@ -5,25 +5,25 @@ HEROES:
 IMPLEMENTED:
 ############################################################################################
 
-	Naisha 						NEUTRALISATION
+	Naisha 						NEUTRALISATION  (SINGLE TARGET)  !!
 
-	Demonhunter					FESTHAUT
+	Demonhunter					FESTHAUT		(MAGIE REDUCTION)!!
 
-	Priestress of the Moon 		LIGHTNING CHAOS
+	Priestress of the Moon 		LIGHTNING CHAOS  (5 percent of max hp per second) !!
 
-	Crypt Lord 					BURROW IMPALE mächtiger
+	Crypt Lord 					BURROW IMPALE mächtiger (AOE EARTHQUAKE) (PArticle) !!
 
-	Tyrande (Dryad)				ZAUBER IMMUNITÄT
+	Tyrande (Dryad)				ZAUBER IMMUNITÄT (MAGIE IMMUNITÄT) !!
 
 	Warden (PA)					MORPH
 	
-	Lich   						FROST CHAOS
+	Lich   						FROST CHAOS   
 
 	Blademaster					PARTITION
 
-	Mountain king 				UPGRADED SPEllS
+	Mountain king 				UPGRADED SPEllS (DUBLE CAST)
 
-	Sylvanas Windrunner 		ROCKET HAIL
+	Sylvanas Windrunner 		ROCKET HAIL  (STAMPEDE)
 
 	Shadow hunter (shaman)		HEX NEUTRAL FEINDLICH
 
@@ -35,7 +35,9 @@ IMPLEMENTED:
 	
 	Jaina (Crystal maiden)		RAIN OF ICE
 
-	Bloodmage												RAIN OF FIRE 
+	Bloodmage					RAIN OF FIRE 
+
+	
 
 ############################################################################################
 IN WORKING PROGRESS

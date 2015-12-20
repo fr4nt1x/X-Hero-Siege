@@ -240,8 +240,12 @@ function GameMode:OnAbilityChannelFinished(keys)
 end
 
 --npc_dota_hero_antimage = {"blink",1}
---local AbilitiesHeroes_XX = {npc_dota_hero_antimage = {"blink",1}}
-
+--[[local AbilitiesHeroes_XX = {npc_dota_hero_mirana= {"moon_priest_lightning_chaos_XX",4},
+                            npc_dota_hero_enchantress= {"neutral_spell_immunity",3},
+                            npc_dota_hero_antimage = {"demonhuner_spell_resistance_XX",3},
+                            npc_dota_hero_luna = {"luna_neutralisation_XX",5},
+                            npc_dota_hero_nyx_assassin ={"crypt_lord_burrow_impale_XX",4}}
+--]]
 -- A player leveled up
 function GameMode:OnPlayerLevelUp(keys)
   DebugPrint('[BAREBONES] OnPlayerLevelUp')
@@ -259,7 +263,7 @@ function GameMode:OnPlayerLevelUp(keys)
   if level >= 19 then
     hero:SetAbilityPoints(hero:GetAbilityPoints()-1) 
   end
-  --[[if level == 20 then
+--[[ if level == 20 then
     local ability = AbilitiesHeroes_XX[hero:GetUnitName()]
     if ability ~= nil   then
       hero:AddAbility(ability[1])

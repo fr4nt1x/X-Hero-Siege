@@ -11,7 +11,7 @@
     //-------------------------------------------------------------------------------------
     "AbilityCastPoint" "0.5"
     "AnimationPlaybackRate" "0.5"
-    "AOERadius"         "%radius"
+    "AOERadius"         "%radius_explosion"
     "AbilityCooldown"  "120 180"
     "AbilityManaCost"  "500"
     "AbilityTextureName" "warlock_rain_of_chaos"
