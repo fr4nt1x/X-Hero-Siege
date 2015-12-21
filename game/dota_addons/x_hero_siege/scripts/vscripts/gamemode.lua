@@ -193,7 +193,7 @@ function GameMode:OnHeroInGame(hero)
     
     illusion = CreateUnitByName("npc_dota_hero_balanar",point:GetAbsOrigin(),true,hero,nil,DOTA_TEAM_NEUTRALS)
     illusion:SetControllableByPlayer(player, true)  
-    
+    --]]
     local item = CreateItem("item_healing_pot", hero, hero)
     hero:AddItem(item)
     local item = CreateItem("item_ankh", hero, hero)
