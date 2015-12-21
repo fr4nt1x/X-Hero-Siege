@@ -165,17 +165,9 @@ function teleport_to_top(keys)
   		magtheridon:SetAngles(0, 180, 0)
   		local ankh = CreateItem("item_magtheridon_ankh", mag, mag)
 	  	
-	  	local grom = CreateUnitByName("npc_dota_hero_grom_hellscream",Entities:FindByName(nil,"spawn_grom_hellscream"):GetAbsOrigin(),true,nil,nil,DOTA_TEAM_NEUTRALS)
-  		grom:SetAngles(0, 270, 0)
 
-  		local illidan = CreateUnitByName("npc_dota_hero_illidan",Entities:FindByName(nil,"spawn_illidan"):GetAbsOrigin(),true,nil,nil,DOTA_TEAM_NEUTRALS)
-  		illidan:SetAngles(0, 0, 0)
 
-  		local balanar = CreateUnitByName("npc_dota_hero_balanar",Entities:FindByName(nil,"spawn_balanar"):GetAbsOrigin(),true,nil,nil,DOTA_TEAM_NEUTRALS)
-  		balanar:SetAngles(0, 90, 0)
 
-  		local proudmoore = CreateUnitByName("npc_dota_hero_proudmoore",Entities:FindByName(nil,"spawn_proudmoore"):GetAbsOrigin(),true,nil,nil,DOTA_TEAM_NEUTRALS)
-  		proudmoore:SetAngles(0, 180, 0)
 
 	  	ankh:SetCurrentCharges(PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS))
 	  	magtheridon:AddItem(ankh)

@@ -1,0 +1,68 @@
+"jaina_sea_elemental"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "MaxLevel"              "4"
+    "RequiredLevel"        "-1"
+    "LevelsBetweenUpgrades" "3"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.5"
+    "AbilityCooldown"  "20"
+    "AbilityManaCost"  "125 150 200 250"
+    "AbilityTextureName" "morphling_replicate"
+
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+        {
+          "var_type" "FIELD_FLOAT"
+          "duration" "60 60 60 60"
+        }
+        "02"
+        {
+          "var_type" "FIELD_INTEGER"
+          "units" "1 1 1 2"
+        }
+    }
+
+    "precache"
+    {
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "heroes/jaina/summon_elemental.lua"
+        "Function"    "spawn_servant"
+      }
+
+    }
+    "Modifiers"
+    {
+      "modifier_sea_elemental"
+      {
+        "Passive"      "0"
+        "IsHidden"      "1"
+        "IsDebuff"      "0"
+
+        "OnDestroy"
+          {
+            "RunScript"
+            {
+              "ScriptFile"  "heroes/archmage/summon_elemental.lua"
+              "Function"    "despawn_servant"
+            }
+          }    
+      }
+    }
+  }

@@ -338,6 +338,10 @@ function spawn_creeps_top_first()
 
   if  numberOfTopWaves >= 12 then
     FireGameEventLocal("destroy_door", {door_name = "door_top_1", obstruction_name = "obstruction_top_1"})
+    
+    local grom = CreateUnitByName("npc_dota_hero_grom_hellscream",Entities:FindByName(nil,"spawn_grom_hellscream"):GetAbsOrigin(),true,nil,nil,DOTA_TEAM_NEUTRALS)
+    grom:SetAngles(0, 270, 0)
+
     numberOfTopWaves = 0
     TimeBetweenCreepWavesTop = 7
     return nil

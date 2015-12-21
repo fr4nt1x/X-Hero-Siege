@@ -4,7 +4,8 @@
     // General
     //-------------------------------------------------------------------------------------
     "BaseClass" "ability_datadriven"
-    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AOERadius"   "%radius"
     "MaxLevel"              "2"
     "LevelsBetweenUpgrades" "5"
     "RequiredLevel"        "10"
@@ -73,7 +74,7 @@
       {
         "modifier_monsoon"
         {
-        	"EffectName" "particles/hero_moon_priest.vpcf"
+        	"EffectName" "particles/moon_priest_monsoon.vpcf"
         	"EffectAttachType" "follow_origin"
         	"OnCreated"
         	{
@@ -93,7 +94,7 @@
                   "EffectAttachType"  "follow_origin"
                   "Target"
                   {
-                    "Center"    "CASTER"
+                    "Center"    "TARGET"
                     "Radius"   "%radius"
                     "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
                     "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -103,7 +104,7 @@
                 {
                   "Target"
                   {
-                    "Center"    "CASTER"
+                    "Center"    "TARGET"
                     "Radius"   "%radius"
                     "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
                     "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"

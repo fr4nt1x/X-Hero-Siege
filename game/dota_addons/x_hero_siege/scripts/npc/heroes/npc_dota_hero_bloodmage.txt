@@ -1,0 +1,75 @@
+
+"npc_dota_hero_bloodmage"
+	{
+		// General
+		//----------------------------------------------------------------
+		"override_hero"				"npc_dota_hero_invoker"	 //Add npc_dota_hero internal name
+		
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"bloodmage_burning_oil"	 //Reference: AInv
+		"Ability2"					"bloodmage_flame_breath"	 //Reference: Asph
+		"Ability3"					"bloodmage_incinerate"	 //Reference: AHfs
+		"Ability4"					"bloodmage_fire_bolt"	 //Reference: AHbn
+		"Ability5"					"bloodmage_summon_phoenix"	 //Reference: AHdr
+		"Ability6"					""	 //Reference: AHpx
+		"Ability7"					""	 //Reference: AHbn
+		"Ability8"					""	 //Reference: AHdr
+		"Ability9"					""	 //Reference: AHpx
+		"Ability10"					""	 //Reference: AHdr
+		"Ability11"					""	 //Reference: AHpx
+		"Ability12"					""	 //Reference: AHbn
+		"Ability13"					""	 //Reference: AHdr
+		"Ability14"					""	 //Reference: AHpx
+		"Ability15"					""	 //Reference: AHdr
+		"Ability16"					""	 //Reference: AHpx
+		"Ability17"					""	 //Reference: AHpx
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"0"
+		
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"			"52.0"
+		"AttackDamageMax"			"68.0"
+		"AttackDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AttackRate"				"2.13"
+		"AttackAnimationPoint"		"0.55"
+		"AttackAcquisitionRange"	"600"
+		"AttackRange"				"600"
+		"ProjectileModel"			"particles/units/heroes/hero_invoker/invoker_base_attack.vpcf"	 //Add projectile
+		"ProjectileSpeed"			"900"
+		
+		// Attributes
+		//----------------------------------------------------------------
+		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"		"18"
+		"AttributeStrengthGain"		"2"
+		"AttributeBaseIntelligence"	"24"
+		"AttributeIntelligenceGain"	"3.2"
+		"AttributeBaseAgility"		"14"
+		"AttributeAgilityGain"		"1"
+		
+		
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"300"
+		"MovementTurnRate"			"0.5"
+		
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"400"
+		"StatusHealthRegen"			"5"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"5"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1800"
+		"VisionNighttimeRange"		"1300"
+		
+
+	}

@@ -1,0 +1,159 @@
+"dreadlord_inferno"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "MaxLevel"              "2"
+    "RequiredLevel"        "10"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.5"
+    "AnimationPlaybackRate" "0.5"
+    "AOERadius"         "%radius_explosion"
+    "AbilityCooldown"  "120 180"
+    "AbilityManaCost"  "500"
+    "AbilityTextureName" "warlock_rain_of_chaos"
+    "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+    "MaxLevel"              "2"
+    "RequiredLevel"        "10"
+    "LevelsBetweenUpgrades"  "5"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "damage_per_unit"      "2500 5000"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "stun_duration"      "1 2"
+      }
+      "03"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "radius_explosion"      "250 350"
+      }
+      "04"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "duration"      "180 120"
+      }
+
+    }
+
+
+    "OnSpellStart"
+    {
+      "SpawnUnit"
+      {
+        "UnitName"    "npc_dummy_target"
+        "Target"       "POINT"
+        "UnitCount"   "1"
+        "UnitLimit"   "0"
+        "GrantsGold"  "0"
+        "GrantsXP"    "0"
+        "SpawnRadius" "1"
+        "OnSpawn"
+        {
+          "ApplyModifier"
+          {
+
+            "ModifierName"  "modifier_spawn_meteor"
+            "Target"    "TARGET"
+          }
+          "ApplyModifier"
+          {
+
+            "ModifierName"  "modifier_dummy_target"
+            "Target"    "TARGET"
+          }
+        }
+      }
+    }
+
+    "Modifiers"
+      {
+        "modifier_spawn_meteor" 
+        {
+
+          "IsHidden" "1"
+
+          "OnCreated"
+          {
+            "RunScript"
+            {
+              "ScriptFile"  "heroes/hero_dreadlord/chaos.lua"
+              "Function"    "chaos"
+            }
+          }
+        }
+
+        "modifier_dummy_target" 
+        {
+          "IsHidden" "1"
+          "Duration"      "1.1"
+          "States"
+          {
+            "MODIFIER_STATE_UNSELECTABLE"   "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_NO_HEALTH_BAR"   "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_NO_UNIT_COLLISION"  "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_NO_TEAM_MOVE_TO"    "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_NO_TEAM_SELECT"     "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_COMMAND_RESTRICTED" "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_ATTACK_IMMUNE"      "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_MAGIC_IMMUNE"       "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_NOT_ON_MINIMAP"     "MODIFIER_STATE_VALUE_ENABLED"
+
+          }
+
+          "OnDestroy" 
+          {
+            "Damage"
+            {
+              "Target"
+              {
+                "Center"    "TARGET"
+                "Radius"   "%radius_explosion"
+                "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+              }
+              "Type"      "DAMAGE_TYPE_MAGICAL"
+              "Damage"    "%damage_per_unit"
+            }
+            "Stun"
+            {
+              "Duration"   "%stun_duration"
+              "Target"
+              {
+                "Center"    "TARGET"
+                "Radius"   "%radius_explosion"
+                "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+              }
+            }
+
+            "RunScript"
+            {
+              "ScriptFile"  "heroes/hero_dreadlord/chaos.lua"
+              "Function"    "target_modifier_remove_spawn"
+            }
+            
+          }
+        }
+      } 
+
+    "precache"
+    {
+      "particle"  "particles/units/heroes/hero_invoker/invoker_chaos_meteor_fly.vpcf"
+      "particle"  "particles/units/heroes/hero_invoker/invoker_chaos_meteor_crumble.vpcf"
+      "model"     "models/items/warlock/golem/obsidian_golem/obsidian_golem.vmdl"
+      "particle"  "particles/units/heroes/hero_invoker/invoker_chaos_meteor_land_soil.vpcf"
+    }
+  }

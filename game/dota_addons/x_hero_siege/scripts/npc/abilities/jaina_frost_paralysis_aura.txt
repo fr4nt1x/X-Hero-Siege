@@ -1,0 +1,59 @@
+"jaina_frost_paralysis_aura"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior"  "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+    "MaxLevel"              "4"
+    "RequiredLevel"        "-1"
+    "LevelsBetweenUpgrades" "3"
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityTextureName" "omniknight_degen_aura"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "movement_slow"      "-10 -20 -30 -40"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "radius"      "600"
+      }
+      "03"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "attack_slow"      "-15 -30 -55 -70"
+      }
+    }
+
+    "Modifiers"
+    {
+      "modifier_frost_paralysis_aura"
+      {
+        "Passive"       "1"
+        "IsHidden"      "1"
+        "IsBuff"      "1"
+
+        "Aura"        "modifier_frost_paralysis_buff"
+        "Aura_Radius"     "%radius"
+        "Aura_Teams"    "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "Aura_Types"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+      }
+
+     "modifier_frost_paralysis_buff"
+      { 
+        "IsDebuff" "1"
+        "IsHidden" "0"
+
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"  "%movement_slow"
+          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"  "%attack_slow"
+        }
+      }
+    }
+  }

@@ -1,0 +1,83 @@
+"bloodmage_fire_bolt"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "MaxLevel"              "4"
+    "LevelsBetweenUpgrades" "3"
+    "RequiredLevel"        "8"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.3"
+    "AbilityCooldown"  "15"
+    "AbilityCastRange" "800"
+    "AbilityManaCost"  "75 100 125 150"
+    "AbilityTextureName" "batrider_flamebreak"
+    "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityDamage" "1000 2500 5000 10000"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "duration"      "2"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "projectile_speed"      "1200"
+      }
+
+    }
+
+    "OnSpellStart"
+    { 
+      "FireSound"
+      {
+        "EffectName"  "Hero_Batrider.Flamebreak"
+        "Target"     "CASTER"
+      }
+
+      "TrackingProjectile"
+      {
+        "Target"             "TARGET"
+        "EffectName"    "particles/units/heroes/bloodmage/batrider_flamebreak.vpcf"
+        "Dodgeable"      "1"
+        "ProvidesVision"  "0"
+        "MoveSpeed"          "%projectile_speed"
+        "SourceAttachment"  "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+      }
+    }
+
+    "OnProjectileHitUnit"
+    {
+      "DeleteOnHit"  "1"
+      "Damage"
+      {
+        "Target"    "TARGET"
+        "Type"      "DAMAGE_TYPE_MAGICAL"
+        "Damage"    "%AbilityDamage"
+      }
+      "Stun"
+      {
+        "Duration"   "%duration"
+        "Target"    "TARGET"
+      }
+      "FireSound"
+      {
+        "EffectName"  "Hero_Batrider.Flamebreak.Impact"
+        "Target"     "TARGET"
+      }
+    }
+
+    "precache"
+    {
+      "particle"  "particles/units/heroes/bloodmage/batrider_flamebreak.vpcf"
+      "soundfile" "soundevents/game_sounds_heroes/game_sounds_batrider.vsndevts"
+    }
+  }

@@ -8,7 +8,7 @@ end
 function channel_end( event )
 	-- body
 	
-	if dummy ~= nil then
+	if IsValidEntity(dummy) then
 		dummy:RemoveSelf()
 		dummy = nil
 	end

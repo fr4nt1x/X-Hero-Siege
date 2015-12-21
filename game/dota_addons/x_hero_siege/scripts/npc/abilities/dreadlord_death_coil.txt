@@ -1,0 +1,69 @@
+"dreadlord_death_coil"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "MaxLevel"              "4"
+    "RequiredLevel"        "-1"
+    "LevelsBetweenUpgrades" "3"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.5"
+    "AbilityCooldown"  "20 20 20 20"
+
+    "AbilityCastRange" "800 800 800 800"
+    "AbilityManaCost"  "30 40 50 75"
+    "AbilityTextureName" "abaddon_death_coil"
+    "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityDamage"         "1000 2500 5000 10000"
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "duration"      "1 2 3 4"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "projectile_speed"      "900"
+      }
+    }
+
+    "OnSpellStart"
+    { 
+      "TrackingProjectile"
+      {
+        "Target"             "TARGET"
+        "EffectName"    "particles/units/heroes/hero_skeletonking/skeletonking_hellfireblast.vpcf"
+        "Dodgeable"      "1"
+        "ProvidesVision"  "1"
+        "MoveSpeed"          "%projectile_speed"
+        "SourceAttachment"  "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+      }
+    }
+
+    "OnProjectileHitUnit"
+    {
+      "DeleteOnHit"  "1"
+      "Stun"
+      {
+        "Duration"   "%duration"
+        "Target"    "TARGET"
+      }
+      "Damage"
+      {
+        "Target"    "TARGET"
+        "Type"      "DAMAGE_TYPE_MAGICAL"
+        "Damage"    "%AbilityDamage"
+      }
+    }
+    "precache"
+    {
+      "particle"  "particles/units/heroes/hero_skeletonking/skeletonking_hellfireblast.vpcf"
+    }
+  }

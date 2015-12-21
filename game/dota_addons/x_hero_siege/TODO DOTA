@@ -1,7 +1,5 @@
 TODO DOTA:
 
-spawn banehallow stuff
-
 -All Hero Image challenge missing ( All Hero Image grants immunity to spells and magic)
 
 -Glyphs at the bottom left is missing (can't remember what they did, restore health?)
@@ -13,8 +11,6 @@ Special events and final wave
 Special events on death
 
 blink in combination with check is path is possible
-
-Model spirit beast change to thunderhide
 
 Roshan ai
 
@@ -49,7 +45,7 @@ disconnected players receive skillpoints
 
 paladin healing wave cast on no target
 
-make threat ability  berserkers call
+make threat ability berserkers call
 
 descriptions to summon units
 
@@ -66,22 +62,12 @@ orb of darkness, fire and shock
 give summons pure orb attackss
 
 
+
+
 DONE:
-	
-	Compile Map
 
-	Level up gives bountyupgrade now. Only the time dependent level up.
+changed top bosses spawn you can't skip them anymore you have to kill them in order for the next to appear
 
-	forced cameras to watch ramero and baristal for first few seconds for all players
-	increased the starting gold on easy 
+ Event infernal spirit beast and illuison shouldn't end too early if another player has canceled the same event earlier	
 
-	finish kill and wave event on hero death
-
-	Added bane tombs that apply healing, no visual right now
-
-	
-	NEW HEROES:
-
-	JAINA, DREADLORD, BLOODMAGE
-
-	remove units on start
+Fixed Bloodmage, Jaina, Dreadlord

@@ -1,0 +1,167 @@
+//Magtheridon
+"moon_priest_lightning_chaos_XX"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AOERadius"   "%radius"
+    "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_YES"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "20"
+    "AbilityChannelTime" 	"%duration"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.5"
+    "AbilityCooldown"  "150"
+    "AbilityCastRange" "1000"
+    "AbilityManaCost"  "500"
+    "AbilityTextureName" "skywrath_mage_mystic_flare"
+    "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "ticktime"      "1"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "hp_loss_per_tick"      "5"
+      }
+      "03"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "radius"      "300"
+      }
+      "04"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "duration"      "35"
+      }
+
+    }
+
+    "OnSpellStart"
+    {
+    	"SpawnUnit"
+    	{
+    		"UnitName"		"npc_dummy_target"
+    		"Target" 		   "POINT"
+    		"UnitCount"		"1"
+    		"UnitLimit"		"0"
+    		"GrantsGold"	"0"
+    		"GrantsXP"		"0"
+    		"SpawnRadius"	"1"
+    		"OnSpawn"
+    		{
+    			"ApplyModifier"
+    			{
+    				"ModifierName"	"modifier_lightning_chaos"
+    				"Target"		"TARGET"
+    			}
+    		}
+    	}
+    }
+    "OnChannelFinish"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "heroes/hero_moon_priest/lightning_chaos.lua"
+        "Function"    "channel_end"
+      }
+    }
+
+    "Modifiers"
+      {
+        "modifier_lightning_chaos"
+        {
+
+
+        	"OnCreated"
+        	{
+            "FireEffect"
+            {
+              "EffectName" "particles/units/heroes/moon_priest/disruptor_static_storm.vpcf"
+              "EffectAttachType" "attach_overhead"
+              "Target"  "TARGET"
+              "ControlPoints"
+               {
+                  "00" "0 0 0"
+                  "01" "1 1 1"
+                  "02" "%duration 0 0"
+
+               }
+            }
+            
+            "FireSound"
+            {
+              "EffectName"  "Hero_Disruptor.StaticStorm"
+              "Target"     "TARGET"
+            }
+
+        		"RunScript"
+          		{
+          			"ScriptFile"	"heroes/hero_moon_priest/lightning_chaos.lua"
+          			"Function"		"modifier_start"
+          		}
+        	}
+          	"IsHidden"  "1"
+          	"ThinkInterval"  "%ticktime"
+          	"OnIntervalThink"
+          	{
+                "FireEffect"
+                {
+                  "EffectName"        "particles/units/heroes/hero_skywrath_mage/skywrath_mage_mystic_flare.vpcf"
+                  "EffectAttachType"  "follow_origin"
+                  "Target"
+                  {
+                    "Center"    "TARGET"
+                    "Radius"   "%radius"
+                    "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                    "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                    "Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+                  }
+                }
+
+                "RunScript"
+                {
+                  "ScriptFile"  "heroes/hero_moon_priest/lightning_chaos.lua"
+                  "Function"    "apply_damage"
+                  "Target"
+                  {
+                    "Center"    "TARGET"
+                    "Radius"   "%radius"
+                    "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                    "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                    "Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+                  }
+                }
+          	}
+    		    "States" 
+      		  {
+            "MODIFIER_STATE_UNSELECTABLE"   "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_NO_HEALTH_BAR"   "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_NO_UNIT_COLLISION"  "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_NO_TEAM_MOVE_TO"    "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_NO_TEAM_SELECT"     "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_COMMAND_RESTRICTED" "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_ATTACK_IMMUNE"      "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_MAGIC_IMMUNE"       "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_NOT_ON_MINIMAP"     "MODIFIER_STATE_VALUE_ENABLED"
+      		  }
+
+        }
+      } 
+
+    "precache"
+    {
+      "particle"  "particles/units/heroes/hero_skywrath_mage/skywrath_mage_mystic_flare.vpcf"
+      "particle"  "particles/units/heroes/moon_priest/disruptor_static_storm.vpcf"
+      "soundfile" "soundevents/game_sounds_heroes/game_sounds_disruptor.vsndevts"
+    }
+  }  
