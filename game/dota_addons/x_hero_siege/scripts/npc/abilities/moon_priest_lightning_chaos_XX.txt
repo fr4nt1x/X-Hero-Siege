@@ -9,7 +9,7 @@
     "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_YES"
     "MaxLevel"              "1"
     "RequiredLevel"        "20"
-    "AbilityChannelTime" 	"%duration"
+    "AbilityChannelTime" 	"%channel_duration"
 
     // Stats
     //-------------------------------------------------------------------------------------
@@ -18,6 +18,7 @@
     "AbilityCastRange" "1000"
     "AbilityManaCost"  "500"
     "AbilityTextureName" "skywrath_mage_mystic_flare"
+    "AbilityCastAnimation"  "ACT_DOTA_CAST_ABILITY_2"
     "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
     "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -41,13 +42,18 @@
       "04"
       {
         "var_type"      "FIELD_FLOAT"
-        "duration"      "35"
+        "channel_duration"      "35"
       }
 
     }
 
     "OnSpellStart"
     {
+      "ApplyModifier"
+      {
+        "ModifierName"  "modifier_lightning_chaos_channelling"
+        "Target"     "CASTER"
+      }
     	"SpawnUnit"
     	{
     		"UnitName"		"npc_dummy_target"
@@ -69,6 +75,11 @@
     }
     "OnChannelFinish"
     {
+      "RemoveModifier"
+      {
+        "ModifierName"  "modifier_lightning_chaos_channelling"
+        "Target"     "CASTER"
+      }
       "RunScript"
       {
         "ScriptFile"  "heroes/hero_moon_priest/lightning_chaos.lua"
@@ -78,6 +89,26 @@
 
     "Modifiers"
       {
+        "modifier_lightning_chaos_channelling"
+          {
+            "IsHidden"      "1"
+            "ThinkInterval"   "1.19"
+            "OnIntervalThink"
+            {
+              "RunScript"
+              {
+                "ScriptFile"  "heroes/channeling.lua"
+                "Function"    "ApplyAnimation"
+                "duration"    "1.1"
+              }
+            }
+          }
+
+        "modifier_channeling"
+        {
+          "IsHidden"        "1"
+          "OverrideAnimation"     "ACT_DOTA_CAST_ABILITY_2"
+        }
         "modifier_lightning_chaos"
         {
 
@@ -93,7 +124,7 @@
                {
                   "00" "0 0 0"
                   "01" "1 1 1"
-                  "02" "%duration 0 0"
+                  "02" "%channel_duration 0 0"
 
                }
             }

@@ -1,5 +1,6 @@
 
 function BlizzardStartPoint( event )
+
 	local caster = event.caster
 	local point = event.target_points[1]
 
@@ -17,8 +18,10 @@ end]]
 
 -- -- Create the particles with small delays between each other
 function BlizzardWave( event )
-	local caster = event.caster
 
+	local caster = event.caster
+	local ability = event.ability
+	
 	local target_position = event.target:GetAbsOrigin() --event.target_points[1]
     local particleName = "particles/units/heroes/hero_crystalmaiden/maiden_freezing_field_explosion.vpcf"
     local distance = 100

@@ -1000,6 +1000,69 @@
 		// Creature Data
 		//----------------------------------------------------------------
 	}
+	
+		"npc_dota_hero_shandris"
+		{
+			// General
+			//----------------------------------------------------------------
+			"override_hero"				"npc_dota_hero_lina"	 //Add npc_dota_hero internal name
+			"AbilityLayout"				"6"
+	
+			// Abilities
+			//----------------------------------------------------------------
+			"Ability1"					"shandris_phase_shift"	 //Reference: AInv
+			"Ability2"					"shandris_monsoon"	 //Reference: AUav
+			"Ability3"					"shandris_life_regeneration_aura"	 //Reference: AUsl
+			"Ability4"					"shandris_permanent_lightning"	 //Reference: AUcs
+			"Ability5"					"shandris_lightning_shock"	 //Reference: AUin
+			"Ability6"					""	 //Reference: AUcs
+	
+			// Armor
+			//----------------------------------------------------------------
+			"ArmorPhysical"				"0"
+			"MagicalResistance"			"0"
+			
+			// Attack
+			//----------------------------------------------------------------
+			"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+			"AttackDamageMin"			"47.0"
+			"AttackDamageMax"			"58.0"
+			"AttackDamageType"			"DAMAGE_TYPE_PHYSICAL"
+			"AttackRate"				"2.28"
+			"AttackAnimationPoint"		"0.75"
+			"AttackAcquisitionRange"	"600"
+			"AttackRange"				"600"
+	
+			// Attributes
+			//----------------------------------------------------------------
+			"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
+			"AttributeBaseStrength"		"18"
+			"AttributeStrengthGain"		"1.9"
+			"AttributeBaseIntelligence"	"15"
+			"AttributeIntelligenceGain"	"2.6"
+			"AttributeBaseAgility"		"24"
+			"AttributeAgilityGain"		"2.5"
+			
+			
+			// Movement
+			//----------------------------------------------------------------
+			"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+			"MovementSpeed"				"300"
+			"MovementTurnRate"			"0.6"
+			
+			// Status
+			//----------------------------------------------------------------
+			"StatusHealth"				"400"
+			"StatusHealthRegen"			"10"
+			"StatusMana"				"200"
+			"StatusManaRegen"			"5"
+			
+			// Vision
+			//----------------------------------------------------------------
+			"VisionDaytimeRange"		"1300"
+			"VisionNighttimeRange"		"1200"
+			
+		}
 	"npc_dota_hero_warden"
 	{
 	

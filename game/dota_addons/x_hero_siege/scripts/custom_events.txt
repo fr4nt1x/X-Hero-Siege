@@ -20,6 +20,10 @@
 
 "CustomEvents"
 {
+	"end_hero_channel"
+	{
+		"hero_index"					"short"
+	}
 	"end_special_event_kills"
 	{
 		"hero_index"					"short"

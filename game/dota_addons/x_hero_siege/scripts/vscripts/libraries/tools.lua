@@ -49,3 +49,4 @@ end
 function IsValidAlive(ent)
   return IsValidEntity(ent) and ent:IsAlive()
 end
+

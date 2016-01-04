@@ -239,12 +239,25 @@ function GameMode:OnAbilityChannelFinished(keys)
   local interrupted = keys.interrupted == 1
 end
 
---npc_dota_hero_antimage = {"blink",1}
---[[local AbilitiesHeroes_XX = {npc_dota_hero_mirana= {"moon_priest_lightning_chaos_XX",4},
-                            npc_dota_hero_enchantress= {"neutral_spell_immunity",3},
-                            npc_dota_hero_antimage = {"demonhuner_spell_resistance_XX",3},
-                            npc_dota_hero_luna = {"luna_neutralisation_XX",5},
-                            npc_dota_hero_nyx_assassin ={"crypt_lord_burrow_impale_XX",4}}
+
+  local AbilitiesHeroes_XX = {npc_dota_hero_mirana= {{"moon_priest_lightning_chaos_XX",4}},
+                              npc_dota_hero_enchantress= {{"neutral_spell_immunity",3}},
+                              npc_dota_hero_antimage = {{"demonhuner_spell_resistance_XX",3}},
+                              npc_dota_hero_luna = {{"luna_neutralisation_XX",5}},
+                              npc_dota_hero_nyx_assassin = {{"crypt_lord_burrow_impale_XX",4}},
+                              npc_dota_hero_lich ={{"lich_frost_chaos_XX",5}},
+                              npc_dota_hero_crystal_maiden = {{"jaina_rain_of_ice_XX",4}},
+                              npc_dota_hero_invoker = {{"bloodmage_rain_of_fire_XX",2}},
+                              npc_dota_hero_windrunner = {{"windrunner_rockethail_XX",2}},
+                              npc_dota_hero_zuus ={{"mountain_king_thunderclap_XX",0},{"mountain_king_stormbolt_XX",1}},
+                              npc_dota_hero_omniknight = {{"paladin_light_frenzy_XX",3}},
+                              npc_dota_hero_shadow_shaman = {{"shadow_hunter_hex_XX",3}},
+                              npc_dota_hero_phantom_assassin = {{"warden_morph_XX",3}},
+                              npc_dota_hero_keeper_of_the_light = {{"archmage_frost_shield_XX",2}},
+                              npc_dota_hero_night_stalker = {{"deardlord_rain_of_chaos_XX",2}},
+                              npc_dota_hero_juggernaut = {{"blademaster_partition_XX",3}},
+                              npc_dota_hero_lina = {{"shandris_lightning_attack_XX",2}}
+                              }
 --]]
 -- A player leveled up
 function GameMode:OnPlayerLevelUp(keys)
@@ -263,12 +276,31 @@ function GameMode:OnPlayerLevelUp(keys)
   if level >= 19 then
     hero:SetAbilityPoints(hero:GetAbilityPoints()-1) 
   end
---[[ if level == 20 then
-    local ability = AbilitiesHeroes_XX[hero:GetUnitName()]
-    if ability ~= nil   then
-      hero:AddAbility(ability[1])
-      hero:UpgradeAbility(hero:FindAbilityByName(ability[1]))
-      hero:SwapAbilities(hero:GetAbilityByIndex(ability[2]):GetName(),ability[1],true,true)
+
+if level == 20 then
+    -- level up all abilities, that are not leveled up atm
+
+
+    for i = 0,15 do 
+      local ability = hero:GetAbilityByIndex(i)
+      if IsValidEntity(ability) then
+        if ability:GetLevel() < ability:GetMaxLevel() then
+          for j =1, ability:GetMaxLevel() - ability:GetLevel() do
+            hero:UpgradeAbility(ability)
+          end
+        end
+      end
+    end
+    for _,ability in pairs(AbilitiesHeroes_XX[hero:GetUnitName()]) do
+      if ability ~= nil then
+
+        Notifications:Top(hero:GetPlayerOwnerID(), {text="You reached level 20. You gained a new ability: ",duration=5})
+        Notifications:Top(hero:GetPlayerOwnerID(), {ability=ability[1] ,continue=true})
+        Notifications:Top(hero:GetPlayerOwnerID(), {text="It's in the slot of one of your passive abilities. You still keep the positive effect of the passive.", duration=5})
+        hero:AddAbility(ability[1])
+        hero:UpgradeAbility(hero:FindAbilityByName(ability[1]))
+        hero:SwapAbilities(hero:GetAbilityByIndex(ability[2]):GetName(),ability[1],true,true)
+      end
     end 
   end--]]
 end

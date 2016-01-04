@@ -1,7 +1,9 @@
 function create_projectile( event )
 	-- body
 	local caster = event.caster
+	
 	local ability = event.ability
+	
 	local distance = ability:GetLevelSpecialValueFor("distance", ability:GetLevel()-1)
 	local speed = ability:GetLevelSpecialValueFor("speed", ability:GetLevel()-1)
 	local radius_explosion = ability:GetLevelSpecialValueFor("radius_explosion", ability:GetLevel()-1)
@@ -33,7 +35,7 @@ function create_projectile( event )
         	fExpireTime = GameRules:GetGameTime() + 10.0,
 			bDeleteOnHit = true,
 			vVelocity = caster:GetForwardVector() * speed,
-			bProvidesVision = false,
+			bProvidesVision = true,
 		}
 		local projectile = ProjectileManager:CreateLinearProjectile(info)
 	end

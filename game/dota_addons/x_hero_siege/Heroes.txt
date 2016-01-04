@@ -15,27 +15,27 @@ IMPLEMENTED:
 
 	Tyrande (Dryad)				ZAUBER IMMUNITÄT (MAGIE IMMUNITÄT) !!
 
-	Warden (PA)					MORPH
+	Warden (PA)					MORPH !!
 	
-	Lich   						FROST CHAOS   
+	Lich   						FROST CHAOS   !!
 
 	Blademaster					PARTITION
 
-	Mountain king 				UPGRADED SPEllS (DUBLE CAST)
+	Mountain king 				UPGRADED SPEllS (DOUBLE CAST) !!
 
-	Sylvanas Windrunner 		ROCKET HAIL  (STAMPEDE)
+	Sylvanas Windrunner 		ROCKET HAIL  (STAMPEDE)  !!
 
-	Shadow hunter (shaman)		HEX NEUTRAL FEINDLICH
+	Shadow hunter (shaman)		HEX NEUTRAL FEINDLICH !!
 
-	Paladin 					LIGHT FRENZY
+	Paladin 					LIGHT FRENZY !! (PARTICLE Missing)
 
-	Archmage					WATER SHIELD
+	Archmage					WATER SHIELD !!
 
-	DreadLord					CHAOSREGEN
+	DreadLord					CHAOSREGEN !!
 	
-	Jaina (Crystal maiden)		RAIN OF ICE
+	Jaina (Crystal maiden)		RAIN OF ICE !!
 
-	Bloodmage					RAIN OF FIRE 
+	Bloodmage					RAIN OF FIRE !!
 
 	
 
@@ -43,6 +43,7 @@ IMPLEMENTED:
 IN WORKING PROGRESS
 ############################################################################################
 
+	Shandris (Lina) 										LIGHTNING ATTACK
 
 ############################################################################################
 NOT IMPLEMENTED:
@@ -68,5 +69,5 @@ NOT IMPLEMENTED:
 
 	Banehallow												CHAOSREGEN (ARCHIMONDE)
 
-	Shandris (Lina) 										LIGHTNING ATTACK
+	
 

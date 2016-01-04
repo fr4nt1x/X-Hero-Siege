@@ -46,7 +46,7 @@ SpecialEventFrostInfernalDuration = 2*60
 SpecialEventRoshan = 13*60
 SpecialEventRoshanDuration = 1.1*60
 TimeBetweenCreepSpawn = 15
-TimeSpecialArena = 60*22
+TimeSpecialArena =  60*22
 
 waves_between_levels = {10,44,68,93}
 
@@ -282,7 +282,9 @@ function FinalWave()
   for _,hero in pairs(heroes) do
 
     if IsValidEntity(hero) and hero:IsRealHero() and hero:GetTeam() == DOTA_TEAM_GOODGUYS then
-
+      if hero:IsChanneling() then
+        FireGameEventLocal("end_hero_channel", {hero_index= hero:GetEntityIndex()})
+      end
       hero:Stop()
 
       if not hero:IsAlive() then

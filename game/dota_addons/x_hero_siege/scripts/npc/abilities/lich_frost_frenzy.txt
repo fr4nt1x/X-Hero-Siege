@@ -36,7 +36,6 @@
 
     "precache"
     {
-
        "particle" "particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodrage_eztzhok.vpcf"
     }
 
@@ -62,7 +61,7 @@
         "IsPurgable" "1"
         "Duration" "%duration"
         "EffectName" "particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodrage_eztzhok.vpcf"
-        "EffectAttachType" "follow_origin"
+        "EffectAttachType" "attach_hitloc"
 
         "Properties"
         {

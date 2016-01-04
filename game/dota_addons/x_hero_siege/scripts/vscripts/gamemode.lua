@@ -52,7 +52,8 @@ local AbilitiesHeroes = {npc_dota_hero_antimage = "demonhunter_roar",
                     npc_dota_hero_keeper_of_the_light = "archmage_spell_shield",
                     npc_dota_hero_night_stalker = "dreadlord_sleep",
                     npc_dota_hero_crystal_maiden = "jaina_mana_shield",
-                    npc_dota_hero_invoker = "bloodmage_chains"}
+                    npc_dota_hero_invoker = "bloodmage_chains",
+                    npc_dota_hero_lina="shandris_spell_resistance"}
 --[[
   This function should be used to set up Async precache calls at the beginning of the gameplay.
 
@@ -145,6 +146,24 @@ function GameMode:OnHeroInGame(hero)
   -- This line for example will set the starting gold of every hero to 500 unreliable gold
   local number_players = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
   local difficulty = GameRules:GetCustomGameDifficulty()
+  local AbilitiesHeroes_XX = {npc_dota_hero_mirana= {{"moon_priest_lightning_chaos_XX",4}},
+                              npc_dota_hero_enchantress= {{"neutral_spell_immunity",3}},
+                              npc_dota_hero_antimage = {{"demonhuner_spell_resistance_XX",3}},
+                              npc_dota_hero_luna = {{"luna_neutralisation_XX",5}},
+                              npc_dota_hero_nyx_assassin = {{"crypt_lord_burrow_impale_XX",4}},
+                              npc_dota_hero_lich ={{"lich_frost_chaos_XX",5}},
+                              npc_dota_hero_crystal_maiden = {{"jaina_rain_of_ice_XX",4}},
+                              npc_dota_hero_invoker = {{"bloodmage_rain_of_fire_XX",2}},
+                              npc_dota_hero_windrunner = {{"windrunner_rockethail_XX",2}},
+                              npc_dota_hero_zuus ={{"mountain_king_thunderclap_XX",0},{"mountain_king_stormbolt_XX",1}},
+                              npc_dota_hero_omniknight = {{"paladin_light_frenzy_XX",3}},
+                              npc_dota_hero_shadow_shaman = {{"shadow_hunter_hex_XX",3}},
+                              npc_dota_hero_phantom_assassin = {{"warden_morph_XX",3}},
+                              npc_dota_hero_keeper_of_the_light = {{"archmage_frost_shield_XX",2}},
+                              npc_dota_hero_night_stalker = {{"deardlord_rain_of_chaos_XX",2}},
+                              npc_dota_hero_juggernaut = {{"blademaster_partition_XX",3}},
+                              npc_dota_hero_lina = {{"shandris_lightning_attack_XX",2}}
+                              }
 
   if  IsValidEntity(hero) and IsValidEntity(hero:GetPlayerOwner()) and hero:IsRealHero() and hero:GetTeam() == DOTA_TEAM_GOODGUYS then
     if difficulty == 1 then
@@ -157,6 +176,12 @@ function GameMode:OnHeroInGame(hero)
       hero:SetGold(300, false)
     end  
 
+  if AbilitiesHeroes_XX[hero:GetUnitName()] ~= nil then 
+    for _,ability in pairs(AbilitiesHeroes_XX[hero:GetUnitName()]) do
+      PrecacheItemByNameAsync(ability[1], function() end)
+    end
+  end
+    
     --local item = CreateItem("item_tome_big", hero, hero)
     --hero:AddItem(item)
     --local item = CreateItem("item_tome_big", hero, hero)
@@ -183,7 +208,7 @@ function GameMode:OnHeroInGame(hero)
     -- local ability = unit:FindAbilityByName("ramero_baristal")
     --ability:ApplyDataDrivenModifier(unit, unit, "modifier_baristal", {})
     unit:SetControllableByPlayer(player, true)
-    
+    --
     for j = 1,40 do
     illusion = CreateUnitByName("npc_ghul_II",point:GetAbsOrigin()+Vector(1000,0,0),true,hero,nil,DOTA_TEAM_NEUTRALS)
     illusion:SetControllableByPlayer(player, true)

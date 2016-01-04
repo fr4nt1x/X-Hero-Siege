@@ -55,6 +55,11 @@
         "ModifierName"  "modifier_burrow_impale"
         "Target"     "CASTER"
       }
+      "ApplyModifier"
+      {
+        "ModifierName"  "modifier_burrow_impale_channelling"
+        "Target"     "CASTER"
+      }
     }
 
     "OnChannelFinish"
@@ -68,6 +73,39 @@
 
     "Modifiers"
       {
+        "modifier_burrow_impale_channelling"
+        {
+          "IsHidden"      "1"
+          "ThinkInterval"   "1.39"
+            "OnIntervalThink"
+          {
+            "RunScript"
+            {
+              "ScriptFile"  "heroes/hero_crypt_lord/burrow_impale.lua"
+              "Function"    "ApplyAnimation"
+            }
+          }
+        }
+
+        "modifier_channeling"
+        {
+          "IsHidden"        "1"
+          "OverrideAnimation"     "ACT_DOTA_CAST_ABILITY_1"
+          "OnCreated"
+          {
+            "FireEffect"
+            {
+              "EffectName"        "particles/units/heroes/hero_sandking/sandking_burrowstrike.vpcf"
+              "EffectAttachType"  "attach_hitloc"
+              "Target"            "CASTER"
+              "ControlPointEntities"
+              {
+                "CASTER"  "attach_origin"
+                "CASTER"  "attach_hitloc"
+              }
+            }
+          }
+        }
 
         "modifier_burrow_impale" 
         {
@@ -102,23 +140,7 @@
                 "Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
               }
             }
-            "FireEffect"
-            {
-              "EffectName"        "particles/units/heroes/hero_sandking/sandking_epicenter.vpcf"
-              "EffectAttachType"  "attach_origin"
-              "Target"
-                {
-                  "Center"    "CASTER"
-                  "Radius"   "%radius"
-                  "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
-                  "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-                  "Flags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-                }
-            }
-
           }
-
-
 
           "Properties"
           {
@@ -129,7 +151,7 @@
 
     "precache"
     {
-      "particle"  "particles/units/heroes/hero_sandking/sandking_burrowstrike.vpcf"
       "particle"  "particles/units/heroes/hero_sandking/sandking_epicenter.vpcf"
+      "particle"  "particles/units/heroes/hero_sandking/sandking_burrowstrike.vpcf"
     }
   }

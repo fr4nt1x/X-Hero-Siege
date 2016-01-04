@@ -1,0 +1,94 @@
+"shandris_phase_shift"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "MaxLevel"              "4"
+    "RequiredLevel"        "-1"
+    "LevelsBeweenUpgrades" "3"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCooldown"  "30"
+    "AbilityManaCost"  "50"
+    "AbilityTextureName" "lina_fiery_soul"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+        "01"
+        {
+          "var_type" "FIELD_INTEGER"
+          "bonus_attack_speed" "100 200 300 400"
+        }
+        "02"
+        {
+          "var_type" "FIELD_INTEGER"
+          "bonus_movement_speed_percentage" "10 20 30 40"
+        }
+        "03"
+        {
+          "var_type" "FIELD_FLOAT"
+          "duration" "15"
+        }
+    }
+
+    "precache"
+    {
+
+       "particle" "particles/units/heroes/hero_templar_assassin/templar_assassin_refraction.vpcf"
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+        "ApplyModifier"
+        {
+            "ModifierName" "modifier_phase_shift"
+            "Target"  "CASTER"
+        }
+    }
+
+    "Modifiers"
+    {
+      "modifier_phase_shift"
+      {
+
+        "IsBuff" "1"
+        "IsHidden" "0"
+        "Passive" "0"
+        "IsPurgable" "0"
+        "OnCreated"
+        {
+          "AttachEffect"
+          {
+            "EffectName"        "particles/units/heroes/hero_templar_assassin/templar_assassin_refraction.vpcf"
+            "EffectAttachType"  "follow_origin"
+            "Target"            "CASTER"
+            "ControlPointEntities"
+            {
+              "CASTER"  "follow_origin"
+              "CASTER"  "follow_origin"
+              "CASTER"  "follow_origin"
+              "CASTER"  "follow_origin"
+              "CASTER"  "follow_origin"
+            }
+          }
+        }
+        "Duration" "%duration"
+
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed_percentage"
+          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attack_speed"
+          "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL" "1"
+          "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL"  "1"
+          "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE"     "1"
+        }
+      }
+    }    
+  }
