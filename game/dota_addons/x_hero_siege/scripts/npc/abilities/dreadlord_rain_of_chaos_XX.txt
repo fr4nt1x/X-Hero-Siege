@@ -14,7 +14,7 @@
     "AnimationPlaybackRate" "0.5"
     "AOERadius"         "%radius"
     "AbilityCooldown"  "120"
-    "AbilityChannelTime"  "4"
+    "AbilityChannelTime"  "%channel_duration"
     "AbilityManaCost"  "200"
     "AbilityTextureName" "invoker_chaos_meteor"
     "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
@@ -54,7 +54,11 @@
         "var_type"      "FIELD_INTEGER"
         "radius_explosion"      "400"
       }
-
+      "07"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "channel_duration"      "4"
+      }
     }
 
     "OnSpellStart"

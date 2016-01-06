@@ -11,7 +11,7 @@
     "item"  "item_bracers_of_protection"
     "item"  "item_dagger_of_assassination"
     "item"  "item_talisman_of_evasion"
-           
+    
   }
 
   "attributes"
@@ -72,7 +72,7 @@
         "item" "item_tome_small"
         "item" "item_tome_big"
         "item" "item_tome_all"
-
+        "item" "item_tome_of_power"  
 
         "item"  "item_potion_of_spell_immunity"
         "item"  "item_potion_of_invulnerability"

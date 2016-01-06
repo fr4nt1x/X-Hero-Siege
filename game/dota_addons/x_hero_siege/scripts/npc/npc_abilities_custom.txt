@@ -376,7 +376,6 @@
 	        "slow_duration"     "5.0"
 	      }
 	    }
-	
 	    "precache"
 	    {
 	    }
@@ -2286,7 +2285,7 @@
 	        "01"
 	        {
 	            "var_type"      "FIELD_INTEGER"
-	            "resistance"      "80"
+	            "resistance"      "79"
 	        }
 	    }
 	    "Modifiers"
@@ -3416,7 +3415,7 @@
 	    "AOERadius"         "%radius"
 	
 	    "AbilityCooldown"  "120"
-	    "AbilityManaCost"  "700"
+	    "AbilityManaCost"  "500"
 	    "AbilityTextureName" "sandking_epicenter"
 	    "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
 	    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -4000,7 +3999,7 @@
 	        "01"
 	        {
 	            "var_type"      "FIELD_INTEGER"
-	            "resistance"      "80"
+	            "resistance"      "79"
 	        }
 	    }
 	    "Modifiers"
@@ -5484,7 +5483,7 @@
 	    "AnimationPlaybackRate" "0.5"
 	    "AOERadius"         "%radius"
 	    "AbilityCooldown"  "120"
-	    "AbilityChannelTime"  "4"
+	    "AbilityChannelTime"  "%channel_duration"
 	    "AbilityManaCost"  "200"
 	    "AbilityTextureName" "invoker_chaos_meteor"
 	    "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
@@ -5524,7 +5523,11 @@
 	        "var_type"      "FIELD_INTEGER"
 	        "radius_explosion"      "400"
 	      }
-	
+	      "07"
+	      {
+	        "var_type"      "FIELD_FLOAT"
+	        "channel_duration"      "4"
+	      }
 	    }
 	
 	    "OnSpellStart"
@@ -7653,7 +7656,7 @@
 	        "03"
 	        {
 	            "var_type"                  "FIELD_INTEGER"
-	            "duration_tooltip"      "6"
+	            "duration_tooltip"          "6"
 	        }
 	        "04"
 	        {
@@ -9051,7 +9054,7 @@
 	      "02"
 	      {
 	        "var_type"      "FIELD_INTEGER"
-	        "attack_damage_reduction"      "50"
+	        "incoming_damage"      "150"
 	      }
 	      "03"
 	      {
@@ -9097,7 +9100,7 @@
 	    
 	        "Properties"
 	        {
-	          "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attack_damage_reduction"
+	          "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%incoming_damage"
 	        }
 	
 	        "States"

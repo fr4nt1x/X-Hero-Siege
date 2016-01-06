@@ -16,7 +16,7 @@
     "AOERadius"         "%radius"
 
     "AbilityCooldown"  "120"
-    "AbilityManaCost"  "700"
+    "AbilityManaCost"  "500"
     "AbilityTextureName" "sandking_epicenter"
     "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
     "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"

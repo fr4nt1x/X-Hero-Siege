@@ -296,7 +296,8 @@ if level == 20 then
 
         Notifications:Top(hero:GetPlayerOwnerID(), {text="You reached level 20. You gained a new ability: ",duration=5})
         Notifications:Top(hero:GetPlayerOwnerID(), {ability=ability[1] ,continue=true})
-        Notifications:Top(hero:GetPlayerOwnerID(), {text="It's in the slot of one of your passive abilities. You still keep the positive effect of the passive.", duration=5})
+        Notifications:Top(hero:GetPlayerOwnerID(), {text="It's in the slot of one of your passive abilities. You keep your passive effect. To see it use Alt-Click on your level 20 ability.", duration=5})
+        Notifications:Top(hero:GetPlayerOwnerID(), {text="Try holding ALT while hovering over your level 20 ability.", duration=5, style={color="red"}})
         hero:AddAbility(ability[1])
         hero:UpgradeAbility(hero:FindAbilityByName(ability[1]))
         hero:SwapAbilities(hero:GetAbilityByIndex(ability[2]):GetName(),ability[1],true,true)
