@@ -12,7 +12,7 @@
     //-------------------------------------------------------------------------------------
     "AbilityCastPoint" "0.6"
     "AbilityCooldown"  "120"
-    "AbilityManaCost"  "500 1000"
+    "AbilityManaCost"  "500 999"
     "AbilityTextureName" "sven_gods_strength"
     "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 

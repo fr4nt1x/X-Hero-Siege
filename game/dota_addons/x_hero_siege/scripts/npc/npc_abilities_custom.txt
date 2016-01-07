@@ -10269,7 +10269,7 @@
 	    //-------------------------------------------------------------------------------------
 	    "AbilityCastPoint" "0.6"
 	    "AbilityCooldown"  "120"
-	    "AbilityManaCost"  "500 1000"
+	    "AbilityManaCost"  "500 999"
 	    "AbilityTextureName" "sven_gods_strength"
 	    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 	
@@ -10875,11 +10875,6 @@
 	          "bonus_movement_speed"        "-50"
 	        }
 	        "05"
-	        {
-	          "var_type"        "FIELD_INTEGER"
-	          "bonus_movement_speed"        "0.5"
-	        }
-	        "03"
 	        {
 	          "var_type"      "FIELD_FLOAT"
 	          "delay"      "0.5"
