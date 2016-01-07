@@ -1,0 +1,54 @@
+"item_tome_of_power" 
+{
+	"ID"           "1123"
+	"BaseClass"    "item_datadriven"
+	"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+	"Model"        "models/props_gameplay/red_box.vmdl" 
+	"Effect"       "particles/generic_gameplay/dropped_item.vpcf"
+	"ItemCost"     "2500"
+	"ItemKillable" "1" 
+
+    "ItemStockMax" "4" 
+    "ItemStockTime" "120"
+    "ItemStockInitial" "4"
+    "AbilityCooldown"                "40.0"
+
+	"ItemSellable" "1"
+	"ItemCastOnPickup" "0"
+	"ItemPurchasable" "1"
+    "ItemDroppable" "1"
+    "ItemShareability" "ITEM_FULLY_SHAREABLE"
+    "AbilityTextureName" "item_enchanted_mango"
+
+    "SideShop"     "1" 
+    "SecretShop"   "0"
+
+    "ItemShopTags"					"artifact"
+	"ItemQuality"					"artifact"
+    
+    "ItemStackable" "1"
+    "ItemInitialCharges"			"1"
+
+    "ItemPermanent" "0"
+    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+    "OnSpellStart"
+    {
+        "RunScript"
+        {
+            "ScriptFile"    "items/Tome_Of_Power/tome_of_power"
+            "Function"        "tome_use"
+        }
+    	"SpendCharge" {}
+    }
+
+    "AbilitySpecial"
+    {
+    }
+
+    "precache"
+    {
+    	"particle"  "models/props_gameplay/red_box.vmdl"
+    	"particle"	"particles/generic_gameplay/dropped_item.vpcf"
+    }   
+}  

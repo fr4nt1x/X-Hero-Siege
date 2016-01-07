@@ -79,7 +79,7 @@
       "RunScript"
       {
         "ScriptFile"  "heroes/archmage/blizzard.lua"
-      "Function"    "BlizzardEnd"
+        "Function"    "BlizzardEnd"
       }
     }
 
@@ -110,7 +110,7 @@
         {
           "IsHidden"      "1"
           "ThinkInterval"   "0.99"
-            "OnIntervalThink"
+          "OnIntervalThink"
           {
             "RunScript"
             {
@@ -120,11 +120,11 @@
           }
         }
 
-    "modifier_channeling"
-    {
-      "IsHidden"        "1"
-      "OverrideAnimation"     "ACT_DOTA_CAST_ABILITY_5"
-    }
+        "modifier_channeling"
+        {
+          "IsHidden"        "1"
+          "OverrideAnimation"     "ACT_DOTA_CAST_ABILITY_5"
+        }
     
     "modifier_blizzard_wave"
     {

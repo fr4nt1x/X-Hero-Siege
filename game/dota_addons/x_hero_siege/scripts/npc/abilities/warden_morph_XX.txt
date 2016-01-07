@@ -1,0 +1,187 @@
+// Rewrite of the Shadow Shaman Voodoo ability
+// Author: Noya
+// Date: April 4, 2015.
+
+"warden_morph_XX"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"				"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityUnitTargetFlags" 		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+	"FightRecapLevel"				"1"
+	"AbilityTextureName"			"shadow_shaman_voodoo"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "20"
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastRange"				"600"
+	"AbilityCastPoint"				"0.5"
+	
+	// Time		
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown"				"120.0"
+
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"				"500"
+	
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"movespeed"					"100"
+		}
+		"02"
+		{
+			"var_type"					"FIELD_FLOAT"
+			"duration"					"8"
+		}
+	}
+
+	// Precache
+	//-------------------------------------------------------------------------------------------------------------
+	"precache"
+	{
+		"soundfile"			"soundevents/game_sounds_heroes/game_sounds_shadowshaman.vsndevts"
+		"particle"			"particles/units/heroes/hero_shadowshaman/shadowshaman_voodoo.vpcf"
+		"model"				"models/props_gameplay/chicken.vmdl"
+	}
+
+	"OnSpellStart"
+	{
+		"FireSound"
+		{
+			"EffectName"	"Hero_Lion.Voodoo" //TODO
+	        "Target"
+	        {
+	          "Center"    "TARGET"
+	          "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	          "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	          "Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+	        }
+		}
+
+		"FireSound"
+		{
+			"EffectName"	"Hero_Lion.Hex.Target" //TODO
+	        "Target"
+	        {
+	          "Center"    "TARGET"
+	          "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	          "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	          "Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+	        }
+		}
+
+		"FireEffect"
+		{
+			"EffectName"	"particles/units/heroes/hero_shadowshaman/shadowshaman_voodoo.vpcf"
+			"EffectAttachType"	"follow_origin"
+	        "Target"
+	        {
+	          "Center"    "TARGET"
+	          "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	          "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	          "Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+	        }
+		}
+
+		"ApplyModifier"
+		{
+			"ModifierName"	"modifier_morph_datadriven"
+	        "Target"
+	        {
+	          "Center"    "TARGET"
+	          "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	          "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	          "Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+	        }
+		}
+		"ApplyModifier"
+		{
+			"ModifierName"	"modifier_morph_warden"
+	        "Target" "CASTER"
+		}
+	}
+
+	"Modifiers"
+	{
+		"modifier_morph_warden"
+		{
+	        "Passive"       "0"
+	        "IsHidden"      "0"
+	        "IsPurgable"    "0"
+	        "Duration"	"%duration"
+	        "IsBuff"		"1"
+	        "Properties"
+	        {
+	          "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL" "1"
+	          "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL"  "1"
+	          "MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE"     "1"
+	        }
+	        "States"
+			{
+				"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+			}
+		}
+
+		"modifier_morph_datadriven"
+		{
+			"IsDebuff"	"1"
+			"Duration"	"%duration"
+
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"scripts/vscripts/heroes/hero_warden/hex.lua"
+					"Function"		"voodoo_start"
+					"model"			"models/props_gameplay/chicken.vmdl"
+				}
+
+				"RunScript"
+				{
+					"ScriptFile"		"scripts/vscripts/heroes/hero_warden/hex.lua"
+					"Function"			"HideWearables"
+				}
+			}
+
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"scripts/vscripts/heroes/hero_warden/hex.lua"
+					"Function"		"voodoo_end"
+				}
+
+				"RunScript"
+				{
+					"ScriptFile"	"scripts/vscripts/heroes/hero_warden/hex.lua"
+					"Function"		"ShowWearables"
+				}
+			}
+
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_MOVESPEED_BASE_OVERRIDE"		"%movespeed"
+			}
+
+			"States"
+			{
+				"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+				"MODIFIER_STATE_MUTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				"MODIFIER_STATE_HEXED"		"MODIFIER_STATE_VALUE_ENABLED"
+				"MODIFIER_STATE_EVADE_DISABLED"	"MODIFIER_STATE_VALUE_ENABLED"
+				"MODIFIER_STATE_BLOCK_DISABLED"	"MODIFIER_STATE_VALUE_ENABLED"
+			}
+		}
+	}
+}

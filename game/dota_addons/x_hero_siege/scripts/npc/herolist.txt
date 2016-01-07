@@ -21,4 +21,5 @@
 	"npc_dota_hero_night_stalker"			"-1"
 	"npc_dota_hero_crystal_maiden"			"-1"
 	"npc_dota_hero_invoker"					"-1"
+	"npc_dota_hero_lina"					"-1"
 }

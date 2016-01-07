@@ -1,0 +1,49 @@
+"archmage_frost_shield_XX"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "lich_frost_armor"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "20"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.46"
+    "AbilityCooldown"  "10"
+    "AbilityCastRange" "800"
+    "AbilityManaCost"  "500"
+
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL | DOTA_UNIT_TARGET_BUILDING"
+    "SpellImmunityType"       "SPELL_IMMUNITY_ALLIES_YES"
+
+    "AbilityDuration"       "60"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "armor_bonus"     "500"
+      }     
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "slow_movement_speed" "-50"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "slow_attack_speed"   "-200"
+      }
+      "04"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "slow_duration"     "5.0"
+      }
+    }
+    "precache"
+    {
+    }
+  }

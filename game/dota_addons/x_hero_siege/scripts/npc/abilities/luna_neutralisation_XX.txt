@@ -30,7 +30,7 @@
       "02"
       {
         "var_type"      "FIELD_INTEGER"
-        "attack_damage_reduction"      "50"
+        "incoming_damage"      "150"
       }
       "03"
       {
@@ -76,7 +76,7 @@
     
         "Properties"
         {
-          "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%attack_damage_reduction"
+          "MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%incoming_damage"
         }
 
         "States"

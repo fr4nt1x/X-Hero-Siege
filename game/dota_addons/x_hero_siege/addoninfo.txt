@@ -8,9 +8,4 @@
 	{
 		"MaxPlayers"                    "4"
 	}
-
-	"herosiege_extreme"
-	{
-		"MaxPlayers"                    "4"
-	}
 }

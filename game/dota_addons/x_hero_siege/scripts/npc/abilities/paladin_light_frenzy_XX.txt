@@ -1,0 +1,98 @@
+"paladin_light_frenzy_XX"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "20"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.5"
+    "AbilityCooldown"  "60"
+    "AbilityManaCost"  "100"
+    "AbilityTextureName" "troll_warlord_fervor"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_YES"
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type" "FIELD_INTEGER"
+            "movement_speed_bonus" "100"
+        }
+        "02"
+        {
+          "var_type" "FIELD_INTEGER"
+          "bonus_damage_percentage" "100"
+        }
+        "03"
+        {
+          "var_type" "FIELD_FLOAT"
+          "attack_speed_bonus" "200"
+        }
+        "04"
+        {
+          "var_type" "FIELD_FLOAT"
+          "duration" "120"
+        }       
+    }
+
+    "precache"
+    {
+        "particle" "particles/units/heroes/hero_lone_druid/lone_druid_battle_cry_buff.vpcf"
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+        "ApplyModifier"
+        {
+            "ModifierName" "modifier_light_frenzy"
+
+            "Target"
+            {
+              "Center"    "TARGET"
+              "Teams"   "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+              "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+            }
+        }
+        "RunScript"
+        {
+          "ScriptFile"  "heroes/hero_paladin/light_frenzy.lua"
+          "Function"    "reset_cooldown"
+          "Target"
+          {
+            "Center"    "TARGET"
+            "Teams"   "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+            "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+          }
+        }
+    }
+
+    "Modifiers"
+    {
+      
+      "modifier_light_frenzy"
+      {
+
+        "IsBuff" "1"
+        "IsHidden" "0"
+        "Passive" "0"
+        "IsPurgable" "0"
+        "Duration" "%duration"
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%bonus_damage_percentage"
+          "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed_bonus"
+          "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%movement_speed_bonus"
+        }
+      }
+    }    
+  }

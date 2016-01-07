@@ -112,6 +112,7 @@ function GameMode:_InitGameMode()
   ListenToGameEvent("end_special_event_frost_infernal", endFrostInfernalEvent, nil)
   ListenToGameEvent("end_special_event_spirit_beast", endSpiritBeastEvent, nil)
   
+  ListenToGameEvent("end_hero_channel",  Dynamic_Wrap(GameMode, "HeroInterruptChannel"), self)
   ListenToGameEvent("teleport_hero_to_special_event",  Dynamic_Wrap(GameMode, "OnTeleportHeroToSpecialEvent"), self)
   ListenToGameEvent("teleport_all_units_to_hero",  Dynamic_Wrap(GameMode, "TeleportUnitsToHero"), self)
   ListenToGameEvent("return_units_of_hero",  Dynamic_Wrap(GameMode, "ReturnUnitsOfHero"), self)

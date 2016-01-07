@@ -12,7 +12,7 @@
     "AbilityCastPoint" "0.5"
     "AnimationPlaybackRate" "0.5"
     "AOERadius"         "%radius_explosion"
-    "AbilityCooldown"  "120 180"
+    "AbilityCooldown"  "180 120"
     "AbilityManaCost"  "500"
     "AbilityTextureName" "warlock_rain_of_chaos"
     "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
@@ -43,7 +43,7 @@
       "04"
       {
         "var_type"      "FIELD_INTEGER"
-        "duration"      "180 120"
+        "duration"      "120 180"
       }
 
     }

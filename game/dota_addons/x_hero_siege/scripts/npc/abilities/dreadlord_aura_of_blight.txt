@@ -22,7 +22,11 @@
         "var_type"      "FIELD_INTEGER"
         "health_regeneration"      "1 2 3 4"
       }
-
+      "02"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "radius"      "400"
+      }
     }
     "Modifiers"
     {
@@ -42,7 +46,7 @@
       { 
         "Passive"      "0"
         "IsHidden"      "0"
-        "IsDebuff"      "0"
+        "IsBuff"        "1"
       
         "EffectName"    "particles/items2_fx/tranquil_boots_healing.vpcf"
         "EffectAttachType"  "follow_origin"

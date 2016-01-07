@@ -1,0 +1,156 @@
+"windrunner_rockethail_XX"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE |  DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+
+    "MaxLevel"              "1"
+    "RequiredLevel"        "20"
+    "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_YES"
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.2"
+    "AOERadius"         "%radius"
+    "AbilityCooldown"  "120"
+    "AbilityChannelTime"  "%channel_duration"
+    "AbilityManaCost"  "500"
+    "AbilityTextureName" "tinker_heat_seeking_missile"
+    "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityCastAnimation"  "ACT_DOTA_CAST_ABILITY_2"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "damage_per_rocket"      "400"
+      }
+      "02"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "distance"      "900"
+      }
+      "03"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "speed"      "500"
+      }
+      "04"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "time_between_rockets"      "0.1"
+      }
+      "05"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "rockets_per_tick"      "2"
+      }
+      "06"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "radius_explosion"      "300"
+      }
+      "07"
+      {
+        "var_type"      "FIELD_INTEGER"
+        "radius"      "1000"
+      }
+      "08"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "channel_duration"      "30.0"
+      }
+    }
+
+    "OnSpellStart"
+    { 
+      "ApplyModifier"
+      {
+        "ModifierName"  "modifier_rockethail_channelling"
+        "Target"     "CASTER"
+      }
+      "ApplyModifier"
+      {
+        "ModifierName"  "modifier_spawn_rockets"
+        "Target"     "CASTER"
+      }
+    }
+    "OnProjectileHitUnit"
+    {
+      "DeleteOnHit"  "1"
+      "Damage"
+      {
+
+        "Target"
+        {
+          "Center"    "TARGET"
+          "Radius"   "%radius_explosion"
+          "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+          "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+          "Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        }
+        "Type"      "DAMAGE_TYPE_MAGICAL"
+        "Damage"    "%damage_per_rocket"
+      }
+    }
+
+    "OnChannelFinish"
+    {
+      "RemoveModifier"
+      {
+        "ModifierName"  "modifier_spawn_rockets"
+        "Target"     "CASTER"
+      }
+      "RemoveModifier"
+      {
+        "ModifierName"  "modifier_rockethail_channelling"
+        "Target"     "CASTER"
+      }
+    }
+
+    "Modifiers"
+      {
+        "modifier_rockethail_channelling"
+          {
+            "IsHidden"      "1"
+            "ThinkInterval"   "1.39"
+            "OnIntervalThink"
+            {
+              "RunScript"
+              {
+                "ScriptFile"  "heroes/channeling.lua"
+                "Function"    "ApplyAnimation"
+                "duration"    "1.3"
+              }
+            }
+          }
+
+        "modifier_channeling"
+        {
+          "IsHidden"        "1"
+          "OverrideAnimation"     "ACT_DOTA_CAST_ABILITY_2"
+        }
+        "modifier_spawn_rockets" 
+        {
+          "IsHidden" "1"
+          "ThinkInterval"  "%time_between_rockets"
+          "OnIntervalThink"
+          {
+            "RunScript"
+            {
+              "ScriptFile"  "heroes/hero_windrunner/stampede.lua"
+              "Function"    "create_projectile"
+            }
+          }
+        }
+      }
+
+
+    "precache"
+    {
+      "particle"  "particles/units/heroes/hero_tinker/tinker_missile.vpcf"
+    }
+  }

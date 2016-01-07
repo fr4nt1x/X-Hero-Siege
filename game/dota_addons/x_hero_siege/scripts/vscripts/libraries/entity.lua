@@ -164,10 +164,6 @@ function teleport_to_top(keys)
   		magtheridon = CreateUnitByName("npc_dota_hero_magtheridon",Entities:FindByName(nil,"spawn_magtheridon"):GetAbsOrigin()  ,true,nil,nil,DOTA_TEAM_NEUTRALS)
   		magtheridon:SetAngles(0, 180, 0)
   		local ankh = CreateItem("item_magtheridon_ankh", mag, mag)
-	  	
-
-
-
 
 	  	ankh:SetCurrentCharges(PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS))
 	  	magtheridon:AddItem(ankh)
@@ -178,6 +174,9 @@ function teleport_to_top(keys)
 
 	  	for _,hero in pairs(heroes) do
 	  		if hero.disconnected ~= true and hero:GetTeam() == DOTA_TEAM_GOODGUYS then
+	  			if hero:IsChanneling() then
+      				FireGameEventLocal("end_hero_channel", {hero_index= hero:GetEntityIndex()})
+   				end
 	  			FindClearSpaceForUnit(hero, point, true)
 	       		hero:AddNewModifier(nil, nil, "modifier_stunned",nil)
 	        	hero:AddNewModifier(nil, nil, "modifier_invulnerable",nil)

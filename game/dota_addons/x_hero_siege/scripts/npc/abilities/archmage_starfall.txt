@@ -7,7 +7,7 @@
     "MaxLevel"              "2"
     "LevelsBetweenUpgrades" "5"
     "RequiredLevel"        "10"
-    "AbilityChannelTime" 	"20"
+    "AbilityChannelTime" 	"%channel_duration"
 
     // Stats
     //-------------------------------------------------------------------------------------
@@ -39,7 +39,12 @@
       "04"
       {
         "var_type"      "FIELD_FLOAT"
-        "delay"      "0.4"
+        "delay"      "0.3"
+      }
+      "05"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "channel_duration"      "20 20"
       }
     }
 
@@ -47,30 +52,75 @@
     {
   		"ApplyModifier"
   		{
-  			"ModifierName"	"modifier_starfall"
+  			"ModifierName"	"modifier_starfall_channelling"
   			"Target"		"CASTER"
   		}
+      "ApplyModifier"
+      {
+        "ModifierName"  "modifier_starfall"
+        "Target"     "CASTER"
+      }
+
       "FireSound"
       {
         "EffectName"  "Ability.Starfall"
         "Target"     "CASTER"
       }
     }
+    
     "OnChannelFinish"
     {
       "RemoveModifier"
-      {
-        "ModifierName"  "modifier_starfall"
-        "Target"     "CASTER"
-      }
+        {
+          "ModifierName"  "modifier_starfall"
+          "Target"     "CASTER"
+        }
+        "RemoveModifier"
+        {
+          "ModifierName"  "modifier_starfall_channelling"
+          "Target"     "CASTER"
+        }
     }
 
     "Modifiers"
       {
+        "modifier_starfall_channelling"
+          {
+            "IsHidden"      "1"
+            "ThinkInterval"   "3.99"
+            "OnIntervalThink"
+            {
+              "RunScript"
+              {
+                "ScriptFile"  "heroes/channeling.lua"
+                "Function"    "ApplyAnimation"
+                "duration"    "3.9"
+              }
+            }
+          }
+        "modifier_channeling"
+        {
+          "IsHidden"        "1"
+          "OverrideAnimation"     "ACT_DOTA_CAST_ABILITY_1"
+        }
+
+        "modifier_starfall_damage"
+        {
+          "IsHidden"  "1"
+          "OnDestroy"
+          {
+            "Damage"
+            {
+              "Target"    "TARGET"
+              "Type"      "DAMAGE_TYPE_MAGICAL"
+              "Damage"    "%damage_per_tick"
+            }
+          }
+        }
         "modifier_starfall"
         {
 
-        	"IsHidden"  "0"
+        	"IsHidden"  "1"
         	"ThinkInterval"  "%ticktime"
         	"OnIntervalThink"
         	{
@@ -87,25 +137,18 @@
                 "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
               }
             }
-            "DelayedAction"
+            "ApplyModifier"
             {
-              "Delay"     "%delay"
-              "Action"    
+              "ModifierName"  "modifier_starfall_damage"
+              "Target"
               {
-                "Damage"
-                {
-                  "Target"
-                  {
-                    "Center"    "CASTER"
-                    "Radius"   "%radius"
-                    "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
-                    "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-                  }
-                  "Type"      "DAMAGE_TYPE_MAGICAL"
-                  "Damage"    "%damage_per_tick"
-                }   
+                "Center"    "CASTER"
+                "Radius"   "%radius"
+                "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
               }
-            } 
+              "Duration"    "%delay"
+            }
         	}
         }
       } 

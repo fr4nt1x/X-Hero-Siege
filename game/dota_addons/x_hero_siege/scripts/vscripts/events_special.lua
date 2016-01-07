@@ -5,8 +5,11 @@ function GameMode:OnTeleportHeroToSpecialEvent(keys)
   local teleport_point = EntIndexToHScript(keys.teleport_entity_index) 
   local hero = EntIndexToHScript(keys.hero_index)
 
-  if IsValidEntity(hero) and IsValidEntity(teleport_point) and  hero:IsRealHero() then
-
+  if IsValidEntity(hero) and IsValidEntity(teleport_point) and hero:IsRealHero() then
+    if hero:IsChanneling() then
+      FireGameEventLocal("end_hero_channel", {hero_index= hero:GetEntityIndex()})
+    end
+    
   	hero:Stop()
     hero.in_special_event = true
 
@@ -204,4 +207,18 @@ function GameMode:DestroyDoor( keys )
     obs:SetEnabled(false, true)
   end
 
+end
+
+--properly ends channeling skills
+function GameMode:HeroInterruptChannel(keys)
+  -- body
+  local hero = EntIndexToHScript(keys.hero_index)
+  if IsValidAlive(hero) then
+      for i = 0,hero:GetAbilityCount()-1 do
+        local ability = hero:GetAbilityByIndex(i)
+        if IsValidEntity(ability) and ability:IsChanneling() then 
+          ability:EndChannel(true)
+        end 
+      end
+    end
 end

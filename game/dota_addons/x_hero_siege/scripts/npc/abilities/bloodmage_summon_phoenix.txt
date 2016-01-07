@@ -10,11 +10,11 @@
 
     // Stats
     //-------------------------------------------------------------------------------------
-    "AbilityCastPoint" "0.5"
+    "AbilityCastPoint" "0.35"
     "AbilityCooldown"  "121"
     "AbilityManaCost"  "125 175"
     "AbilityTextureName" "phoenix_icarus_dive"
-
+    "AbilityCastAnimation"  "ACT_DOTA_CAST_FORGE_SPIRITS"
 
     // Special
     //-------------------------------------------------------------------------------------

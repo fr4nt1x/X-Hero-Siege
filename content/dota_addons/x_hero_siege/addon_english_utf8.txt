@@ -14,7 +14,7 @@
 		"npc_dota_hero_juggernaut"                                                        "Blademaster"
 		"npc_dota_hero_nyx_assassin"                                                      "Crypt Lord"
 		"npc_dota_hero_antimage"                                                          "Demonhunter"
-		"npc_dota_hero_enchantress"                                                       "Trande"
+		"npc_dota_hero_enchantress"                                                       "Tyrande"
 		"npc_dota_hero_lich"                                                              "Lich"
 		"npc_dota_hero_luna"                                                              "Luna"
 		"npc_dota_hero_mirana"                                                            "Moon Priest"
@@ -24,6 +24,12 @@
 		"npc_dota_hero_shadow_shaman"                                                     "Shadow Hunter"
 		"npc_dota_hero_keeper_of_the_light"                                               "Archmage"
 		"npc_dota_hero_omniknight"                                                        "Paladin"
+		"npc_dota_hero_invoker"                                                           "Bloodmage"
+		"npc_dota_hero_night_stalker"                                                     "Dreadlord"
+		"npc_dota_hero_crystal_maiden"                                                    "Jaina"
+		"npc_dota_hero_lina"                                                              "Shandris"
+
+		// ******************** UNITS ********************
 
 		"npc_dota_hero_blademaster"                                                       "Blademaster"
 		"npc_dota_hero_crypt_lord"                                                        "Crypt Lord"
@@ -38,6 +44,11 @@
 		"npc_dota_hero_shadow_hunter"                                                     "Shadow Hunter"
 		"npc_dota_hero_archmage"                                                          "Archmage"
 		"npc_dota_hero_paladin"                                                           "Paladin"
+		"npc_dota_hero_bloodmage"                                                         "Bloodmage"
+		"npc_dota_hero_dreadlord"                                                         "Dreadlord"
+		"npc_dota_hero_jaina"                                                             "Jaina"
+
+		"npc_dota_hero_shandris"                                                          "Shandris"
 
 		// ******************** UNITS ********************
 		"npc_abomination"                                                                 "Abomination"
@@ -47,6 +58,7 @@
 		"npc_banshee_final_wave"                                                          "Banshee"
 		"npc_banshee_wave_IX"                                                             "Banshee"
 		"npc_berserker"                                                                   "Berserker"
+		"npc_blademaster_samuro"                                                          "Samuro"
 		"npc_bloodelf_wave_XI"                                                            "Bloodelf"
 		"npc_bristleback_special_event_VI"                                                "Bristleback"
 		"npc_captain_final_wave"                                                          "Captain"
@@ -164,13 +176,52 @@
 		"npc_water_elemental_II"                                                          "Water Elemental II"
 		"npc_water_elemental_III"                                                         "Water Elemental III"
 
+		"npc_banehallow_tomb"                                                             "Tomb"
+
+		"npc_dreadlord_infernal_I"                                                        "Infernal I"
+
+		"npc_phoenix_egg"                                                                 "Phoenix Egg"
+		"npc_phoenix_I"                                                                   "Phoenix I"
+
+		"npc_sea_elemental_I"                                                             "Sea Elemental I"
+		"npc_sea_elemental_II"                                                            "Sea Elemental II"
+		"npc_sea_elemental_III"                                                           "Sea Elemental III"
+
 		// ******************** ABILITY MODIFIERS ********************
+
+
+		"DOTA_Tooltip_modifier_light_frenzy"                                              "Light Frenzy"
+		"DOTA_Tooltip_modifier_light_frenzy_Description"                                  "This unit has increased attack and movementspeed and increased attack damage."
+
+		"DOTA_Tooltip_modifier_hex_datadriven"                                            "Hex"
+		"DOTA_Tooltip_modifier_hex_datadriven_Description"                                "This unit is hexed. It cannot attack."
+
+		"DOTA_Tooltip_modifier_life_regeneration_aura_buff"                               "Life Regeneration Aura"
+		"DOTA_Tooltip_modifier_life_regeneration_aura_buff_Description"                   "This unit has increased Health Regeneration."
+
+		"DOTA_Tooltip_modifier_shandris_life_drain"                                       "Life Drain"
+		"DOTA_Tooltip_modifier_shandris_life_drain_Description"                           "This unit has health transfered to/from the caster."
+
+		"DOTA_Tooltip_modifier_phase_shift"                                               "Phase Shift"
+		"DOTA_Tooltip_modifier_phase_shift_Description"                                   "This unit has increased attack and movement speed and takes no damage."
+
+		"DOTA_Tooltip_modifier_morph_warden"                                              "Morph"
+		"DOTA_Tooltip_modifier_morph_warden_Description"                                  "The warden is invulnerable."
+
+		"DOTA_Tooltip_modifier_morph_datadriven"                                          "Morph"
+		"DOTA_Tooltip_modifier_morph_datadriven_Description"                              "This unit has been morphed into an useless animal."
+
+		"DOTA_Tooltip_modifier_neutralisation"                                            "Neutralisation"
+		"DOTA_Tooltip_modifier_neutralisation_Description"                                "This unit is silenced, takes damage over time and takes increased damage from all sources."
 
 		"DOTA_Tooltip_modifier_debilitation_buff"                                         "Debilitation Buff"
 		"DOTA_Tooltip_modifier_debilitation_buff_Description"                             "This unit has reduced armor."
 
 		"DOTA_Tooltip_modifier_spell_shield"                                              "Spell Shield"
 		"DOTA_Tooltip_modifier_spell_shield_Description"                                  "This unit is immune against most spells."
+
+		"DOTA_Tooltip_modifier_spell_resistance"                                          "Spell Resistance"
+		"DOTA_Tooltip_modifier_spell_resistance_Description"                              "This unit has increased magic armor."
 
 		"DOTA_Tooltip_modifier_taunt"                                                     "Taunt"
 		"DOTA_Tooltip_modifier_taunt_Description"                                         "This unit is forced to attack the paladin."
@@ -204,7 +255,10 @@
 
 		"DOTA_Tooltip_modifier_burrow"                                                    "Burrow"
 		"DOTA_Tooltip_modifier_burrow_Description"                                        "This unit is burrowed. It is invulnerable and invisible."
-
+		
+		"DOTA_Tooltip_modifier_life_drain"                                                "Life Drain"
+		"DOTA_Tooltip_modifier_life_drain_Description"                                    "This unit transfers health to/from the caster."
+		
 		"DOTA_Tooltip_modifier_locust_swarm"                                              "Locust Swarm"
 		"DOTA_Tooltip_modifier_locust_swarm_Description"                                  "Crypt Lord's locust swarm is active. They attack enemies near Crypt Lord automatically."
 
@@ -319,6 +373,26 @@
 		"DOTA_Tooltip_modifier_healing_ward_buff"                                         "Healing Ward"
 		"DOTA_Tooltip_modifier_healing_ward_buff_Description"                             "This unit regenerates Health Points."
 
+		"DOTA_Tooltip_modifier_bloodmage_chains"                                          "Fire Chains"
+		"DOTA_Tooltip_modifier_bloodmage_chains_Description"                              "Bloodmage has this unit in his net. It is unable to moves"
+
+		"DOTA_Tooltip_modifier_incinerate_passive"                                        "Incinerate"
+		"DOTA_Tooltip_modifier_incinerate_passive_Description"                            "Bloodmage attacks causes units to explode on death. Dealing damage around them."
+
+		"DOTA_Tooltip_modifier_incinerate"                                                "Incinerate"
+		"DOTA_Tooltip_modifier_incinerate_Description"                                    "This unit will explode on its death, dealing damage in an area."
+
+		"DOTA_Tooltip_modifier_aura_of_blight_buff"                                       "Aura Of Blight"
+		"DOTA_Tooltip_modifier_aura_of_blight_buff_Description"                           "This unit has increased health regeneration."
+
+		"DOTA_Tooltip_modifier_frost_paralysis_buff"                                      "Frost Paralysis"
+		"DOTA_Tooltip_modifier_frost_paralysis_buff_Description"                          "This unit attack and moves slower because of the presence of Jaina."
+
+		"DOTA_Tooltip_modifier_phoenix_burn"                                              "Phoenix"
+		"DOTA_Tooltip_modifier_phoenix_burn_Description"                                  "This unit has been hit by a phoenix fire attack. It takes damage over time."
+
+
+
 		// ******************** ITEM MODIFIERS ********************
 		"DOTA_Tooltip_modifier_boots"                                                     "Boots"
 		"DOTA_Tooltip_modifier_boots_Description"                                         "This unit has maximal movement speed and can blink short distances."
@@ -360,6 +434,8 @@
 		"DOTA_Tooltip_modifier_talisman_of_evasion_Description"                           "This unit has evasion."
 
 
+
+
 		// ******************** ABILITIES ********************
 		
 		"DOTA_Tooltip_ability_archmage_blizzard"                                          "Blizzard"
@@ -386,11 +462,20 @@
 		"DOTA_Tooltip_ability_archmage_starfall_Description"                              "Archmage channels to call down stars onto foes around him, damaging them."
 		"DOTA_Tooltip_ability_archmage_starfall_damage_per_tick"                          "DAMAGE PER STAR:"
 		"DOTA_Tooltip_ability_archmage_starfall_radius"                                   "RADIUS:"
+		"DOTA_Tooltip_ability_archmage_starfall_channel_duration"                         "CHANNEL DURATION:"
 
 		"DOTA_Tooltip_ability_archmage_water_elemental"                                   "Summon Water Elemental"
 		"DOTA_Tooltip_ability_archmage_water_elemental_Description"                       "Archmage summons a water elemental to aid him in battle."
 		"DOTA_Tooltip_ability_archmage_water_elemental_duration"                          "DURATION:"
 		"DOTA_Tooltip_ability_archmage_water_elemental_units"                             "UNITS SPAWNED:"
+
+		"DOTA_Tooltip_ability_archmage_frost_shield_XX"                                   "Frost Shield"
+		"DOTA_Tooltip_ability_archmage_frost_shield_XX_Description"                       "Cast a protective frost shield around a friendly target. The shield increases armor and slows enemy attackers."
+		"DOTA_Tooltip_ability_archmage_frost_shield_XX_armor_bonus"                       "ARMOR BONUS:"
+		"DOTA_Tooltip_ability_archmage_frost_shield_XX_slow_movement_speed"               "%MOVEMENT SPEED SLOW:"
+		"DOTA_Tooltip_ability_archmage_frost_shield_XX_slow_attack_speed"                 "ATTACK SPEED SLOW:"
+		"DOTA_Tooltip_ability_archmage_frost_shield_XX_slow_duration"                     "SLOW DURATION:"
+		"DOTA_Tooltip_ability_archmage_frost_shield_XX_Note0"                             "Debilitation Aura: Archmages presence reduces the armor of nearby foes."
 
 		"DOTA_Tooltip_ability_arthas_frostmourne"                                         "Frostmourne"
 		"DOTA_Tooltip_ability_arthas_frostmourne_Description"                             "Arthas has a chance to deal bonus damage or stun on attack. He also has a chance to evade and bonus attack speed."
@@ -449,10 +534,14 @@
 		"DOTA_Tooltip_ability_banehallow_victory"                                         "Victory"
 		"DOTA_Tooltip_ability_banehallow_victory_Description"                             "Kill Bane to achieve victory."
 
+		"DOTA_Tooltip_ability_banehallow_tombs"                                           "Tomb"
+		"DOTA_Tooltip_ability_banehallow_tombs_Description"                               "The tomb gives Banehallow increased Health Regeneration as long as it is alive."
+		"DOTA_Tooltip_ability_banehallow_tombs_regen"                                     "%HP REGENERATION:"
+
 		"DOTA_Tooltip_ability_beasts_special_event"                                       "Beasts Special Event"
 		"DOTA_Tooltip_ability_beasts_special_event_Description"                           "Special event ability for Frost Infernal and Spirit Beast."
 
-		"DOTA_Tooltip_modifier_berserker"                                                 "Berserk"
+		"DOTA_Tooltip_ability_blademaster_berserk"                                        "Berserk"
 		"DOTA_Tooltip_ability_blademaster_berserk_Description"                            "Blademaster goes into a battle frenzy, increasing his attack and movement speed. As a result of his battle rage he takes increased damage."
 		"DOTA_Tooltip_ability_blademaster_berserk_bonus_attack_speed"                     "BONUS ATTACK SPEED:"
 		"DOTA_Tooltip_ability_blademaster_berserk_bonus_movement_speed_percentage"        "%BONUS MOVEMENT SPEED PERCENTAGE:"
@@ -476,6 +565,21 @@
 		"DOTA_Tooltip_ability_blademaster_mirror_image_outgoing_damage_tooltip"           "%OUTGOING DAMAGE:"
 		"DOTA_Tooltip_ability_blademaster_mirror_image_incoming_damage"                   "%INCOMING DAMAGE:"
 
+		"DOTA_Tooltip_ability_blademaster_partition_XX"                                   "Partition"
+		"DOTA_Tooltip_ability_blademaster_partition_XX_Description"                       "Splits the blademaster into to three powerful warriors. Blademaster dies if all three of them die."
+		"DOTA_Tooltip_ability_blademaster_partition_XX_unit_count"                        "UNIT COUNT:"
+		"DOTA_Tooltip_ability_blademaster_partition_XX_split_duration"                    "SPLIT DURATION:"
+		"DOTA_Tooltip_ability_blademaster_partition_XX_Note0"                             "Critical Strike: Blademaster has a chance to do increased damage with each attack."
+
+		"DOTA_Tooltip_ability_blademaster_samuro_cleave"                                  "Cleave"
+		"DOTA_Tooltip_ability_blademaster_samuro_cleave_Description"                      "Samuro attacks with such force that he deals damage to nearby enemies."
+		"DOTA_Tooltip_ability_blademaster_samuro_cleave_great_cleave_radius"              "CLEAVE RADIUS:"
+		"DOTA_Tooltip_ability_blademaster_samuro_cleave_great_cleave_damage"              "%CLEAVE DAMAGE:"
+
+		"DOTA_Tooltip_ability_blademaster_samuro_spell_resistance"                        "Spell Resistance"
+		"DOTA_Tooltip_ability_blademaster_samuro_spell_resistance_Description"            "Samuro has increase magic armor and takes almost no damage from spells."
+		"DOTA_Tooltip_ability_blademaster_samuro_spell_resistance_resistance"             "RESISTANCE:"
+		
 		"DOTA_Tooltip_ability_blademaster_war_drums_aura"                                 "War Drums Aura"
 		"DOTA_Tooltip_ability_blademaster_war_drums_aura_Description"                     "Blademasters presence on the battlefield increases the attack damage of all units near him."
 		"DOTA_Tooltip_ability_blademaster_war_drums_aura_damage_bonus"                    "DAMAGE BONUS:"
@@ -485,6 +589,52 @@
 		"DOTA_Tooltip_ability_blademaster_windwalk_Description"                           "Blademaster becomes impossible to see. Attacking from invisibility deals extra damage and makes him visible again."
 		"DOTA_Tooltip_ability_blademaster_windwalk_duration"                              "DURATION:"
 		"DOTA_Tooltip_ability_blademaster_windwalk_bonus_damage"                          "BONUS DAMAGE:"
+
+		"DOTA_Tooltip_ability_bloodmage_burning_oil"                                      "Burning Oil"
+		"DOTA_Tooltip_ability_bloodmage_burning_oil_Description"                          "Bloodmage bombards an area with deadly fire causing multiple explosions that each deal damage and stun in a small radius."
+		"DOTA_Tooltip_ability_bloodmage_burning_oil_damage_per_unit"                      "DAMAGE PER EXPLOSION:"
+		"DOTA_Tooltip_ability_bloodmage_burning_oil_radius"                               "RADIUS:"
+		"DOTA_Tooltip_ability_bloodmage_burning_oil_stun_duration"                        "STUN DURATION:"
+		"DOTA_Tooltip_ability_bloodmage_burning_oil_radius_explosion"                     "RADIUS EXPLOSION:"
+		"DOTA_Tooltip_ability_bloodmage_burning_oil_time_between_explosions"              "TIME BETWEEN EXPLOSIONS:"
+		"DOTA_Tooltip_ability_bloodmage_burning_oil_duration"                             "DURATION:"
+
+		"DOTA_Tooltip_ability_bloodmage_chains"                                           "Fiery Chains"
+		"DOTA_Tooltip_ability_bloodmage_chains_Description"                               "Bloodmage holds an enemy in places dealing damage over time and rendering him unable to attack or move."
+		"DOTA_Tooltip_ability_bloodmage_chains_damage_per_tick"                           "DAMAGE PER SECOND:"
+		"DOTA_Tooltip_ability_bloodmage_chains_channel_duration"                          "CHANNEL DURATION:"
+
+		"DOTA_Tooltip_ability_bloodmage_fire_bolt"                                        "Fire Bolt"
+		"DOTA_Tooltip_ability_bloodmage_fire_bolt_Description"                            "Hurls a fiery bolt at a foe damaging and stunning him on impact."
+		"DOTA_Tooltip_ability_bloodmage_fire_bolt_duration"                               "STUN DURATION:"
+
+		"DOTA_Tooltip_ability_bloodmage_flame_breath"                                     "Flame Breath"
+		"DOTA_Tooltip_ability_bloodmage_flame_breath_Description"                         "Bloodmage unleashes a storm of flames infront of him damagin enemies in a cone."
+		"DOTA_Tooltip_ability_bloodmage_flame_breath_start_radius"                        "START RADIUS:"
+		"DOTA_Tooltip_ability_bloodmage_flame_breath_end_radius"                          "END RADIUS:"
+		"DOTA_Tooltip_ability_bloodmage_flame_breath_range"                               "RANGE:"
+		"DOTA_Tooltip_ability_bloodmage_flame_breath_speed"                               "SPEED:"
+
+		"DOTA_Tooltip_ability_bloodmage_incinerate"                                       "Incinerate"
+		"DOTA_Tooltip_ability_bloodmage_incinerate_Description"                           "Bloodmages attacks cause foes to explode on death damaging those around it."
+		"DOTA_Tooltip_ability_bloodmage_incinerate_duration"                              "DURATION:"
+
+		"DOTA_Tooltip_ability_bloodmage_summon_phoenix"                                   "Bloodmage Summon Phoenix"
+		"DOTA_Tooltip_ability_bloodmage_summon_phoenix_Description"                       "Bloodmage summons phoenixes/a phoenix to his aid. On death they spawn an egg. If this survives a new phoenix hatches from the egg."
+
+		"DOTA_Tooltip_ability_bloodmage_summon_phoenix_units"                             "SUMMONED UNITS:"
+		"DOTA_Tooltip_ability_bloodmage_summon_phoenix_respawn_duration"                  "RESPAWN DURATION:"
+
+		"DOTA_Tooltip_ability_bloodmage_rain_of_fire_XX"                                  "Rain Of Fire"
+		"DOTA_Tooltip_ability_bloodmage_rain_of_fire_XX_Description"                      "Causes multiple explosions in an area dealing damage in a small circle and stunning enemies."
+		"DOTA_Tooltip_ability_bloodmage_rain_of_fire_XX_damage_per_unit"                  "DAMAGE PER EXPLOSION:"
+		"DOTA_Tooltip_ability_bloodmage_rain_of_fire_XX_radius"                           "RADIUS:"
+		"DOTA_Tooltip_ability_bloodmage_rain_of_fire_XX_stun_duration"                    "STUN DURATION:"
+		"DOTA_Tooltip_ability_bloodmage_rain_of_fire_XX_explosions_per_tick"              "EXPLOSIONS PER TICK:"
+		"DOTA_Tooltip_ability_bloodmage_rain_of_fire_XX_radius_explosion"                 "RADIUS EXPLOSIONS:"
+		"DOTA_Tooltip_ability_bloodmage_rain_of_fire_XX_duration"                         "DURATION:"
+		"DOTA_Tooltip_ability_bloodmage_rain_of_fire_XX_time_between_explosions"          "TIME BETWEEN EXPLOSIONS:"
+		"DOTA_Tooltip_ability_bloodmage_rain_of_fire_XX_Note0"                             "Incinerate: Bloodmages attacks cause foes to explode on death damaging those around it."
 
 		"DOTA_Tooltip_ability_command_aura"                                               "Command Aura"
 		"DOTA_Tooltip_ability_command_aura_Description"                                   "Increases the damage of nearby units."
@@ -527,7 +677,14 @@
 		"DOTA_Tooltip_ability_crypt_lord_stinger_movement_bonus"                          "MOVEMENT SLOW:"
 		"DOTA_Tooltip_ability_crypt_lord_stinger_attack_bonus"                            "ATTACK SLOW:"
 		"DOTA_Tooltip_ability_crypt_lord_stinger_duration"                                "DURATION:"
-
+		
+		"DOTA_Tooltip_ability_crypt_lord_burrow_impale_XX"                                "Burrow Impale Greater"
+		"DOTA_Tooltip_ability_crypt_lord_burrow_impale_XX_Description"                    "Crypt Lord disrupts the ground with his claws, damaging all enemies in an area around him for the time channeling."
+		"DOTA_Tooltip_ability_crypt_lord_burrow_impale_XX_damage_per_unit"                "DAMAGE PER UNIT:"
+		"DOTA_Tooltip_ability_crypt_lord_burrow_impale_XX_radius"                         "RADIUS:"
+		"DOTA_Tooltip_ability_crypt_lord_burrow_impale_XX_duration"                       "CHANNEL DURATION:"
+		"DOTA_Tooltip_ability_crypt_lord_burrow_impale_XX_Note0"                          "Stinger: Crypt Lord slows the attack and movement speed of his targets. He will also deal damage over time."
+		
 		"DOTA_Tooltip_ability_demonhunter_evasion"                                        "Evasion"
 		"DOTA_Tooltip_ability_demonhunter_evasion_Description"                            "Demonhunter's superior battle sense enables him to dodge incoming attacks."
 		"DOTA_Tooltip_ability_demonhunter_evasion_bonus_evasion"                          "%EVASION CHANCE:"
@@ -561,6 +718,11 @@
 		"DOTA_Tooltip_ability_demonhunter_vampiric_aura_vampiric_aura_radius"             "VAMPIRIC AURA RADIUS:"
 		"DOTA_Tooltip_ability_demonhunter_vampiric_aura_lifesteal"                        "%LIFESTEAL:"
 
+		"DOTA_Tooltip_ability_demonhuner_spell_resistance_XX"                             "Spell Resistance"
+		"DOTA_Tooltip_ability_demonhuner_spell_resistance_XX_Description"                 "Demonhunter has greatly increased magic armor."
+		"DOTA_Tooltip_ability_demonhuner_spell_resistance_XX_resistance"                  "MAGIC ARMOR BONUS:"
+		"DOTA_Tooltip_ability_demonhuner_spell_resistance_XX_Note0"                       "Vampiric Aura: Grants Lifesteal to nearby friendly units."
+		
 		"DOTA_Tooltip_ability_devotion_aura"                                              "Devotion Aura"
 		"DOTA_Tooltip_ability_devotion_aura_Description"                                  "Increases the armor of nearby units."
 		"DOTA_Tooltip_ability_devotion_aura_bonus_armor"                                  "BONUS ARMOR:"
@@ -571,6 +733,48 @@
 		"DOTA_Tooltip_ability_difficulty_upgrade_bonus_armor"                             "BONUS ARMOR:"
 		"DOTA_Tooltip_ability_difficulty_upgrade_bonus_damage"                            "BONUS DAMAGE:"
 		"DOTA_Tooltip_ability_difficulty_upgrade_bonus_health"                            "BONUS HEALTH:"
+
+		"DOTA_Tooltip_ability_dreadlord_aura_of_blight"                                   "Aura Of Blight"
+		"DOTA_Tooltip_ability_dreadlord_aura_of_blight_Description"                       "Dreadlord increases the health regeneration of friendly units around him."
+		"DOTA_Tooltip_ability_dreadlord_aura_of_blight_health_regeneration"               "%HEALTH REGENERATION:"
+
+		"DOTA_Tooltip_ability_dreadlord_chaos"                                            "Chaos"
+		"DOTA_Tooltip_ability_dreadlord_chaos_Description"                                "Causes a deadly meteor to crash down on a target area, dealing damage and stunning on impact."
+		"DOTA_Tooltip_ability_dreadlord_chaos_damage_per_unit"                            "DAMAGE:"
+		"DOTA_Tooltip_ability_dreadlord_chaos_stun_duration"                              "STUN DURATION:"
+		"DOTA_Tooltip_ability_dreadlord_chaos_radius_explosion"                           "RADIUS EXPLOSION:"
+
+		"DOTA_Tooltip_ability_dreadlord_crypt_swarm"                                      "Crypt Swarm"
+		"DOTA_Tooltip_ability_dreadlord_crypt_swarm_Description"                          "Dreadlord summons a swarm of crypt bats, dealing damage to enemies in a cone."
+		"DOTA_Tooltip_ability_dreadlord_crypt_swarm_start_radius"                         "START RADIUS:"
+		"DOTA_Tooltip_ability_dreadlord_crypt_swarm_end_radius"                           "END RADIUS:"
+		"DOTA_Tooltip_ability_dreadlord_crypt_swarm_range"                                "RANGE:"
+
+		"DOTA_Tooltip_ability_dreadlord_death_coil"                                       "Death Coil"
+		"DOTA_Tooltip_ability_dreadlord_death_coil_Description"                           "Dreadlord hurls a a condensed bolt of darkness at an enemy, damaging and stunning him."
+		"DOTA_Tooltip_ability_dreadlord_death_coil_duration"                              "DURATION:"
+
+		"DOTA_Tooltip_ability_dreadlord_inferno"                                          "Inferno"
+		"DOTA_Tooltip_ability_dreadlord_inferno_Description"                              "Dreadlord summons an infernal from hell to his aid. The infernal comes crashing down in a meteor damaging and stunning foes on impact."
+		"DOTA_Tooltip_ability_dreadlord_inferno_damage_per_unit"                          "DAMAGE PER UNIT:"
+		"DOTA_Tooltip_ability_dreadlord_inferno_stun_duration"                            "STUN DURATION:"
+		"DOTA_Tooltip_ability_dreadlord_inferno_radius_explosion"                         "RADIUS EXPLOSION:"
+		"DOTA_Tooltip_ability_dreadlord_inferno_duration"                                 "DURATION:"
+
+		"DOTA_Tooltip_ability_dreadlord_sleep"                                            "Sleep"
+		"DOTA_Tooltip_ability_dreadlord_sleep_Description"                                "Dreadlord renders a target unable to participate in battle. The target cannot be attacked."
+		"DOTA_Tooltip_ability_dreadlord_sleep_duration"                                   "DURATION:"
+
+		"DOTA_Tooltip_ability_deardlord_rain_of_chaos_XX"                                 "Rain Of Chaos"
+		"DOTA_Tooltip_ability_deardlord_rain_of_chaos_XX_Description"                     "Dreadlord calls multiple meteors, each dealing damage and stunning enemies on landing."
+		"DOTA_Tooltip_ability_deardlord_rain_of_chaos_XX_damage_per_unit"                 "DAMAGE:"
+		"DOTA_Tooltip_ability_deardlord_rain_of_chaos_XX_radius"                          "RADIUS:"
+		"DOTA_Tooltip_ability_deardlord_rain_of_chaos_XX_stun_duration"                   "STUN DURATION:"
+		"DOTA_Tooltip_ability_deardlord_rain_of_chaos_XX_radius_explosion"                "RADIUS EXPLOSION:"
+		"DOTA_Tooltip_ability_deardlord_rain_of_chaos_XX_time_between_meteors"            "TIME BETWEEN METEORS:"
+		"DOTA_Tooltip_ability_deardlord_rain_of_chaos_XX_meteors_per_tick"                "METEORS PER TICK:"
+		"DOTA_Tooltip_ability_deardlord_rain_of_chaos_XX_channel_duration"                "CHANNEL DURATION:"
+		"DOTA_Tooltip_ability_deardlord_rain_of_chaos_XX_Note0"                           "Aura of Blight: Dreadlord increases the health regeneration of friendly units around him."
 
 		"DOTA_Tooltip_ability_druid_roar"                                                 "Roar"
 		"DOTA_Tooltip_ability_druid_roar_Description"                                     "A shout that increases damage and armor of nearby units."
@@ -679,10 +883,54 @@
 		"DOTA_Tooltip_ability_illidan_bad_negative_energy"                                "Negative Energy"
 		"DOTA_Tooltip_ability_illidan_bad_negative_energy_Description"                    "Hurls a bolt of negative energy at a nearby enemy, dealing heavy damage."
 
-		"DOTA_Tooltip_ability_demonhunter_vampiric_aura"                                  "Vampiric Aura"
-		"DOTA_Tooltip_ability_demonhunter_vampiric_aura_Description"                      "Grants Lifesteal."
-		"DOTA_Tooltip_ability_demonhunter_vampiric_aura_vampiric_aura_radius"             "VAMPIRIC AURA RADIUS:"
-		"DOTA_Tooltip_ability_demonhunter_vampiric_aura_lifesteal"                        "LIFESTEAL:"
+		"DOTA_Tooltip_ability_jaina_elemental_wave"                                       "Elemental Wave"
+		"DOTA_Tooltip_ability_jaina_elemental_wave_Description"                           "Jaina channels her energy, causing a stampede of sea elementals to appear in an area, damaging enemies that collide with the elementals."
+		"DOTA_Tooltip_ability_jaina_elemental_wave_damage_per_elemental"                  "DAMAGE PER ELEMENTAL:"
+		"DOTA_Tooltip_ability_jaina_elemental_wave_distance"                              "DISTANCE:"
+		"DOTA_Tooltip_ability_jaina_elemental_wave_speed"                                 "SPEED:"
+		"DOTA_Tooltip_ability_jaina_elemental_wave_radius_explosion"                      "RADIUS EXPLOSION:"
+		"DOTA_Tooltip_ability_jaina_elemental_wave_radius"                                "RADIUS:"
+		"DOTA_Tooltip_ability_jaina_elemental_wave_elementals_per_tick"                   "ELEMENTALS PER TICK:"
+		"DOTA_Tooltip_ability_jaina_elemental_wave_channel_duration"                      "CHANNEL DURATION:"
+		"DOTA_Tooltip_ability_jaina_elemental_wave_time_between_elementals"               "TIME BETWEEN ELEMENTALS:"
+
+		"DOTA_Tooltip_ability_jaina_frost_paralysis_aura"                                 "Paralysis Aura"
+		"DOTA_Tooltip_ability_jaina_frost_paralysis_aura_Description"                     "Jaina's freezing presence lowers the attack and movement speed of enemies."
+		"DOTA_Tooltip_ability_jaina_frost_paralysis_aura_movement_slow"                   "%MOVEMENT SLOW:"
+		"DOTA_Tooltip_ability_jaina_frost_paralysis_aura_radius"                          "RADIUS:"
+		"DOTA_Tooltip_ability_jaina_frost_paralysis_aura_attack_slow"                     "ATTACK SLOW:"
+
+		"DOTA_Tooltip_ability_jaina_life_mana_drain"                                      "Life Mana Drain"
+		"DOTA_Tooltip_ability_jaina_life_mana_drain_Description"                          "Jaina either drains hp and mana from an enemy to herself, or gives hp and mana to a friendly unit from herself."
+		"DOTA_Tooltip_ability_jaina_life_mana_drain_health_drain"                         "HEALTH DRAIN:"
+		"DOTA_Tooltip_ability_jaina_life_mana_drain_mana_drain"                           "MANA DRAIN:"
+		"DOTA_Tooltip_ability_jaina_life_mana_drain_duration_tooltip"                     "CHANNEL DURATION:"
+
+		"DOTA_Tooltip_ability_jaina_mana_shield"                                          "Mana Shield"
+		"DOTA_Tooltip_ability_jaina_mana_shield_Description"                              "Jaina absorbs a portion of incoming damage with her mana."
+		"DOTA_Tooltip_ability_jaina_mana_shield_damage_per_mana"                          "DAMAGE PER MANA:"
+
+		"DOTA_Tooltip_ability_jaina_sea_elemental"                                        "Summon Sea Elemental"
+		"DOTA_Tooltip_ability_jaina_sea_elemental_Description"                            "Jaina summons Sea Elementals to aid her in battle."
+		"DOTA_Tooltip_ability_jaina_sea_elemental_duration"                               "DURATION:"
+		"DOTA_Tooltip_ability_jaina_sea_elemental_units"                                  "UNITS:"
+
+		"DOTA_Tooltip_ability_jaina_wave"                                                 "Ice Wave"
+		"DOTA_Tooltip_ability_jaina_wave_Description"                                     "Jaina unleashes a wave of ice infront of her, dealing damage to enemies in a cone."
+		"DOTA_Tooltip_ability_jaina_wave_start_radius"                                    "START RADIUS:"
+		"DOTA_Tooltip_ability_jaina_wave_end_radius"                                      "END RADIUS:"
+		"DOTA_Tooltip_ability_jaina_wave_range"                                           "RANGE:"
+
+		"DOTA_Tooltip_ability_jaina_rain_of_ice_XX"                                       "Rain Of Ice"
+		"DOTA_Tooltip_ability_jaina_rain_of_ice_XX_Description"                           "Calls multiple ice shards in an area, which explode dealing damage and stunning enemies."
+		"DOTA_Tooltip_ability_jaina_rain_of_ice_XX_damage_per_unit"                       "DAMAGE PER UNIT:"
+		"DOTA_Tooltip_ability_jaina_rain_of_ice_XX_radius"                                "RADIUS:"
+		"DOTA_Tooltip_ability_jaina_rain_of_ice_XX_stun_duration"                         "STUN DURATION:"
+		"DOTA_Tooltip_ability_jaina_rain_of_ice_XX_radius_explosion"                      "RADIUS EXPLOSION:"
+		"DOTA_Tooltip_ability_jaina_rain_of_ice_XX_time_between_explosions"               "TIME BETWEEN EXPLOSIONS:"
+		"DOTA_Tooltip_ability_jaina_rain_of_ice_XX_explosions_per_tick"                   "EXPLOSIONS PER TICK:"
+		"DOTA_Tooltip_ability_jaina_rain_of_ice_XX_duration"                              "DURATION:"
+		"DOTA_Tooltip_ability_jaina_rain_of_ice_XX_Note0"                                 "Frost Paralysis: Jaina's freezing presence lowers the attack and movement speed of enemies."
 
 		"DOTA_Tooltip_ability_level_upgrade"                                              "Level Upgrade"
 		"DOTA_Tooltip_ability_level_upgrade_Description"                                  "Increases damage, health and armor of the units according to their level."
@@ -727,6 +975,16 @@
 		"DOTA_Tooltip_ability_lich_summon_frost_beast_duration"                           "DURATION:"
 		"DOTA_Tooltip_ability_lich_summon_frost_beast_units"                              "NUMBER OF SUMMONS:"
 
+		"DOTA_Tooltip_ability_lich_frost_chaos_XX"                                        "Frost Chaos"
+		"DOTA_Tooltip_ability_lich_frost_chaos_XX_Description"                            "Lich corrupts an area dealing a percentage of the enemies maximal health points as damage to them. Also increases the attack speed of all nearby friendly units."
+		"DOTA_Tooltip_ability_lich_frost_chaos_XX_ticktime"                               "TICKTIME:"
+		"DOTA_Tooltip_ability_lich_frost_chaos_XX_hp_loss_per_tick"                       "%HP LOSS PER SECOND:"
+		"DOTA_Tooltip_ability_lich_frost_chaos_XX_radius"                                 "RADIUS:"
+		"DOTA_Tooltip_ability_lich_frost_chaos_XX_duration"                               "DURATION:"
+		"DOTA_Tooltip_ability_lich_frost_chaos_XX_bonus_attack_speed"                     "BONUS ATTACK SPEED:"
+		"DOTA_Tooltip_ability_lich_frost_chaos_XX_duration_attack_speed_bonus"            "DURATION ATTACK SPEED:"
+		"DOTA_Tooltip_ability_lich_frost_chaos_XX_Note0"                                  "Area frost frenzy on Cast: Causes nearby units to attack faster."
+
 		"DOTA_Tooltip_ability_luna_command_aura"                                          "Command Aura"
 		"DOTA_Tooltip_ability_luna_command_aura_Description"                              "Increases the damage of nearby units."
 		"DOTA_Tooltip_ability_luna_command_aura_bonus_damage_percentage"                  "%BONUS DAMAGE PERCENTAGE:"
@@ -743,6 +1001,9 @@
 		"DOTA_Tooltip_ability_luna_moon_explosion_radius"                                 "RADIUS:"
 		"DOTA_Tooltip_ability_luna_moon_explosion_stun_duration"                          "STUN DURATION:"
 		"DOTA_Tooltip_ability_luna_moon_explosion_duration"                               "DURATION:"
+		"DOTA_Tooltip_ability_luna_moon_explosion_time_between_explosions"                "TIME BETWEEN EXPLOSIONS:"
+		"DOTA_Tooltip_ability_luna_moon_explosion_explosions_per_tick"                    "EXPLOSIONS PER TICK:"
+		"DOTA_Tooltip_ability_luna_moon_explosion_radius_explosion"                       "RADIUS EXPLOSION:"
 
 		"DOTA_Tooltip_ability_luna_owl_lightning"                                         "Owl Lightning"
 		"DOTA_Tooltip_ability_luna_owl_lightning_Description"                             "Luna calls the force of the nightowls, which jump from unit to unit and damage them after a short delay."
@@ -756,6 +1017,13 @@
 		"DOTA_Tooltip_ability_luna_split_lightning_end_distance"                          "END DISTANCE:"
 		"DOTA_Tooltip_ability_luna_split_lightning_targets"                               "MAXIMAL TARGETS:"
 		"DOTA_Tooltip_ability_luna_split_lightning_damage"                                "DAMAGE:"
+
+		"DOTA_Tooltip_ability_luna_neutralisation_XX"                                     "Neutralisation"
+		"DOTA_Tooltip_ability_luna_neutralisation_XX_Description"                         "Causes an single enemy to take damage over time. It takes increased damage from all sources and it cannot cast spells."
+		"DOTA_Tooltip_ability_luna_neutralisation_XX_duration"                            "DURATION:"
+		"DOTA_Tooltip_ability_luna_neutralisation_XX_incoming_damage"             		  "%INCOMING DAMAGE:"
+		"DOTA_Tooltip_ability_luna_neutralisation_XX_damage_per_tick"                     "DAMAGE:"
+		"DOTA_Tooltip_ability_luna_neutralisation_XX_Note0"                               "Glaives: Luna's weapons bounce to nearby foes after each hit."
 
 		"DOTA_Tooltip_ability_magtheridon_firestorm"                                      "Firestorm"
 		"DOTA_Tooltip_ability_magtheridon_firestorm_Description"                          "Magtheridon channels his power into an fiery eruption, damaging all units for the time they stand inside the fire. Units leaving the fire also take damage some time after leaving the storm."
@@ -788,6 +1056,7 @@
 		"DOTA_Tooltip_ability_moon_priest_monsoon_Description"                            "The Priestress calls on the forces of the weather. Deals damage over time to all enemies in an area around her."
 		"DOTA_Tooltip_ability_moon_priest_monsoon_damage_per_tick"                        "DAMAGE PER TICK:"
 		"DOTA_Tooltip_ability_moon_priest_monsoon_radius"                                 "RADIUS:"
+		"DOTA_Tooltip_ability_moon_priest_monsoon_channel_duration"                       "CHANNEL DURATION:"
 
 		"DOTA_Tooltip_ability_moon_priest_rejunivation"                                   "Rejunivation"
 		"DOTA_Tooltip_ability_moon_priest_rejunivation_Description"                       "The Priestress casts a healing spell on an friendly unit."
@@ -803,6 +1072,13 @@
 		"DOTA_Tooltip_ability_moon_priest_water_servant_Description"                      "The Priestress summons murlock slaves to aid her in battle."
 		"DOTA_Tooltip_ability_moon_priest_water_servant_duration"                         "DURATION:"
 		"DOTA_Tooltip_ability_moon_priest_water_servant_servant_units"                    "SUMMONED SERVANTS:"
+
+		"DOTA_Tooltip_ability_moon_priest_lightning_chaos_XX"                             "Lightning Chaos"
+		"DOTA_Tooltip_ability_moon_priest_lightning_chaos_XX_Description"                 "While channeling lightning deals a percentage of the maximum Health of enemy units caught by the lightning."
+		"DOTA_Tooltip_ability_moon_priest_lightning_chaos_XX_hp_loss_per_tick"            "%HP LOSS:"
+		"DOTA_Tooltip_ability_moon_priest_lightning_chaos_XX_radius"                      "RADIUS:"
+		"DOTA_Tooltip_ability_moon_priest_lightning_chaos_XX_channel_duration"            "CHANNEL DURATION:"
+		"DOTA_Tooltip_ability_moon_priest_lightning_chaos_XX"                             "Trueshot Aura: The presence of the Priestress causes nearby ranged units to gain a bonus on their attack damage."
 
 		"DOTA_Tooltip_ability_mountain_king_avatar"                                       "Avatar"
 		"DOTA_Tooltip_ability_mountain_king_avatar_Description"                           "The Mountain King transforms into a powerfull beeing, rendering him immune to magic, and increasing his stats."
@@ -825,6 +1101,10 @@
 		"DOTA_Tooltip_ability_mountain_king_stormbolt"                                    "Stormbolt"
 		"DOTA_Tooltip_ability_mountain_king_stormbolt_Description"                        "Hurls a bolt at an enemy, dealing damage and stunning him."
 		"DOTA_Tooltip_ability_mountain_king_stormbolt_duration"                           "DURATION:"
+		
+		"DOTA_Tooltip_ability_mountain_king_stormbolt_XX"                                 "Upgraded Stormbolt"
+		"DOTA_Tooltip_ability_mountain_king_stormbolt_XX_Description"                     "Hurls two bolts at an enemy, dealing damage and stunning him."
+		"DOTA_Tooltip_ability_mountain_king_stormbolt_XX_duration"                        "DURATION:"
 
 		"DOTA_Tooltip_ability_mountain_king_thunderclap"                                  "Thunderclap"
 		"DOTA_Tooltip_ability_mountain_king_thunderclap_Description"                      "The Mountain King slams the ground, dealing damage and slowing enemies around him."
@@ -832,6 +1112,13 @@
 		"DOTA_Tooltip_ability_mountain_king_thunderclap_radius"                           "RADIUS:"
 		"DOTA_Tooltip_ability_mountain_king_thunderclap_bonus_attack_speed"               "ATTACK SPEED SLOW:"
 		"DOTA_Tooltip_ability_mountain_king_thunderclap_bonus_movement_speed"             "%MOVEMENT SPEED SLOW:"
+		
+		"DOTA_Tooltip_ability_mountain_king_thunderclap_XX"                               "Upgraded Thunderclap"
+		"DOTA_Tooltip_ability_mountain_king_thunderclap_XX_Description"                   "The Mountain King slams the ground twice, dealing damage and slowing enemies around him."
+		"DOTA_Tooltip_ability_mountain_king_thunderclap_XX_duration"                      "DURATION:"
+		"DOTA_Tooltip_ability_mountain_king_thunderclap_XX_radius"                        "RADIUS:"
+		"DOTA_Tooltip_ability_mountain_king_thunderclap_XX_bonus_attack_speed"            "ATTACK SPEED SLOW:"
+		"DOTA_Tooltip_ability_mountain_king_thunderclap_XX_bonus_movement_speed"          "%MOVEMENT SPEED SLOW:"
 
 		"DOTA_Tooltip_ability_mountain_king_thunderspirit"                                "Thunderspirit"
 		"DOTA_Tooltip_ability_mountain_king_thunderspirit_Description"                    "The Mountain King always has maximum movement speed."
@@ -856,8 +1143,9 @@
 		"DOTA_Tooltip_ability_neutral_evasion_Description"                                "This unit has a chance to dodge attacks."
 		"DOTA_Tooltip_ability_neutral_evasion_bonus_evasion"                              "%EVASION CHANCE:"
 
-		"DOTA_Tooltip_ability_neutral_spell_immunity"                                     "Neutral Spell Immunity"
+		"DOTA_Tooltip_ability_neutral_spell_immunity"                                     "Spell Immunity"
 		"DOTA_Tooltip_ability_neutral_spell_immunity_Description"                         "Renders this unit immune to most spells."
+		"DOTA_Tooltip_ability_neutral_spell_immunity_Note0"                               "Evasion: Tyrande's superior battle sense enables her to dodge incoming attacks."
 
 		"DOTA_Tooltip_ability_paladin_devotion_aura"                                      "Devotion Aura"
 		"DOTA_Tooltip_ability_paladin_devotion_aura_Description"                          "Paladin increases the armor of friendly untis around him."
@@ -891,11 +1179,29 @@
 		"DOTA_Tooltip_ability_paladin_terrifying_howl_damage_percent"                     "%DAMAGE REDUCTION:"
 		"DOTA_Tooltip_ability_paladin_terrifying_howl_armor_reduction"                    "ARMOR REDUCTION:"
 
+		"DOTA_Tooltip_ability_paladin_light_frenzy_XX"                                    "Light Frenzy"
+		"DOTA_Tooltip_ability_paladin_light_frenzy_XX_Description"                        "Imbues a friendly unit with light power, resetting its cooldowns and increasing its attack damage and attack speed."
+		"DOTA_Tooltip_ability_paladin_light_frenzy_XX_movement_speed_bonus"               "MOVEMENT SPEED BONUS:"
+		"DOTA_Tooltip_ability_paladin_light_frenzy_XX_bonus_damage_percentage"            "%BONUS DAMAGE PERCENTAGE:"
+		"DOTA_Tooltip_ability_paladin_light_frenzy_XX_attack_speed_bonus"                 "ATTACK SPEED BONUS:"
+		"DOTA_Tooltip_ability_paladin_light_frenzy_XX_duration"                           "DURATION:"
+		"DOTA_Tooltip_ability_paladin_light_frenzy_XX_Note0"                              "Devotion Aura: Paladin increases the armor of friendly untis around him."
+
 		"DOTA_Tooltip_ability_permanent_immolation"                                       "Permanent Immolation"
 		"DOTA_Tooltip_ability_permanent_immolation_Description"                           "This unit burns the area around it, causing damage to enemy units."
 		"DOTA_Tooltip_ability_permanent_immolation_radius"                                "RADIUS:"
 		"DOTA_Tooltip_ability_permanent_immolation_damage_per_tick"                       "DAMAGE PER TICK:"
 		"DOTA_Tooltip_ability_permanent_immolation_tick_time"                             "TICK TIME:"
+
+
+		"DOTA_Tooltip_ability_phoenix_fire_attack"                                        "Fire Attack"
+		"DOTA_Tooltip_ability_phoenix_fire_attack_Description"                            "The phoenix attacks multiple secondary targets with each attack. These deal a constant damage and also some damage over time. "
+		"DOTA_Tooltip_ability_phoenix_fire_attack_radius"                                 "RADIUS:"
+		"DOTA_Tooltip_ability_phoenix_fire_attack_damage_per_second"                      "DAMAGE PER SECOND:"
+		"DOTA_Tooltip_ability_phoenix_fire_attack_damage"                                 "DAMAGE:"
+		"DOTA_Tooltip_ability_phoenix_fire_attack_duration"                               "DURATION:"
+		"DOTA_Tooltip_ability_phoenix_fire_attack_max_targets"                            "MAX TARGETS:"
+
 
 		"DOTA_Tooltip_ability_priest_innerfire"                                           "Priest Innerfire"
 		"DOTA_Tooltip_ability_priest_innerfire_Description"                               "The priest can cause a desire for battle onto friendly units, giving them bonus damage and increased armor."
@@ -966,6 +1272,49 @@
 		"DOTA_Tooltip_ability_shadow_hunter_vodoo_eyes"                                   "Vodoo Eyes"
 		"DOTA_Tooltip_ability_shadow_hunter_vodoo_eyes_Description"                       "Shadow Hunter can see a short time into the future, which enables him to dodge some attacks."
 		"DOTA_Tooltip_ability_shadow_hunter_vodoo_eyes_bonus_evasion"                     "%BONUS EVASION:"
+		
+		"DOTA_Tooltip_ability_shadow_hunter_hex_XX"                                       "Hex"
+		"DOTA_Tooltip_ability_shadow_hunter_hex_XX_Description"                           "Transforms an enemy into an useless animal."
+		"DOTA_Tooltip_ability_shadow_hunter_hex_XX_movespeed"                             "MOVESPEED:"
+		"DOTA_Tooltip_ability_shadow_hunter_hex_XX_duration"                              "DURATION:"
+		"DOTA_Tooltip_ability_shadow_hunter_hex_XX_Note0"                                 "Vodoo Eyes: Shadow Hunter can see a short time into the future, which enables him to dodge some attacks."
+
+		"DOTA_Tooltip_ability_shandris_life_regeneration_aura"                            "Life Regeneration Aura"
+		"DOTA_Tooltip_ability_shandris_life_regeneration_aura_Description"                "Shandris increases the health point regeneration of friendly units around her."
+		"DOTA_Tooltip_ability_shandris_life_regeneration_aura_health_regeneration"        "%HEALTH REGENERATION:"
+
+		"DOTA_Tooltip_ability_shandris_lightning_attack_XX"                               "Lightning Attack"
+		"DOTA_Tooltip_ability_shandris_lightning_attack_XX_Description"                   "Shandris increases her attack damage."
+		"DOTA_Tooltip_ability_shandris_lightning_attack_XX_bonus_damage"                  "BONUS DAMAGE:"
+		"DOTA_Tooltip_ability_shandris_lightning_attack_XX_Note0"                         "Life Regeneration Aura: Shandris increases the health point regeneration of friendly units around her."
+
+		"DOTA_Tooltip_ability_shandris_lightning_shock"                                   "Lightning Shock"
+		"DOTA_Tooltip_ability_shandris_lightning_shock_Description"                       "Shandris can either transfer health and mana from her to a friend or from an enemy to her."
+		"DOTA_Tooltip_ability_shandris_lightning_shock_health_drain"                      "HEALTH DRAIN:"
+		"DOTA_Tooltip_ability_shandris_lightning_shock_channel_duration"                  "CHANNEL DURATION:"
+		"DOTA_Tooltip_ability_shandris_lightning_shock_mana_drain"                        "MANA DRAIN:"
+
+		"DOTA_Tooltip_ability_shandris_monsoon"                                           "Monsoon"
+		"DOTA_Tooltip_ability_shandris_monsoon_Description"                               "Shandris calls on the forces of the weather. Deals damage over time to all enemies in an area around the target."
+		"DOTA_Tooltip_ability_shandris_monsoon_damage_per_tick"                           "DAMAGE PER TICK:"
+		"DOTA_Tooltip_ability_shandris_monsoon_radius"                                    "RADIUS:"
+		"DOTA_Tooltip_ability_shandris_monsoon_channel_duration"                          "CHANNEL DURATION:"
+
+		"DOTA_Tooltip_ability_shandris_permanent_lightning"                               "Permanent Lightning"
+		"DOTA_Tooltip_ability_shandris_permanent_lightning_Description"                   "Shandris deals damage to all enemies nearby."
+		"DOTA_Tooltip_ability_shandris_permanent_lightning_radius"                        "RADIUS:"
+		"DOTA_Tooltip_ability_shandris_permanent_lightning_damage_per_tick"               "DAMAGE PER TICK:"
+
+		"DOTA_Tooltip_ability_shandris_phase_shift"                                       "Phase Shift"
+		"DOTA_Tooltip_ability_shandris_phase_shift_Description"                           "Shandris gets increased attack and movement speed and doesn't take damage for a short duration."
+		"DOTA_Tooltip_ability_shandris_phase_shift_bonus_attack_speed"                    "BONUS ATTACK SPEED:"
+		"DOTA_Tooltip_ability_shandris_phase_shift_bonus_movement_speed_percentage"       "%BONUS MOVEMENT SPEED PERCENTAGE:"
+		"DOTA_Tooltip_ability_shandris_phase_shift_duration"                              "DURATION:"
+
+		"DOTA_Tooltip_ability_shandris_spell_resistance"                                  "Spell Resistance"
+		"DOTA_Tooltip_ability_shandris_spell_resistance_Description"                      "Shandris has increased magical armor."
+		"DOTA_Tooltip_ability_shandris_spell_resistance_resistance"                       "MAGICAL ARMOR:"
+
 
 		"DOTA_Tooltip_ability_shaman_bloodlust"                                           "Bloodlust"
 		"DOTA_Tooltip_ability_shaman_bloodlust_Description"                               "Infuses the target with bloodlust, increasing attack and movement speed."
@@ -1036,6 +1385,11 @@
 		"DOTA_Tooltip_ability_warden_vengeance_duration"                                  "DURATION:"
 		"DOTA_Tooltip_ability_warden_vengeance_units"                                     "UNITS:"
 
+		"DOTA_Tooltip_ability_warden_morph_XX"                                            "Morph"
+		"DOTA_Tooltip_ability_warden_morph_XX_Description"                                "Morphs an enemy into an useless animal while giving Warden invulnerability for the duration."
+		"DOTA_Tooltip_ability_warden_morph_XX_duration"                                   "DURATION:"
+		"DOTA_Tooltip_ability_warden_morph_XX_Note0"                                       "Attribute Bonus: Gives the Warden a bonus to all attributes."
+
 		"DOTA_Tooltip_ability_wave_modifier"                                              "Wave Modifier"
 		"DOTA_Tooltip_ability_wave_modifier_Description"                                  "This is a special wave unit."
 
@@ -1062,6 +1416,15 @@
 		"DOTA_Tooltip_ability_windrunner_innerfire_bonus_damage_percentage"               "%BONUS DAMAGE:"
 		"DOTA_Tooltip_ability_windrunner_innerfire_duration"                              "DURATION:"
 		"DOTA_Tooltip_ability_windrunner_innerfire_armor_bonus"                           "ARMOR BONUS:"
+
+		"DOTA_Tooltip_ability_windrunner_rockethail_XX"                                   "Rockethail"
+		"DOTA_Tooltip_ability_windrunner_rockethail_XX_Description"                       "While channeling a swarm of rockets appears dealing damage to colliding enemies."
+		"DOTA_Tooltip_ability_windrunner_rockethail_XX_damage_per_rocket"                 "DAMAGE PER ROCKET:"
+		"DOTA_Tooltip_ability_windrunner_rockethail_XX_radius_explosion"                  "RADIUS EXPLOSION:"
+		"DOTA_Tooltip_ability_windrunner_rockethail_XX_channel_duration"                  "CHANNEL DURATION:"
+		"DOTA_Tooltip_ability_windrunner_rockethail_XX_time_between_rockets"              "TIME BETWEEN ROCKETS:"
+		"DOTA_Tooltip_ability_windrunner_rockethail_XX_rockets_per_tick"                  "ROCKETS PER TICK:"
+		"DOTA_Tooltip_ability_windrunner_rockethail_XX_Note0"                             "Critical Arrows: Windrunner has a chance to deal extra damage with each attack."
 
 		// ******************** ITEMS ********************
 

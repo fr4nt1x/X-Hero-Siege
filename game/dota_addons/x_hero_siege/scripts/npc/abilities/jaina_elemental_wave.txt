@@ -14,7 +14,7 @@
     "AbilityCastPoint" "0.2"
     "AOERadius"         "%radius"
     "AbilityCooldown"  "120"
-    "AbilityChannelTime"  "30"
+    "AbilityChannelTime"  "%channel_duration"
     "AbilityManaCost"  "500"
     "AbilityTextureName" "morphling_replicate"
     "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
@@ -58,12 +58,20 @@
         "var_type"      "FIELD_INTEGER"
         "radius"      "1000"
       }
-
+      "08"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "channel_duration"      "30.0 30.0"
+      }
     }
 
     "OnSpellStart"
     { 
-
+      "ApplyModifier"
+      {
+        "ModifierName"  "modifier_elemental_wave_channelling"
+        "Target"     "CASTER"
+      }
       "ApplyModifier"
       {
         "ModifierName"  "modifier_spawn_elementals"
@@ -92,6 +100,11 @@
     {
       "RemoveModifier"
       {
+        "ModifierName"  "modifier_elemental_wave_channelling"
+        "Target"     "CASTER"
+      }
+      "RemoveModifier"
+      {
         "ModifierName"  "modifier_spawn_elementals"
         "Target"     "CASTER"
       }
@@ -99,6 +112,26 @@
 
     "Modifiers"
       {
+          "modifier_elemental_wave_channelling"
+          {
+            "IsHidden"      "1"
+            "ThinkInterval"   "5.39"
+            "OnIntervalThink"
+            {
+              "RunScript"
+              {
+                "ScriptFile"  "heroes/channeling.lua"
+                "Function"    "ApplyAnimation"
+                "duration"    "5.3"
+              }
+            }
+          }
+
+        "modifier_channeling"
+        {
+          "IsHidden"        "1"
+          "OverrideAnimation"     "ACT_DOTA_CAST_ABILITY_4"
+        }
         "modifier_spawn_elementals" 
         {
           "IsHidden" "1"

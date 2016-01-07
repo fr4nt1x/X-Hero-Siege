@@ -18,6 +18,7 @@
     "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
     "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "CastAnimation" "ACT_DOTA_CAST_ABILITY_5"
     "AbilityDamage" "1000 2500 5000 10000"
 
     "AbilitySpecial"

@@ -1,0 +1,94 @@
+//HERO Abilities
+ //ABILITIES DEMONHUNTER
+"shandris_permanent_lightning"
+ {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"              "4"
+    "RequiredLevel"        "8"
+    "LevelsBetweenUpgrades" "3"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityTextureName" "zuus_static_field"
+    "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type" "FIELD_INTEGER"
+            "radius" "300 300 300 300"
+        }
+        "02"
+        {
+          "var_type" "FIELD_FLOAT"
+          "damage_per_tick" "150 300 450 600"
+        }
+        "03"
+        {
+          "var_type" "FIELD_FLOAT"
+          "tick_time" "1 1 1 1"
+        }
+    }
+
+    "precache"
+    {
+        "particle" "particles/units/heroes/hero_zuus/zuus_static_field.vpcf"
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+
+
+    "Modifiers"
+    {
+        "modifier_permanent_lightning"
+        {
+            "IsBuff" "1"
+            "IsHidden" "1"
+            "Passive" "1"
+            "IsPurgable" "0"
+            "ThinkInterval"  "%tick_time"
+            
+            // Modifier Events
+            //-----------------------------------------------------------------------------
+
+          "OnIntervalThink"
+          {
+            "FireEffect"
+                {
+                    "Target"
+                    {
+                      "Center"   "TARGET"
+                      "Radius"   "%radius"
+                      "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                      "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                    }
+                    "EffectName" "particles/units/heroes/hero_zuus/zuus_static_field.vpcf"
+                    "EffectAttachType" "follow_origin"
+                }
+                
+            "Damage"
+              {
+                "Target"
+                {
+                  "Center"   "TARGET"
+                  "Radius"   "%radius"
+                  "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                  "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                }
+                 "Type"      "DAMAGE_TYPE_MAGICAL"
+                 "Damage"    "%damage_per_tick"
+              }
+
+          }
+        }
+    }    
+ }

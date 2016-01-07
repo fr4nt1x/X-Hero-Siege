@@ -15,15 +15,15 @@
         "01"
         {
             "var_type"      "FIELD_INTEGER"
-            "resistance"      "100"
+            "resistance"      "79"
         }
     }
     "Modifiers"
     {
-      "modifier_spell_block"
+      "modifier_spell_resistance"
       {
         "Passive" "1"
-        "IsHidden" "0"
+        "IsHidden" "1"
         "IsBuff" "1"
         "Properties"
         {

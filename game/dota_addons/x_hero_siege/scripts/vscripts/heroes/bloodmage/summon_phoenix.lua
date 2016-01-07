@@ -21,7 +21,7 @@ function spawn_phoenix( event )
 		hero.phoenixes = {}
 
 		for i = 1,max_units do
-			local unit = CreateUnitByName(unitsToSpawn[ability:GetLevel()], hero:GetAbsOrigin()+150*hero:GetForwardVector(), true, nil, hero, hero:GetTeam())
+			local unit = CreateUnitByName(unitsToSpawn[ability:GetLevel()], hero:GetAbsOrigin()+150*hero:GetForwardVector()+RandomVector(RandomInt(0, 50)), true, nil, hero, hero:GetTeam())
 			ability:ApplyDataDrivenModifier(hero, unit, "modifier_phoenix_rebirth", {})
 			unit:SetControllableByPlayer(hero:GetPlayerOwnerID(), true)
 			table.insert(hero.phoenixes,1,unit)

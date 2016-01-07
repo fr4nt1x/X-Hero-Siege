@@ -9,7 +9,7 @@
     "MaxLevel"              "2"
     "LevelsBetweenUpgrades" "5"
     "RequiredLevel"        "10"
-    "AbilityChannelTime" 	"15"
+    "AbilityChannelTime" 	"%channel_duration"
 
     // Stats
     //-------------------------------------------------------------------------------------
@@ -21,6 +21,7 @@
     "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
     "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityCastAnimation"  "ACT_DOTA_CAST_ABILITY_1"
     "AbilitySpecial"
     {
       "01"
@@ -38,10 +39,20 @@
         "var_type"      "FIELD_FLOAT"
         "radius"      "500"
       }
+      "04"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "channel_duration"      "15.0 15.0"
+      }
     }
 
     "OnSpellStart"
     {
+      "ApplyModifier"
+      {
+        "ModifierName"  "modifier_monsoon_channelling"
+        "Target"     "CASTER"
+      }
     	"SpawnUnit"
     	{
     		"UnitName"		"npc_dummy_target"
@@ -68,10 +79,35 @@
         "ScriptFile"  "heroes/hero_moon_priest/monsoon.lua"
         "Function"    "channel_end"
       }
+      "RemoveModifier"
+      {
+        "ModifierName"  "modifier_monsoon_channelling"
+        "Target"     "CASTER"
+      }
     }
 
     "Modifiers"
       {
+        "modifier_monsoon_channelling"
+          {
+            "IsHidden"      "1"
+            "ThinkInterval"   "1.39"
+            "OnIntervalThink"
+            {
+              "RunScript"
+              {
+                "ScriptFile"  "heroes/channeling.lua"
+                "Function"    "ApplyAnimation"
+                "duration"    "1.3"
+              }
+            }
+          }
+
+        "modifier_channeling"
+        {
+          "IsHidden"        "1"
+          "OverrideAnimation"     "ACT_DOTA_CAST_ABILITY_1"
+        }
         "modifier_monsoon"
         {
         	"EffectName" "particles/moon_priest_monsoon.vpcf"

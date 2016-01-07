@@ -64,7 +64,7 @@
         "Passive" "0"
         "IsPurgable" "1"
         "EffectName" "particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodrage_eztzhok.vpcf"
-        "EffectAttachType" "follow_origin"
+        "EffectAttachType" "attach_hitloc"
         "Duration" "%duration"
 
         "Properties"

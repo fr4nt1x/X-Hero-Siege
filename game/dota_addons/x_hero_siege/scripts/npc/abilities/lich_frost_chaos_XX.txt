@@ -5,19 +5,19 @@
     //-------------------------------------------------------------------------------------
     "BaseClass" "ability_datadriven"
     "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AOERadius"   "%radius"
+    "AOERadius"               "%radius"
     "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_YES"
     "MaxLevel"              "1"
     "RequiredLevel"        "20"
     "AbilityChannelTime" 	"%duration"
-
+    "AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_3"
     // Stats
     //-------------------------------------------------------------------------------------
     "AbilityCastPoint" "0.5"
     "AbilityCooldown"  "150"
     "AbilityCastRange" "1000"
     "AbilityManaCost"  "500"
-    "AbilityTextureName" "skywrath_mage_mystic_flare"
+    "AbilityTextureName" "enigma_midnight_pulse"
     "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
     "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -43,11 +43,36 @@
         "var_type"      "FIELD_FLOAT"
         "duration"      "35"
       }
-
+      "05"
+      {
+        "var_type" "FIELD_INTEGER"
+        "bonus_attack_speed" "75"
+      }
+      "06"
+      {
+        "var_type" "FIELD_FLOAT"
+        "duration_attack_speed_bonus" "45"
+      }
+      "07"
+      {
+        "var_type"      "FIELD_FLOAT"
+        "radius_attackspeed"      "800"
+      }
     }
 
     "OnSpellStart"
     {
+      "ApplyModifier"
+        {
+            "ModifierName" "modifier_frost_frenzy"
+            "Target"
+            {
+              "Center"    "CASTER"
+              "Radius"   "%radius_attackspeed"
+              "Teams"   "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+              "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+            }
+        }
     	"SpawnUnit"
     	{
     		"UnitName"		"npc_dummy_target"
@@ -66,6 +91,11 @@
     			}
     		}
     	}
+      "ApplyModifier"
+      {
+        "ModifierName"  "modifier_frost_chaos_channelling"
+        "Target"    "CASTER"
+      }
     }
     "OnChannelFinish"
     {
@@ -78,29 +108,64 @@
 
     "Modifiers"
       {
-        "modifier_frost_chaos"
+        "modifier_frost_frenzy"
         {
 
+          "IsBuff" "1"
+          "IsHidden" "0"
+          "Passive" "0"
+          "IsPurgable" "1"
+          "Duration" "%duration_attack_speed_bonus"
+          "EffectName" "particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodrage_eztzhok.vpcf"
+          "EffectAttachType" "attach_hitloc"
 
+          "Properties"
+          {
+            "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attack_speed"
+          }
+        }
+        
+        "modifier_frost_chaos_channelling"
+        {
+          "IsHidden"      "1"
+          "ThinkInterval"   "1.49"
+            "OnIntervalThink"
+          {
+            "RunScript"
+            {
+              "ScriptFile"  "heroes/hero_lich/frost_chaos.lua"
+              "Function"    "ApplyAnimation"
+            }
+          }
+        }
+
+        "modifier_channeling"
+        {
+          "IsHidden"        "1"
+          "OverrideAnimation"     "ACT_DOTA_CAST_ABILITY_3"
+        }
+    
+
+        "modifier_frost_chaos"
+        {
         	"OnCreated"
         	{
             "FireEffect"
             {
-              "EffectName" "particles/units/heroes/moon_priest/disruptor_static_storm.vpcf"
+              "EffectName" "particles/units/heroes/hero_enigma/enigma_midnight_pulse.vpcf"
               "EffectAttachType" "attach_overhead"
               "Target"  "TARGET"
               "ControlPoints"
                {
                   "00" "0 0 0"
-                  "01" "1 1 1"
-                  "02" "%duration 0 0"
+                  "01" "%radius 0 0"
 
                }
             }
             
             "FireSound"
             {
-              "EffectName"  "Hero_Disruptor.StaticStorm"
+              "EffectName"  "Hero_Enigma.Midnight_Pulse"
               "Target"     "TARGET"
             }
 
@@ -114,20 +179,6 @@
           	"ThinkInterval"  "%ticktime"
           	"OnIntervalThink"
           	{
-                "FireEffect"
-                {
-                  "EffectName"        "particles/units/heroes/hero_skywrath_mage/skywrath_mage_mystic_flare.vpcf"
-                  "EffectAttachType"  "follow_origin"
-                  "Target"
-                  {
-                    "Center"    "TARGET"
-                    "Radius"   "%radius"
-                    "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
-                    "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-                    "Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-                  }
-                }
-
                 "RunScript"
                 {
                   "ScriptFile"  "heroes/hero_lich/frost_chaos.lua"
@@ -135,17 +186,17 @@
                   "Target"
                   {
                     "Center"    "TARGET"
-                    "Radius"   "%radius"
-                    "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
-                    "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                    "Radius"    "%radius"
+                    "Teams"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                    "Types"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
                     "Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
                   }
                 }
           	}
     		    "States" 
       		  {
-            "MODIFIER_STATE_UNSELECTABLE"   "MODIFIER_STATE_VALUE_ENABLED"
-            "MODIFIER_STATE_NO_HEALTH_BAR"   "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_UNSELECTABLE"       "MODIFIER_STATE_VALUE_ENABLED"
+            "MODIFIER_STATE_NO_HEALTH_BAR"      "MODIFIER_STATE_VALUE_ENABLED"
             "MODIFIER_STATE_NO_UNIT_COLLISION"  "MODIFIER_STATE_VALUE_ENABLED"
             "MODIFIER_STATE_NO_TEAM_MOVE_TO"    "MODIFIER_STATE_VALUE_ENABLED"
             "MODIFIER_STATE_NO_TEAM_SELECT"     "MODIFIER_STATE_VALUE_ENABLED"
@@ -160,8 +211,9 @@
 
     "precache"
     {
-      "particle"  "particles/units/heroes/hero_skywrath_mage/skywrath_mage_mystic_flare.vpcf"
-      "particle"  "particles/units/heroes/moon_priest/disruptor_static_storm.vpcf"
-      "soundfile" "soundevents/game_sounds_heroes/game_sounds_disruptor.vsndevts"
+      "particle"  "particles/units/heroes/hero_enigma/enigma_base_attack_explosion.vpcf"
+      "particle"  "particles/units/heroes/hero_enigma/enigma_midnight_pulse.vpcf"
+      "soundfile" "soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts"
+      "particle" "particles/econ/items/bloodseeker/bloodseeker_eztzhok_weapon/bloodseeker_bloodrage_eztzhok.vpcf"
     }
   }  
