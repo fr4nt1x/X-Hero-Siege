@@ -1,0 +1,90 @@
+"panda_drunken_haze"
+{
+  "BaseClass"                 "ability_datadriven"
+  "AbilityTextureName"      "brewmaster_drunken_haze"
+  "MaxLevel"            "4"
+  "LevelsBetweenUpgrades" "3"
+  "RequiredLevel"         "-1"
+  
+  "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+  "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+  "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+  "AbilityCastRange"        "550"
+  "AbilityCastPoint"        "0.3"
+  "AbilityCooldown"       "15.0"
+  "AbilityManaCost"       "75"
+
+  "AOERadius"             "%radius"
+  
+  "AbilitySpecial"
+  {
+    "01"
+    {
+      "var_type"        "FIELD_INTEGER"
+      "radius"        "200 200 200 200"
+    }
+    "02"
+    {
+      "var_type"        "FIELD_FLOAT"
+      "duration"     "12 12 12 12"
+    }
+    "03"
+    {
+      "var_type"        "FIELD_INTEGER"
+      "movement_speed_reduction"     "-50 -50 -50 -50"
+    }
+    "04"
+    {
+      "var_type"        "FIELD_INTEGER"
+      "miss_chance"     "45 65 80 95"
+    }        
+  }
+
+  "precache"
+  {
+    "particle"  "particles/units/heroes/hero_brewmaster/brewmaster_drunken_haze.vpcf"
+    "particle"  "particles/units/heroes/hero_brewmaster/brewmaster_drunken_haze_debuff.vpcf"
+  }
+
+  "OnSpellStart"
+  {
+    "FireEffect"
+    {
+      "EffectName"        "particles/units/heroes/hero_brewmaster/brewmaster_drunken_haze.vpcf"
+      "EffectAttachType"  "follow_overhead"
+      "Target"            "TARGET"
+    }
+    "ApplyModifier"
+    {
+      "ModifierName"  "modifier_drunken_haze"
+      "Target"
+      {
+        "Center"    "TARGET"
+        "Radius"   "%radius"
+        "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+      }
+      "Duration" "%duration"
+    }
+  }
+
+  "Modifiers"
+    {
+      "modifier_drunken_haze"
+      {
+        "Passive"      "0"
+        "IsHidden"      "0"
+        "IsDebuff"      "1"
+      
+        "EffectName"    "particles/units/heroes/hero_brewmaster/brewmaster_drunken_haze_debuff.vpcf"
+        "EffectAttachType"  "follow_overhead"
+      
+        "Properties"
+        {
+            "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movement_speed_reduction" 
+            "MODIFIER_PROPERTY_MISS_PERCENTAGE"             "%miss_chance"
+        }
+      }
+    }
+}

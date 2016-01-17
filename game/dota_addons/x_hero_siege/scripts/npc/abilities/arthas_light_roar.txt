@@ -13,7 +13,7 @@
     "AbilityCastPoint" "0.5"
     "AbilityCooldown"  "60"
     "AbilityManaCost"  "100"
-    "AbilityTextureName" "fountain_glyph"
+    "AbilityTextureName" "omniknight_guardian_angel"
     "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 
 

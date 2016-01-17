@@ -1,0 +1,86 @@
+"tauren_chieftain_pulverize"
+  {
+      // General
+      //-------------------------------------------------------------------------------------------------------------
+      "BaseClass"           "ability_datadriven"
+      "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+      "AbilityUnitDamageType"     "DAMAGE_TYPE_PHYSICAL"
+      "AbilityTextureName"      "earthshaker_aftershock"  
+      "MaxLevel"              "4"
+      "RequiredLevel"         "8"
+      "LevelsBetweenUpgrades" "3"
+      "AbilitySpecial"
+      {
+        "01"
+        {
+          "var_type"      "FIELD_INTEGER"
+          "radius"      "350"
+        }
+        "02"
+        {
+          "var_type"      "FIELD_INTEGER"
+          "chance"    "15 20 25 30"
+        }
+        "03"
+        {
+          "var_type"      "FIELD_FLOAT"
+          "bonus_damage"    "500 1000 1500 2000"
+        }
+      }
+      // Stats
+      //-------------------------------------------------------------------------------------------------------------
+      "precache"
+      {
+          "particle" "particles/units/heroes/hero_brewmaster/brewmaster_pulverize_tauren.vpcf"
+      }
+      "Modifiers"
+      {
+        "tauren_pulverize_passive"
+        {
+          "Passive" "1"
+          "IsHidden" "0"
+          "OnAttackLanded"
+          {
+            "Random"
+            {
+              "Chance" "%chance"
+
+              "OnSuccess"
+              {
+                "Damage"
+                {
+                  "Target"
+                  {
+                    "Center"    "CASTER"
+                    "Radius"   "%radius"
+                    "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                    "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                  }
+                  "Damage" "(%attack_damage + %bonus_damage)/2"
+                  "Type" "DAMAGE_TYPE_PHYSICAL"
+                }
+                "Damage"
+                {
+                  "Target"
+                  {
+                    "Center"    "CASTER"
+                    "Radius"   "%radius/2"
+                    "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                    "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                  }
+                  "Damage" "(%attack_damage + %bonus_damage)/2"
+                  "Type" "DAMAGE_TYPE_PHYSICAL"
+                }
+
+                "FireEffect"
+                {
+                  "Target" "CASTER"
+                  "EffectName" "particles/units/heroes/hero_brewmaster/brewmaster_pulverize_tauren.vpcf"
+                  "EffectAttachType" "follow_origin"      
+                }
+              }
+            }
+          }
+        }
+      }
+  }

@@ -19,7 +19,7 @@ IMPLEMENTED:
 	
 	Lich   						FROST CHAOS   !!
 
-	Blademaster					PARTITION
+	Blademaster					PARTITION !!
 
 	Mountain king 				UPGRADED SPEllS (DOUBLE CAST) !!
 
@@ -37,13 +37,17 @@ IMPLEMENTED:
 
 	Bloodmage					RAIN OF FIRE !!
 
+	Shandris (Lina) 			LIGHTNING ATTACK !!
 	
+	Arthas													KNIGHTS ARMOR!!
 
 ############################################################################################
 IN WORKING PROGRESS
 ############################################################################################
-
-	Shandris (Lina) 										LIGHTNING ATTACK
+	
+	Tauren Chieftain										REINKARNATION
+	
+	Pandaren Brewmaster 									TORNADO		
 
 ############################################################################################
 NOT IMPLEMENTED:
@@ -51,17 +55,15 @@ NOT IMPLEMENTED:
 
 
 
-	Tauren Chieftain										REINKARNATION
+
 
 	Beastmaster 											TERROR WOLF
 
 	Pit Lord 												TODESFINGER
 
-	Pandaren Brewmaster 									TORNADO								
+						
 
 	Kil'jaeden (shadow demon)								INFERNAL FALL
-
-	Arthas													KNIGHTS ARMOR
 
 	Marine 													SCHWARMRAKETEN
 

@@ -39,7 +39,6 @@ paladin healing wave cast on no target
 
 make threat ability berserkers call
 
-
 descriptions to summon units
 
 fountain of health
@@ -52,10 +51,19 @@ give summons pure orb attacks
 
 memory spike
 
-Fix LEVEL UP TOME
-
 Change bloodmage incinerate tooltip
+
 
 DONE:
 
+Special events can only be ended by the one that activated it, and they get automatically ended if the activating player dies
 
+illusion event can now be started until you finish it in easy and base diffficulty
+
+Fixed tome of level up to now give experience
+
+Tauren Chieftain
+
+Pandaren Brewmaster
+
+Arthas

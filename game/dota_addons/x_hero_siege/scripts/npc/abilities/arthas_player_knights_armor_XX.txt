@@ -1,0 +1,58 @@
+"arthas_player_knights_armor_XX"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"       "ability_datadriven"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityTextureName"      "sven_gods_strength"
+    "MaxLevel"             "1"
+    "RequiredLevel"        "-1"
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "damage_return_factor"  "0.04"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "armor_bonus"     "100"
+      }
+      "03"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "damage_reduction"     "80"
+      }
+    }
+
+    "precache"
+    {
+    }
+
+    "Modifiers"
+    {
+      "modifier_knights_armor"
+      {
+        "Passive"       "1"
+        "IsHidden"      "1"
+        "IsBuff"      "1"
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
+          "MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE" "%damage_reduction"
+        }
+
+        "OnAttacked"
+          // "%attack_damage" is set to the damage value after mitigation
+          {
+            "RunScript"
+            {
+              "ScriptFile"  "heroes/arthas/knights_armor.lua"
+              "Function"    "return_damage"
+              "Attack_Damage" "%attack_damage"
+            }
+          }
+      }
+    }
+  }

@@ -1,0 +1,135 @@
+
+"panda_tornado_XX"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+    	"BaseClass" 					"ability_datadriven"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"20"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0.5"
+		"AbilityCooldown"				"120.0"
+		"AbilityChannelTime"			"%channel_duration"
+		"AbilityManaCost"				"500"
+		"AbilityTextureName" 			"enraged_wildkin_tornado"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"channel_duration"				"30.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"			"600"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"			"2500"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"tick_rate"				"0.25"
+			}
+		}
+		"precache"
+		{
+			"particle"  "particles/neutral_fx/tornado_ambient.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/panda/summon_tornado.lua"
+				"Function"		"spawn_tornado"
+				"Target"		"POINT"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_tornado_channelling"
+				"Target" 		"CASTER"
+			}
+		}
+		"OnChannelFinish"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/panda/summon_tornado.lua"
+				"Function"		"despawn_tornado"
+			}
+
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_tornado_channelling"
+				"Target" 		"CASTER"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_panda_tornado"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"EffectName"	"particles/neutral_fx/tornado_ambient.vpcf"
+        		"EffectAttachType" "follow_origin"
+		        "States"
+		          {
+		            "MODIFIER_STATE_NO_UNIT_COLLISION"  "MODIFIER_STATE_VALUE_ENABLED"
+		            "MODIFIER_STATE_ATTACK_IMMUNE"      "MODIFIER_STATE_VALUE_ENABLED"
+		            "MODIFIER_STATE_MAGIC_IMMUNE"       "MODIFIER_STATE_VALUE_ENABLED"
+		            "MODIFIER_STATE_NOT_ON_MINIMAP"     "MODIFIER_STATE_VALUE_ENABLED"
+		          }
+		          "ThinkInterval"  "%tick_rate"
+		          "OnIntervalThink"
+		          {
+		          	"Damage"
+		          	{
+		          		"Target"
+		          		{
+		          			"Center"  	"TARGET"
+		          			"Radius" 	"%radius"
+		          			"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		          			"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		          		}
+		          		"Type"			"DAMAGE_TYPE_MAGICAL"
+		          		"Damage"		"%damage"
+		          	}
+		          }
+		
+			}
+
+	        "modifier_tornado_channelling"
+	        {
+	          "IsHidden"      "1"
+	          "ThinkInterval"   "1.39"
+
+	          "OnIntervalThink"
+	          {
+	            "RunScript"
+	            {
+	              "ScriptFile"  "heroes/channeling.lua"
+	              "Function"    "ApplyAnimation"
+	              "duration"	"1.3"
+	            }
+	          }
+	        }
+
+	        "modifier_channeling"
+	        {
+	          "IsHidden"        "1"
+	          "OverrideAnimation"     "ACT_DOTA_CAST_ABILITY_1"
+	        }
+		}
+	}

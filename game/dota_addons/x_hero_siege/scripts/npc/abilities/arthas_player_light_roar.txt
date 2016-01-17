@@ -1,0 +1,110 @@
+"arthas_player_light_roar"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "MaxLevel"              "2"
+    "RequiredLevel"        "10"
+    "LevelsBetweenUpgrades" "5"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.5"
+    "AbilityCooldown"  "60"
+    "AbilityManaCost"  "100"
+    "AbilityTextureName" "omniknight_guardian_angel"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type" "FIELD_INTEGER"
+            "radius" "500"
+        }
+        "02"
+        {
+          "var_type" "FIELD_INTEGER"
+          "bonus_damage_percentage" "50 100"
+        }
+        "03"
+        {
+          "var_type" "FIELD_FLOAT"
+          "armor_bonus" "50 100"
+        }
+        "04"
+        {
+          "var_type" "FIELD_FLOAT"
+          "duration" "45"
+        }
+        "05"
+        {
+          "var_type" "FIELD_FLOAT"
+          "hp_regeneration" "0.5 0.5"
+        }        
+    }
+
+    "precache"
+    {
+      "soundfile" "soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
+      "particle"  "particles/units/heroes/hero_omniknight/omniknight_guardian_angel_ally.vpcf"
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+        "ApplyModifier"
+        {
+            "ModifierName" "modifier_light_roar"
+
+            "Target"
+            {
+              "Center"    "CASTER"
+              "Radius"   "%radius"
+              "Teams"   "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+              "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+            }
+        }
+        "FireSound"
+        {
+          "EffectName"  "Hero_Omniknight.GuardianAngel.Cast"
+          "Target"     "CASTER"
+        }
+    }
+
+    "Modifiers"
+    {
+      
+      "modifier_light_roar"
+      {
+
+        "IsBuff" "1"
+        "IsHidden" "0"
+        "Passive" "0"
+        "IsPurgable" "0"
+        "Duration" "%duration"
+        "Properties"
+        {
+          "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%bonus_damage_percentage"
+          "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
+          "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%hp_regeneration"
+
+        }
+        "OnCreated"
+        {
+
+          "AttachEffect"
+            {
+              "Target" "TARGET"
+              "EffectName" "particles/units/heroes/hero_omniknight/omniknight_guardian_angel_ally.vpcf"
+              "EffectAttachType" "follow_origin"
+            }
+        }
+      }
+    }    
+  }

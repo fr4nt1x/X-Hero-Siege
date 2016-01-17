@@ -1,0 +1,61 @@
+"npc_dota_hero_panda_brewmaster"
+{
+
+        // General
+        //----------------------------------------------------------------
+        "override_hero"             "npc_dota_hero_brewmaster"   //Add npc_dota_hero internal name
+        "AbilityLayout"             "6"
+        // Abilities
+        //----------------------------------------------------------------
+        "Ability1"                  "panda_drunken_haze"   //Reference: AInv
+        "Ability2"                  "panda_flame_breath"   //Reference: ANbf
+        "Ability3"                  "panda_permanent_immolation"   //Reference: ANdh
+        "Ability4"                  "panda_drunken_brawler"   //Reference: ANdb
+        "Ability5"                  "panda_earthquake"   //Reference: ANef
+        "Ability6"                  ""   //Reference: ANef
+        // Armor
+        //----------------------------------------------------------------
+        "ArmorPhysical"             "1"
+        "MagicalResistance"         "0"
+        
+        // Attack
+        //----------------------------------------------------------------
+        "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+        "AttackDamageMin"           "62.0"
+        "AttackDamageMax"           "72.0"
+        "AttackDamageType"          "DAMAGE_TYPE_PHYSICAL"
+        "AttackRate"                "2.22"
+        "AttackAnimationPoint"      "0.35"
+        "AttackAcquisitionRange"    "500"
+        "AttackRange"               "100"
+        
+        // Attributes
+        //----------------------------------------------------------------
+        "AttributePrimary"          "DOTA_ATTRIBUTE_STRENGTH"
+        "AttributeBaseStrength"     "30"
+        "AttributeStrengthGain"     "4"
+        "AttributeBaseIntelligence" "15"
+        "AttributeIntelligenceGain" "1.5"
+        "AttributeBaseAgility"      "14"
+        "AttributeAgilityGain"      "1.5"
+        
+        
+        // Movement
+        //----------------------------------------------------------------
+        "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+        "MovementSpeed"             "300"
+        "MovementTurnRate"          "0.6"
+        
+        // Status
+        //----------------------------------------------------------------
+        "StatusHealth"              "500"
+        "StatusHealthRegen"         "10"
+        "StatusMana"                "200"
+        "StatusManaRegen"           "1"
+        
+        // Vision
+        //----------------------------------------------------------------
+        "VisionDaytimeRange"        "1800"
+        "VisionNighttimeRange"      "1300"
+        
+}

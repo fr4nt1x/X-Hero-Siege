@@ -23,7 +23,7 @@
 		"npc_dota_hero_windrunner"                                                        "Windrunner"
 		"npc_dota_hero_shadow_shaman"                                                     "Shadow Hunter"
 		"npc_dota_hero_keeper_of_the_light"                                               "Archmage"
-		"npc_dota_hero_omniknight"                                                        "Paladin"
+		"npc_dota_hero_sven"                                                        "Paladin"
 		"npc_dota_hero_invoker"                                                           "Bloodmage"
 		"npc_dota_hero_night_stalker"                                                     "Dreadlord"
 		"npc_dota_hero_crystal_maiden"                                                    "Jaina"
@@ -614,7 +614,7 @@
 		"DOTA_Tooltip_ability_bloodmage_flame_breath_end_radius"                          "END RADIUS:"
 		"DOTA_Tooltip_ability_bloodmage_flame_breath_range"                               "RANGE:"
 		"DOTA_Tooltip_ability_bloodmage_flame_breath_speed"                               "SPEED:"
-
+		
 		"DOTA_Tooltip_ability_bloodmage_incinerate"                                       "Incinerate"
 		"DOTA_Tooltip_ability_bloodmage_incinerate_Description"                           "Bloodmages attacks cause foes to explode on death damaging those around it."
 		"DOTA_Tooltip_ability_bloodmage_incinerate_duration"                              "DURATION:"
@@ -1424,7 +1424,7 @@
 		"DOTA_Tooltip_ability_windrunner_rockethail_XX_channel_duration"                  "CHANNEL DURATION:"
 		"DOTA_Tooltip_ability_windrunner_rockethail_XX_time_between_rockets"              "TIME BETWEEN ROCKETS:"
 		"DOTA_Tooltip_ability_windrunner_rockethail_XX_rockets_per_tick"                  "ROCKETS PER TICK:"
-		"DOTA_Tooltip_ability_windrunner_rockethail_XX_Note0"                             "Critical Arrows: Windrunner has a chance to deal extra damage with each attack."
+		"DOTA_Tooltip_ability_windrunner_rockethail_XX_Note0"                             "Endurance Aura: Increases attack and movement speed of units in range."
 
 		// ******************** ITEMS ********************
 
@@ -1526,7 +1526,9 @@
 		"DOTA_Tooltip_ability_item_tome_small"                                            "Tome Small"
 		"DOTA_Tooltip_ability_item_tome_small_Description"                                "Gives a small stat bonus to the hero."
 		"DOTA_Tooltip_ability_item_tome_small_stat_bonus"                                 "STAT BONUS:"
-
+		
+		"DOTA_Tooltip_ability_item_tome_of_power"                                         "Mango Of Power"
+		"DOTA_Tooltip_ability_item_tome_of_power_Description"                             "Increments the heroe's level on use. Has a cooldown."
 
 
 	}

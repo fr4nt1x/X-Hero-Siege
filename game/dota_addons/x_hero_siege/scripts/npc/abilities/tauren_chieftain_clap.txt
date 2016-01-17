@@ -1,0 +1,80 @@
+"tauren_chieftain_clap"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"       "ability_datadriven"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET  | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AOERadius"             "%radius"
+    "AbilityTextureName"      "elder_titan_echo_stomp"
+    "AbilityUnitTargetTeam"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityCastAnimation"    "ACT_DOTA_CAST_ABILITY_1" 
+
+    // Casting
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCastPoint"        "0.5"
+
+    // Time   
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityCooldown"       "25 20 15 10"
+    "AbilityDamage"         "500 1000 2000 4000"
+    // Cost
+    //-------------------------------------------------------------------------------------------------------------
+    "AbilityManaCost"       "125 150 175 200"
+    "MaxLevel"              "4"
+    "RequiredLevel"         "-1"
+    "LevelsBetweenUpgrades" "3"
+
+    // Special  
+    //-------------------------------------------------------------------------------------------------------------
+      "AbilitySpecial"
+      {
+        "01"
+        {
+          "var_type"        "FIELD_FLOAT"
+          "duration"        "2 2 2 2"
+        }
+        "02"
+        {
+          "var_type"        "FIELD_INTEGER"
+          "radius"        "400 425 450 475"
+        }
+      }
+
+   //precache
+      "precache"
+      {
+        "particle"  "particles/units/heroes/hero_elder_titan/elder_titan_echo_stomp.vpcf"
+      }
+
+    //SpellStart
+    "OnSpellStart"
+    {
+        "Damage"
+        {
+          "Target"
+          {
+            "Center"    "CASTER"
+            "Radius"   "%radius"
+            "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+            "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+          }
+          "Type"      "DAMAGE_TYPE_MAGICAL"
+          "Damage"    "%AbilityDamage"
+        }
+        "Stun"
+        {
+          "Duration"   "%duration"
+          "Target"    "TARGET"
+        }
+        "FireEffect"
+        {
+          "EffectName"        "particles/units/heroes/hero_elder_titan/elder_titan_echo_stomp.vpcf"
+          "EffectAttachType"  "follow_origin"
+          "Target"            "CASTER"
+        }
+
+    }
+    "Modifiers"
+    {
+    }
+  }

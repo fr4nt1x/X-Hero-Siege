@@ -1,8 +1,9 @@
 
 function tome_use(event)
 	local hero = event.caster
-	
-	if IsValidEntity(hero) then 
-		hero:HeroLevelUp(true)
+	local level = hero:GetLevel()
+	print(level)
+	if IsValidEntity(hero) and level < 50 then 
+		hero:AddExperience(XP_PER_LEVEL_TABLE[level+1]-XP_PER_LEVEL_TABLE[level] , DOTA_ModifyXP_Unspecified , false, true)
 	end 
 end

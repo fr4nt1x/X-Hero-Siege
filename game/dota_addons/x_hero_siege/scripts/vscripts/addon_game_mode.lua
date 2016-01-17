@@ -30,8 +30,6 @@ function Precache( context )
 
   -- Entire items can be precached by name
   -- Abilities can also be precached in this way despite the name
-  PrecacheItemByNameSync("item_ankh", context)
-  PrecacheItemByNameSync("item_boots_of_speed", context)
   PrecacheItemByNameSync("demonhunter_roar", context)
   PrecacheItemByNameSync("dryad_poison_weapons", context)
   PrecacheItemByNameSync("luna_moon_glaive", context)
@@ -46,11 +44,13 @@ function Precache( context )
   PrecacheItemByNameSync("jaina_mana_shield", context)
   PrecacheItemByNameSync("bloodmage_chains", context)
   PrecacheItemByNameSync("shandris_spell_resistance", context)
+  PrecacheItemByNameSync("arthas_player_cleave", context)
+  PrecacheItemByNameSync("tauren_chieftain_roar", context)
+  PrecacheItemByNameSync("panda_ensnare", context)
+
   
   -- Entire heroes (sound effects/voice/models/particles) can be precached with PrecacheUnitByNameSync
   -- Custom units from npc_units_custom.txt can also have all of their abilities and precache{} blocks precached in this way
-  PrecacheUnitByNameSync("npc_dota_hero_demonhunter", context)
-  PrecacheUnitByNameSync("npc_dota_hero_crypt_lord", context)
   
   PrecacheUnitByNameSync("npc_dota_hero_magtheridon", context)
   PrecacheUnitByNameSync("npc_dota_hero_grom_hellscream", context)
@@ -64,7 +64,9 @@ function Precache( context )
   PrecacheUnitByNameSync("npc_dota_hero_ramero", context)
   PrecacheUnitByNameSync("npc_dota_hero_spirit_beast", context)
   PrecacheUnitByNameSync("npc_dota_hero_frost_infernal", context)
-
+ 
+  PrecacheUnitByNameSync("npc_panda_tornado", context)
+ 
   PrecacheUnitByNameSync("npc_phoenix_I", context)
   PrecacheUnitByNameSync("npc_phoenix_egg", context)
 

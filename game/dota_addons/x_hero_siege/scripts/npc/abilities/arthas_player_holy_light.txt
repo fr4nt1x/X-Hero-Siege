@@ -1,0 +1,87 @@
+"arthas_player_holy_light"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "LevelsBetweenUpgrades" "3"
+    "MaxLevel"              "4"
+    "RequiredLevel"        "-1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCooldown"  "20"
+    "AbilityManaCost"  "200"
+    "AbilityCastPoint"        "0.4"
+    "AbilityTextureName" "omniknight_purification"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO"
+
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+        "01"
+        {
+          "var_type" "FIELD_FLOAT"
+          "heal" "2500 5000 10000 20000"
+        }
+        "02"
+        {
+          "var_type" "FIELD_FLOAT"
+          "damage_factor" "0.1 0.1 0.1 0.1"
+        }
+        "03"
+        {
+          "var_type" "FIELD_FLOAT"
+          "radius" "500 500 500 500"
+        }  
+    }
+
+    "precache"
+    {
+        "soundfile" "soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
+        "particle"  "particles/units/heroes/hero_omniknight/omniknight_purification.vpcf"
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+        "Heal"
+        {
+            "Target"
+            {
+                "Center"      "CASTER"
+                "Radius"     "%radius"
+                "Teams"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+                "Types"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+            }
+            "HealAmount"    "%heal"
+        }
+        "Damage"
+        {
+            "Target"
+            {
+                "Center"      "CASTER"
+                "Radius"     "%radius"
+                "Teams"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                "Types"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+            }
+            "Type"            "DAMAGE_TYPE_MAGICAL"
+            "Damage"        "%damage_factor * %heal"
+        }
+        "FireEffect"
+        {
+            "EffectName"        "particles/units/heroes/hero_omniknight/omniknight_purification.vpcf"
+            "EffectAttachType"  "follow_origin"
+            "Target"            "CASTER"
+        }
+        "FireSound"
+        {
+            "EffectName"     "Hero_Omniknight.Purification"
+            "Target"         "CASTER"
+        }
+    } 
+  }

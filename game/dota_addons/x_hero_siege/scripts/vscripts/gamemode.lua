@@ -48,12 +48,15 @@ local AbilitiesHeroes = {npc_dota_hero_antimage = "demonhunter_roar",
                     npc_dota_hero_juggernaut = "blademaster_berserk",
                     npc_dota_hero_windrunner = "windrunner_healing",
                     npc_dota_hero_shadow_shaman = "shadow_hunter_healing_ward",
-                    npc_dota_hero_omniknight = "paladin_taunt",
+                    npc_dota_hero_sven = "paladin_taunt",
                     npc_dota_hero_keeper_of_the_light = "archmage_spell_shield",
                     npc_dota_hero_night_stalker = "dreadlord_sleep",
                     npc_dota_hero_crystal_maiden = "jaina_mana_shield",
                     npc_dota_hero_invoker = "bloodmage_chains",
-                    npc_dota_hero_lina="shandris_spell_resistance"}
+                    npc_dota_hero_lina="shandris_spell_resistance",
+                    npc_dota_hero_omniknight = "arthas_player_cleave",
+                    npc_dota_hero_elder_titan ="tauren_chieftain_roar",
+                    npc_dota_hero_brewmaster = "panda_ensnare"}
 --[[
   This function should be used to set up Async precache calls at the beginning of the gameplay.
 
@@ -156,15 +159,17 @@ function GameMode:OnHeroInGame(hero)
                               npc_dota_hero_invoker = {{"bloodmage_rain_of_fire_XX",2}},
                               npc_dota_hero_windrunner = {{"windrunner_rockethail_XX",2}},
                               npc_dota_hero_zuus ={{"mountain_king_thunderclap_XX",0},{"mountain_king_stormbolt_XX",1}},
-                              npc_dota_hero_omniknight = {{"paladin_light_frenzy_XX",3}},
+                              npc_dota_hero_sven = {{"paladin_light_frenzy_XX",3}},
                               npc_dota_hero_shadow_shaman = {{"shadow_hunter_hex_XX",3}},
                               npc_dota_hero_phantom_assassin = {{"warden_morph_XX",3}},
                               npc_dota_hero_keeper_of_the_light = {{"archmage_frost_shield_XX",2}},
                               npc_dota_hero_night_stalker = {{"deardlord_rain_of_chaos_XX",2}},
                               npc_dota_hero_juggernaut = {{"blademaster_partition_XX",3}},
-                              npc_dota_hero_lina = {{"shandris_lightning_attack_XX",2}}
-                              }
-
+                              npc_dota_hero_lina = {{"shandris_lightning_attack_XX",2}},
+                              npc_dota_hero_omniknight = {{"arthas_player_knights_armor_XX",5}},
+                              npc_dota_hero_elder_titan ={{"tauren_reincarnate_XX",3},{"tauren_chieftain_shockwave_XX",0},{"tauren_chieftain_clap_XX",1}},
+                              npc_dota_hero_brewmaster ={{"panda_tornado_XX",3}}
+                            }
   if  IsValidEntity(hero) and IsValidEntity(hero:GetPlayerOwner()) and hero:IsRealHero() and hero:GetTeam() == DOTA_TEAM_GOODGUYS then
     if difficulty == 1 then
       hero:SetGold(20000, false)

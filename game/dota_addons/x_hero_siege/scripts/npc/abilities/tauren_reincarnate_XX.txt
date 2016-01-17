@@ -1,0 +1,38 @@
+"tauren_reincarnate_XX"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "20"
+    "AbilityCooldown"       "10"
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityTextureName" "skeleton_king_reincarnation"
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"                  "FIELD_FLOAT"
+            "reincarnation_time"              "5"
+        }
+    }
+    "Modifiers"
+    {
+      "modifier_tauren_reincarnate"
+      {
+        "Passive" "1"
+        "IsHidden" "1"
+        "OnDeath"
+        {
+            "RunScript"
+            {
+                "ScriptFile"    "heroes/tauren/reincarnation.lua"
+                "Function"        "reincarnate"
+            }
+        }
+
+      }
+    }
+  }

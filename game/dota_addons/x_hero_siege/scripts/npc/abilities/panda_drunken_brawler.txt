@@ -1,0 +1,35 @@
+"panda_drunken_brawler"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+  		"BaseClass"                 "brewmaster_drunken_brawler"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"            "4"
+  		"LevelsBetweenUpgrades" "3"
+  		"RequiredLevel"         "8"
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"dodge_chance"				"5 10 15 20"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_chance"				"10 10 10 10"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_multiplier"			"200 300 400 500"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"last_proc"			"16 14 12 10"
+			}
+		}
+	}

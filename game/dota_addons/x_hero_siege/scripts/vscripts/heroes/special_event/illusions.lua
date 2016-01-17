@@ -12,6 +12,7 @@ function drop_tome(event)
 		Timers:CreateTimer( 1,function () FireGameEventLocal("end_special_event_illusion", {hero_index = GameMode.heroid_doing_illusions}) end)
      	if IsValidEntity(hero) then
 	     	local msg = hero:GetName().." got 100 bonus stats for finishing the illusion event!"
+	     	hero.illusion_done = true
 	     	Notifications:TopToAll({text=msg, duration=5.0})
 	     	hero:ModifyAgility(100)
 			hero:ModifyStrength(100)

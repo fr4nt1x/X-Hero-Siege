@@ -865,7 +865,7 @@
 		{
 			// General
 			//----------------------------------------------------------------
-			"override_hero"				"npc_dota_hero_omniknight"	 //Add npc_dota_hero internal name
+			"override_hero"				"npc_dota_hero_sven"	 //Add npc_dota_hero internal name
 			"AbilityLayout"				"6"
 			// Abilities
 			//----------------------------------------------------------------
@@ -926,6 +926,128 @@
 			// Creature Data
 			//----------------------------------------------------------------
 		}
+	"npc_dota_hero_panda_brewmaster"
+	{
+	
+	        // General
+	        //----------------------------------------------------------------
+	        "override_hero"             "npc_dota_hero_brewmaster"   //Add npc_dota_hero internal name
+	        "AbilityLayout"             "6"
+	        // Abilities
+	        //----------------------------------------------------------------
+	        "Ability1"                  "panda_drunken_haze"   //Reference: AInv
+	        "Ability2"                  "panda_flame_breath"   //Reference: ANbf
+	        "Ability3"                  "panda_permanent_immolation"   //Reference: ANdh
+	        "Ability4"                  "panda_drunken_brawler"   //Reference: ANdb
+	        "Ability5"                  "panda_earthquake"   //Reference: ANef
+	        "Ability6"                  ""   //Reference: ANef
+	        // Armor
+	        //----------------------------------------------------------------
+	        "ArmorPhysical"             "1"
+	        "MagicalResistance"         "0"
+	        
+	        // Attack
+	        //----------------------------------------------------------------
+	        "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+	        "AttackDamageMin"           "62.0"
+	        "AttackDamageMax"           "72.0"
+	        "AttackDamageType"          "DAMAGE_TYPE_PHYSICAL"
+	        "AttackRate"                "2.22"
+	        "AttackAnimationPoint"      "0.35"
+	        "AttackAcquisitionRange"    "500"
+	        "AttackRange"               "100"
+	        
+	        // Attributes
+	        //----------------------------------------------------------------
+	        "AttributePrimary"          "DOTA_ATTRIBUTE_STRENGTH"
+	        "AttributeBaseStrength"     "30"
+	        "AttributeStrengthGain"     "4"
+	        "AttributeBaseIntelligence" "15"
+	        "AttributeIntelligenceGain" "1.5"
+	        "AttributeBaseAgility"      "14"
+	        "AttributeAgilityGain"      "1.5"
+	        
+	        
+	        // Movement
+	        //----------------------------------------------------------------
+	        "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+	        "MovementSpeed"             "300"
+	        "MovementTurnRate"          "0.6"
+	        
+	        // Status
+	        //----------------------------------------------------------------
+	        "StatusHealth"              "500"
+	        "StatusHealthRegen"         "10"
+	        "StatusMana"                "200"
+	        "StatusManaRegen"           "1"
+	        
+	        // Vision
+	        //----------------------------------------------------------------
+	        "VisionDaytimeRange"        "1800"
+	        "VisionNighttimeRange"      "1300"
+	        
+	}
+	"npc_dota_hero_player_arthas"
+	{
+	
+		"override_hero"				"npc_dota_hero_omniknight"	 //Add npc_dota_hero internal name
+		"Portrait"					"vgui/hud/heroportraits/portrait_omniknight"
+	    "AbilityLayout"             "6"
+	
+	    "Ability1"        "arthas_player_holy_light"
+	    "Ability2"        "arthas_player_divine_shield" 
+	    "Ability3"        "dryad_endurance_aura"
+	    "Ability4"        "arthas_player_frostmourne"
+	    "Ability5"        "arthas_player_light_roar"
+	    "Ability6"        ""
+	    "Ability7"        ""
+	    "Ability8"        ""
+	    "Ability9"        ""
+	    "Ability10"       ""
+	    "Ability11"       ""
+	    "Ability12"       ""
+	    "Ability13"       ""
+	    "Ability14"       ""
+	    "Ability15"       ""
+	    "Ability16"       ""
+	
+	    "ArmorPhysical"       "2"                  // Physical protection.
+	    "MagicalResistance"       "0"                 // Magical protection (percentage).
+	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_MELEE_ATTACK"
+	    "AttackDamageMin"     "60"                   // Damage range min.
+	    "AttackDamageMax"     "72"                   // Damage range max.
+	    "AttackRate"                "1.8"                                  // Speed of attack.
+	    "AttackAnimationPoint"      "0.433"                                   // Normalized time in animation cycle to attack.
+	    "AttackAcquisitionRange"    "600"                                   // Range within a target can be acquired.
+	    "AttackRange"               "125"                                   // Range within a target can be attacked.
+	    "ProjectileModel"           ""                                     // Particle system model for projectile.
+	    "ProjectileSpeed"           ""                                     // Speed of projectile.
+	    
+	    "AttributePrimary"      "DOTA_ATTRIBUTE_STRENGTH"
+	    "AttributeBaseStrength"   "25"                   // Base strength
+	    "AttributeStrengthGain"   "7"                   // Strength bonus per level.
+	    "AttributeBaseIntelligence" "17"                   // Base intelligence
+	    "AttributeIntelligenceGain" "1.8"                   // Intelligence bonus per level.
+	    "AttributeBaseAgility"    "13"                   // Base agility
+	    "AttributeAgilityGain"    "1.5"                   // Agility bonus per level.
+	
+	
+	    "BoundsHullName"      "DOTA_HULL_SIZE_HERO"
+	    //"RingRadius"        "70"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "286"                 // Speed.
+	    "MovementTurnRate"      "0.6"                 // Turning rate.
+	
+	    "StatusHealth"        "500"                 // Base health.
+	    "StatusHealthRegen"     "10.0"                 // Health regeneration rate.
+	    "StatusMana"        "300"                   // Base mana.
+	    "StatusManaRegen"     "5"                 // Mana regeneration rate.
+	
+	    "VisionDaytimeRange"    "1800"                  // Range of vision at night time.
+	    "VisionNighttimeRange"    "1300"                  // Range of vision at night time.
+	}
 	//=================================================================================
 	// Creature: Shadow Hunter
 	// Description: "Cunning Hero, adept at healing magics and voodoo curses. Can learn Healing Wave, Hex, Serpent Ward and Big Bad Voodoo. |n|n|cffffcc00Attacks land and air units.|r"
@@ -1056,6 +1178,73 @@
 			"VisionNighttimeRange"		"1200"
 			
 		}
+	// Creature: Tauren Chieftain
+	    // Description: "Warrior Hero, exceptional at absorbing damage and melee combat. Can learn Shockwave, War Stomp, Endurance Aura and Reincarnation. |n|n|cffffcc00Attacks land units.|r"
+	    //=================================================================================
+	    "npc_dota_hero_tauren_chieftain"
+	    {
+	        // General
+	        //----------------------------------------------------------------
+	        "override_hero"             "npc_dota_hero_elder_titan"   //Add npc_dota_hero internal name
+	        "AbilityLayout"             "6"
+	        // Abilities
+	        //----------------------------------------------------------------
+	        "Ability1"                  "tauren_chieftain_shockwave"   //Reference: AInv
+	        "Ability2"                  "tauren_chieftain_clap"   //Reference: AOsh
+	        "Ability3"                  "tauren_chieftain_pulverize"   //Reference: AOae
+	        "Ability4"                  "dryad_endurance_aura"   //Reference: AOre
+	        "Ability5"                  "tauren_chieftain_lightning_stroke"   //Reference: AOws
+	        "Ability6"                  ""   //Reference: AOre
+	        "Ability7"                  ""   //Reference: AOws
+	        // Armor
+	        //----------------------------------------------------------------
+	        "ArmorPhysical"             "1"
+	        "MagicalResistance"         "0"
+	        
+	        // Attack
+	        //----------------------------------------------------------------
+	        "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+	        "AttackDamageMin"           "56.0"
+	        "AttackDamageMax"           "68.0"
+	        "AttackDamageType"          "DAMAGE_TYPE_PHYSICAL"
+	        "AttackRate"                "1.8"
+	        "AttackAnimationPoint"      "0.36"
+	        "AttackAcquisitionRange"    "500"
+	        "AttackRange"               "140"
+	        
+	        // Attributes
+	        //----------------------------------------------------------------
+	        "AttributePrimary"          "DOTA_ATTRIBUTE_STRENGTH"
+	        "AttributeBaseStrength"     "30"
+	        "AttributeStrengthGain"     "4.0"
+	        "AttributeBaseIntelligence" "14"
+	        "AttributeIntelligenceGain" "1.3"
+	        "AttributeBaseAgility"      "10"
+	        "AttributeAgilityGain"      "1.5"
+	        
+	        
+	        
+	        // Movement
+	        //----------------------------------------------------------------
+	        "MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_GROUND"
+	        "MovementSpeed"             "286"
+	        "MovementTurnRate"          "0.4"
+	        
+	        // Status
+	        //----------------------------------------------------------------
+	        "StatusHealth"              "600"
+	        "StatusHealthRegen"         "10.00"
+	        "StatusMana"                "100"
+	        "StatusManaRegen"           "0.01"
+	        
+	        // Vision
+	        //----------------------------------------------------------------
+	        "VisionDaytimeRange"        "1800"
+	        "VisionNighttimeRange"      "1300"
+	        
+	        // Creature Data
+	        //----------------------------------------------------------------
+	    }
 	"npc_dota_hero_warden"
 	{
 	

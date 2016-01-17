@@ -234,7 +234,7 @@ end
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 function startKillEvent(hero)
   -- body
-  GameMode.killEvent = true
+  GameMode.killEvent = hero:GetEntityIndex()
   local point = Entities:FindByName(nil, "spawn_roshan_hero")
 
   GameMode.event_start_time = GameRules:GetGameTime()
@@ -299,7 +299,7 @@ end
 
 function endKillEvent(event)
   -- body
-  if GameMode.killEvent == nil then
+  if GameMode.killEvent == nil or event.hero_index ~= GameMode.killEvent then
     return nil
   end
 
@@ -350,7 +350,7 @@ end
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 function startWaveKillEvent(hero)
   -- body
-  GameMode.waveKillEvent = true
+  GameMode.waveKillEvent = hero:GetEntityIndex()
 
   local point = Entities:FindByName(nil, "spawn_roshan_hero")
 
@@ -423,7 +423,7 @@ end
 
 function endWaveKillEvent(event)
   -- body
-  if GameMode.waveKillEvent == nil then
+  if GameMode.waveKillEvent == nil or event.hero_index ~= GameMode.waveKillEvent then 
     return nil
   end
 
@@ -549,8 +549,8 @@ function startFrostInfernalEvent(event)
 
   local ability = GameMode.frost_infernal:FindAbilityByName("beasts_special_event")
   ability:ApplyDataDrivenModifier(GameMode.frost_infernal, GameMode.frost_infernal, "modifier_frost_infernal", {})
-
-  GameMode.frost_infernal_event = true
+  hero.which_special_events["frost_infernal_event"] = "end_special_event_frost_infernal"
+  GameMode.frost_infernal_event = hero:GetEntityIndex()
   
   --local ability = ramero:FindAbilityByName("ramero_baristal")
   --ability:ApplyDataDrivenModifier(ramero, ramero, "modifier_ramero", {})
@@ -569,11 +569,11 @@ end
 
 function endFrostInfernalEvent(event)
   -- body
-  if GameMode.frost_infernal_event == nil then
+  if GameMode.frost_infernal_event == nil or event.hero_index ~= GameMode.frost_infernal_event then
     return nil
   end
   GameMode.event_choice_occupied = false
-  
+
   --enable special event triggers
   local triggers_choice = Entities:FindAllByName("trigger_special_event_choice")
   local triggers_events = Entities:FindAllByName("trigger_special_event")
@@ -607,7 +607,7 @@ function endFrostInfernalEvent(event)
     FireGameEventLocal("teleport_hero_from_special_event", {hero_index = hero:GetEntityIndex(),stun_duration = 0.5 , teleport_point_x =point[1], teleport_point_y = point[2], teleport_point_z = point[3]})
     FireGameEventLocal("return_units_of_hero",{hero_index = hero:GetEntityIndex(), stun_duration = 0.5})
   end
-
+  hero.which_special_events["frost_infernal_event"] = nil
   GameMode.frost_infernal = nil
   GameMode.frost_infernal_event = nil
 end
@@ -656,14 +656,14 @@ function startSpiritBeastEvent(event)
   local ability = GameMode.spirit_beast:FindAbilityByName("beasts_special_event")
   ability:ApplyDataDrivenModifier(GameMode.spirit_beast, GameMode.spirit_beast, "modifier_spirit_beast", {})  
 
-  GameMode.spirit_beast_event = true
+  GameMode.spirit_beast_event = hero:GetEntityIndex()
   
   --local ability = ramero:FindAbilityByName("ramero_baristal")
   --ability:ApplyDataDrivenModifier(ramero, ramero, "modifier_ramero", {})
 
   GameMode.spirit_beast_end_timer = Timers:CreateTimer( SpecialEventFrostInfernalDuration+5,function () FireGameEventLocal("end_special_event_spirit_beast", {hero_index = hero:GetEntityIndex()}) 
                                                 end)
-
+  hero.which_special_events["sprit_beast_event"] = "end_special_event_spirit_beast"
   if IsValidEntity(hero) then
     --Fire the game event to teleport hero to the event
     FireGameEventLocal("teleport_hero_to_special_event", {hero_index = hero:GetEntityIndex() , teleport_entity_index = point_hero:GetEntityIndex()})
@@ -675,7 +675,7 @@ end
 
 function endSpiritBeastEvent(event)
   -- body
-  if GameMode.spirit_beast_event == nil then
+  if GameMode.spirit_beast_event == nil  or event.hero_index ~= GameMode.spirit_beast_event then
     return nil
   end
   GameMode.event_choice_occupied = false
@@ -715,7 +715,7 @@ function endSpiritBeastEvent(event)
     FireGameEventLocal("teleport_hero_from_special_event", {hero_index = hero:GetEntityIndex(),stun_duration = 0.5 , teleport_point_x =point[1], teleport_point_y = point[2], teleport_point_z = point[3]})
     FireGameEventLocal("return_units_of_hero",{hero_index = hero:GetEntityIndex(), stun_duration = 0.5})
   end
-
+  hero.which_special_events["sprit_beast_event"] = nil
   GameMode.spirit_beast = nil
   GameMode.spirit_beast_event = nil
   
@@ -793,8 +793,11 @@ function startIllusionEvent(event)
     local msg = "Special Event: Kill your illusion for 100 bonus stats. You have "..sec2Min(SpecialEventFrostInfernalDuration).." minutes."
     Notifications:Top(hero:GetPlayerOwnerID(),{text=msg, duration=5.0})
   end
-
-  hero.illusion_done = true
+  hero.which_special_events["illusion_event"] = "end_special_event_illusion"
+  
+  if GameRules:GetCustomGameDifficulty() >= 3 then 
+    hero.illusion_done = true
+  end
 
 end
 
@@ -842,6 +845,7 @@ function endIllusionEvent(event)
     FireGameEventLocal("teleport_hero_from_special_event", {hero_index = hero:GetEntityIndex(),stun_duration = 0.5 , teleport_point_x =point[1], teleport_point_y = point[2], teleport_point_z = point[3]})
     FireGameEventLocal("return_units_of_hero",{hero_index = hero:GetEntityIndex(), stun_duration = 0.5})
   end
+  hero.which_special_events["illusion_event"] = nil
 
   GameMode.heroid_doing_illusions = nil 
   GameMode.illusion = nil
