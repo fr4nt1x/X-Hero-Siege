@@ -1048,6 +1048,143 @@
 	    "VisionDaytimeRange"    "1800"                  // Range of vision at night time.
 	    "VisionNighttimeRange"    "1300"                  // Range of vision at night time.
 	}
+	"npc_dota_hero_player_banehallow"
+	{
+	
+	    "override_hero"             "npc_dota_hero_bane"   //Add npc_dota_hero internal name
+	    "Model"						"models/heroes/bane/bane.vmdl"			// Model.
+		"SoundSet"					"Hero_Bane"							// Name of sound set.
+	    "ProjectileModel"            "particles/units/heroes/hero_bane/bane_projectile.vpcf"
+	    "ProjectileSpeed"                   "900"
+		"Portrait"					"vgui/hud/heroportraits/portrait_bane"
+	    "AbilityLayout"             "6"
+	
+	    "Ability1"        "bane_player_death_coil"
+	    "Ability2"        "bane_player_permanent_immolation" 
+	    "Ability3"        "bane_player_critical"
+	    "Ability4"        "dryad_endurance_aura"
+	    "Ability5"        "bane_player_stampede"
+	    "Ability6"        ""
+	    "Ability7"        ""
+	    "Ability8"        ""
+	    "Ability9"        ""
+	    "Ability10"       ""
+	    "Ability11"       ""
+	    "Ability12"       ""
+	    "Ability13"       ""
+	    "Ability14"       ""
+	    "Ability15"       ""
+	    "Ability16"       ""
+	
+	
+	    "ArmorPhysical"       "0"                  // Physical protection.
+	    "MagicalResistance"       "0"                 // Magical protection (percentage).
+	
+	    "AttackCapabilities"    "DOTA_UNIT_CAP_RANGED_ATTACK"
+	    "AttackDamageMin"     "40"                   // Damage range min.
+	    "AttackDamageMax"     "52"                   // Damage range max.
+	    "AttackRate"                "1.75"                                  // Speed of attack.
+	    "AttackAnimationPoint"      "0.42"                                   // Normalized time in animation cycle to attack.
+	    "AttackAcquisitionRange"    "1000"                                   // Range within a target can be acquired.
+	    "AttackRange"               "600"                                   // Range within a target can be attacked.
+	
+	    
+	    "AttributePrimary"      "DOTA_ATTRIBUTE_STRENGTH"
+	    "AttributeBaseStrength"   "30"                   // Base strength
+	    "AttributeStrengthGain"   "3"                   // Strength bonus per level.
+	    "AttributeBaseIntelligence" "20"                   // Base intelligence
+	    "AttributeIntelligenceGain" "2.6"                   // Intelligence bonus per level.
+	    "AttributeBaseAgility"    "17"                   // Base agility
+	    "AttributeAgilityGain"    "2.5"                   // Agility bonus per level.
+	
+	    //"RingRadius"        "70"
+	
+	    "MovementCapabilities"    "DOTA_UNIT_CAP_MOVE_GROUND"
+	    "MovementSpeed"       "286"                 // Speed.
+	    "MovementTurnRate"      "0.6"                 // Turning rate.
+	
+	    "StatusHealth"        "400"                 // Base health.
+	    "StatusHealthRegen"     "10.0"                 // Health regeneration rate.
+	    "StatusMana"        "200"                   // Base mana.
+	    "StatusManaRegen"     "0.1"                 // Mana regeneration rate.
+	
+	    "VisionDaytimeRange"    "1800"                  // Range of vision at night time.
+	    "VisionNighttimeRange"    "1300"                  // Range of vision at night time.
+	}
+	"npc_dota_hero_rifleman"
+		{
+			// General
+			//----------------------------------------------------------------
+			"override_hero"				"npc_dota_hero_sniper"	 //Add npc_dota_hero internal name
+			"ProjectileModel"           "particles/econ/items/sniper/sniper_charlie/sniper_base_attack_charlie.vpcf"
+	        "ProjectileSpeed"           "1800"
+	        "AbilityLayout"				"6"
+			// Abilities
+			//----------------------------------------------------------------
+			"Ability1"					"rifleman_rocket_launcher"	 //Reference: AInv
+			"Ability2"					"rifleman_plasma_rifle"	 //Reference: Asph
+			"Ability3"					"rifleman_shield"	 //Reference: AHfs
+			"Ability4"					"rifleman_trueshot_aura"	 //Reference: AHbn
+			"Ability5"					"rifleman_laser"	 //Reference: AHdr
+			"Ability6"					""	 //Reference: AHpx
+			"Ability7"					""	 //Reference: AHbn
+			"Ability8"					""	 //Reference: AHdr
+			"Ability9"					""	 //Reference: AHpx
+			"Ability10"					""	 //Reference: AHdr
+			"Ability11"					""	 //Reference: AHpx
+			"Ability12"					""	 //Reference: AHbn
+			"Ability13"					""	 //Reference: AHdr
+			"Ability14"					""	 //Reference: AHpx
+			"Ability15"					""	 //Reference: AHdr
+			"Ability16"					""	 //Reference: AHpx
+	
+			// Armor
+			//----------------------------------------------------------------
+			"ArmorPhysical"				"2"
+			"MagicalResistance"			"0"
+			
+			// Attack
+			//----------------------------------------------------------------
+			"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+			"AttackDamageMin"			"42.0"
+			"AttackDamageMax"			"53.0"
+			"AttackDamageType"			"DAMAGE_TYPE_PHYSICAL"
+			"AttackRate"				"1.5"
+			"AttackAnimationPoint"		"0.17"
+			"AttackAcquisitionRange"	"600"
+			"AttackRange"				"600"
+			
+			// Attributes
+			//----------------------------------------------------------------
+			"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
+			"AttributeBaseStrength"		"25"
+			"AttributeStrengthGain"		"4"
+			"AttributeBaseIntelligence"	"17"
+			"AttributeIntelligenceGain"	"1.8"
+			"AttributeBaseAgility"		"13"
+			"AttributeAgilityGain"		"1.5"
+			
+			
+			// Movement
+			//----------------------------------------------------------------
+			"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+			"MovementSpeed"				"286"
+			"MovementTurnRate"			"0.6"
+			
+			// Status
+			//----------------------------------------------------------------
+			"StatusHealth"				"300"
+			"StatusHealthRegen"			"10"
+			"StatusMana"				"0"
+			"StatusManaRegen"			"0.01"
+			
+			// Vision
+			//----------------------------------------------------------------
+			"VisionDaytimeRange"		"1800"
+			"VisionNighttimeRange"		"1300"
+			
+	
+		}
 	//=================================================================================
 	// Creature: Shadow Hunter
 	// Description: "Cunning Hero, adept at healing magics and voodoo curses. Can learn Healing Wave, Hex, Serpent Ward and Big Bad Voodoo. |n|n|cffffcc00Attacks land and air units.|r"

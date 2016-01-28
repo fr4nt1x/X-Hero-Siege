@@ -25,4 +25,6 @@
 	"npc_dota_hero_omniknight"			"-1"
 	"npc_dota_hero_elder_titan"			"-1"
 	"npc_dota_hero_brewmaster"			"-1"
+	"npc_dota_hero_bane"			"-1"
+	"npc_dota_hero_sniper"			"-1"
 }

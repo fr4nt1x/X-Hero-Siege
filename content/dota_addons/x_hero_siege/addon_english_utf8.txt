@@ -1,5 +1,4 @@
-﻿
-"lang"
+﻿"lang"
 {
 	"Language"		"English"
 	"Tokens"
@@ -23,12 +22,20 @@
 		"npc_dota_hero_windrunner"                                                        "Windrunner"
 		"npc_dota_hero_shadow_shaman"                                                     "Shadow Hunter"
 		"npc_dota_hero_keeper_of_the_light"                                               "Archmage"
-		"npc_dota_hero_sven"                                                        "Paladin"
+		"npc_dota_hero_sven"                                                        	  "Paladin"
 		"npc_dota_hero_invoker"                                                           "Bloodmage"
 		"npc_dota_hero_night_stalker"                                                     "Dreadlord"
 		"npc_dota_hero_crystal_maiden"                                                    "Jaina"
 		"npc_dota_hero_lina"                                                              "Shandris"
+		"npc_dota_hero_brewmaster"                                                        "Pandaren Brewmaster"
+		"npc_dota_hero_omniknight"                                                        "Arthas"
+		"npc_dota_hero_elder_titan"                                                       "Tauren Chieftain"
 
+		// ******************** UNITS ********************
+		"npc_panda_tornado"                                                               "Tornado"
+		"npc_dota_hero_panda_brewmaster"                                                  "Pandaren Brewmaster"
+		"npc_dota_hero_player_arthas"                                                     "Arthas"
+		"npc_dota_hero_tauren_chieftain"                                                  "Tauren Chieftain"
 		// ******************** UNITS ********************
 
 		"npc_dota_hero_blademaster"                                                       "Blademaster"
@@ -391,6 +398,26 @@
 		"DOTA_Tooltip_modifier_phoenix_burn"                                              "Phoenix"
 		"DOTA_Tooltip_modifier_phoenix_burn_Description"                                  "This unit has been hit by a phoenix fire attack. It takes damage over time."
 
+		"DOTA_Tooltip_modifier_divine_shield_arthas"                                      "Divine Shield Arthas"
+		"DOTA_Tooltip_modifier_divine_shield_arthas_Description"                          "Arthas doesn't take damage from any sources."
+
+		"DOTA_Tooltip_modifier_drunken_haze"                                              "Drunken Haze"
+		"DOTA_Tooltip_modifier_drunken_haze_Description"                                  "This unit has a chance to miss on attacks."
+
+		"DOTA_Tooltip_modifier_quake_slow"                                                "Earthquake Slow"
+		"DOTA_Tooltip_modifier_quake_slow_Description"                                    "This unit is in a earthquake. It has slower movementspeed."
+
+		"DOTA_Tooltip_modifier_panda_ensnare"                                             "Ensnare"
+		"DOTA_Tooltip_modifier_panda_ensnare_Description"                                 "This unit is ensnared and cannot move."
+
+		"DOTA_Tooltip_modifier_flame_breath_burn"                                         "Flame Breath Burn"
+		"DOTA_Tooltip_modifier_flame_breath_burn_Description"                             "This unit burns and takes damage over time."
+
+		"DOTA_Tooltip_modifier_panda_tornado"                                             "Tornado"
+		"DOTA_Tooltip_modifier_panda_tornado_Description"                                 "Deals damage to enemies in an area around the tornado."
+
+		"DOTA_Tooltip_modifier_tauren_battlecry"                                          "Battlecry"
+		"DOTA_Tooltip_modifier_tauren_battlecry_Description"                              "This unit has increased damage."
 
 
 		// ******************** ITEM MODIFIERS ********************
@@ -495,6 +522,46 @@
 		"DOTA_Tooltip_ability_arthas_knights_armor_damage_return_factor"                  "DAMAGE RETURN FACTOR:"
 		"DOTA_Tooltip_ability_arthas_knights_armor_armor_bonus"                           "ARMOR BONUS:"
 		"DOTA_Tooltip_ability_arthas_knights_armor_damage_reduction"                      "%DAMAGE REDUCTION:"
+
+
+		"DOTA_Tooltip_ability_arthas_player_cleave"                                       "Cleave"
+		"DOTA_Tooltip_ability_arthas_player_cleave_Description"                           "Arthas swings his hammer in an wide arc dealing cleave damage."
+		"DOTA_Tooltip_ability_arthas_player_cleave_great_cleave_radius"                   "CLEAVE RADIUS:"
+		"DOTA_Tooltip_ability_arthas_player_cleave_great_cleave_damage"                   "CLEAVE DAMAGE:"
+
+		"DOTA_Tooltip_ability_arthas_player_divine_shield"                                "Divine Shield"
+		"DOTA_Tooltip_ability_arthas_player_divine_shield_Description"                    "Arthas shields himself from any damage source."
+		"DOTA_Tooltip_ability_arthas_player_divine_shield_duration"                       "DURATION:"
+
+		"DOTA_Tooltip_ability_arthas_player_frostmourne"                                  "Frostmourne"
+		"DOTA_Tooltip_ability_arthas_player_frostmourne_Description"                      "Arthas weapon has a chance to stun enemies and deal critical damage."
+		"DOTA_Tooltip_ability_arthas_player_frostmourne_stun_duration"                    "STUN DURATION:"
+		"DOTA_Tooltip_ability_arthas_player_frostmourne_bonus_damage_stun"                "BONUS DAMAGE STUN:"
+		"DOTA_Tooltip_ability_arthas_player_frostmourne_critical_damage"                  "CRITICAL DAMAGE:"
+		"DOTA_Tooltip_ability_arthas_player_frostmourne_evasion_chance"                   "%EVASION CHANCE:"
+		"DOTA_Tooltip_ability_arthas_player_frostmourne_stun_chance"                      "%STUN AND CRITICAL CHANCE:"
+
+		"DOTA_Tooltip_ability_arthas_player_holy_light"                                   "Holy Light"
+		"DOTA_Tooltip_ability_arthas_player_holy_light_Description"                       "Arthas heals nearby friends and deals damage to nearby foes."
+		"DOTA_Tooltip_ability_arthas_player_holy_light_heal"                              "HEAL:"
+		"DOTA_Tooltip_ability_arthas_player_holy_light_damage_factor"                     "DAMAGE FACTOR:"
+		"DOTA_Tooltip_ability_arthas_player_holy_light_radius"                            "RADIUS:"
+
+		"DOTA_Tooltip_ability_arthas_player_knights_armor_XX"                             "Knights Armor"
+		"DOTA_Tooltip_ability_arthas_player_knights_armor_XX_Description"                 "Arthas increases his armor, causing him to return a percentage of the damage to his attackers."
+		"DOTA_Tooltip_ability_arthas_player_knights_armor_XX_damage_return_factor"        "DAMAGE RETURN FACTOR:"
+		"DOTA_Tooltip_ability_arthas_player_knights_armor_XX_armor_bonus"                 "ARMOR BONUS:"
+		"DOTA_Tooltip_ability_arthas_player_knights_armor_XX_damage_reduction"            "%DAMAGE REDUCTION:"
+		"DOTA_Tooltip_ability_arthas_player_knights_armor_XX_Note0"                       "Cleave: Arthas swings his hammer in an wide arc dealing cleave damage."
+
+		"DOTA_Tooltip_ability_arthas_player_light_roar"                                   "Light Roar"
+		"DOTA_Tooltip_ability_arthas_player_light_roar_Description"                       "Arthas buff a friend giving him bonus damage and bonus armor and Health regeneration."
+		"DOTA_Tooltip_ability_arthas_player_light_roar_radius"                            "RADIUS:"
+		"DOTA_Tooltip_ability_arthas_player_light_roar_bonus_damage_percentage"           "%BONUS DAMAGE PERCENTAGE:"
+		"DOTA_Tooltip_ability_arthas_player_light_roar_armor_bonus"                       "ARMOR BONUS:"
+		"DOTA_Tooltip_ability_arthas_player_light_roar_duration"                          "DURATION:"
+		"DOTA_Tooltip_ability_arthas_player_light_roar_hp_regeneration"                   "%HP REGENERATION:"
+
 
 		"DOTA_Tooltip_ability_arthas_light_roar"                                          "Light Roar"
 		"DOTA_Tooltip_ability_arthas_light_roar_Description"                              "Arthas grants himself and units in an area a buff from the heavens, which grants increased health regeneration, armor bonus and increased his attack damage by a percentage."
@@ -618,6 +685,10 @@
 		"DOTA_Tooltip_ability_bloodmage_incinerate"                                       "Incinerate"
 		"DOTA_Tooltip_ability_bloodmage_incinerate_Description"                           "Bloodmages attacks cause foes to explode on death damaging those around it."
 		"DOTA_Tooltip_ability_bloodmage_incinerate_duration"                              "DURATION:"
+		"DOTA_Tooltip_ability_bloodmage_incinerate_damage_full"                           "DAMAGE FULL:"
+		"DOTA_Tooltip_ability_bloodmage_incinerate_damage_half"                           "DAMAGE HALF:"
+		"DOTA_Tooltip_ability_bloodmage_incinerate_radius_full"                           "RADIUS FULL:"
+		"DOTA_Tooltip_ability_bloodmage_incinerate_radius_half"                           "RADIUS HALF:"
 
 		"DOTA_Tooltip_ability_bloodmage_summon_phoenix"                                   "Bloodmage Summon Phoenix"
 		"DOTA_Tooltip_ability_bloodmage_summon_phoenix_Description"                       "Bloodmage summons phoenixes/a phoenix to his aid. On death they spawn an egg. If this survives a new phoenix hatches from the egg."
@@ -1187,6 +1258,56 @@
 		"DOTA_Tooltip_ability_paladin_light_frenzy_XX_duration"                           "DURATION:"
 		"DOTA_Tooltip_ability_paladin_light_frenzy_XX_Note0"                              "Devotion Aura: Paladin increases the armor of friendly untis around him."
 
+		"DOTA_Tooltip_ability_panda_drunken_brawler"                                      "Drunken Brawler"
+		"DOTA_Tooltip_ability_panda_drunken_brawler_Description"                          "Brewmaster has a chance to dodge attacks and deal critical damage."
+		"DOTA_Tooltip_ability_panda_drunken_brawler_dodge_chance"                         "%DODGE CHANCE:"
+		"DOTA_Tooltip_ability_panda_drunken_brawler_crit_chance"                          "CRIT CHANCE:"
+		"DOTA_Tooltip_ability_panda_drunken_brawler_crit_multiplier"                      "CRIT MULTIPLIER:"
+
+		"DOTA_Tooltip_ability_panda_drunken_haze"                                         "Drunken Haze"
+		"DOTA_Tooltip_ability_panda_drunken_haze_Description"                             "Brewmaster causes to enemies in an area to miss on attacks."
+		"DOTA_Tooltip_ability_panda_drunken_haze_radius"                                  "RADIUS:"
+		"DOTA_Tooltip_ability_panda_drunken_haze_duration"                                "DURATION:"
+		"DOTA_Tooltip_ability_panda_drunken_haze_movement_speed_reduction"                "MOVEMENT SPEED REDUCTION:"
+		"DOTA_Tooltip_ability_panda_drunken_haze_miss_chance"                             "%MISS CHANCE:"
+
+		"DOTA_Tooltip_ability_panda_earthquake"                                           "Earthquake"
+		"DOTA_Tooltip_ability_panda_earthquake_Description"                               "Brewmaster causes massive damage to all enemies around him during channeling."
+		"DOTA_Tooltip_ability_panda_earthquake_damage_per_unit"                           "DAMAGE PER UNIT:"
+		"DOTA_Tooltip_ability_panda_earthquake_radius"                                    "RADIUS:"
+		"DOTA_Tooltip_ability_panda_earthquake_time_between_quakes"                       "TIME BETWEEN QUAKES:"
+		"DOTA_Tooltip_ability_panda_earthquake_duration"                                  "DURATION:"
+		"DOTA_Tooltip_ability_panda_earthquake_duration_slow"                             "DURATION SLOW:"
+		"DOTA_Tooltip_ability_panda_earthquake_movement_slow"                             "MOVEMENT SLOW:"
+
+		"DOTA_Tooltip_ability_panda_ensnare"                                              "Ensnare"
+		"DOTA_Tooltip_ability_panda_ensnare_Description"                                  "Brewmaster ensnares an enemy."
+		"DOTA_Tooltip_ability_panda_ensnare_duration"                                     "DURATION:"
+
+		"DOTA_Tooltip_ability_panda_flame_breath"                                         "Flame Breath"
+		"DOTA_Tooltip_ability_panda_flame_breath_Description"                             "Brewmaster breath a stom of fire in front of him. Enemy units that have drunken haze, start burning taking damage over time."
+		"DOTA_Tooltip_ability_panda_flame_breath_start_radius"                            "START RADIUS:"
+		"DOTA_Tooltip_ability_panda_flame_breath_end_radius"                              "END RADIUS:"
+		"DOTA_Tooltip_ability_panda_flame_breath_range"                                   "RANGE:"
+		"DOTA_Tooltip_ability_panda_flame_breath_speed"                                   "SPEED:"
+		"DOTA_Tooltip_ability_panda_flame_breath_damage_over_time"                        "DAMAGE OVER TIME:"
+		"DOTA_Tooltip_ability_panda_flame_breath_duration"                                "DURATION:"
+		"DOTA_Tooltip_ability_panda_flame_breath_tick_time"                               "TICK TIME:"
+
+		"DOTA_Tooltip_ability_panda_permanent_immolation"                                 "Permanent Immolation"
+		"DOTA_Tooltip_ability_panda_permanent_immolation_Description"                     "This unit burns the area around it, causing damage to enemy units."
+		"DOTA_Tooltip_ability_panda_permanent_immolation_radius"                          "RADIUS:"
+		"DOTA_Tooltip_ability_panda_permanent_immolation_damage_per_tick"                 "DAMAGE PER TICK:"
+		"DOTA_Tooltip_ability_panda_permanent_immolation_tick_time"                       "TICK TIME:"
+
+		"DOTA_Tooltip_ability_panda_tornado_XX"                                           "Tornado"
+		"DOTA_Tooltip_ability_panda_tornado_XX_Description"                               "Brewmaster channels his energy into an tornado that deals damage over time around itself. Can be controlled by the brewmaster."
+		"DOTA_Tooltip_ability_panda_tornado_XX_channel_duration"                          "CHANNEL DURATION:"
+		"DOTA_Tooltip_ability_panda_tornado_XX_radius"                                    "RADIUS:"
+		"DOTA_Tooltip_ability_panda_tornado_XX_damage"                                    "DAMAGE:"
+		"DOTA_Tooltip_ability_panda_tornado_XX_tick_rate"                                 "TICK RATE:"
+		"DOTA_Tooltip_ability_panda_tornado_XX_Note0"                                     "Drunken Brawler: Brewmaster has a chance to dodge attacks and deal critical damage."
+
 		"DOTA_Tooltip_ability_permanent_immolation"                                       "Permanent Immolation"
 		"DOTA_Tooltip_ability_permanent_immolation_Description"                           "This unit burns the area around it, causing damage to enemy units."
 		"DOTA_Tooltip_ability_permanent_immolation_radius"                                "RADIUS:"
@@ -1328,6 +1449,55 @@
 		"DOTA_Tooltip_ability_spirit_beast_thorns"                                        "Thorns"
 		"DOTA_Tooltip_ability_spirit_beast_thorns_Description"                            "Spirit Beast returns a percentage of physical damage to the attacker."
 		"DOTA_Tooltip_ability_spirit_beast_thorns_damage_return_factor"                   "DAMAGE RETURN FACTOR:"
+
+
+		"DOTA_Tooltip_ability_tauren_chieftain_clap"                                      "Thunderclap"
+		"DOTA_Tooltip_ability_tauren_chieftain_clap_Description"                          "Stuns all enemies in the area with a powerful hoofstomp."
+		"DOTA_Tooltip_ability_tauren_chieftain_clap_duration"                             "DURATION:"
+		"DOTA_Tooltip_ability_tauren_chieftain_clap_radius"                               "RADIUS:"
+
+		"DOTA_Tooltip_ability_tauren_chieftain_clap_XX"                                   "Chieftain Clap"
+		"DOTA_Tooltip_ability_tauren_chieftain_clap_XX_Description"                       "Stuns all enemies in the area with a powerful hoofstomp twice."
+		"DOTA_Tooltip_ability_tauren_chieftain_clap_XX_duration"                          "DURATION:"
+		"DOTA_Tooltip_ability_tauren_chieftain_clap_XX_radius"                            "RADIUS:"
+		"DOTA_Tooltip_ability_tauren_chieftain_clap_XX_delay"                             "DELAY:"
+
+		"DOTA_Tooltip_ability_tauren_chieftain_lightning_stroke"                          "Lightning Stroke"
+		"DOTA_Tooltip_ability_tauren_chieftain_lightning_stroke_Description"              "Deals massive damage to all enemies around the Chieftain."
+		"DOTA_Tooltip_ability_tauren_chieftain_lightning_stroke_radius"                   "RADIUS:"
+		"DOTA_Tooltip_ability_tauren_chieftain_lightning_stroke_damage"                   "DAMAGE:"
+
+		"DOTA_Tooltip_ability_tauren_chieftain_pulverize"                                 "Pulverize"
+		"DOTA_Tooltip_ability_tauren_chieftain_pulverize_Description"                     "Attacking with his totem, the Chieftain has a chance to deal additional damage to enemies in an area around him."
+		"DOTA_Tooltip_ability_tauren_chieftain_pulverize_radius"                          "RADIUS:"
+		"DOTA_Tooltip_ability_tauren_chieftain_pulverize_chance"                          "%CHANCE:"
+		"DOTA_Tooltip_ability_tauren_chieftain_pulverize_bonus_damage"                    "BONUS DAMAGE:"
+
+		"DOTA_Tooltip_ability_tauren_chieftain_roar"                                      "Roar"
+		"DOTA_Tooltip_ability_tauren_chieftain_roar_Description"                          "Increases the Chieftain's damage and armor."
+		"DOTA_Tooltip_ability_tauren_chieftain_roar_bonus_damage_percentage"              "%BONUS DAMAGE PERCENTAGE:"
+		"DOTA_Tooltip_ability_tauren_chieftain_roar_armor_bonus"                          "ARMOR BONUS:"
+		"DOTA_Tooltip_ability_tauren_chieftain_roar_duration"                             "DURATION:"
+
+		"DOTA_Tooltip_ability_tauren_chieftain_shockwave"                                 "Shockwave"
+		"DOTA_Tooltip_ability_tauren_chieftain_shockwave_Description"                     "The Chieftain relases a shockwave dealing damage to enemies caught in its wake."
+		"DOTA_Tooltip_ability_tauren_chieftain_shockwave_start_radius"                    "START RADIUS:"
+		"DOTA_Tooltip_ability_tauren_chieftain_shockwave_end_radius"                      "END RADIUS:"
+		"DOTA_Tooltip_ability_tauren_chieftain_shockwave_range"                           "RANGE:"
+		"DOTA_Tooltip_ability_tauren_chieftain_shockwave_speed"                           "SPEED:"
+
+		"DOTA_Tooltip_ability_tauren_chieftain_shockwave_XX"                              "Shockwave"
+		"DOTA_Tooltip_ability_tauren_chieftain_shockwave_XX_Description"                  "The Chieftain relases two shockwaves dealing damage to enemies caught in their wake."
+		"DOTA_Tooltip_ability_tauren_chieftain_shockwave_XX_start_radius"                 "START RADIUS:"
+		"DOTA_Tooltip_ability_tauren_chieftain_shockwave_XX_end_radius"                   "END RADIUS:"
+		"DOTA_Tooltip_ability_tauren_chieftain_shockwave_XX_range"                        "RANGE:"
+		"DOTA_Tooltip_ability_tauren_chieftain_shockwave_XX_speed"                        "SPEED:"
+		"DOTA_Tooltip_ability_tauren_chieftain_shockwave_XX_delay"                        "DELAY:"
+
+		"DOTA_Tooltip_ability_tauren_reincarnate_XX"                                      "Reincarnate"
+		"DOTA_Tooltip_ability_tauren_reincarnate_XX_Description"                          "The Chieftain reincarnates after death."
+		"DOTA_Tooltip_ability_tauren_reincarnate_XX_reincarnation_time"                   "REINCARNATION TIME:"
+		"DOTA_Tooltip_ability_tauren_reincarnate_XX_Note0"                                "Endurance Aura: Increased Attack and movement speed for nearby friends."
 
 		"DOTA_Tooltip_ability_tauren_pulverize"                                           "Pulverize"
 		"DOTA_Tooltip_ability_tauren_pulverize_Description"                               "Tauren have a chance of releasing a shockwave on attack dealing damage to all units in range."

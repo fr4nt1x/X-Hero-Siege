@@ -1,0 +1,67 @@
+"rifleman_rocket_launcher_XX"
+{
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "20"
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastRange"  "600"
+    "AbilityManaCost"   "15"
+    "AbilityTextureName" "clinkz_searing_arrows"
+    "precache"
+    {
+        "particle"  "particles/units/heroes/hero_clinkz/clinkz_searing_arrow.vpcf"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    { 
+        "01"
+        {
+            "var_type"  "FIELD_INTEGER"
+            "bonus_damage"  "4000"
+        }
+    }
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "Modifiers"
+    { 
+        "modifier_orb_rocket_launcher_XX"
+        {
+            "Passive"   "1"
+            "IsHidden"  "1"
+            "Orb"
+            {
+                "Priority"  "DOTA_ORB_PRIORITY_ABILITY"
+                "ProjectileName" "particles/units/heroes/hero_clinkz/clinkz_searing_arrow.vpcf"
+                "CastAttack"    "1" //This ensures the effect doesn't fire every time
+            }
+
+            "OnOrbFire"
+            {
+                "SpendMana"
+                {
+                    "Mana" "%AbilityManaCost"
+                }
+            }
+
+            "OnOrbImpact"
+            {
+
+               "Damage"
+               {
+                   "Type" "DAMAGE_TYPE_PHYSICAL"
+                   "Damage" "%bonus_damage"
+                   "Target" "TARGET"
+               }
+          }
+        }
+    }
+}    

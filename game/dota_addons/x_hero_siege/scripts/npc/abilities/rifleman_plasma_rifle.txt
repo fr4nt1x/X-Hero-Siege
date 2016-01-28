@@ -1,0 +1,115 @@
+"rifleman_plasma_rifle"
+{
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+    "MaxLevel"              "4"
+    "RequiredLevel"        "-1"
+    "LevelsBetweenUpgrades"  "3"
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastRange"  "600"
+    "AbilityManaCost"   "15"
+    "AbilityTextureName" "drow_ranger_frost_arrows"
+    "precache"
+    {
+        "particle"  "particles/econ/items/drow/drow_bow_monarch/drow_frost_arrow_monarch.vpcf"
+        "particle"  "particles/units/heroes/hero_zuus/zuus_static_field.vpcf"
+    }
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    { 
+        "01"
+        {
+            "var_type"  "FIELD_INTEGER"
+            "bonus_damage"  "125 250 500 1000"
+        }
+        "02"
+        {
+            "var_type"  "FIELD_INTEGER"
+            "radius"  "150 175 200 225"
+        }
+    }
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "Modifiers"
+    { 
+        "modifier_orb_plasma_rifle"
+        {
+            "Passive"   "1"
+            "IsHidden"  "1"
+            "Orb"
+            {
+                "Priority"  "DOTA_ORB_PRIORITY_ABILITY"
+                "ProjectileName" "particles/econ/items/drow/drow_bow_monarch/drow_frost_arrow_monarch.vpcf"
+                "CastAttack"    "1" //This ensures the effect doesn't fire every time
+            }
+
+            "OnOrbFire"
+            {
+                "SpendMana"
+                {
+                    "Mana" "%AbilityManaCost"
+                }
+            }
+
+            "OnOrbImpact"
+            {
+              "FireEffect"
+              {
+                "EffectName"        "particles/units/heroes/hero_zuus/zuus_static_field.vpcf"
+                "EffectAttachType"  "follow_origin"
+                "Target"
+                {
+                  "Center"    "TARGET"
+                  "Radius"   "%radius"
+                  "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                  "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                }
+              }
+               "Damage"
+              {
+                "Target"
+                {
+                  "Center"    "TARGET"
+                  "Radius"   "%radius"
+                  "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                  "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                }
+                "Type"      "DAMAGE_TYPE_PHYSICAL"
+                "Damage"    "(%attack_damage + %bonus_damage)/3"
+              }
+              "Damage"
+              {
+                "Target"
+                {
+                  "Center"    "TARGET"
+                  "Radius"   "2*%radius/3"
+                  "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                  "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                }
+                "Type"      "DAMAGE_TYPE_PHYSICAL"
+                "Damage"    "(%attack_damage + %bonus_damage)/3"
+              }
+              "Damage"
+              {
+                "Target"
+                {
+                  "Center"    "TARGET"
+                  "Radius"   "%radius/3"
+                  "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                  "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                }
+                "Type"      "DAMAGE_TYPE_PHYSICAL"
+                "Damage"    "(%attack_damage + %bonus_damage)/3"
+              }
+          }
+        }
+    }
+}    

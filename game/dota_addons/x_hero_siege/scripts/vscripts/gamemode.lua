@@ -56,7 +56,9 @@ local AbilitiesHeroes = {npc_dota_hero_antimage = "demonhunter_roar",
                     npc_dota_hero_lina="shandris_spell_resistance",
                     npc_dota_hero_omniknight = "arthas_player_cleave",
                     npc_dota_hero_elder_titan ="tauren_chieftain_roar",
-                    npc_dota_hero_brewmaster = "panda_ensnare"}
+                    npc_dota_hero_brewmaster = "panda_ensnare",
+                    npc_dota_hero_bane = "bane_player_command_aura",
+                    npc_dota_hero_sniper = "rifleman_rage"}
 --[[
   This function should be used to set up Async precache calls at the beginning of the gameplay.
 
@@ -168,7 +170,9 @@ function GameMode:OnHeroInGame(hero)
                               npc_dota_hero_lina = {{"shandris_lightning_attack_XX",2}},
                               npc_dota_hero_omniknight = {{"arthas_player_knights_armor_XX",5}},
                               npc_dota_hero_elder_titan ={{"tauren_reincarnate_XX",3},{"tauren_chieftain_shockwave_XX",0},{"tauren_chieftain_clap_XX",1}},
-                              npc_dota_hero_brewmaster ={{"panda_tornado_XX",3}}
+                              npc_dota_hero_brewmaster ={{"panda_tornado_XX",3}},
+                              npc_dota_hero_bane ={{"bane_player_rain_of_chaos_XX",1}},
+                              npc_dota_hero_sniper ={{"rifleman_laser_XX",4},{"rifleman_plasma_rifle_XX",1},{"rifleman_rocket_launcher_XX",0}}
                             }
   if  IsValidEntity(hero) and IsValidEntity(hero:GetPlayerOwner()) and hero:IsRealHero() and hero:GetTeam() == DOTA_TEAM_GOODGUYS then
     if difficulty == 1 then

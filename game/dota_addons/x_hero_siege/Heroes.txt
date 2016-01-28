@@ -39,15 +39,21 @@ IMPLEMENTED:
 
 	Shandris (Lina) 			LIGHTNING ATTACK !!
 	
-	Arthas													KNIGHTS ARMOR!!
+	Arthas						KNIGHTS ARMOR!!
+	
+	Tauren Chieftain			REINKARNATION!!
+	
+	Pandaren Brewmaster 		TORNADO!!
+
+	Banehallow					CHAOSREGEN (ARCHIMONDE)!!
+	
+	Rifleman					WEAPONS UPGRADE!!
 
 ############################################################################################
 IN WORKING PROGRESS
 ############################################################################################
 	
-	Tauren Chieftain										REINKARNATION
-	
-	Pandaren Brewmaster 									TORNADO		
+
 
 ############################################################################################
 NOT IMPLEMENTED:
@@ -55,21 +61,17 @@ NOT IMPLEMENTED:
 
 
 
-
-
 	Beastmaster 											TERROR WOLF
 
-	Pit Lord 												TODESFINGER
-
-						
+	Pit Lord 												TODESFINGER			
 
 	Kil'jaeden (shadow demon)								INFERNAL FALL
 
 	Marine 													SCHWARMRAKETEN
 
-	Rifleman												WEAPONS UPGRADE
 
-	Banehallow												CHAOSREGEN (ARCHIMONDE)
+
+
 
 	
 

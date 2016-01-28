@@ -1,4 +1,4 @@
-"archmage_frost_bolt"
+"bane_player_death_coil"
   {
     // General
     //-------------------------------------------------------------------------------------
@@ -6,7 +6,7 @@
     "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "MaxLevel"              "4"
     "LevelsBetweenUpgrades" "3"
-    "RequiredLevel"        "8"
+    "RequiredLevel"        "-1"
 
     // Stats
     //-------------------------------------------------------------------------------------
@@ -14,21 +14,15 @@
     "AbilityCooldown"  "15"
     "AbilityCastRange" "800"
     "AbilityManaCost"  "75 100 125 150"
-    "AbilityTextureName" "ancient_apparition_ice_vortex"
+    "AbilityTextureName" "abaddon_death_coil"
     "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
     "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityCastAnimation" "ACT_DOTA_CAST_ABILITY_5"
     "AbilityDamage" "1000 2500 5000 10000"
 
     "AbilitySpecial"
     {
       "01"
-      {
-        "var_type"      "FIELD_FLOAT"
-        "duration"      "2"
-      }
-      "02"
       {
         "var_type"      "FIELD_FLOAT"
         "projectile_speed"      "1200"
@@ -40,14 +34,14 @@
     { 
       "FireSound"
       {
-        "EffectName"  "Hero_Ancient_Apparition.IceVortexCast"
+        "EffectName"  "Hero_SkeletonKing.Hellfire_Blast"
         "Target"     "CASTER"
       }
 
       "TrackingProjectile"
       {
         "Target"             "TARGET"
-        "EffectName"    "particles/items2_fx/skadi_projectile.vpcf"
+        "EffectName"    "particles/units/heroes/hero_skeletonking/skeletonking_hellfireblast.vpcf"
         "Dodgeable"      "1"
         "ProvidesVision"  "0"
         "MoveSpeed"          "%projectile_speed"
@@ -57,6 +51,11 @@
 
     "OnProjectileHitUnit"
     {
+      "FireSound"
+      {
+        "EffectName"  "Hero_SkeletonKing.Hellfire_BlastImpact"
+        "Target"     "TARGET"
+      }
       "DeleteOnHit"  "1"
       "Damage"
       {
@@ -64,16 +63,11 @@
         "Type"      "DAMAGE_TYPE_MAGICAL"
         "Damage"    "%AbilityDamage"
       }
-      "Stun"
-      {
-        "Duration"   "%duration"
-        "Target"    "TARGET"
-      }
     }
 
     "precache"
     {
-      "particle"  "particles/items2_fx/skadi_projectile.vpcf"
-      "soundfile" "soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
+      "particle"  "particles/units/heroes/hero_skeletonking/skeletonking_hellfireblast.vpcf"
+      "soundfile" "soundevents/game_sounds_heroes/game_sounds_skeletonking.vsndevts"
     }
   }

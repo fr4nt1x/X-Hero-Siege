@@ -1,0 +1,45 @@
+"rifleman_shield"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"       "ability_datadriven"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+    "AbilityTextureName"      "sven_warcry"
+    "MaxLevel"             "4"
+    "RequiredLevel"        "8"
+    "LevelsBetweenUpgrades" "2"
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "incoming_damage_physical_reduction"  "-10 -20 -30 -40"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_INTEGER"
+        "armor_bonus"     "10 20 40 80"
+      }
+    }
+
+    "precache"
+    {
+    }
+
+     "Modifiers"
+    {
+      "modifier_rifleman_shield"
+      {
+        "Passive"       "1"
+        "IsHidden"      "1"
+        "IsBuff"      "1"
+          "Properties"
+          {
+            "MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE" "%incoming_damage_physical_reduction"
+            "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
+          }
+        }
+    }
+  }

@@ -90,11 +90,11 @@ function GameMode:OnGameRulesStateChange(keys)
       print(category .. ": " .. highest_key)
     end
     
-    print(GetMapName())
     if GetMapName() == "herosiege_extreme" then
       GameRules:SetCustomGameDifficulty(4)
     end
   end
+
 end
 
 function GameMode:OnSettingVote(keys)
@@ -259,7 +259,9 @@ end
                               npc_dota_hero_lina = {{"shandris_lightning_attack_XX",2}},
                               npc_dota_hero_omniknight = {{"arthas_player_knights_armor_XX",5}},
                               npc_dota_hero_elder_titan ={{"tauren_reincarnate_XX",3},{"tauren_chieftain_shockwave_XX",0},{"tauren_chieftain_clap_XX",1}},
-                              npc_dota_hero_brewmaster ={{"panda_tornado_XX",3}}
+                              npc_dota_hero_brewmaster ={{"panda_tornado_XX",3}},
+                              npc_dota_hero_bane ={{"bane_player_rain_of_chaos_XX",1}},
+                              npc_dota_hero_sniper ={{"rifleman_laser_XX",4},{"rifleman_plasma_rifle_XX",1},{"rifleman_rocket_launcher_XX",0}}
                             }
 --]]
 -- A player leveled up
@@ -303,7 +305,11 @@ if level == 20 then
         Notifications:Top(hero:GetPlayerOwnerID(), {text="Try holding ALT while hovering over your level 20 ability.", duration=5, style={color="red"}})
         hero:AddAbility(ability[1])
         hero:UpgradeAbility(hero:FindAbilityByName(ability[1]))
-        hero:SwapAbilities(hero:GetAbilityByIndex(ability[2]):GetName(),ability[1],true,true)
+        local oldab = hero:GetAbilityByIndex(ability[2])
+        if oldab:GetAutoCastState() then 
+          oldab:ToggleAutoCast()
+        end
+        hero:SwapAbilities(oldab:GetName(),ability[1],true,true)
       end
     end 
   end--]]

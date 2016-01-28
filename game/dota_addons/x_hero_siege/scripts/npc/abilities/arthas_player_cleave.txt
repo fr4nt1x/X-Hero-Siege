@@ -23,13 +23,12 @@
         "01"
         {
             "var_type"              "FIELD_INTEGER"
-            "great_cleave_radius"   "180.0"
+            "radius_full"   "180.0"
         }
-        
         "02"
         {
             "var_type"              "FIELD_INTEGER"
-            "great_cleave_damage"   "100"
+            "radius_half"   "300.0"
         }
     }
 
@@ -42,12 +41,37 @@
 
             "OnAttackLanded"
             {
-                "CleaveAttack"
+                "FireEffect"
                 {
-                    "CleavePercent"     "%great_cleave_damage"
-                    "CleaveRadius"      "%great_cleave_radius"
-                    "CleaveEffect"      "particles/units/heroes/hero_sven/sven_spell_great_cleave.vpcf"
+                    "EffectName"        "particles/units/heroes/hero_sven/sven_spell_great_cleave.vpcf"
+                    "EffectAttachType"  "follow_origin"
+                    "Target"            "TARGET"
                 }
+                "Damage"
+                {
+                    "Target"
+                    {
+                        "Center"      "TARGET"
+                        "Radius"     "%radius_half"
+                        "Teams"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                        "Types"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                    }
+                    "Type"            "DAMAGE_TYPE_PHYSICAL"
+                    "Damage"        "%attack_damage/2"
+                }
+                "Damage"
+                {
+                    "Target"
+                    {
+                        "Center"      "TARGET"
+                        "Radius"     "%radius_full"
+                        "Teams"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                        "Types"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+                    }
+                    "Type"            "DAMAGE_TYPE_PHYSICAL"
+                    "Damage"        "%attack_damage/2"
+                }
+                
             }
         }
     }
