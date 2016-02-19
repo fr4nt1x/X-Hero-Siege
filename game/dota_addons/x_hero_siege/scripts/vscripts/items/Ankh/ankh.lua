@@ -35,7 +35,7 @@ function shield( event )
 	local position = hero:GetAbsOrigin()
 	local respawntime = ability:GetSpecialValueFor("reincarnation_time")
 
-	if hero:IsRealHero() and hero.ankh_respawn then
+	if hero:IsRealHero() and not hero.ankh_respawn then
 
 		hero:SetRespawnsDisabled(true)
 		
