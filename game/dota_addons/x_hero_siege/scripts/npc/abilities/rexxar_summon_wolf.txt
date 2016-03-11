@@ -1,0 +1,68 @@
+"rexxar_summon_wolf"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "MaxLevel"              "4"
+    "RequiredLevel"        "-1"
+    "LevelsBetweenUpgrades" "3"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.5"
+    "AbilityCooldown"  "15"
+    "AbilityManaCost"  "100 100 100 100"
+    "AbilityTextureName" "lycan_summon_wolves"
+
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+        {
+          "var_type" "FIELD_FLOAT"
+          "duration" "60 60 60 60"
+        }
+        "02"
+        {
+          "var_type" "FIELD_INTEGER"
+          "units" "2 2 2 4"
+        }
+    }
+
+    "precache"
+    {
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "heroes/rexxar/summon_wolfs.lua"
+        "Function"    "spawn_wolf"
+      }
+    }
+    
+    "Modifiers"
+    {
+      "modifier_wolf"
+      {
+        "Passive"      "0"
+        "IsHidden"      "1"
+        "IsDebuff"      "0"
+
+        "OnDestroy"
+          {
+            "RunScript"
+            {
+              "ScriptFile"  "heroes/rexxar/summon_wolfs.lua"
+              "Function"    "despawn_servant"
+            }
+          }    
+      }
+    }
+  }

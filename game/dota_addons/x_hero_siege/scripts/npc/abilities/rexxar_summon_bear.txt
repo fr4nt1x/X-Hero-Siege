@@ -1,0 +1,68 @@
+"rexxar_summon_bear"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "MaxLevel"              "4"
+    "RequiredLevel"        "-1"
+    "LevelsBetweenUpgrades" "3"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.5"
+    "AbilityCooldown"  "40"
+    "AbilityManaCost"  "125 125 125 125"
+    "AbilityTextureName" "lone_druid_spirit_bear"
+
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+        {
+          "var_type" "FIELD_FLOAT"
+          "duration" "70 70 70 70"
+        }
+        "02"
+        {
+          "var_type" "FIELD_INTEGER"
+          "units" "1 1 1 2"
+        }
+    }
+
+    "precache"
+    {
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "heroes/rexxar/summon_bear.lua"
+        "Function"    "spawn_servant"
+      }
+
+    }
+    "Modifiers"
+    {
+      "modifier_bear"
+      {
+        "Passive"      "0"
+        "IsHidden"      "1"
+        "IsDebuff"      "0"
+
+        "OnDestroy"
+          {
+            "RunScript"
+            {
+              "ScriptFile"  "heroes/rexxar/summon_bear.lua"
+              "Function"    "despawn_servant"
+            }
+          }    
+      }
+    }
+  }

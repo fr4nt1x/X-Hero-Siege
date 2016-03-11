@@ -1,0 +1,64 @@
+"rexxar_aura_of_thorns"
+  {
+    // General
+    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"       "ability_datadriven"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+    "AbilityTextureName"      "nyx_assassin_spiked_carapace"
+    "MaxLevel"             "4"
+    "RequiredLevel"        "-1"
+    "LevelsBetweenUpgrades" "3"
+
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "damage_return_factor"  "0.1 0.2 0.3 0.4"
+      }
+      "02"
+      {
+        "var_type"        "FIELD_FLOAT"
+        "radius"  "400 400 400 400"
+      }
+    }
+
+    "precache"
+    {
+    }
+
+     "Modifiers"
+    {
+     "modifier_thorns_aura"
+     {
+        "Passive"       "1"
+        "IsHidden"      "1"
+        "IsBuff"      "1"
+
+        "Aura"        "modifier_thorns_buff"
+        "Aura_Radius"     "%radius"
+        "Aura_Teams"    "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "Aura_Types"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+     }
+
+      "modifier_thorns_buff"
+      {
+        "Passive"       "0"
+        "IsHidden"      "1"
+        "IsBuff"      "1"
+        
+         "OnAttacked"
+          // "%attack_damage" is set to the damage value after mitigation
+          {
+            "RunScript"
+            {
+              "ScriptFile"  "heroes/hero_crypt_lord/spiked_carapace.lua"
+              "Function"    "return_damage"
+              "Attack_Damage" "%attack_damage"
+            }
+          }
+        }
+    }
+  }

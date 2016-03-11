@@ -1111,6 +1111,69 @@
 	    "VisionDaytimeRange"    "1800"                  // Range of vision at night time.
 	    "VisionNighttimeRange"    "1300"                  // Range of vision at night time.
 	}
+	
+	"npc_dota_hero_rexxar"
+		{
+			// General
+			//----------------------------------------------------------------
+			"override_hero"				"npc_dota_hero_beastmaster"	 //Add npc_dota_hero internal name
+			
+			// Abilities
+			//----------------------------------------------------------------
+			"Ability1"					"rexxar_summon_bear"	 //Reference: AInv
+			"Ability2"					"rexxar_summon_wolf"	 //Reference: Arsg
+			"Ability3"					"rexxar_summon_falcon"	 //Reference: Arsq
+			"Ability4"					"rexxar_aura_of_thorns"	 //Reference: ANsb
+			"Ability5"					"rexxar_stampede"	 //Reference: Arsp
+			"Ability6"					""	 //Reference: Aamk
+			
+			// Armor
+			//----------------------------------------------------------------
+			"ArmorPhysical"				"1"
+			"MagicalResistance"			"0"
+			
+			// Attack
+			//----------------------------------------------------------------
+			"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+			"AttackDamageMin"			"65.0"
+			"AttackDamageMax"			"72.0"
+			"AttackDamageType"			"DAMAGE_TYPE_PHYSICAL"
+			"AttackRate"				"1.8"
+			"AttackAnimationPoint"		"0.3"
+			"AttackAcquisitionRange"	"500"
+			"AttackRange"				"128"
+			
+			// Attributes
+			//----------------------------------------------------------------
+			"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
+			"AttributeBaseStrength"		"25"
+			"AttributeStrengthGain"		"2.9"
+			"AttributeBaseIntelligence"	"15"
+			"AttributeIntelligenceGain"	"2"
+			"AttributeBaseAgility"		"14"
+			"AttributeAgilityGain"		"1.3"
+			
+			
+			// Movement
+			//----------------------------------------------------------------
+			"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+			"MovementSpeed"				"315"
+			"MovementTurnRate"			"0.4"
+			
+			// Status
+			//----------------------------------------------------------------
+			"StatusHealth"				"500"
+			"StatusHealthRegen"			"10"
+			"StatusMana"				"200"
+			"StatusManaRegen"			"0"
+			
+			// Vision
+			//----------------------------------------------------------------
+			"VisionDaytimeRange"		"1800"
+			"VisionNighttimeRange"		"1300"
+			
+			// Team-----------------------------------------------------
+		}
 	"npc_dota_hero_rifleman"
 		{
 			// General

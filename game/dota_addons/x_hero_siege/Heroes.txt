@@ -53,7 +53,7 @@ IMPLEMENTED:
 IN WORKING PROGRESS
 ############################################################################################
 	
-
+	Beastmaster 											TERROR WOLF
 
 ############################################################################################
 NOT IMPLEMENTED:
@@ -61,7 +61,7 @@ NOT IMPLEMENTED:
 
 
 
-	Beastmaster 											TERROR WOLF
+
 
 	Pit Lord 												TODESFINGER			
 

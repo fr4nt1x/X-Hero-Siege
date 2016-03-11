@@ -1,0 +1,68 @@
+"rexxar_summon_falcon"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "MaxLevel"              "4"
+    "RequiredLevel"        "8"
+    "LevelsBetweenUpgrades" "3"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.5"
+    "AbilityCooldown"  "70"
+    "AbilityManaCost"  "50 50 50 50"
+    "AbilityTextureName" "beastmaster_call_of_the_wild_hawk"
+
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+        {
+          "var_type" "FIELD_FLOAT"
+          "duration" "70 70 70 70"
+        }
+        "02"
+        {
+          "var_type" "FIELD_INTEGER"
+          "units" "1 1 1 2"
+        }
+    }
+
+    "precache"
+    {
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "heroes/rexxar/summon_falcon.lua"
+        "Function"    "spawn_servant"
+      }
+
+    }
+    "Modifiers"
+    {
+      "modifier_falcon"
+      {
+        "Passive"      "0"
+        "IsHidden"      "1"
+        "IsDebuff"      "0"
+
+        "OnDestroy"
+          {
+            "RunScript"
+            {
+              "ScriptFile"  "heroes/rexxar/summon_falcon.lua"
+              "Function"    "despawn_servant"
+            }
+          }    
+      }
+    }
+  }

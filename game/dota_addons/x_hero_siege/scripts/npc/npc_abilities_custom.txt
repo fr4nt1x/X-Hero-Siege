@@ -8524,6 +8524,161 @@
 	      }
 	    }
 	  }
+	"rexxar_stampede"
+	  {
+	    // General
+	    //-------------------------------------------------------------------------------------
+	    "BaseClass" "ability_datadriven"
+	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE |  DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+	
+	    "MaxLevel"              "2"
+	    "RequiredLevel"        "10"
+	    "LevelsBetweenUpgrades" "5"
+	
+	    // Stats
+	    //-------------------------------------------------------------------------------------
+	    "AbilityCastPoint" "0.2"
+	    "AOERadius"         "%radius"
+	    "AbilityCooldown"  "120"
+	    "AbilityChannelTime"  "%channel_duration"
+	    "AbilityManaCost"  "500"
+	    "AbilityTextureName" "beastmaster_primal_roar"
+	    "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+	    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	
+	    "AbilitySpecial"
+	    {
+	      "01"
+	      {
+	        "var_type"      "FIELD_FLOAT"
+	        "damage_per_projectile"      "150 300"
+	      }
+	      "02"
+	      {
+	        "var_type"      "FIELD_INTEGER"
+	        "distance"      "900"
+	      }
+	      "03"
+	      {
+	        "var_type"      "FIELD_FLOAT"
+	        "speed"      "500"
+	      }
+	      "04"
+	      {
+	        "var_type"      "FIELD_FLOAT"
+	        "time_between_projectiles"      "0.1 0.1"
+	      }
+	      "05"
+	      {
+	        "var_type"      "FIELD_INTEGER"
+	        "projectiles_per_tick"      "1 2"
+	      }
+	      "06"
+	      {
+	        "var_type"      "FIELD_INTEGER"
+	        "radius_explosion"      "300 300"
+	      }
+	      "07"
+	      {
+	        "var_type"      "FIELD_INTEGER"
+	        "radius"      "1000"
+	      }
+	      "08"
+	      {
+	        "var_type"      "FIELD_FLOAT"
+	        "channel_duration"      "30.0 30.0"
+	      }
+	    }
+	
+	    "OnSpellStart"
+	    { 
+	      "ApplyModifier"
+	      {
+	        "ModifierName"  "modifier_elemental_wave_channelling"
+	        "Target"     "CASTER"
+	      }
+	      "ApplyModifier"
+	      {
+	        "ModifierName"  "modifier_spawn_elementals"
+	        "Target"     "CASTER"
+	      }
+	    }
+	    "OnProjectileHitUnit"
+	    {
+	      "DeleteOnHit"  "1"
+	      "Damage"
+	      {
+	
+	        "Target"
+	        {
+	          "Center"    "TARGET"
+	          "Radius"   "%radius_explosion"
+	          "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	          "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	        }
+	        "Type"      "DAMAGE_TYPE_MAGICAL"
+	        "Damage"    "%damage_per_projectile"
+	      }
+	    }
+	
+	    "OnChannelFinish"
+	    {
+	      "RemoveModifier"
+	      {
+	        "ModifierName"  "modifier_elemental_wave_channelling"
+	        "Target"     "CASTER"
+	      }
+	      "RemoveModifier"
+	      {
+	        "ModifierName"  "modifier_spawn_elementals"
+	        "Target"     "CASTER"
+	      }
+	    }
+	
+	    "Modifiers"
+	      {
+	          "modifier_elemental_wave_channelling"
+	          {
+	            "IsHidden"      "1"
+	            "ThinkInterval"   "5.39"
+	            "OnIntervalThink"
+	            {
+	              "RunScript"
+	              {
+	                "ScriptFile"  "heroes/channeling.lua"
+	                "Function"    "ApplyAnimation"
+	                "duration"    "5.3"
+	              }
+	            }
+	          }
+	
+	        "modifier_channeling"
+	        {
+	          "IsHidden"        "1"
+	          "OverrideAnimation"     "ACT_DOTA_CAST_ABILITY_4"
+	        }
+	        "modifier_spawn_bulls" 
+	        {
+	          "IsHidden" "1"
+	          "ThinkInterval"  "%time_between_projectiles"
+	          "OnIntervalThink"
+	          {
+	            "RunScript"
+	            {
+	              "ScriptFile"  "heroes/rexxar/stampede.lua"
+	              "Function"    "create_projectile"
+	            }
+	          }
+	        }
+	      }
+	
+	
+	    "precache"
+	    {
+	      "particle"  "particles/units/heroes/hero_jaina/jaina_elemental_wave_elemental.vpcf"
+	    }
+	  }
 	"jaina_elemental_wave"
 	  {
 	    // General
@@ -14520,6 +14675,429 @@
 	            "Function"    "drop_ring"
 	          }
 	        }
+	      }
+	    }
+	  }
+	"rexxar_aura_of_thorns"
+	  {
+	    // General
+	    //-------------------------------------------------------------------------------------------------------------
+	    "BaseClass"       "ability_datadriven"
+	    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+	    "AbilityTextureName"      "nyx_assassin_spiked_carapace"
+	    "MaxLevel"             "4"
+	    "RequiredLevel"        "-1"
+	    "LevelsBetweenUpgrades" "3"
+	
+	    "AbilitySpecial"
+	    {
+	      "01"
+	      {
+	        "var_type"        "FIELD_FLOAT"
+	        "damage_return_factor"  "0.1 0.2 0.3 0.4"
+	      }
+	      "02"
+	      {
+	        "var_type"        "FIELD_FLOAT"
+	        "radius"  "400 400 400 400"
+	      }
+	    }
+	
+	    "precache"
+	    {
+	    }
+	
+	     "Modifiers"
+	    {
+	     "modifier_thorns_aura"
+	     {
+	        "Passive"       "1"
+	        "IsHidden"      "1"
+	        "IsBuff"      "1"
+	
+	        "Aura"        "modifier_thorns_buff"
+	        "Aura_Radius"     "%radius"
+	        "Aura_Teams"    "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	        "Aura_Types"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	     }
+	
+	      "modifier_thorns_buff"
+	      {
+	        "Passive"       "0"
+	        "IsHidden"      "1"
+	        "IsBuff"      "1"
+	        
+	         "OnAttacked"
+	          // "%attack_damage" is set to the damage value after mitigation
+	          {
+	            "RunScript"
+	            {
+	              "ScriptFile"  "heroes/hero_crypt_lord/spiked_carapace.lua"
+	              "Function"    "return_damage"
+	              "Attack_Damage" "%attack_damage"
+	            }
+	          }
+	        }
+	    }
+	  }
+	"rexxar_stampede"
+	  {
+	    // General
+	    //-------------------------------------------------------------------------------------
+	    "BaseClass" "ability_datadriven"
+	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE |  DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+	
+	    "MaxLevel"              "2"
+	    "RequiredLevel"        "10"
+	    "LevelsBetweenUpgrades" "5"
+	
+	    // Stats
+	    //-------------------------------------------------------------------------------------
+	    "AbilityCastPoint" "0.2"
+	    "AOERadius"         "%radius"
+	    "AbilityCooldown"  "120"
+	    "AbilityChannelTime"  "%channel_duration"
+	    "AbilityManaCost"  "500"
+	    "AbilityTextureName" "beastmaster_primal_roar"
+	    "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+	    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	
+	    "AbilitySpecial"
+	    {
+	      "01"
+	      {
+	        "var_type"      "FIELD_FLOAT"
+	        "damage_per_projectile"      "150 300"
+	      }
+	      "02"
+	      {
+	        "var_type"      "FIELD_INTEGER"
+	        "distance"      "900"
+	      }
+	      "03"
+	      {
+	        "var_type"      "FIELD_FLOAT"
+	        "speed"      "500"
+	      }
+	      "04"
+	      {
+	        "var_type"      "FIELD_FLOAT"
+	        "time_between_projectiles"      "0.1 0.1"
+	      }
+	      "05"
+	      {
+	        "var_type"      "FIELD_INTEGER"
+	        "projectiles_per_tick"      "1 2"
+	      }
+	      "06"
+	      {
+	        "var_type"      "FIELD_INTEGER"
+	        "radius_explosion"      "300 300"
+	      }
+	      "07"
+	      {
+	        "var_type"      "FIELD_INTEGER"
+	        "radius"      "1000"
+	      }
+	      "08"
+	      {
+	        "var_type"      "FIELD_FLOAT"
+	        "channel_duration"      "30.0 30.0"
+	      }
+	    }
+	
+	    "OnSpellStart"
+	    { 
+	      "ApplyModifier"
+	      {
+	        "ModifierName"  "modifier_elemental_wave_channelling"
+	        "Target"     "CASTER"
+	      }
+	      "ApplyModifier"
+	      {
+	        "ModifierName"  "modifier_spawn_bulls"
+	        "Target"     "CASTER"
+	      }
+	    }
+	    "OnProjectileHitUnit"
+	    {
+	      "DeleteOnHit"  "1"
+	      "Damage"
+	      {
+	
+	        "Target"
+	        {
+	          "Center"    "TARGET"
+	          "Radius"   "%radius_explosion"
+	          "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	          "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	        }
+	        "Type"      "DAMAGE_TYPE_MAGICAL"
+	        "Damage"    "%damage_per_projectile"
+	      }
+	    }
+	
+	    "OnChannelFinish"
+	    {
+	      "RemoveModifier"
+	      {
+	        "ModifierName"  "modifier_elemental_wave_channelling"
+	        "Target"     "CASTER"
+	      }
+	      "RemoveModifier"
+	      {
+	        "ModifierName"  "modifier_spawn_bulls"
+	        "Target"     "CASTER"
+	      }
+	    }
+	
+	    "Modifiers"
+	      {
+	          "modifier_elemental_wave_channelling"
+	          {
+	            "IsHidden"      "1"
+	            "ThinkInterval"   "1"
+	            "OnIntervalThink"
+	            {
+	              "RunScript"
+	              {
+	                "ScriptFile"  "heroes/channeling.lua"
+	                "Function"    "ApplyAnimation"
+	                "duration"    "0.9"
+	              }
+	            }
+	          }
+	
+	        "modifier_channeling"
+	        {
+	          "IsHidden"        "1"
+	          "OverrideAnimation"     "ACT_DOTA_CAST_ABILITY_4"
+	        }
+	        "modifier_spawn_bulls" 
+	        {
+	          "IsHidden" "1"
+	          "ThinkInterval"  "%time_between_projectiles"
+	          "OnIntervalThink"
+	          {
+	            "RunScript"
+	            {
+	              "ScriptFile"  "heroes/rexxar/stampede.lua"
+	              "Function"    "create_projectile"
+	            }
+	          }
+	        }
+	      }
+	
+	
+	    "precache"
+	    {
+	      "particle"  "particles/units/heroes/rexxar_stampedejaina/rexxar_stampede.vpcf"
+	    }
+	  }
+	"rexxar_summon_bear"
+	  {
+	    // General
+	    //-------------------------------------------------------------------------------------
+	    "BaseClass" "ability_datadriven"
+	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	    "MaxLevel"              "4"
+	    "RequiredLevel"        "-1"
+	    "LevelsBetweenUpgrades" "3"
+	
+	    // Stats
+	    //-------------------------------------------------------------------------------------
+	    "AbilityCastPoint" "0.5"
+	    "AbilityCooldown"  "40"
+	    "AbilityManaCost"  "125 125 125 125"
+	    "AbilityTextureName" "lone_druid_spirit_bear"
+	
+	
+	    // Special
+	    //-------------------------------------------------------------------------------------
+	    "AbilitySpecial"
+	    {
+	      "01"
+	        {
+	          "var_type" "FIELD_FLOAT"
+	          "duration" "70 70 70 70"
+	        }
+	        "02"
+	        {
+	          "var_type" "FIELD_INTEGER"
+	          "units" "1 1 1 2"
+	        }
+	    }
+	
+	    "precache"
+	    {
+	    }
+	
+	    // Data Driven
+	    //-------------------------------------------------------------------------------------
+	    "OnSpellStart"
+	    {
+	      "RunScript"
+	      {
+	        "ScriptFile"  "heroes/rexxar/summon_bear.lua"
+	        "Function"    "spawn_servant"
+	      }
+	
+	    }
+	    "Modifiers"
+	    {
+	      "modifier_bear"
+	      {
+	        "Passive"      "0"
+	        "IsHidden"      "1"
+	        "IsDebuff"      "0"
+	
+	        "OnDestroy"
+	          {
+	            "RunScript"
+	            {
+	              "ScriptFile"  "heroes/rexxar/summon_bear.lua"
+	              "Function"    "despawn_servant"
+	            }
+	          }    
+	      }
+	    }
+	  }
+	"rexxar_summon_falcon"
+	  {
+	    // General
+	    //-------------------------------------------------------------------------------------
+	    "BaseClass" "ability_datadriven"
+	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	    "MaxLevel"              "4"
+	    "RequiredLevel"        "8"
+	    "LevelsBetweenUpgrades" "3"
+	
+	    // Stats
+	    //-------------------------------------------------------------------------------------
+	    "AbilityCastPoint" "0.5"
+	    "AbilityCooldown"  "70"
+	    "AbilityManaCost"  "50 50 50 50"
+	    "AbilityTextureName" "beastmaster_call_of_the_wild_hawk"
+	
+	
+	    // Special
+	    //-------------------------------------------------------------------------------------
+	    "AbilitySpecial"
+	    {
+	      "01"
+	        {
+	          "var_type" "FIELD_FLOAT"
+	          "duration" "70 70 70 70"
+	        }
+	        "02"
+	        {
+	          "var_type" "FIELD_INTEGER"
+	          "units" "1 1 1 2"
+	        }
+	    }
+	
+	    "precache"
+	    {
+	    }
+	
+	    // Data Driven
+	    //-------------------------------------------------------------------------------------
+	    "OnSpellStart"
+	    {
+	      "RunScript"
+	      {
+	        "ScriptFile"  "heroes/rexxar/summon_falcon.lua"
+	        "Function"    "spawn_servant"
+	      }
+	
+	    }
+	    "Modifiers"
+	    {
+	      "modifier_falcon"
+	      {
+	        "Passive"      "0"
+	        "IsHidden"      "1"
+	        "IsDebuff"      "0"
+	
+	        "OnDestroy"
+	          {
+	            "RunScript"
+	            {
+	              "ScriptFile"  "heroes/rexxar/summon_falcon.lua"
+	              "Function"    "despawn_servant"
+	            }
+	          }    
+	      }
+	    }
+	  }
+	"rexxar_summon_wolf"
+	  {
+	    // General
+	    //-------------------------------------------------------------------------------------
+	    "BaseClass" "ability_datadriven"
+	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	    "MaxLevel"              "4"
+	    "RequiredLevel"        "-1"
+	    "LevelsBetweenUpgrades" "3"
+	
+	    // Stats
+	    //-------------------------------------------------------------------------------------
+	    "AbilityCastPoint" "0.5"
+	    "AbilityCooldown"  "15"
+	    "AbilityManaCost"  "100 100 100 100"
+	    "AbilityTextureName" "lycan_summon_wolves"
+	
+	
+	    // Special
+	    //-------------------------------------------------------------------------------------
+	    "AbilitySpecial"
+	    {
+	      "01"
+	        {
+	          "var_type" "FIELD_FLOAT"
+	          "duration" "60 60 60 60"
+	        }
+	        "02"
+	        {
+	          "var_type" "FIELD_INTEGER"
+	          "units" "2 2 2 4"
+	        }
+	    }
+	
+	    "precache"
+	    {
+	    }
+	
+	    // Data Driven
+	    //-------------------------------------------------------------------------------------
+	    "OnSpellStart"
+	    {
+	      "RunScript"
+	      {
+	        "ScriptFile"  "heroes/rexxar/summon_wolfs.lua"
+	        "Function"    "spawn_wolf"
+	      }
+	    }
+	    
+	    "Modifiers"
+	    {
+	      "modifier_wolf"
+	      {
+	        "Passive"      "0"
+	        "IsHidden"      "1"
+	        "IsDebuff"      "0"
+	
+	        "OnDestroy"
+	          {
+	            "RunScript"
+	            {
+	              "ScriptFile"  "heroes/rexxar/summon_wolfs.lua"
+	              "Function"    "despawn_servant"
+	            }
+	          }    
 	      }
 	    }
 	  }
