@@ -88,6 +88,7 @@ function Precache( context )
   PrecacheUnitByNameSync("npc_polar_bear_I", context)
   PrecacheUnitByNameSync("npc_polar_bear_II", context)
   PrecacheUnitByNameSync("npc_polar_bear_III", context)
+  PrecacheUnitByNameSync("npc_boar", context)
   
   PrecacheUnitByNameSync("npc_falcon_I", context)
   PrecacheUnitByNameSync("npc_falcon_II", context)

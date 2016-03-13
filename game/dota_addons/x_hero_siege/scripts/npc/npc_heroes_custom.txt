@@ -1117,7 +1117,7 @@
 			// General
 			//----------------------------------------------------------------
 			"override_hero"				"npc_dota_hero_beastmaster"	 //Add npc_dota_hero internal name
-			
+			"AbilityLayout"		"6"
 			// Abilities
 			//----------------------------------------------------------------
 			"Ability1"					"rexxar_summon_bear"	 //Reference: AInv

@@ -24,7 +24,7 @@
 			m_bIgnoreNormal = true
 			m_ActivityName = "ACT_DOTA_RUN"
 			m_bAnimated = true
-			m_flAnimationRate = 20.000000
+			m_flAnimationRate = 40.000000
 		},
 	]
 	m_Operators =

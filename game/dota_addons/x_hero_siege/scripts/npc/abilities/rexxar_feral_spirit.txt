@@ -1,0 +1,67 @@
+"rexxar_feral_spirit"
+  {
+    // General
+    //-------------------------------------------------------------------------------------
+    "BaseClass" "ability_datadriven"
+    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "MaxLevel"              "1"
+    "RequiredLevel"        "-1"
+
+    // Stats
+    //-------------------------------------------------------------------------------------
+    "AbilityCastPoint" "0.5"
+    "AbilityCooldown"  "30"
+    "AbilityManaCost"  "125"
+    "AbilityTextureName" "beastmaster_call_of_the_wild_boar"
+
+
+    // Special
+    //-------------------------------------------------------------------------------------
+    "AbilitySpecial"
+    {
+      "01"
+        {
+          "var_type" "FIELD_FLOAT"
+          "duration" "60"
+        }
+        "02"
+        {
+          "var_type" "FIELD_INTEGER"
+          "units" "1"
+        }
+    }
+
+    "precache"
+    {
+    }
+
+    // Data Driven
+    //-------------------------------------------------------------------------------------
+    "OnSpellStart"
+    {
+      "RunScript"
+      {
+        "ScriptFile"  "heroes/rexxar/summon_boar.lua"
+        "Function"    "spawn_servant"
+      }
+
+    }
+    "Modifiers"
+    {
+      "modifier_boar"
+      {
+        "Passive"      "0"
+        "IsHidden"      "1"
+        "IsDebuff"      "0"
+
+        "OnDestroy"
+          {
+            "RunScript"
+            {
+              "ScriptFile"  "heroes/rexxar/summon_boar.lua"
+              "Function"    "despawn_servant"
+            }
+          }    
+      }
+    }
+  }

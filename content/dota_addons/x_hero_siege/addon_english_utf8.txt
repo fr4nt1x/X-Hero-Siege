@@ -1,4 +1,29 @@
-﻿"lang"
+﻿		// DOTA 2 MODKIT GENERATED TOOLTIPS FOR: x_hero_siege
+		// Keys already defined in addon_english.txt are not listed, nor are Modifiers with the property "IsHidden" "1".
+
+		// ******************** HEROES ********************
+
+
+		// ******************** UNITS ********************
+		"npc_boar"                                                                        "Boar"
+		"npc_falcon_I"                                                                    "Falcon I"
+		"npc_falcon_II"                                                                   "Falcon II"
+		"npc_falcon_III"                                                                  "Falcon III"
+		"npc_polar_bear_I"                                                                "Polar Bear I"
+		"npc_polar_bear_II"                                                               "Polar Bear II"
+		"npc_polar_bear_III"                                                              "Polar Bear III"
+		"npc_spirit_wolf_I"                                                               "Spirit Wolf I"
+		"npc_spirit_wolf_II"                                                              "Spirit Wolf II"
+		"npc_spirit_wolf_III"                                                             "Spirit Wolf III"
+
+		"DOTA_Tooltip_modifier_terrorwolf"                                                "Terrorwolf"
+		"DOTA_Tooltip_modifier_terrorwolf_Description"                                    ""
+
+
+
+
+
+"lang"
 {
 	"Language"		"English"
 	"Tokens"
@@ -30,14 +55,15 @@
 		"npc_dota_hero_brewmaster"                                                        "Pandaren Brewmaster"
 		"npc_dota_hero_omniknight"                                                        "Arthas"
 		"npc_dota_hero_elder_titan"                                                       "Tauren Chieftain"
-
+		"npc_dota_hero_beastmaster"                                                       "Rexxar"
 		// ******************** UNITS ********************
 		"npc_panda_tornado"                                                               "Tornado"
+		"npc_dota_hero_rexxar"                                                            "Rexxar"
 		"npc_dota_hero_panda_brewmaster"                                                  "Pandaren Brewmaster"
 		"npc_dota_hero_player_arthas"                                                     "Arthas"
 		"npc_dota_hero_tauren_chieftain"                                                  "Tauren Chieftain"
-		// ******************** UNITS ********************
-
+		"npc_dota_hero_bane"                                                              "Banehallow"
+		"npc_dota_hero_sniper"                                                            "Rifleman"
 		"npc_dota_hero_blademaster"                                                       "Blademaster"
 		"npc_dota_hero_crypt_lord"                                                        "Crypt Lord"
 		"npc_dota_hero_demonhunter"                                                       "Demonhunter"
@@ -54,7 +80,8 @@
 		"npc_dota_hero_bloodmage"                                                         "Bloodmage"
 		"npc_dota_hero_dreadlord"                                                         "Dreadlord"
 		"npc_dota_hero_jaina"                                                             "Jaina"
-
+		"npc_dota_hero_player_banehallow"                                                 "Banehallow"
+		"npc_dota_hero_rifleman"                                                          "Rifleman"
 		"npc_dota_hero_shandris"                                                          "Shandris"
 
 		// ******************** UNITS ********************
@@ -195,7 +222,8 @@
 		"npc_sea_elemental_III"                                                           "Sea Elemental III"
 
 		// ******************** ABILITY MODIFIERS ********************
-
+		"DOTA_Tooltip_modifier_rifleman_rage"                                             "Rage"
+		"DOTA_Tooltip_modifier_rifleman_rage_Description"                                 "This unit has increased movement and attack speed."
 
 		"DOTA_Tooltip_modifier_light_frenzy"                                              "Light Frenzy"
 		"DOTA_Tooltip_modifier_light_frenzy_Description"                                  "This unit has increased attack and movementspeed and increased attack damage."
@@ -526,8 +554,8 @@
 
 		"DOTA_Tooltip_ability_arthas_player_cleave"                                       "Cleave"
 		"DOTA_Tooltip_ability_arthas_player_cleave_Description"                           "Arthas swings his hammer in an wide arc dealing cleave damage."
-		"DOTA_Tooltip_ability_arthas_player_cleave_great_cleave_radius"                   "CLEAVE RADIUS:"
-		"DOTA_Tooltip_ability_arthas_player_cleave_great_cleave_damage"                   "CLEAVE DAMAGE:"
+		"DOTA_Tooltip_ability_arthas_player_cleave_radius_full"                           "RADIUS FULL:"
+		"DOTA_Tooltip_ability_arthas_player_cleave_radius_half"                           "RADIUS HALF:"
 
 		"DOTA_Tooltip_ability_arthas_player_divine_shield"                                "Divine Shield"
 		"DOTA_Tooltip_ability_arthas_player_divine_shield_Description"                    "Arthas shields himself from any damage source."
@@ -604,6 +632,46 @@
 		"DOTA_Tooltip_ability_banehallow_tombs"                                           "Tomb"
 		"DOTA_Tooltip_ability_banehallow_tombs_Description"                               "The tomb gives Banehallow increased Health Regeneration as long as it is alive."
 		"DOTA_Tooltip_ability_banehallow_tombs_regen"                                     "%HP REGENERATION:"
+
+
+		"DOTA_Tooltip_ability_bane_player_command_aura"                                   "Command Aura"
+		"DOTA_Tooltip_ability_bane_player_command_aura_Description"                       "Increases the attack damage of nearby friendly units."
+		"DOTA_Tooltip_ability_bane_player_command_aura_bonus_damage_percentage"           "%BONUS DAMAGE PERCENTAGE:"
+		"DOTA_Tooltip_ability_bane_player_command_aura_radius"                            "RADIUS:"
+
+		"DOTA_Tooltip_ability_bane_player_critical"                                       "Critical Strike"
+		"DOTA_Tooltip_ability_bane_player_critical_Description"                           "Banehallow has a chance to deal critical damage on each attack."
+		"DOTA_Tooltip_ability_bane_player_critical_crit_mult"                             "CRITICAL DAMAGE:"
+		"DOTA_Tooltip_ability_bane_player_critical_crit_chance"                           "%CRITICAL CHANCE:"
+
+		"DOTA_Tooltip_ability_bane_player_death_coil"                                     "Death Coil"
+		"DOTA_Tooltip_ability_bane_player_death_coil_Description"                         "Banehallow hurls a bolt of darkness at an enemy dealing heavy damage on impact."
+		"DOTA_Tooltip_ability_bane_player_death_coil_projectile_speed"                    "PROJECTILE SPEED:"
+
+		"DOTA_Tooltip_ability_bane_player_permanent_immolation"                           "Permanent Immolation"
+		"DOTA_Tooltip_ability_bane_player_permanent_immolation_Description"               "Banehallow is engulfed in flames damaging foes near him."
+		"DOTA_Tooltip_ability_bane_player_permanent_immolation_radius"                    "RADIUS:"
+		"DOTA_Tooltip_ability_bane_player_permanent_immolation_damage_per_tick"           "DAMAGE PER TICK:"
+
+		"DOTA_Tooltip_ability_bane_player_rain_of_chaos_XX"                               "Rain Of Chaos"
+		"DOTA_Tooltip_ability_bane_player_rain_of_chaos_XX_Description"                   "Banehallow causes meteors to rain from the sky. These explode on impact dealing damage to enemies."
+		"DOTA_Tooltip_ability_bane_player_rain_of_chaos_XX_damage_per_unit"               "DAMAGE PER UNIT:"
+		"DOTA_Tooltip_ability_bane_player_rain_of_chaos_XX_radius"                        "RADIUS:"
+		"DOTA_Tooltip_ability_bane_player_rain_of_chaos_XX_stun_duration"                 "STUN DURATION:"
+		"DOTA_Tooltip_ability_bane_player_rain_of_chaos_XX_time_between_meteors"          "TIME BETWEEN METEORS:"
+		"DOTA_Tooltip_ability_bane_player_rain_of_chaos_XX_radius_explosion"              "RADIUS EXPLOSION:"
+		"DOTA_Tooltip_ability_bane_player_rain_of_chaos_XX_channel_duration"              "CHANNEL DURATION:"
+		"DOTA_Tooltip_ability_bane_player_rain_of_chaos_XX_Note0"                         "Rain Of Chaos: Banehallow is engulfed in flames damaging foes near him."
+
+		"DOTA_Tooltip_ability_bane_player_stampede"                                       "Stampede"
+		"DOTA_Tooltip_ability_bane_player_stampede_Description"                           "Banehallow channels to cause a stampede of ghosts to damage enemies hit."
+		"DOTA_Tooltip_ability_bane_player_stampede_damage_per_skull"                      "DAMAGE PER SKULL:"
+		"DOTA_Tooltip_ability_bane_player_stampede_distance"                              "DISTANCE:"
+		"DOTA_Tooltip_ability_bane_player_stampede_speed"                                 "SPEED:"
+		"DOTA_Tooltip_ability_bane_player_stampede_time_between_skulls"                   "TIME BETWEEN SKULLS:"
+		"DOTA_Tooltip_ability_bane_player_stampede_skulls_per_tick"                       "SKULLS PER TICK:"
+		"DOTA_Tooltip_ability_bane_player_stampede_radius_skulls"                         "RADIUS SKULLS:"
+		"DOTA_Tooltip_ability_bane_player_stampede_radius"                                "RADIUS:"
 
 		"DOTA_Tooltip_ability_beasts_special_event"                                       "Beasts Special Event"
 		"DOTA_Tooltip_ability_beasts_special_event_Description"                           "Special event ability for Frost Infernal and Spirit Beast."
@@ -1345,6 +1413,108 @@
 
 		"DOTA_Tooltip_ability_ramero_baristal"                                            "Ramero Baristal"
 		"DOTA_Tooltip_ability_ramero_baristal_Description"                                "Drops items for the killer."
+
+		"DOTA_Tooltip_ability_rexxar_stampede"                                            "Stampede"
+		"DOTA_Tooltip_ability_rexxar_stampede_Description"                                "Channels wild thunderhides that stomp the field dealing damage to enemies in their wake."
+		"DOTA_Tooltip_ability_rexxar_stampede_damage_per_projectile"                      "DAMAGE:"
+		"DOTA_Tooltip_ability_rexxar_stampede_distance"                                   "DISTANCE:"
+		"DOTA_Tooltip_ability_rexxar_stampede_speed"                                      "SPEED:"
+		"DOTA_Tooltip_ability_rexxar_stampede_radius_explosion"                           "RADIUS EXPLOSION:"
+		"DOTA_Tooltip_ability_rexxar_stampede_radius"                                     "RADIUS:"
+		"DOTA_Tooltip_ability_rexxar_stampede_channel_duration"                           "CHANNEL DURATION:"
+
+		"DOTA_Tooltip_ability_rexxar_aura_of_thorns"                                      "Aura Of Thorns"
+		"DOTA_Tooltip_ability_rexxar_aura_of_thorns_Description"                          "Protects nearby friendly units with thorns, causing them to return a portion of damage taken to their attacker."
+		"DOTA_Tooltip_ability_rexxar_aura_of_thorns_damage_return_factor"                 "DAMAGE RETURN FACTOR:"
+		"DOTA_Tooltip_ability_rexxar_aura_of_thorns_radius"                               "RADIUS:"
+
+		"DOTA_Tooltip_ability_rexxar_feral_spirit"                                        "Rexxar Feral Spirit"
+		"DOTA_Tooltip_ability_rexxar_feral_spirit_Description"                            ""
+		"DOTA_Tooltip_ability_rexxar_feral_spirit_duration"                               "DURATION:"
+		"DOTA_Tooltip_ability_rexxar_feral_spirit_units"                                  "UNITS:"
+
+		"DOTA_Tooltip_ability_rexxar_stampede"                                            "Rexxar Stampede"
+		"DOTA_Tooltip_ability_rexxar_stampede_Description"                                ""
+		"DOTA_Tooltip_ability_rexxar_stampede_damage_per_projectile"                      "DAMAGE PER PROJECTILE:"
+		"DOTA_Tooltip_ability_rexxar_stampede_distance"                                   "DISTANCE:"
+		"DOTA_Tooltip_ability_rexxar_stampede_speed"                                      "SPEED:"
+		"DOTA_Tooltip_ability_rexxar_stampede_time_between_projectiles"                   "TIME BETWEEN PROJECTILES:"
+		"DOTA_Tooltip_ability_rexxar_stampede_projectiles_per_tick"                       "PROJECTILES PER TICK:"
+		"DOTA_Tooltip_ability_rexxar_stampede_radius_explosion"                           "RADIUS EXPLOSION:"
+		"DOTA_Tooltip_ability_rexxar_stampede_radius"                                     "RADIUS:"
+		"DOTA_Tooltip_ability_rexxar_stampede_channel_duration"                           "CHANNEL DURATION:"
+
+		"DOTA_Tooltip_ability_rexxar_summon_bear"                                         "Rexxar Summon Bear"
+		"DOTA_Tooltip_ability_rexxar_summon_bear_Description"                             ""
+		"DOTA_Tooltip_ability_rexxar_summon_bear_duration"                                "DURATION:"
+		"DOTA_Tooltip_ability_rexxar_summon_bear_units"                                   "UNITS:"
+
+		"DOTA_Tooltip_ability_rexxar_summon_falcon"                                       "Rexxar Summon Falcon"
+		"DOTA_Tooltip_ability_rexxar_summon_falcon_Description"                           ""
+		"DOTA_Tooltip_ability_rexxar_summon_falcon_duration"                              "DURATION:"
+		"DOTA_Tooltip_ability_rexxar_summon_falcon_units"                                 "UNITS:"
+
+		"DOTA_Tooltip_ability_rexxar_summon_wolf"                                         "Rexxar Summon Wolf"
+		"DOTA_Tooltip_ability_rexxar_summon_wolf_Description"                             ""
+		"DOTA_Tooltip_ability_rexxar_summon_wolf_duration"                                "DURATION:"
+		"DOTA_Tooltip_ability_rexxar_summon_wolf_units"                                   "UNITS:"
+
+		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX"                                      "Rexxar Terror Wolf XX"
+		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_Description"                          ""
+		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_duration"                             "DURATION:"
+		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_transformation_time"                  "TRANSFORMATION TIME:"
+		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_base_attack_time"                     "BASE ATTACK TIME:"
+		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_bonus_range"                          "BONUS RANGE:"
+		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_bonus_damage"                         "BONUS DAMAGE:"
+		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_speed_bonus"                          "SPEED BONUS:"
+		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_radius"                               "RADIUS:"
+		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_crit_mult"                            "CRIT MULT:"
+		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_crit_chance"                          "CRIT CHANCE:"
+		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_bonus_evasion"                        "BONUS EVASION:"
+		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_crit_chance"                          "CRIT CHANCE:"
+		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_bonus_damage_percentage"              "BONUS DAMAGE PERCENTAGE:"
+
+		"DOTA_Tooltip_ability_rifleman_laser"                                             "Laser"
+		"DOTA_Tooltip_ability_rifleman_laser_Description"                                 "Rifleman shoots laser at enemies, dealing heavy bonus damage."
+		"DOTA_Tooltip_ability_rifleman_laser_bonus_damage"                                "BONUS DAMAGE:"
+
+		"DOTA_Tooltip_ability_rifleman_laser_XX"                                          "Rifleman Laser XX"
+		"DOTA_Tooltip_ability_rifleman_laser_XX_Description"                              "Rifleman shoots laser at enemies, dealing heavy bonus damage."
+		"DOTA_Tooltip_ability_rifleman_laser_XX_bonus_damage"                             "BONUS DAMAGE:"
+
+		"DOTA_Tooltip_ability_rifleman_plasma_rifle"                                      "Plasma Rifle"
+		"DOTA_Tooltip_ability_rifleman_plasma_rifle_Description"                          "Rifleman shoots a hot plasma at his target, dealing bonus damage in an area around the hit."
+		"DOTA_Tooltip_ability_rifleman_plasma_rifle_bonus_damage"                         "BONUS DAMAGE:"
+		"DOTA_Tooltip_ability_rifleman_plasma_rifle_radius"                               "RADIUS:"
+
+		"DOTA_Tooltip_ability_rifleman_plasma_rifle_XX"                                   "Plasma Rifle"
+		"DOTA_Tooltip_ability_rifleman_plasma_rifle_XX_Description"                       "Rifleman shoots a hot plasma at his target, dealing bonus damage in an area around the hit."
+		"DOTA_Tooltip_ability_rifleman_plasma_rifle_XX_bonus_damage"                      "BONUS DAMAGE:"
+		"DOTA_Tooltip_ability_rifleman_plasma_rifle_XX_radius"                            "RADIUS:"
+
+		"DOTA_Tooltip_ability_rifleman_rage"                                              "Rage"
+		"DOTA_Tooltip_ability_rifleman_rage_Description"                                  "Rifleman goes into a battle rage, increasing his attack and movement speed."
+		"DOTA_Tooltip_ability_rifleman_rage_bonus_attack_speed"                           "BONUS ATTACK SPEED:"
+		"DOTA_Tooltip_ability_rifleman_rage_bonus_movement_speed_percentage"              "%BONUS MOVEMENT SPEED PERCENTAGE:"
+		"DOTA_Tooltip_ability_rifleman_rage_duration"                                     "DURATION:"
+
+		"DOTA_Tooltip_ability_rifleman_rocket_launcher"                                   "Rocket Launcher"
+		"DOTA_Tooltip_ability_rifleman_rocket_launcher_Description"                       "Rifleman shoots rockets on attack, dealing bonus damage to the target."
+		"DOTA_Tooltip_ability_rifleman_rocket_launcher_bonus_damage"                      "BONUS DAMAGE:"
+
+		"DOTA_Tooltip_ability_rifleman_rocket_launcher_XX"                                "Rocket Launcher"
+		"DOTA_Tooltip_ability_rifleman_rocket_launcher_XX_Description"                    "Rifleman shoots rockets on attack, dealing bonus damage to the target."
+		"DOTA_Tooltip_ability_rifleman_rocket_launcher_XX_bonus_damage"                   "BONUS DAMAGE:"
+
+		"DOTA_Tooltip_ability_rifleman_shield"                                            "Shield"
+		"DOTA_Tooltip_ability_rifleman_shield_Description"                                "Rifleman creates a shield around him absorbing a precentage of incoming physical damage and increasing his armor."
+		"DOTA_Tooltip_ability_rifleman_shield_incoming_damage_physical_reduction"         "%INCOMING DAMAGE REDUCTION:"
+		"DOTA_Tooltip_ability_rifleman_shield_armor_bonus"                                "ARMOR BONUS:"
+
+		"DOTA_Tooltip_ability_rifleman_trueshot_aura"                                     "Trueshot Aura"
+		"DOTA_Tooltip_ability_rifleman_trueshot_aura_Description"                         "Rifleman's presence increases the attack damage of nearby ranged units."
+		"DOTA_Tooltip_ability_rifleman_trueshot_aura_damage_bonus"                        "%DAMAGE BONUS:"
+		"DOTA_Tooltip_ability_rifleman_trueshot_aura_radius"                              "RADIUS:"
 
 		"DOTA_Tooltip_ability_roshan_clap"                                                "Clap"
 		"DOTA_Tooltip_ability_roshan_clap_Description"                                    "Roshan slows the attack and movement speed of nearby enemies with his claws."
