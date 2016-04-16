@@ -10865,6 +10865,185 @@
 	        }
 	    }
 	  }
+	"marine_fan_of_rockets"
+	  {
+	    // General
+	    //-------------------------------------------------------------------------------------------------------------
+	    "BaseClass"       "ability_datadriven"
+	    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	    "AOERadius"                 "%radius"
+	    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+	    "AbilityTextureName"      "tinker_heat_seeking_missile"
+	    "MaxLevel"             "4"
+	    "RequiredLevel"        "-1"
+	    "LevelsBetweenUpgrades" "3"
+	    // Casting
+	
+	    "AbilityCastPoint"              "0.3 0.3 0.3 0.3"
+	    
+	    // Time     
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilityCooldown"               "7"
+	
+	    // Cost
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilityManaCost"               "100"
+	
+	    "AbilitySpecial"
+	    {
+	        "01"
+	        {
+	            "var_type" "FIELD_INTEGER"
+	            "radius" "500 600 700 800"
+	        }
+	        "02"
+	        {
+	            "var_type" "FIELD_INTEGER"
+	            "damage" "200 400 600 1200"
+	        }
+	    }
+	
+	   
+	    "precache"
+	    {
+	        "soundfile" "soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
+	        "particle"  "particles/units/heroes/hero_tinker/fan_of_rocketsmissile.vpcf"
+	    }
+	    "OnProjectileHitUnit"
+	        {
+	            "Damage"
+	            {
+	                "Type" "DAMAGE_TYPE_MAGICAL"
+	                "Damage" "%damage"
+	                "Target" "TARGET"
+	            }
+	            "DeleteOnHit" "1"
+	
+	        }
+	
+	         // Data Driven
+	        //-------------------------------------------------------------------------------------
+	        "OnSpellStart"
+	        {
+	            "FireSound"
+	              {
+	                "EffectName"  "Hero_Omniknight.Purification"
+	                "Target"     "CASTER"
+	              }
+	
+	            "ActOnTargets"
+	            {
+	                "Target"
+	                {
+	                    "Center" "CASTER"
+	                    "Radius" "%radius"
+	                    "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY" 
+	                    "Types" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+	                    "Random"     "1"
+	                }
+	                "Action"
+	                {
+	                    "TrackingProjectile"
+	                    {
+	                        "Target" "TARGET"
+	                        "EffectName" "particles/units/heroes/hero_tinker/fan_of_rocketsmissile.vpcf"
+	                        "Dodgeable" "1"
+	                        "ProvidesVision" "1"
+	                        "VisionRadius" "300"
+	                        "MoveSpeed" "1200"
+	                        "SourceAttachment" "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+	                    }
+	                }
+	
+	            }
+	        }
+	   
+	  }
+	"marine_hurl_bomb"
+	  {
+	    // General
+	    //-------------------------------------------------------------------------------------
+	    "BaseClass" "ability_datadriven"
+	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+	    "MaxLevel"              "4"
+	    "LevelsBetweenUpgrades" "3"
+	    "RequiredLevel"        "-1"
+	
+	    // Stats
+	    //-------------------------------------------------------------------------------------
+	    "AbilityCastPoint" "0.3"
+	    "AbilityCooldown"  "20"
+	    "AbilityCastRange" "800"
+	    "AbilityManaCost"  "75 100 125 150"
+	    "AbilityTextureName" "techies_land_mines"
+	    "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+	    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	    "AbilityCastAnimation" "ACT_DOTA_CAST_ABILITY_5"
+	    "AbilityDamage" "1000 2500 5000 10000"
+	
+	    "AbilitySpecial"
+	    {
+	      "01"
+	      {
+	        "var_type"      "FIELD_FLOAT"
+	        "duration"      "1 2 3 4"
+	      }
+	      "02"
+	      {
+	        "var_type"      "FIELD_FLOAT"
+	        "projectile_speed"      "1200"
+	      }
+	
+	    }
+	
+	    "OnSpellStart"
+	    { 
+	      "FireSound"
+	      {
+	        "EffectName"  "Hero_Ancient_Apparition.IceVortexCast"
+	        "Target"     "CASTER"
+	      }
+	
+	      "TrackingProjectile"
+	      {
+	        "Target"             "TARGET"
+	        "EffectName"    "particles/units/heroes/hero_techies/techies_base_attack.vpcf"
+	        "Dodgeable"      "1"
+	        "ProvidesVision"  "0"
+	        "MoveSpeed"          "%projectile_speed"
+	        "SourceAttachment"  "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+	      }
+	    }
+	
+	    "OnProjectileHitUnit"
+	    {
+	      "DeleteOnHit"  "1"
+	      "Damage"
+	      {
+	        "Target"    "TARGET"
+	        "Type"      "DAMAGE_TYPE_MAGICAL"
+	        "Damage"    "%AbilityDamage"
+	      }
+	      "Stun"
+	      {
+	        "Duration"   "%duration"
+	        "Target"    "TARGET"
+	      }
+	      "FireSound"
+	      {
+	        "EffectName"  "Hero_Batrider.Flamebreak.Impact"
+	        "Target"     "TARGET"
+	      }
+	    }
+	
+	    "precache"
+	    {
+	      "particle"  "particles/units/heroes/hero_techies/techies_base_attack.vpcf"
+	      "soundfile" "soundevents/game_sounds_heroes/game_sounds_batrider.vsndevts"
+	    }
+	  }
 	"moon_priest_chain_lightning"
 	{
 		// General

@@ -5,6 +5,7 @@
 
 "CustomHeroList"
 {
+	"npc_dota_hero_tinker"	"-1"
   	"npc_dota_hero_antimage" "-1"
 	"npc_dota_hero_nyx_assassin" "-1"
 	"npc_dota_hero_enchantress" "-1"

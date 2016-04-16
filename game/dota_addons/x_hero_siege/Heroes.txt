@@ -49,11 +49,13 @@ IMPLEMENTED:
 	
 	Rifleman					WEAPONS UPGRADE!!
 
+	Beastmaster 				TERROR WOLF!!
+
 ############################################################################################
 IN WORKING PROGRESS
 ############################################################################################
-	
-	Beastmaster 											TERROR WOLF
+	Marine 													SCHWARMRAKETEN
+
 
 ############################################################################################
 NOT IMPLEMENTED:
@@ -67,7 +69,7 @@ NOT IMPLEMENTED:
 
 	Kil'jaeden (shadow demon)								INFERNAL FALL
 
-	Marine 													SCHWARMRAKETEN
+
 
 
 
