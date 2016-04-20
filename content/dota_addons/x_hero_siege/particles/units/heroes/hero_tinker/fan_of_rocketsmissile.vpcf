@@ -3,7 +3,7 @@
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
 	m_nMaxParticles = 16
-	m_flConstantRadius = 150.000000
+	m_flConstantRadius = 181.202000
 	m_ConstantColor =
 	[
 		248,
@@ -12,21 +12,6 @@
 		255,
 	]
 	m_bShouldSort = false
-	m_Renderers =
-	[
-		{
-			_class = "C_OP_RenderDeferredLight"
-			m_flRadiusScale = 2.000000
-			m_ColorScale =
-			[
-				255,
-				103,
-				36,
-			]
-			m_hTexture = resource:"materials/models/projectiles/arrows.vtex"
-			m_bDisableOperator = true
-		},
-	]
 	m_Operators =
 	[
 		{

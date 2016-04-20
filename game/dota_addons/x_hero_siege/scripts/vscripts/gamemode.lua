@@ -59,7 +59,8 @@ local AbilitiesHeroes = {npc_dota_hero_antimage = "demonhunter_roar",
                     npc_dota_hero_brewmaster = "panda_ensnare",
                     npc_dota_hero_bane = "bane_player_command_aura",
                     npc_dota_hero_sniper = "rifleman_rage";
-                    npc_dota_hero_beastmaster ="rexxar_feral_spirit"}
+                    npc_dota_hero_beastmaster ="rexxar_feral_spirit",
+                    npc_dota_hero_tinker = "marine_banish"}
 --[[
   This function should be used to set up Async precache calls at the beginning of the gameplay.
 

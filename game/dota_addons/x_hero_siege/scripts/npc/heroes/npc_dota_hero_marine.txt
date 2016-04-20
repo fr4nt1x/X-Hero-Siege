@@ -9,9 +9,9 @@
 		//----------------------------------------------------------------
 		"Ability1"					"marine_hurl_bomb"	 //Reference: AInv
 		"Ability2"					"marine_fan_of_rockets"	 //Reference: Arsg
-		"Ability3"					""	 //Reference: Arsq
-		"Ability4"					""	 //Reference: ANsb
-		"Ability5"					""	 //Reference: Arsp
+		"Ability3"					"marine_metal_armor"	 //Reference: Arsq
+		"Ability4"					"marine_life_regeneration_aura"	 //Reference: ANsb
+		"Ability5"					"marine_clone"	 //Reference: Arsp
 		"Ability6"					""	 //Reference: Aamk
 		
 		// Armor

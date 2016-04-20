@@ -8524,161 +8524,6 @@
 	      }
 	    }
 	  }
-	"rexxar_stampede"
-	  {
-	    // General
-	    //-------------------------------------------------------------------------------------
-	    "BaseClass" "ability_datadriven"
-	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE |  DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-	
-	    "MaxLevel"              "2"
-	    "RequiredLevel"        "10"
-	    "LevelsBetweenUpgrades" "5"
-	
-	    // Stats
-	    //-------------------------------------------------------------------------------------
-	    "AbilityCastPoint" "0.2"
-	    "AOERadius"         "%radius"
-	    "AbilityCooldown"  "120"
-	    "AbilityChannelTime"  "%channel_duration"
-	    "AbilityManaCost"  "500"
-	    "AbilityTextureName" "beastmaster_primal_roar"
-	    "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
-	    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
-	    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-	
-	    "AbilitySpecial"
-	    {
-	      "01"
-	      {
-	        "var_type"      "FIELD_FLOAT"
-	        "damage_per_projectile"      "150 300"
-	      }
-	      "02"
-	      {
-	        "var_type"      "FIELD_INTEGER"
-	        "distance"      "900"
-	      }
-	      "03"
-	      {
-	        "var_type"      "FIELD_FLOAT"
-	        "speed"      "500"
-	      }
-	      "04"
-	      {
-	        "var_type"      "FIELD_FLOAT"
-	        "time_between_projectiles"      "0.1 0.1"
-	      }
-	      "05"
-	      {
-	        "var_type"      "FIELD_INTEGER"
-	        "projectiles_per_tick"      "1 2"
-	      }
-	      "06"
-	      {
-	        "var_type"      "FIELD_INTEGER"
-	        "radius_explosion"      "300 300"
-	      }
-	      "07"
-	      {
-	        "var_type"      "FIELD_INTEGER"
-	        "radius"      "1000"
-	      }
-	      "08"
-	      {
-	        "var_type"      "FIELD_FLOAT"
-	        "channel_duration"      "30.0 30.0"
-	      }
-	    }
-	
-	    "OnSpellStart"
-	    { 
-	      "ApplyModifier"
-	      {
-	        "ModifierName"  "modifier_elemental_wave_channelling"
-	        "Target"     "CASTER"
-	      }
-	      "ApplyModifier"
-	      {
-	        "ModifierName"  "modifier_spawn_elementals"
-	        "Target"     "CASTER"
-	      }
-	    }
-	    "OnProjectileHitUnit"
-	    {
-	      "DeleteOnHit"  "1"
-	      "Damage"
-	      {
-	
-	        "Target"
-	        {
-	          "Center"    "TARGET"
-	          "Radius"   "%radius_explosion"
-	          "Teams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
-	          "Types"   "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-	        }
-	        "Type"      "DAMAGE_TYPE_MAGICAL"
-	        "Damage"    "%damage_per_projectile"
-	      }
-	    }
-	
-	    "OnChannelFinish"
-	    {
-	      "RemoveModifier"
-	      {
-	        "ModifierName"  "modifier_elemental_wave_channelling"
-	        "Target"     "CASTER"
-	      }
-	      "RemoveModifier"
-	      {
-	        "ModifierName"  "modifier_spawn_elementals"
-	        "Target"     "CASTER"
-	      }
-	    }
-	
-	    "Modifiers"
-	      {
-	          "modifier_elemental_wave_channelling"
-	          {
-	            "IsHidden"      "1"
-	            "ThinkInterval"   "5.39"
-	            "OnIntervalThink"
-	            {
-	              "RunScript"
-	              {
-	                "ScriptFile"  "heroes/channeling.lua"
-	                "Function"    "ApplyAnimation"
-	                "duration"    "5.3"
-	              }
-	            }
-	          }
-	
-	        "modifier_channeling"
-	        {
-	          "IsHidden"        "1"
-	          "OverrideAnimation"     "ACT_DOTA_CAST_ABILITY_4"
-	        }
-	        "modifier_spawn_bulls" 
-	        {
-	          "IsHidden" "1"
-	          "ThinkInterval"  "%time_between_projectiles"
-	          "OnIntervalThink"
-	          {
-	            "RunScript"
-	            {
-	              "ScriptFile"  "heroes/rexxar/stampede.lua"
-	              "Function"    "create_projectile"
-	            }
-	          }
-	        }
-	      }
-	
-	
-	    "precache"
-	    {
-	      "particle"  "particles/units/heroes/hero_jaina/jaina_elemental_wave_elemental.vpcf"
-	    }
-	  }
 	"jaina_elemental_wave"
 	  {
 	    // General
@@ -10865,6 +10710,172 @@
 	        }
 	    }
 	  }
+	
+	"marine_banish"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityTextureName"			"pugna_decrepify"
+	
+	    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_BOTH"
+	
+	    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	    "SpellImmunityType"       "SPELL_IMMUNITY_ALLIES_YES"
+		"RequiredLevel"  				"-1"
+		"MaxLevel"						"1"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.4"
+		"AbilityCastRange"				"800"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"15"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"125"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{		
+			"0!"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"magic_armor_reduction"			"-25"
+			}	
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"			"4"
+			}	
+					
+		}
+	
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_banish"
+				"Target" 		"TARGET"
+				"Duration"		"%duration"
+			}
+	
+		}
+	
+		"Modifiers"
+		{
+			"modifier_banish"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+			
+				"EffectName"		"particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"
+				"EffectAttachType"	"follow_origin"
+			
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_armor_reduction"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	// Rewrite of the Chaos Knight Phantasm ability
+	// Author: Pizzalol
+	// Date: 08.04.2015.
+	"marine_clone"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityTextureName"			"chaos_knight_phantasm"
+	
+	    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	
+	    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
+	    "SpellImmunityType"       "SPELL_IMMUNITY_ALLIES_YES"
+		"RequiredLevel"  				"10"
+		"MaxLevel"						"2"
+		"LevelsBetweenUpgrades"			"5"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.4"
+		"AbilityCastRange"				"500"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"90"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"125 150 175 200"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"illusion_duration"			"120 180"
+			}	
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"outgoing_damage"			"100 300"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"outgoing_damage_tooltip"			"200 400"
+			}	
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"incoming_damage"			"75 50"
+			}					
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/marine/clone.lua"
+				"Function"		"Clone"
+				"Target"		"UNIT"
+			}
+	
+		}
+	
+		"Modifiers"
+		{
+		}
+	}
 	"marine_fan_of_rockets"
 	  {
 	    // General
@@ -10907,11 +10918,16 @@
 	   
 	    "precache"
 	    {
-	        "soundfile" "soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
+	        "soundfile" "soundevents/game_sounds_heroes/game_sounds_tinker.vsndevts"
 	        "particle"  "particles/units/heroes/hero_tinker/fan_of_rocketsmissile.vpcf"
 	    }
 	    "OnProjectileHitUnit"
 	        {
+	            "FireSound"
+	              {
+	                "EffectName"  "Hero_Tinker.Heat-Seeking_Missile.Impact"
+	                "Target"     "CASTER"
+	              }
 	            "Damage"
 	            {
 	                "Type" "DAMAGE_TYPE_MAGICAL"
@@ -10928,7 +10944,7 @@
 	        {
 	            "FireSound"
 	              {
-	                "EffectName"  "Hero_Omniknight.Purification"
+	                "EffectName"  "Hero_Tinker.Heat-Seeking_Missile"
 	                "Target"     "CASTER"
 	              }
 	
@@ -11042,6 +11058,98 @@
 	    {
 	      "particle"  "particles/units/heroes/hero_techies/techies_base_attack.vpcf"
 	      "soundfile" "soundevents/game_sounds_heroes/game_sounds_batrider.vsndevts"
+	    }
+	  }
+	"marine_life_regeneration_aura"
+	  {
+	    // General
+	    //-------------------------------------------------------------------------------------
+	    "BaseClass" "ability_datadriven"
+	    "AbilityBehavior"  "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+	    "MaxLevel"             "4"
+	    "RequiredLevel"        "-1"
+	    "LevelsBetweenUpgrades" "3"
+	
+	    // Stats
+	    //-------------------------------------------------------------------------------------
+	    "AbilityTextureName" "satyr_hellcaller_unholy_aura"
+	    "precache"
+	    {
+	      "particle"  "particles/items2_fx/tranquil_boots_healing.vpcf"
+	    }
+	    "AbilitySpecial"
+	    {
+	      "01"
+	      {
+	        "var_type"      "FIELD_INTEGER"
+	        "health_regeneration"      "1 2 3 4"
+	      }
+	
+	    }
+	    "Modifiers"
+	    {
+	      "modifier_life_regeneration_aura"
+	      {
+	        "Passive"       "1"
+	        "IsHidden"      "1"
+	        "IsBuff"      "1"
+	
+	        "Aura"        "modifier_life_regeneration_aura_buff"
+	        "Aura_Radius"     "%radius"
+	        "Aura_Teams"    "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+	        "Aura_Types"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	      }
+	     
+	      "modifier_life_regeneration_aura_buff"
+	      { 
+	        "Passive"      "0"
+	        "IsHidden"      "0"
+	        "IsDebuff"      "0"
+	      
+	        "EffectName"    "particles/items2_fx/tranquil_boots_healing.vpcf"
+	        "EffectAttachType"  "follow_origin"
+	
+	        "Properties"
+	        {
+	          "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%health_regeneration" 
+	        }
+	      }
+	    }
+	  }
+	"marine_metal_armor"
+	  {
+	    // General
+	    //-------------------------------------------------------------------------------------------------------------
+	    "BaseClass"       "ability_datadriven"
+	    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	    "AbilityTextureName"      "sven_gods_strength"
+	    "MaxLevel"             "4"
+	    "RequiredLevel"        "8"
+	    "AbilitySpecial"
+	    {
+	      "01"
+	      {
+	        "var_type"        "FIELD_INTEGER"
+	        "armor_bonus"     "25 50 100 200"
+	      }
+	    }
+	
+	    "precache"
+	    {
+	    }
+	
+	    "Modifiers"
+	    {
+	      "modifier_metal_armor"
+	      {
+	        "Passive"       "1"
+	        "IsHidden"      "1"
+	        "IsBuff"      "1"
+	        "Properties"
+	        {
+	          "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
+	        }
+	      }
 	    }
 	  }
 	"moon_priest_chain_lightning"

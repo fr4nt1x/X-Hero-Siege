@@ -40,11 +40,16 @@
    
     "precache"
     {
-        "soundfile" "soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
+        "soundfile" "soundevents/game_sounds_heroes/game_sounds_tinker.vsndevts"
         "particle"  "particles/units/heroes/hero_tinker/fan_of_rocketsmissile.vpcf"
     }
     "OnProjectileHitUnit"
         {
+            "FireSound"
+              {
+                "EffectName"  "Hero_Tinker.Heat-Seeking_Missile.Impact"
+                "Target"     "CASTER"
+              }
             "Damage"
             {
                 "Type" "DAMAGE_TYPE_MAGICAL"
@@ -61,7 +66,7 @@
         {
             "FireSound"
               {
-                "EffectName"  "Hero_Omniknight.Purification"
+                "EffectName"  "Hero_Tinker.Heat-Seeking_Missile"
                 "Target"     "CASTER"
               }
 
