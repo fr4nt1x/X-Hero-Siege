@@ -262,7 +262,8 @@ end
                               npc_dota_hero_brewmaster ={{"panda_tornado_XX",3}},
                               npc_dota_hero_bane ={{"bane_player_rain_of_chaos_XX",1}},
                               npc_dota_hero_sniper ={{"rifleman_laser_XX",4},{"rifleman_plasma_rifle_XX",1},{"rifleman_rocket_launcher_XX",0}},
-                              npc_dota_hero_beastmaster ={{"rexxar_terror_wolf_XX",3}}
+                              npc_dota_hero_beastmaster ={{"rexxar_terror_wolf_XX",3}},
+                              npc_dota_hero_tinker ={{"marine_rocketswarm_XX",3}}
                             }
 --]]
 -- A player leveled up

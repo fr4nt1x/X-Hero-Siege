@@ -1,23 +1,5 @@
-﻿		// DOTA 2 MODKIT GENERATED TOOLTIPS FOR: x_hero_siege
-		// Keys already defined in addon_english.txt are not listed, nor are Modifiers with the property "IsHidden" "1".
+﻿
 
-		// ******************** HEROES ********************
-
-
-		// ******************** UNITS ********************
-		"npc_boar"                                                                        "Boar"
-		"npc_falcon_I"                                                                    "Falcon I"
-		"npc_falcon_II"                                                                   "Falcon II"
-		"npc_falcon_III"                                                                  "Falcon III"
-		"npc_polar_bear_I"                                                                "Polar Bear I"
-		"npc_polar_bear_II"                                                               "Polar Bear II"
-		"npc_polar_bear_III"                                                              "Polar Bear III"
-		"npc_spirit_wolf_I"                                                               "Spirit Wolf I"
-		"npc_spirit_wolf_II"                                                              "Spirit Wolf II"
-		"npc_spirit_wolf_III"                                                             "Spirit Wolf III"
-
-		"DOTA_Tooltip_modifier_terrorwolf"                                                "Terrorwolf"
-		"DOTA_Tooltip_modifier_terrorwolf_Description"                                    ""
 
 
 
@@ -177,6 +159,17 @@
 		"npc_tauren"                                                                      "Tauren"
 		"npc_tauren_final_wave"                                                           "Tauren"
 
+		"npc_boar"                                                                        "Wild Boar"
+		"npc_falcon_I"                                                                    "Falcon I"
+		"npc_falcon_II"                                                                   "Falcon II"
+		"npc_falcon_III"                                                                  "Falcon III"
+		"npc_polar_bear_I"                                                                "Polar Bear I"
+		"npc_polar_bear_II"                                                               "Polar Bear II"
+		"npc_polar_bear_III"                                                              "Polar Bear III"
+		"npc_spirit_wolf_I"                                                               "Spirit Wolf I"
+		"npc_spirit_wolf_II"                                                              "Spirit Wolf II"
+		"npc_spirit_wolf_III"                                                             "Spirit Wolf III"
+
 		"npc_tower_arrow"                                                                 "Tower Arrow"
 		"npc_tower_cannon"                                                                "Tower Cannon"
 		"npc_tower_cold"                                                                  "Tower Cold"
@@ -222,6 +215,9 @@
 		"npc_sea_elemental_III"                                                           "Sea Elemental III"
 
 		// ******************** ABILITY MODIFIERS ********************
+		"DOTA_Tooltip_modifier_terrorwolf"                                                "Terrorwolf"
+		"DOTA_Tooltip_modifier_terrorwolf_Description"                                    "Rexxar in his transformed state. He has critical, cleave evasion and bonus stats."
+
 		"DOTA_Tooltip_modifier_rifleman_rage"                                             "Rage"
 		"DOTA_Tooltip_modifier_rifleman_rage_Description"                                 "This unit has increased movement and attack speed."
 
@@ -1424,55 +1420,42 @@
 		"DOTA_Tooltip_ability_rexxar_stampede_channel_duration"                           "CHANNEL DURATION:"
 
 		"DOTA_Tooltip_ability_rexxar_aura_of_thorns"                                      "Aura Of Thorns"
-		"DOTA_Tooltip_ability_rexxar_aura_of_thorns_Description"                          "Protects nearby friendly units with thorns, causing them to return a portion of damage taken to their attacker."
-		"DOTA_Tooltip_ability_rexxar_aura_of_thorns_damage_return_factor"                 "DAMAGE RETURN FACTOR:"
+		"DOTA_Tooltip_ability_rexxar_aura_of_thorns_Description"                          "Protects nearby friendly units with thorns, causing them to return a portion of damage taken to their attackers."
+		"DOTA_Tooltip_ability_rexxar_aura_of_thorns_damage_return_factor_tooltip"         "%DAMAGE RETURN FACTOR:"
 		"DOTA_Tooltip_ability_rexxar_aura_of_thorns_radius"                               "RADIUS:"
 
-		"DOTA_Tooltip_ability_rexxar_feral_spirit"                                        "Rexxar Feral Spirit"
-		"DOTA_Tooltip_ability_rexxar_feral_spirit_Description"                            ""
+		"DOTA_Tooltip_ability_rexxar_feral_spirit"                                        "Feral Spirit"
+		"DOTA_Tooltip_ability_rexxar_feral_spirit_Description"                            "Summons a boar to aid the beastmaster in battle."
 		"DOTA_Tooltip_ability_rexxar_feral_spirit_duration"                               "DURATION:"
 		"DOTA_Tooltip_ability_rexxar_feral_spirit_units"                                  "UNITS:"
 
-		"DOTA_Tooltip_ability_rexxar_stampede"                                            "Rexxar Stampede"
-		"DOTA_Tooltip_ability_rexxar_stampede_Description"                                ""
-		"DOTA_Tooltip_ability_rexxar_stampede_damage_per_projectile"                      "DAMAGE PER PROJECTILE:"
-		"DOTA_Tooltip_ability_rexxar_stampede_distance"                                   "DISTANCE:"
-		"DOTA_Tooltip_ability_rexxar_stampede_speed"                                      "SPEED:"
-		"DOTA_Tooltip_ability_rexxar_stampede_time_between_projectiles"                   "TIME BETWEEN PROJECTILES:"
-		"DOTA_Tooltip_ability_rexxar_stampede_projectiles_per_tick"                       "PROJECTILES PER TICK:"
-		"DOTA_Tooltip_ability_rexxar_stampede_radius_explosion"                           "RADIUS EXPLOSION:"
-		"DOTA_Tooltip_ability_rexxar_stampede_radius"                                     "RADIUS:"
-		"DOTA_Tooltip_ability_rexxar_stampede_channel_duration"                           "CHANNEL DURATION:"
-
-		"DOTA_Tooltip_ability_rexxar_summon_bear"                                         "Rexxar Summon Bear"
-		"DOTA_Tooltip_ability_rexxar_summon_bear_Description"                             ""
+		"DOTA_Tooltip_ability_rexxar_summon_bear"                                         "Summon Bear"
+		"DOTA_Tooltip_ability_rexxar_summon_bear_Description"                             "Summons bears to attack enemies of Rexxar."
 		"DOTA_Tooltip_ability_rexxar_summon_bear_duration"                                "DURATION:"
 		"DOTA_Tooltip_ability_rexxar_summon_bear_units"                                   "UNITS:"
 
-		"DOTA_Tooltip_ability_rexxar_summon_falcon"                                       "Rexxar Summon Falcon"
-		"DOTA_Tooltip_ability_rexxar_summon_falcon_Description"                           ""
+		"DOTA_Tooltip_ability_rexxar_summon_falcon"                                       "Summon Falcon"
+		"DOTA_Tooltip_ability_rexxar_summon_falcon_Description"                           "Summons falcons to provide vision to the beastmaster and attack his enemies."
 		"DOTA_Tooltip_ability_rexxar_summon_falcon_duration"                              "DURATION:"
 		"DOTA_Tooltip_ability_rexxar_summon_falcon_units"                                 "UNITS:"
 
-		"DOTA_Tooltip_ability_rexxar_summon_wolf"                                         "Rexxar Summon Wolf"
-		"DOTA_Tooltip_ability_rexxar_summon_wolf_Description"                             ""
+		"DOTA_Tooltip_ability_rexxar_summon_wolf"                                         "Summon Wolf"
+		"DOTA_Tooltip_ability_rexxar_summon_wolf_Description"                             "Summons wolves to attack Rexxar's foes."
 		"DOTA_Tooltip_ability_rexxar_summon_wolf_duration"                                "DURATION:"
 		"DOTA_Tooltip_ability_rexxar_summon_wolf_units"                                   "UNITS:"
 
-		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX"                                      "Rexxar Terror Wolf XX"
-		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_Description"                          ""
+		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX"                                      "Terror Wolf"
+		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_Description"                          "Rexxar transforms into a powerful wolf, with increased stats and cleave attack."
 		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_duration"                             "DURATION:"
-		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_transformation_time"                  "TRANSFORMATION TIME:"
 		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_base_attack_time"                     "BASE ATTACK TIME:"
 		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_bonus_range"                          "BONUS RANGE:"
 		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_bonus_damage"                         "BONUS DAMAGE:"
 		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_speed_bonus"                          "SPEED BONUS:"
-		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_radius"                               "RADIUS:"
-		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_crit_mult"                            "CRIT MULT:"
-		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_crit_chance"                          "CRIT CHANCE:"
-		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_bonus_evasion"                        "BONUS EVASION:"
-		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_crit_chance"                          "CRIT CHANCE:"
-		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_bonus_damage_percentage"              "BONUS DAMAGE PERCENTAGE:"
+		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_crit_mult"                            "CRITICAL MULTIPLIER:"
+		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_crit_chance"                          "CRITICAL CHANCE:"
+		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_bonus_evasion"                        "%EVASION:"
+		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_crit_chance"                          "%CRIT CHANCE:"
+		"DOTA_Tooltip_ability_rexxar_terror_wolf_XX_Note0"                                "Aura of Thorns: Protects nearby friendly by thorns, causing them to return a percentage of damage to their attackers."
 
 		"DOTA_Tooltip_ability_rifleman_laser"                                             "Laser"
 		"DOTA_Tooltip_ability_rifleman_laser_Description"                                 "Rifleman shoots laser at enemies, dealing heavy bonus damage."

@@ -10919,7 +10919,7 @@
 	    "precache"
 	    {
 	        "soundfile" "soundevents/game_sounds_heroes/game_sounds_tinker.vsndevts"
-	        "particle"  "particles/units/heroes/hero_tinker/fan_of_rocketsmissile.vpcf"
+	        "particle"  "particles/tinker_rocketfan.vpcf"
 	    }
 	    "OnProjectileHitUnit"
 	        {
@@ -10963,11 +10963,11 @@
 	                    "TrackingProjectile"
 	                    {
 	                        "Target" "TARGET"
-	                        "EffectName" "particles/units/heroes/hero_tinker/fan_of_rocketsmissile.vpcf"
+	                        "EffectName" "particles/tinker_rocketfan.vpcf"
 	                        "Dodgeable" "1"
+	                        "MoveSpeed" "800"
 	                        "ProvidesVision" "1"
 	                        "VisionRadius" "300"
-	                        "MoveSpeed" "1200"
 	                        "SourceAttachment" "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
 	                    }
 	                }
@@ -11150,6 +11150,138 @@
 	          "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_bonus"
 	        }
 	      }
+	    }
+	  }
+	"marine_rocketswarm_XX"
+	  {
+	    // General
+	    //-------------------------------------------------------------------------------------
+	    "BaseClass" "ability_datadriven"
+	    "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+	    "MaxLevel"              "1"
+	    "RequiredLevel"        "-1"
+	    "SpellImmunityType"       "SPELL_IMMUNITY_ENEMIES_YES"
+	    "AOERadius"         "%radius"
+	    // Stats
+	    //-------------------------------------------------------------------------------------
+	    "AbilityCastPoint" "0.5"
+	
+	    "AbilityCooldown"  "120"
+	    "AbilityManaCost"  "500"
+	    "AbilityTextureName" "lina_light_strike_array"
+	    "AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
+	    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	    "AbilityCastAnimation"  "ACT_DOTA_CAST_SUN_STRIKE"
+	    "AbilityCastRange"        "800"
+	
+	    "AbilitySpecial"
+	    {
+	      "01"
+	      {
+	        "var_type"      "FIELD_FLOAT"
+	        "damage_per_unit"      "2000"
+	      }
+	      "02"
+	      {
+	        "var_type"      "FIELD_INTEGER"
+	        "radius"      "400"
+	      }
+	      "03"
+	      {
+	        "var_type"      "FIELD_FLOAT"
+	        "stun_duration"      "6"
+	      }
+	      "04"
+	      {
+	        "var_type"      "FIELD_FLOAT"
+	        "time_between_explosions"      "0.1"
+	      }
+	      "05"
+	      {
+	        "var_type"      "FIELD_INTEGER"
+	        "explosions_per_tick"      "1"
+	      }
+	      "06"
+	      {
+	        "var_type"      "FIELD_INTEGER"
+	        "radius_explosion"      "200"
+	      }
+	      "07"
+	      {
+	        "var_type"      "FIELD_FLOAT"
+	        "duration"      "2.1"
+	      }
+	      "08"
+	      {
+	        "var_type"      "FIELD_FLOAT"
+	        "delay"      "0.6"
+	      }
+	    }
+	
+	    "OnSpellStart"
+	    { 
+	      "SpawnUnit"
+	      {
+	        "UnitName"    "npc_dummy_target"
+	        "Target"       "POINT"
+	        "Duration"    "%duration"
+	        "UnitCount"   "1"
+	        "UnitLimit"   "0"
+	        "GrantsGold"  "0"
+	        "GrantsXP"    "0"
+	        "SpawnRadius" "1"
+	        "OnSpawn"
+	        {
+	          "ApplyModifier"
+	          {
+	            "ModifierName"  "modifier_rain_of_fire"
+	            "Target"    "TARGET"
+	          }
+	        }
+	    }
+	
+	  }
+	  "Modifiers"
+	    {
+	      "modifier_rain_of_fire" 
+	      {
+	        "IsHidden" "1"
+	        "ThinkInterval"  "%time_between_explosions"
+	        "OnIntervalThink"
+	        {
+	          "FireSound"
+	          {
+	            "EffectName"  "Hero_Gyrocopter.Rocket_Barrage.Launch"
+	            "Target"     "CASTER"
+	          }
+	          "RunScript"
+	          {
+	            "ScriptFile"  "heroes/marine/rocketswarm.lua"
+	            "Function"    "explosions"
+	          }
+	        }
+	
+	        "States" 
+	        {
+	          "MODIFIER_STATE_UNSELECTABLE"       "MODIFIER_STATE_VALUE_ENABLED"
+	          "MODIFIER_STATE_NO_HEALTH_BAR"      "MODIFIER_STATE_VALUE_ENABLED"
+	          "MODIFIER_STATE_NO_UNIT_COLLISION"  "MODIFIER_STATE_VALUE_ENABLED"
+	          "MODIFIER_STATE_NO_TEAM_MOVE_TO"    "MODIFIER_STATE_VALUE_ENABLED"
+	          "MODIFIER_STATE_NO_TEAM_SELECT"     "MODIFIER_STATE_VALUE_ENABLED"
+	          "MODIFIER_STATE_COMMAND_RESTRICTED" "MODIFIER_STATE_VALUE_ENABLED"
+	          "MODIFIER_STATE_ATTACK_IMMUNE"      "MODIFIER_STATE_VALUE_ENABLED"
+	          "MODIFIER_STATE_MAGIC_IMMUNE"       "MODIFIER_STATE_VALUE_ENABLED"
+	          "MODIFIER_STATE_NOT_ON_MINIMAP"     "MODIFIER_STATE_VALUE_ENABLED"
+	        }
+	      }
+	    } 
+	
+	    "precache"
+	    {
+	      "soundfile" "soundevents/game_sounds_heroes/game_sounds_gyrocopter.vsndevts"
+	      "particle"  "particles/rocketswarm.vpcf"
+	
 	    }
 	  }
 	"moon_priest_chain_lightning"

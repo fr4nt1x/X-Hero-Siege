@@ -41,7 +41,7 @@
     "precache"
     {
         "soundfile" "soundevents/game_sounds_heroes/game_sounds_tinker.vsndevts"
-        "particle"  "particles/units/heroes/hero_tinker/fan_of_rocketsmissile.vpcf"
+        "particle"  "particles/tinker_rocketfan.vpcf"
     }
     "OnProjectileHitUnit"
         {
@@ -85,11 +85,11 @@
                     "TrackingProjectile"
                     {
                         "Target" "TARGET"
-                        "EffectName" "particles/units/heroes/hero_tinker/fan_of_rocketsmissile.vpcf"
+                        "EffectName" "particles/tinker_rocketfan.vpcf"
                         "Dodgeable" "1"
+                        "MoveSpeed" "800"
                         "ProvidesVision" "1"
                         "VisionRadius" "300"
-                        "MoveSpeed" "1200"
                         "SourceAttachment" "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
                     }
                 }
