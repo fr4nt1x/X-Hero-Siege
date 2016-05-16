@@ -29,8 +29,6 @@ Type D: decrepify (undead)
 
 IMPORTANT:
 
-Change globals to be saved in the gameMode
-
 player reconnect
 
 disconnected players receive skillpoints
@@ -49,12 +47,11 @@ orb of darkness, fire and shock
 
 give summons pure orb attacks
 
-memory spike
-
-fix magic damage increase
 
 damage filter
 
 DONE:
 
 Fixed blademaster illusions triggering gates
+
+Removed Valves spelldamage increase

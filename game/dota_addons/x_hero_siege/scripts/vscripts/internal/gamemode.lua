@@ -195,6 +195,8 @@ function GameMode:_CaptureGameMode()
     mode:SetMinimumAttackSpeed( MINIMUM_ATTACK_SPEED )
     mode:SetStashPurchasingDisabled ( DISABLE_STASH_PURCHASING )
 
+    mode:SetDamageFilter( Dynamic_Wrap( GameMode, "FilterDamage" ), self )
+    
     for rune, spawn in pairs(ENABLED_RUNES) do
       mode:SetRuneEnabled(rune, spawn)
     end
