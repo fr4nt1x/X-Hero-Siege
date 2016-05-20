@@ -312,7 +312,6 @@ function GameMode:FilterDamage( filterTable )
           filterTable["damage"] = filterTable["damage"]/(1+((attacker:GetIntellect()/16)/100))
       end
   end
-  print("damage")
   return true
 end
 DAMAGE_TYPES = {
