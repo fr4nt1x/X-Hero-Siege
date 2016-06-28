@@ -50,8 +50,11 @@ give summons pure orb attacks
 
 damage filter
 
+
 DONE:
 
 Fixed blademaster illusions triggering gates
 
 Removed Valves spelldamage increase
+
+Fixed lifesteal not working 
