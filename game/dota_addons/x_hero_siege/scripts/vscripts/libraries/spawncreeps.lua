@@ -359,7 +359,9 @@ function spawn_creeps_top_first()
     local point = Entities:FindByName(nil, "top_spawn_"..i):GetAbsOrigin()
 
       for j = 1,3 do
-        CreateUnitByName(creep, point, true, nil, nil, DOTA_TEAM_NEUTRALS) 
+        local unit = CreateUnitByName(creep, point, true, nil, nil, DOTA_TEAM_NEUTRALS) 
+        local waypoint = Entities:FindByName(nil,"point_teleport_waves_top")
+        unit:SetInitialGoalEntity(waypoint)
       end 
   end
   TimeBetweenCreepWavesTop = TimeBetweenCreepWavesTop-1
@@ -406,7 +408,9 @@ function spawn_creeps_top_second()
     local point = Entities:FindByName(nil, "top_spawn_"..i):GetAbsOrigin()
 
       for j = 1,number_of_creeps do
-        CreateUnitByName(creep, point, true, nil, nil, DOTA_TEAM_NEUTRALS) 
+        local unit = CreateUnitByName(creep, point, true, nil, nil, DOTA_TEAM_NEUTRALS) 
+        local waypoint = Entities:FindByName(nil,"point_teleport_waves_top")
+        unit:SetInitialGoalEntity(waypoint)
       end 
   end
   TimeBetweenCreepWavesTop = TimeBetweenCreepWavesTop-1
