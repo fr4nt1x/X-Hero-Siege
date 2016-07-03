@@ -5,7 +5,6 @@ var g_ScoreboardHandle = null;
 function UpdateScoreboard()
 {
 	ScoreboardUpdater_SetScoreboardActive( g_ScoreboardHandle, true );
-
 	$.Schedule( 0.2, UpdateScoreboard );
 }
 

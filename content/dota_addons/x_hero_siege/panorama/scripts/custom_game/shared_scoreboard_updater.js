@@ -47,13 +47,11 @@ function _ScoreboardUpdater_UpdatePlayerPanel( scoreboardConfig, playersContaine
 		
 		playerPanel.SetHasClass( "player_dead", ( playerInfo.player_respawn_seconds >= 0 ) );
 		playerPanel.SetHasClass( "local_player_teammate", isTeammate && ( playerId != Game.GetLocalPlayerID() ) );
-
-
 		
 		_ScoreboardUpdater_SetTextSafe( playerPanel, "RespawnTimer", ( playerInfo.player_respawn_seconds + 1 ) ); // value is rounded down so just add one for rounded-up
-		_ScoreboardUpdater_SetTextSafe( playerPanel, "PlayerName", playerInfo.player_name );
+		_ScoreboardUpdater_SetTextSafe( playerPanel, "PlayerName", playerInfo.player_name);
 		_ScoreboardUpdater_SetTextSafe( playerPanel, "Level", playerInfo.player_level );
-		//_ScoreboardUpdater_SetTextSafe( playerPanel, "Kills", playerInfo.player_kills );
+		_ScoreboardUpdater_SetTextSafe( playerPanel, "Kills", playerInfo.player_kills );
 		_ScoreboardUpdater_SetTextSafe( playerPanel, "Deaths", playerInfo.player_deaths );
 		_ScoreboardUpdater_SetTextSafe( playerPanel, "Assists", playerInfo.player_assists );
 
@@ -404,7 +402,6 @@ function ScoreboardUpdater_InitializeScoreboard( scoreboardConfig, scoreboardPan
 		scoreboardConfig.shouldSort = true;
 	}
 	_ScoreboardUpdater_UpdateAllTeamsAndPlayers( scoreboardConfig, scoreboardPanel );
-	  GameEvents.Subscribe( "last_hits", LastHit );
 	return { "scoreboardConfig": scoreboardConfig, "scoreboardPanel":scoreboardPanel }
 }
 
@@ -453,17 +450,4 @@ function ScoreboardUpdater_GetSortedTeamInfoList( scoreboardHandle )
 	}
 	
 	return teamsList;
-}
-
-function LastHit(event){
-  var wavekills = event.wavekills;
-  var creepkills = event.creepkills;
-  var playerId = event.playerid;
-  var playerPanelName = "_dynamic_player_" + playerId;
-  
-  var teamPanel = ScoreboardUpdater_GetTeamPanel(g_ScoreboardHandle,2);
-  var playersContainer = teamPanel.FindChildInLayoutFile( "PlayersContainer" );
-  $.Msg(playersContainer);
-  var playerPanel = playersContainer.FindChild( playerPanelName );
-  _ScoreboardUpdater_SetTextSafe( playerPanel, "Kills", "20" );
 }

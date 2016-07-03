@@ -138,6 +138,7 @@ function GameMode:OnAllPlayersLoaded()
   end
 
 
+
 end
 
 --[[
@@ -236,6 +237,13 @@ function GameMode:OnHeroInGame(hero)
     hero:AddItem(item)
     local item = CreateItem("item_ankh", hero, hero)
     hero:AddItem(item)
+    
+    if hero:GetTeam() == DOTA_TEAM_GOODGUYS then 
+      local playerid = hero:GetPlayerOwnerID()
+      local player = hero:GetPlayerOwner() 
+      CustomGameEventManager:Send_ServerToAllClients("create_player_panel", {player_id = playerid,hero_ent_index = hero:GetEntityIndex()} )
+
+    end 
     -- These lines will create an item and add it to the player, effectively ensuring they start with the item
 
     --[[ --These lines if uncommented will replace the W ability of any hero that loads into the game
@@ -277,8 +285,6 @@ function GameMode:OnGameInProgress()
   for _,v in pairs(triggers_choice) do
     v:Enable()
   end
-
-
   GameMode.timers.timer_creep_spawn = Timers:CreateTimer(0,SpawnCreeps)
   timer_wave_spawn = Timers:CreateTimer(TimeBetweenWaves,SpawnWaves)
   timer_special_arena = Timers:CreateTimer(TimeSpecialArena,specialEventArena)

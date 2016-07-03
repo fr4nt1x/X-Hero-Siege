@@ -110,10 +110,58 @@ function AddNotification(msg, panel) {
   }
 }
 
+function createPlayerPanel(event){
+  var parentPanel = $("#player_kills_container");
+
+  var top_row = $.CreatePanel( "Panel", parentPanel, "top_row");
+
+  var name_label = $.CreatePanel( "Label", top_row, "top_name");
+  name_label.text = $.Localize( "#player_name" );
+  name_label.AddClass("player_names");
+
+  var kills_label = $.CreatePanel( "Label", top_row, "top_creep_kills");
+  kills_label.text = $.Localize( "#creep_kills" );
+  kills_label.AddClass("player_kills");
+
+  var wavekills_label = $.CreatePanel( "Label", top_row, "top_wave_kills" );
+  wavekills_label.text = $.Localize( "#wave_kills" );
+  wavekills_label.AddClass("player_wavekills");
+
+  var parentPanel = $.CreatePanel( "Panel", parentPanel, "player_id_"+event.hero_ent_index);
+  parentPanel.AddClass("player_row");
+
+  var player_name_label = $.CreatePanel( "Label", parentPanel, "player_name_"+event.hero_ent_index );
+  player_name_label.AddClass("player_names");
+
+  var player_kills_label = $.CreatePanel( "Label", parentPanel, "creep_kills"+event.hero_ent_index );
+  player_kills_label.AddClass("player_kills");
+
+  var player_wavekills_label = $.CreatePanel( "Label", parentPanel, "wave_kills"+event.hero_ent_index );
+  player_wavekills_label.AddClass("player_wavekills");
+
+  player_name_label.text = Players.GetPlayerName( event.player_id );
+  player_kills_label.text = 0;
+  player_wavekills_label.text = 0;
+
+}
+
+function updatePlayerPanel(event){
+  if (event.creep_kills){
+    var player_kills_label = $("#creep_kills"+event.hero_ent_index );
+    player_kills_label.text = event.creep_kills;
+  }
+  else if (event.wave_kills){
+    var player_kills_label = $("#wave_kills"+event.hero_ent_index );
+    player_kills_label.text = event.wave_kills;
+  }
+}
 
 //=============================================================================
 //==========================================================================
 (function () {
+  
+  GameEvents.Subscribe( "create_player_panel", createPlayerPanel );
+  GameEvents.Subscribe( "update_player_panel", updatePlayerPanel );
   GameEvents.Subscribe( "top_notification", TopNotification );
   GameEvents.Subscribe( "bottom_notification", BottomNotification );
   GameEvents.Subscribe( "top_remove_notification", TopRemoveNotification );
