@@ -238,12 +238,7 @@ function GameMode:OnHeroInGame(hero)
     local item = CreateItem("item_ankh", hero, hero)
     hero:AddItem(item)
     
-    if hero:GetTeam() == DOTA_TEAM_GOODGUYS then 
-      local playerid = hero:GetPlayerOwnerID()
-      local player = hero:GetPlayerOwner() 
-      CustomGameEventManager:Send_ServerToAllClients("create_player_panel", {player_id = playerid,hero_ent_index = hero:GetEntityIndex()} )
 
-    end 
     -- These lines will create an item and add it to the player, effectively ensuring they start with the item
 
     --[[ --These lines if uncommented will replace the W ability of any hero that loads into the game
@@ -285,6 +280,10 @@ function GameMode:OnGameInProgress()
   for _,v in pairs(triggers_choice) do
     v:Enable()
   end
+  
+  CustomGameEventManager:Send_ServerToAllClients("create_player_panel", {} )
+  CustomGameEventManager:Send_ServerToAllClients("create_player_panel", {} )
+  
   GameMode.timers.timer_creep_spawn = Timers:CreateTimer(0,SpawnCreeps)
   timer_wave_spawn = Timers:CreateTimer(TimeBetweenWaves,SpawnWaves)
   timer_special_arena = Timers:CreateTimer(TimeSpecialArena,specialEventArena)
@@ -312,10 +311,12 @@ function GameMode:FilterDamage( filterTable )
   local victim = EntIndexToHScript( victim_index )
   local attacker = EntIndexToHScript( attacker_index )
   local damagetype = filterTable["damagetype_const"]
-  
+
   if attacker:IsHero() then
+      local intMultiplierDota = 1+((attacker:GetIntellect()/16)/100)
+      local intMultiplierNew = 1+((attacker:GetIntellect()/50)/100)
       if damagetype == DAMAGE_TYPE_MAGICAL or damagetype == DAMAGE_TYPE_PURE then
-          filterTable["damage"] = filterTable["damage"]/(1+((attacker:GetIntellect()/16)/100))
+          filterTable["damage"] = (filterTable["damage"]/intMultiplierDota)*intMultiplierNew
       end
   end
   return true

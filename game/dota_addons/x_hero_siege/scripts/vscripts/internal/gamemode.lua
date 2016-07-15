@@ -123,7 +123,7 @@ function GameMode:_InitGameMode()
 
   ListenToGameEvent("force_camera_on_entity",  Dynamic_Wrap(GameMode, "ForceCameraOnEntity"), self)
   ListenToGameEvent("destroy_door",  Dynamic_Wrap(GameMode, "DestroyDoor"), self)
-
+  CustomGameEventManager:RegisterListener( "update_player_kills", Dynamic_Wrap(GameMode, "OnUpdatePlayerKills"))
   --ListenToGameEvent("dota_tutorial_shop_toggled", Dynamic_Wrap(GameMode, 'OnShopToggled'), self)
 
   --ListenToGameEvent('player_spawn', Dynamic_Wrap(GameMode, 'OnPlayerSpawn'), self)

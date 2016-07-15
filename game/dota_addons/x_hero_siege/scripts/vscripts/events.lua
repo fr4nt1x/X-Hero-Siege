@@ -178,6 +178,19 @@ function GameMode:OnPlayerReconnect(keys)
   DebugPrintTable(keys)
 end
 
+-- A player has reconnected to the game.  This function can be used to repaint Player-based particles or change
+-- state as necessary
+function GameMode:OnUpdatePlayerKills(keys)
+  DebugPrint( '[BAREBONES] OnUpdatePlayerKills' )
+  DebugPrintTable(keys)
+  local player = PlayerResource:GetPlayer(keys.player_id)
+  local hero = player:GetHero()
+  if IsValidEntity(hero) then 
+    CustomGameEventManager:Send_ServerToAllClients("update_player_panel", {player_id = keys.player_id, wave_kills = hero.wave_kills} )
+  
+  end 
+end
+
 -- An item was purchased by a player
 function GameMode:OnItemPurchased( keys )
   DebugPrint( '[BAREBONES] OnItemPurchased' )
@@ -334,7 +347,7 @@ function GameMode:OnLastHit(keys)
 
   if not killedEnt:HasModifier("modifier_arena_kill") then
     hero.creep_kills = hero.creep_kills +1
-    CustomGameEventManager:Send_ServerToAllClients("update_player_panel", {hero_ent_index = hero:GetEntityIndex(), creep_kills = hero.creep_kills} )
+    CustomGameEventManager:Send_ServerToAllClients("update_player_panel", {player_id  = keys.PlayerID, creep_kills = hero.creep_kills} )
   end
   
   if not isTowerKill and IsValidAlive(player:GetAssignedHero()) and not player:GetAssignedHero().in_special_event and player:GetTeam() == DOTA_TEAM_GOODGUYS and hero:IsRealHero() then
@@ -351,7 +364,7 @@ function GameMode:OnLastHit(keys)
 
     if killedEnt:HasAbility("wave_modifier") then
       hero.wave_kills = hero.wave_kills +1
-      CustomGameEventManager:Send_ServerToAllClients("update_player_panel", {hero_ent_index = hero:GetEntityIndex(), wave_kills = hero.wave_kills} )
+      CustomGameEventManager:Send_ServerToAllClients("update_player_panel", {player_id = keys.PlayerID, wave_kills = hero.wave_kills} )
       if not GameMode.wave_event_happened and hero.wave_kills >= wave_kills_for_event then
         Notifications:TopToAll({text=player:GetAssignedHero():GetName().." has ".. wave_kills_for_event.." wave kills. Special Arena WAVE.", duration=5.0})
         GameMode.wave_event_happened = true

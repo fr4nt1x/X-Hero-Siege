@@ -97,6 +97,21 @@
     font-weight: bold;
 }
 
+#kills_activate_button{
+     background-color: gradient( linear, 0% 0%, 0% 100%, from( #8B4513cc ), to( #ebb631cc ) );
+    width: 20%;
+    horizontal-align: right;
+    border: 3px solid #8B4513;
+}
+
+#buttonlabel{
+        horizontal-align: center;
+    vertical-align: center;
+        font-size: 25;
+    font-weight: bold;
+    text-shadow: 2px 2px 2px 2.0 #101010;
+}
+
 
 #TopNotifications
 {

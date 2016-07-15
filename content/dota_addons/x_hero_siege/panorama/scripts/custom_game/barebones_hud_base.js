@@ -111,49 +111,61 @@ function AddNotification(msg, panel) {
 }
 
 function createPlayerPanel(event){
-  var parentPanel = $("#player_kills_container");
+    $.Msg(event);
+    var killsContainer = $("#player_kills_container");
 
-  var top_row = $.CreatePanel( "Panel", parentPanel, "top_row");
+    if($("#top_row")===null) {
+    var top_row = $.CreatePanel( "Panel", killsContainer, "top_row");
 
-  var name_label = $.CreatePanel( "Label", top_row, "top_name");
-  name_label.text = $.Localize( "#player_name" );
-  name_label.AddClass("player_names");
+    var name_label = $.CreatePanel( "Label", top_row, "top_name");
+    name_label.text = $.Localize( "#player_name" );
+    name_label.AddClass("player_names");
 
-  var kills_label = $.CreatePanel( "Label", top_row, "top_creep_kills");
-  kills_label.text = $.Localize( "#creep_kills" );
-  kills_label.AddClass("player_kills");
+    var kills_label = $.CreatePanel( "Label", top_row, "top_creep_kills");
+    kills_label.text = $.Localize( "#creep_kills" );
+    kills_label.AddClass("player_kills");
 
-  var wavekills_label = $.CreatePanel( "Label", top_row, "top_wave_kills" );
-  wavekills_label.text = $.Localize( "#wave_kills" );
-  wavekills_label.AddClass("player_wavekills");
+    var wavekills_label = $.CreatePanel( "Label", top_row, "top_wave_kills" );
+    wavekills_label.text = $.Localize( "#wave_kills" );
+    wavekills_label.AddClass("player_wavekills");
 
-  var parentPanel = $.CreatePanel( "Panel", parentPanel, "player_id_"+event.hero_ent_index);
-  parentPanel.AddClass("player_row");
+    for (var key in Game.GetPlayerIDsOnTeam(DOTATeam_t.DOTA_TEAM_GOODGUYS )){
+      if ($("#player_id_"+key) === null){
+        var parentPanel = $.CreatePanel( "Panel", killsContainer, "player_id_"+key);
+        parentPanel.AddClass("player_row");
 
-  var player_name_label = $.CreatePanel( "Label", parentPanel, "player_name_"+event.hero_ent_index );
-  player_name_label.AddClass("player_names");
+        var player_name_label = $.CreatePanel( "Label", parentPanel, "player_name_"+key );
+        player_name_label.AddClass("player_names");
 
-  var player_kills_label = $.CreatePanel( "Label", parentPanel, "creep_kills"+event.hero_ent_index );
-  player_kills_label.AddClass("player_kills");
+        var player_kills_label = $.CreatePanel( "Label", parentPanel, "creep_kills"+key );
+        player_kills_label.AddClass("player_kills");
 
-  var player_wavekills_label = $.CreatePanel( "Label", parentPanel, "wave_kills"+event.hero_ent_index );
-  player_wavekills_label.AddClass("player_wavekills");
+        var player_wavekills_label = $.CreatePanel( "Label", parentPanel, "wave_kills"+key );
+        player_wavekills_label.AddClass("player_wavekills");
 
-  player_name_label.text = Players.GetPlayerName( event.player_id );
-  player_kills_label.text = 0;
-  player_wavekills_label.text = 0;
+        player_name_label.text = Players.GetPlayerName(+key);
+        var event = new Object();
+        event.player_id = +key;
+        GameEvents.SendCustomGameEventToServer("update_player_kills",event) ;
+      }
+    }
+  }
+  else{
+      killsContainer.RemoveAndDeleteChildren();
 
+  }
 }
 
 function updatePlayerPanel(event){
-  if (event.creep_kills){
-    var player_kills_label = $("#creep_kills"+event.hero_ent_index );
-    player_kills_label.text = event.creep_kills;
-  }
-  else if (event.wave_kills){
-    var player_kills_label = $("#wave_kills"+event.hero_ent_index );
-    player_kills_label.text = event.wave_kills;
-  }
+    if (event.creep_kills && $("#creep_kills"+event.player_id )!=null){
+      var player_kills_label = $("#creep_kills"+event.player_id );
+      player_kills_label.text = event.creep_kills;
+    }
+    else if (event.wave_kills && $("#wave_kills"+event.player_id )!= null){
+      var player_kills_label = $("#wave_kills"+event.player_id );
+      player_kills_label.text = event.wave_kills;
+    }
+  
 }
 
 //=============================================================================

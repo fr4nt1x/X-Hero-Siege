@@ -13,10 +13,10 @@
       <Panel hittest="false" id="TopNotifications">
       </Panel>
     </Panel>
-
-    <Panel hittest="false" id="player_kills_container">
-    </Panel>
-
+    
+    <Button id="kills_activate_button" hittest="true" onactivate="createPlayerPanel()"><Label hittest="true" text="Kills (Open/Close)" id="buttonlabel"/> </Button>
+      <Panel hittest="false" id="player_kills_container">
+      </Panel>
     <Panel hittest="false" class="BarebonesBottomNotifications">
       <Panel hittest="false" id="BottomNotifications">
       </Panel>
