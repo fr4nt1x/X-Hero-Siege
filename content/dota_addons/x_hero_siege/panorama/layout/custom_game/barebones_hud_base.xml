@@ -13,7 +13,17 @@
       <Panel hittest="false" id="TopNotifications">
       </Panel>
     </Panel>
-    
+    <Panel hittest="false" id="TimerContainer">
+      <Panel hittest="false" id="TimerTopContainer">
+       <Label id="WaveLabelTop" class="TimerLabelTop" text="Next Wave:"> </Label>
+       <Label id="SpecialEventLabelTop" class="TimerLabelTop" text="Next Event:"> </Label>
+       </Panel>
+
+      <Panel hittest="false" id="TimerBottomContainer">
+       <Label id="WaveLabelBot" text=""> </Label>
+       <Label id="SpecialEventLabelBot" text=""> </Label>
+      </Panel>
+    </Panel>
     <Button id="kills_activate_button" hittest="true" onactivate="createPlayerPanel()"><Label hittest="true" text="Kills (Open/Close)" id="buttonlabel"/> </Button>
       <Panel hittest="false" id="player_kills_container">
       </Panel>

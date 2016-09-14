@@ -10566,16 +10566,8 @@
 	        {
 	        	"IsHidden" "0"
 	        	"Duration" "%afterburn_duration"
-	          "Attributes"    ""
-	        	"OnCreated"
-	        	{
-	        		"ApplyEffect"
-	        		{
-	        			"EffectName"        "particles/units/heroes/hero_leshrac/leshrac_pulse_nova_ambient.vpcf"
-	        			"EffectAttachType"  "follow_origin"
-	        			"Target"            "TARGET"
-	        		}
-	        	}
+	          "EffectName" "particles/units/heroes/hero_leshrac/leshrac_pulse_nova_ambient.vpcf"
+	          "EffectAttachType" "follow_origin"
 	        	"ThinkInterval"  "%ticktime_afterburn"
 	          	"OnIntervalThink"
 	          	{
@@ -10694,6 +10686,7 @@
 	        "Damage"
 	        {
 	          "Damage" "%AbilityDamage"
+	          "Type"    "DAMAGE_TYPE_MAGICAL"
 	          "Target"
 	          {
 	            "Center"    "CASTER"
@@ -10811,6 +10804,7 @@
 	    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 	
 	    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
+	    "AbilityUnitTargetFlag"		"DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS"
 	    "SpellImmunityType"       "SPELL_IMMUNITY_ALLIES_YES"
 		"RequiredLevel"  				"10"
 		"MaxLevel"						"2"
@@ -10857,7 +10851,7 @@
 			"05"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"incoming_damage"			"75 50"
+				"incoming_damage"			"50 25"
 			}					
 		}
 	
@@ -11093,7 +11087,7 @@
 	        "Passive"       "1"
 	        "IsHidden"      "1"
 	        "IsBuff"      "1"
-	
+	        "AllowIllusionDuplicate"     "1"
 	        "Aura"        "modifier_life_regeneration_aura_buff"
 	        "Aura_Radius"     "%radius"
 	        "Aura_Teams"    "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -11105,6 +11099,7 @@
 	        "Passive"      "0"
 	        "IsHidden"      "0"
 	        "IsDebuff"      "0"
+	        "AllowIllusionDuplicate"     "1"
 	      
 	        "EffectName"    "particles/items2_fx/tranquil_boots_healing.vpcf"
 	        "EffectAttachType"  "follow_origin"
@@ -13026,7 +13021,7 @@
 	        "IsHidden" "1"
 	        "Properties"
 	        {
-	          "MODIFIER_PROPERTY_EVASION_CONTANT" "%bonus_evasion" 
+	          "MODIFIER_PROPERTY_EVASION_CONSTANT" "%bonus_evasion" 
 	        }
 	      }
 	    }
@@ -15847,7 +15842,7 @@
 	            "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"  "%speed_bonus"
 	            "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"    "%bonus_damage"   
 	            "MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"   "%base_attack_time"    
-	            "MODIFIER_PROPERTY_EVASION_CONTANT"             "%bonus_evasion"  
+	            "MODIFIER_PROPERTY_EVASION_CONSTANT"             "%bonus_evasion"  
 	
 	          }
 	

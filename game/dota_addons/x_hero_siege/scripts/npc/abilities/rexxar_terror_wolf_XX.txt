@@ -253,7 +253,7 @@
             "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"  "%speed_bonus"
             "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"    "%bonus_damage"   
             "MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"   "%base_attack_time"    
-            "MODIFIER_PROPERTY_EVASION_CONTANT"             "%bonus_evasion"  
+            "MODIFIER_PROPERTY_EVASION_CONSTANT"             "%bonus_evasion"  
 
           }
 

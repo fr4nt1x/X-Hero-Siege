@@ -26,7 +26,7 @@
         "IsHidden" "1"
         "Properties"
         {
-          "MODIFIER_PROPERTY_EVASION_CONTANT" "%bonus_evasion" 
+          "MODIFIER_PROPERTY_EVASION_CONSTANT" "%bonus_evasion" 
         }
       }
     }

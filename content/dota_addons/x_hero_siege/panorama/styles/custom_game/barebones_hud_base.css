@@ -45,24 +45,28 @@
     /*border: 2px solid blue;*/
     text-align: center;
     width: 50%;
-    font-size: 20;
-    text-shadow: 1px 1px 1px 1.0 #101010;
+    font-size: 22;
+
+    text-shadow: 0px 1px 4px 2.0 #ffffff;
+    color: #000000;
 }
 .player_kills{
     padding: 5px;
     /*border: 2px solid blue;*/
     text-align: center;
     width: 25%;
-    font-size: 20;
-    text-shadow: 1px 1px 1px 1.0 #101010;
+    font-size: 22;
+    text-shadow: 0px 1px 4px 2.0 #ffffff;
+    color: #000000;
 }
 .player_wavekills{
     padding: 5px;
     /*border: 2px solid blue;*/
     text-align: center;
-    font-size: 20;
+    font-size: 22;
     width: 25%;
-    text-shadow: 1px 1px 1px 1.0 #101010;
+    text-shadow: 0px 1px 4px 2.0 #ffffff;
+    color: #000000;
 }
 .player_row{
     width: 100%;
@@ -70,6 +74,7 @@
     flow-children: right;
     background-color: gradient( linear, 0% 0%, 0% 100%, from( #C5B358dd ),to( #8B4513cc ) );
 }
+
 
 #top_row{
     background-color: gradient( linear, 0% 0%, 0% 100%, from( #8B4513cc ), to( #ebb631cc ) );
@@ -84,17 +89,20 @@
     vertical-align: center;
     font-size: 25;
     font-weight: bold;
+    color: #ffffff;
 
 }
 #top_row .player_kills{
     text-shadow: 2px 2px 2px 3.0 #101010;
     font-size: 25;
     font-weight: bold;
+    color: #ffffff;
 }
 #top_row .player_wavekills{
     text-shadow: 2px 2px 2px 2.0 #101010;
     font-size: 25;
     font-weight: bold;
+    color: #ffffff;
 }
 
 #kills_activate_button{
@@ -105,12 +113,84 @@
 }
 
 #buttonlabel{
-        horizontal-align: center;
+    horizontal-align: center;
     vertical-align: center;
-        font-size: 25;
+    font-size: 25;
+    color: #ffffff;
     font-weight: bold;
     text-shadow: 2px 2px 2px 2.0 #101010;
 }
+
+
+
+#TimerContainer{
+
+    flow-children: down;
+    width: 15%;
+    margin-top: 3px;
+    margin-left: 11.5%;
+}
+
+#TimerTopContainer{
+    background-color: gradient( linear, 0% 0%, 0% 100%, from( #8B4513cc ), to( #ebb631cc ) );
+    flow-children: right;
+    vertical-align: center;
+    horizontal-align: center;
+    width: 100%;
+    border: 3px solid #8B4513;
+}
+#TimerBottomContainer{
+
+    background-color: gradient( linear, 0% 0%, 0% 100%, from( #C5B358dd ),to( #8B4513cc ) );
+    flow-children: right;
+    vertical-align: center;
+    horizontal-align: center;
+    width:100%;
+    margin-top: 5px;
+}
+
+.TimerLabelTop{
+    vertical-align: center;
+    horizontal-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 2px 2.0 #101010;
+}
+
+#SpecialEventLabelTop{
+    width:50%;
+    color: #ffffff;
+    font-weight: bold;
+    vertical-align: center;
+    horizontal-align: center;
+}
+#WaveLabelTop{
+    width:50%;
+    color: #ffffff;
+    font-weight: bold;
+    vertical-align: center;
+    horizontal-align: center;
+}
+
+#SpecialEventLabelBot{
+    text-shadow: 0px 1px 4px 2.0 #ffffff;
+    text-align: center;
+    color: #000000;
+    vertical-align: center;
+    horizontal-align: center;
+    width:50%;
+
+}
+#WaveLabelBot{
+    text-align: center;
+    text-shadow: 0px 1px 4px 2.0 #ffffff;
+    color: #000000;
+    vertical-align: center;
+    horizontal-align: center;
+    width:50%;
+}
+
 
 
 #TopNotifications

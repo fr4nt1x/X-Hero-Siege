@@ -126,16 +126,8 @@
         {
         	"IsHidden" "0"
         	"Duration" "%afterburn_duration"
-          "Attributes"    ""
-        	"OnCreated"
-        	{
-        		"ApplyEffect"
-        		{
-        			"EffectName"        "particles/units/heroes/hero_leshrac/leshrac_pulse_nova_ambient.vpcf"
-        			"EffectAttachType"  "follow_origin"
-        			"Target"            "TARGET"
-        		}
-        	}
+          "EffectName" "particles/units/heroes/hero_leshrac/leshrac_pulse_nova_ambient.vpcf"
+          "EffectAttachType" "follow_origin"
         	"ThinkInterval"  "%ticktime_afterburn"
           	"OnIntervalThink"
           	{

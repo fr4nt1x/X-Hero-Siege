@@ -31,7 +31,7 @@
         "Passive"       "1"
         "IsHidden"      "1"
         "IsBuff"      "1"
-
+        "AllowIllusionDuplicate"     "1"
         "Aura"        "modifier_life_regeneration_aura_buff"
         "Aura_Radius"     "%radius"
         "Aura_Teams"    "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -43,6 +43,7 @@
         "Passive"      "0"
         "IsHidden"      "0"
         "IsDebuff"      "0"
+        "AllowIllusionDuplicate"     "1"
       
         "EffectName"    "particles/items2_fx/tranquil_boots_healing.vpcf"
         "EffectAttachType"  "follow_origin"

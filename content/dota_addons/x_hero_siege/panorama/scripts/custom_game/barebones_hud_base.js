@@ -111,7 +111,6 @@ function AddNotification(msg, panel) {
 }
 
 function createPlayerPanel(event){
-    $.Msg(event);
     var killsContainer = $("#player_kills_container");
 
     if($("#top_row")===null) {
@@ -167,7 +166,16 @@ function updatePlayerPanel(event){
     }
   
 }
-
+function UpdateTimers(event){
+    if (event.wave_time){
+      var label = $("#WaveLabelBot");
+      label.text = event.wave_time;
+    }
+    if (event.roshan_time){
+      var label = $("#SpecialEventLabelBot");
+      label.text = event.roshan_time;
+    }
+}
 //=============================================================================
 //==========================================================================
 (function () {
@@ -178,6 +186,8 @@ function updatePlayerPanel(event){
   GameEvents.Subscribe( "bottom_notification", BottomNotification );
   GameEvents.Subscribe( "top_remove_notification", TopRemoveNotification );
   GameEvents.Subscribe( "bottom_remove_notification", BottomRemoveNotification );
+  GameEvents.Subscribe( "update_timers", UpdateTimers );
+
 
 })();
 

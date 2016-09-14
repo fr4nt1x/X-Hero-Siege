@@ -61,6 +61,7 @@
         "Damage"
         {
           "Damage" "%AbilityDamage"
+          "Type"    "DAMAGE_TYPE_MAGICAL"
           "Target"
           {
             "Center"    "CASTER"

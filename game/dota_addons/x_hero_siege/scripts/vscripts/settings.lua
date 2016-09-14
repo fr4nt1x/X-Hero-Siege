@@ -14,7 +14,7 @@ GOLD_PER_TICK = 0                     -- How much gold should players get per ti
 GOLD_TICK_TIME = 5                      -- How long should we wait in seconds between gold ticks?
 
 RECOMMENDED_BUILDS_DISABLED = true     -- Should we disable the recommened builds for heroes
-CAMERA_DISTANCE_OVERRIDE = 1134.0       -- How far out should we allow the camera to go?  1134 is the default in Dota
+CAMERA_DISTANCE_OVERRIDE = 1500.0       -- How far out should we allow the camera to go?  1134 is the default in Dota
 
 MINIMAP_ICON_SIZE = 1                   -- What icon size should we use for our heroes?
 MINIMAP_CREEP_ICON_SIZE = 1             -- What icon size should we use for creeps?
@@ -25,14 +25,14 @@ CUSTOM_BUYBACK_COST_ENABLED = true      -- Should we use a custom buyback cost s
 CUSTOM_BUYBACK_COOLDOWN_ENABLED = true  -- Should we use a custom buyback time?
 BUYBACK_ENABLED = false                 -- Should we allow people to buyback when they die?
 
-DISABLE_FOG_OF_WAR_ENTIRELY = false     -- Should we disable fog of war entirely for both teams?
-USE_UNSEEN_FOG_OF_WAR = true           -- Should we make unseen and fogged areas of the map completely black until uncovered by each team? 
+DISABLE_FOG_OF_WAR_ENTIRELY = true     -- Should we disable fog of war entirely for both teams?
+USE_UNSEEN_FOG_OF_WAR = false           -- Should we make unseen and fogged areas of the map completely black until uncovered by each team? 
                                             -- Note: DISABLE_FOG_OF_WAR_ENTIRELY must be false for USE_UNSEEN_FOG_OF_WAR to work
 USE_STANDARD_DOTA_BOT_THINKING = false  -- Should we have bots act like they would in Dota? (This requires 3 lanes, normal items, etc)
 USE_STANDARD_HERO_GOLD_BOUNTY = false    -- Should we give gold for hero kills the same as in Dota, or allow those values to be changed?
 
 USE_CUSTOM_TOP_BAR_VALUES = true        -- Should we do customized top bar values or use the default kill count per team?
-TOP_BAR_VISIBLE = true                  -- Should we display the top bar score/count at all?
+TOP_BAR_VISIBLE = false                  -- Should we display the top bar score/count at all?
 SHOW_KILLS_ON_TOPBAR = false             -- Should we display kills only on the top bar? (No denies, suicides, kills by neutrals)  Requires USE_CUSTOM_TOP_BAR_VALUES
 
 ENABLE_TOWER_BACKDOOR_PROTECTION = false-- Should we enable backdoor protection for our towers?

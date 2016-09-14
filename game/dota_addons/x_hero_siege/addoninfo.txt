@@ -1,10 +1,10 @@
 "AddonInfo"
 {
-	"maps"			"herosiege"
+	"maps"			"herosiege_new"
 	"IsPlayable"	"1"
 	"TeamCount"		"1"
 	
-	"herosiege"
+	"herosiege_new"
 	{
 		"MaxPlayers"                    "8"
 	}

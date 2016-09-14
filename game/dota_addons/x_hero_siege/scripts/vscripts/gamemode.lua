@@ -283,7 +283,8 @@ function GameMode:OnGameInProgress()
   
   CustomGameEventManager:Send_ServerToAllClients("create_player_panel", {} )
   CustomGameEventManager:Send_ServerToAllClients("create_player_panel", {} )
-  
+
+
   GameMode.timers.timer_creep_spawn = Timers:CreateTimer(0,SpawnCreeps)
   timer_wave_spawn = Timers:CreateTimer(TimeBetweenWaves,SpawnWaves)
   timer_special_arena = Timers:CreateTimer(TimeSpecialArena,specialEventArena)
@@ -291,6 +292,15 @@ function GameMode:OnGameInProgress()
   timer_arena_message = Timers:CreateTimer(TimeSpecialArena - 30,SendSpecialArenaMessage)
   timer_event_roshan = Timers:CreateTimer(SpecialEventRoshan,specialEventRoshan)
   Timers:CreateTimer(30,printEvents)
+  Timers:CreateTimer(0.5,printTimers)
+  
+  if Timers.timers[timer_wave_spawn] ~= nil then
+    local time = sec2Min(math.floor(Timers.timers[timer_wave_spawn].endTime-GameRules:GetGameTime()))
+
+    msg = "Next wave incoming in "..time.."."
+    GameRules:SendCustomMessage(msg, DOTA_TEAM_GOODGUYS, 1) 
+  end
+
   GameMode.FrostInfernalDead = false
   GameMode.SpiritBeastDead = false
 

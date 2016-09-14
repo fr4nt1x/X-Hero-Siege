@@ -12,6 +12,7 @@
     "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlag"		"DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS"
     "SpellImmunityType"       "SPELL_IMMUNITY_ALLIES_YES"
 	"RequiredLevel"  				"10"
 	"MaxLevel"						"2"
@@ -58,7 +59,7 @@
 		"05"
 		{
 			"var_type"					"FIELD_INTEGER"
-			"incoming_damage"			"75 50"
+			"incoming_damage"			"50 25"
 		}					
 	}
 

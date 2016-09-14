@@ -178,16 +178,18 @@ function GameMode:OnPlayerReconnect(keys)
   DebugPrintTable(keys)
 end
 
--- A player has reconnected to the game.  This function can be used to repaint Player-based particles or change
--- state as necessary
+--Player has clicked on playerkills
 function GameMode:OnUpdatePlayerKills(keys)
   DebugPrint( '[BAREBONES] OnUpdatePlayerKills' )
   DebugPrintTable(keys)
+
   local player = PlayerResource:GetPlayer(keys.player_id)
-  local hero = player:GetHero()
-  if IsValidEntity(hero) then 
-    CustomGameEventManager:Send_ServerToAllClients("update_player_panel", {player_id = keys.player_id, wave_kills = hero.wave_kills} )
+  local playerToSend = PlayerResource:GetPlayer(keys.PlayerID)
   
+  local hero = player:GetAssignedHero()
+  if IsValidEntity(hero) then 
+    CustomGameEventManager:Send_ServerToPlayer(playerToSend,"update_player_panel", {player_id = keys.player_id, wave_kills = hero.wave_kills} )
+    CustomGameEventManager:Send_ServerToPlayer(playerToSend,"update_player_panel", {player_id = keys.player_id, creep_kills = hero.creep_kills} )
   end 
 end
 
