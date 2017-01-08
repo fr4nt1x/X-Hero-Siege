@@ -26,7 +26,7 @@
 	"Ability3"					"crypt_lord_locust_swarm"
 	"Ability4"					"crypt_lord_spiked_carapace"
 	"Ability5"					"crypt_lord_stinger"
-    "Ability6"        			""
+    "Ability6"        			"crypt_lord_anubarak_claw"
     "Ability7"        ""
     "Ability8"        ""
     "Ability9"        ""

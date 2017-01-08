@@ -1382,7 +1382,7 @@
 	    "AbilityTextureName" "omniknight_purification"
 	    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 	    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO"
-	
+	    "AoERadius"             "%radius"
 	
 	    // Special
 	    //-------------------------------------------------------------------------------------

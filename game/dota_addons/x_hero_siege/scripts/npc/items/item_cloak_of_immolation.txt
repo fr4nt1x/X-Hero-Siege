@@ -18,7 +18,7 @@
     "AbilityTextureName" "item_vladmir"
 
     "SideShop"     "0" 
-    "SecretShop"   "0"
+    "SecretShop"   "1"
 
     "ItemShopTags"					"artifact"
 	   "ItemQuality"					"artifact"

@@ -22,7 +22,7 @@
 		"Ability3"					"dryad_trueshot_aura"
 		"Ability4"					"demonhunter_evasion"
 		"Ability5"					"dryad_endurance_aura"
-	    "Ability6"        			""
+	    "Ability6"        			"dryad_poison_weapons"
 	    "Ability7"        ""
 	    "Ability8"        ""
 	    "Ability9"        ""

@@ -12,7 +12,7 @@
 		"Ability3"					"rexxar_summon_falcon"	 //Reference: Arsq
 		"Ability4"					"rexxar_aura_of_thorns"	 //Reference: ANsb
 		"Ability5"					"rexxar_stampede"	 //Reference: Arsp
-		"Ability6"					""	 //Reference: Aamk
+		"Ability6"					"rexxar_feral_spirit"	 //Reference: Aamk
 		
 		// Armor
 		//----------------------------------------------------------------

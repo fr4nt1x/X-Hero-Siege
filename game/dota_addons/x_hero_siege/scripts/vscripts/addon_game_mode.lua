@@ -30,25 +30,7 @@ function Precache( context )
 
   -- Entire items can be precached by name
   -- Abilities can also be precached in this way despite the name
-  PrecacheItemByNameSync("demonhunter_roar", context)
-  PrecacheItemByNameSync("dryad_poison_weapons", context)
-  PrecacheItemByNameSync("luna_moon_glaive", context)
-  PrecacheItemByNameSync("moon_priest_rejunivation", context)
-  PrecacheItemByNameSync("lich_frost_frenzy", context)
-  PrecacheItemByNameSync("blademaster_berserk", context)
-  PrecacheItemByNameSync("windrunner_healing", context)
-  PrecacheItemByNameSync("shadow_hunter_healing_ward", context)
-  PrecacheItemByNameSync("paladin_taunt", context)
-  PrecacheItemByNameSync("archmage_spell_shield", context)
-  PrecacheItemByNameSync("dreadlord_sleep", context)
-  PrecacheItemByNameSync("jaina_mana_shield", context)
-  PrecacheItemByNameSync("bloodmage_chains", context)
-  PrecacheItemByNameSync("shandris_spell_resistance", context)
-  PrecacheItemByNameSync("arthas_player_cleave", context)
-  PrecacheItemByNameSync("tauren_chieftain_roar", context)
-  PrecacheItemByNameSync("panda_ensnare", context)
-  PrecacheItemByNameSync("rifleman_rage", context)
-  PrecacheItemByNameSync("marine_banish", context)
+
   -- Entire heroes (sound effects/voice/models/particles) can be precached with PrecacheUnitByNameSync
   -- Custom units from npc_units_custom.txt can also have all of their abilities and precache{} blocks precached in this way
   

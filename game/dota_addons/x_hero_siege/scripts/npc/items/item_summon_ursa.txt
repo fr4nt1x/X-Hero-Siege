@@ -15,7 +15,7 @@
     "ItemShareability" "ITEM_FULLY_SHAREABLE"
     "AbilityTextureName" "item_summon_ursa"
     "SideShop"     "0" 
-    "SecretShop"   "0"
+    "SecretShop"   "1"
 
     "ItemShopTags"					"consumable"
 	"ItemQuality"					"consumable"

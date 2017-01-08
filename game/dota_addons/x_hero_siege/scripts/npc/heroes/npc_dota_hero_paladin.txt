@@ -11,7 +11,7 @@
 		"Ability3"					"paladin_fan_of_light"	 //Reference: AHds
 		"Ability4"					"paladin_devotion_aura"	 //Reference: AHre
 		"Ability5"					"paladin_pure_light"	 //Reference: AHad
-		"Ability6"					""	 //Reference: AHad
+		"Ability6"					"paladin_taunt"	 //Reference: AHad
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"2"

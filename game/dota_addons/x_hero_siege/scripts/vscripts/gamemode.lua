@@ -83,6 +83,7 @@ function GameMode:PostLoadPrecache()
 
   --PrecacheUnitByNameAsync("npc_dota_hero_viper", function(...) end)
   --PrecacheUnitByNameAsync("npc_dota_hero_enigma", function(...) end)
+
 end
 
 --[[
@@ -189,7 +190,7 @@ function GameMode:OnHeroInGame(hero)
     elseif difficulty == 4 then
       hero:SetGold(300, false)
     end  
-
+  
   if AbilitiesHeroes_XX[hero:GetUnitName()] ~= nil then 
     for _,ability in pairs(AbilitiesHeroes_XX[hero:GetUnitName()]) do
       PrecacheItemByNameAsync(ability[1], function() end)
@@ -209,10 +210,12 @@ function GameMode:OnHeroInGame(hero)
     hero.got_kill_bonus = false
     hero.illusion_done = false
     local ability = AbilitiesHeroes[hero:GetUnitName()]
-    if ability ~=nil then
-      hero:AddAbility(ability)
-      hero:UpgradeAbility(hero:FindAbilityByName(ability))
+    if ability ~= nil then
+      --hero:AddAbility(ability)
+      local ab = hero:FindAbilityByName(ability)
+      hero:UpgradeAbility(ab)
       hero:SetAbilityPoints(1)
+      print("Set")
     end
 
     player = hero:GetPlayerOwnerID()

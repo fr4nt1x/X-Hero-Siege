@@ -26,7 +26,7 @@
     "Ability3"        "lich_frost_arrows"
     "Ability4"        "lich_frost_shield"
     "Ability5"        "lich_summon_frost_beast"
-    "Ability6"        ""
+    "Ability6"        "lich_frost_frenzy"
     "Ability7"        ""
     "Ability8"        ""
     "Ability9"        ""

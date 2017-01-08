@@ -12,7 +12,7 @@
 			"Ability2"					"archmage_water_elemental"	 //Reference: AHbz
 			"Ability3"					"archmage_debilitation_aura"	 //Reference: AHab
 			"Ability4"					"archmage_frost_bolt"	 //Reference: AHwe
-			"Ability5"					""	 //Reference: AHmt
+			"Ability5"					"archmage_spell_shield"	 //Reference: AHmt
 			"Ability6"					"archmage_starfall"	 //Reference: AHmt
 			"Ability7"		""
 			"Ability8"		""
@@ -97,7 +97,7 @@
 		"Ability3"					"blademaster_war_drums_aura"	 //Reference: AOcr
 		"Ability4"					"blademaster_critical"	 //Reference: AOmi
 		"Ability5"					"blademaster_bladefury"	 //Reference: AOww
-		"Ability6"					""	 //Reference: AOww
+		"Ability6"					"blademaster_berserk"	 //Reference: AOww
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"0"
@@ -162,7 +162,7 @@
 			"Ability3"					"bloodmage_incinerate"	 //Reference: AHfs
 			"Ability4"					"bloodmage_fire_bolt"	 //Reference: AHbn
 			"Ability5"					"bloodmage_summon_phoenix"	 //Reference: AHdr
-			"Ability6"					""	 //Reference: AHpx
+			"Ability6"					"bloodmage_chains"	 //Reference: AHpx
 			"Ability7"					""	 //Reference: AHbn
 			"Ability8"					""	 //Reference: AHdr
 			"Ability9"					""	 //Reference: AHpx
@@ -251,7 +251,7 @@
 		"Ability3"					"crypt_lord_locust_swarm"
 		"Ability4"					"crypt_lord_spiked_carapace"
 		"Ability5"					"crypt_lord_stinger"
-	    "Ability6"        			""
+	    "Ability6"        			"crypt_lord_anubarak_claw"
 	    "Ability7"        ""
 	    "Ability8"        ""
 	    "Ability9"        ""
@@ -333,7 +333,7 @@
 	    "Ability3"        "demonhunter_evasion"
 	    "Ability4"        "demonhunter_vampiric_aura"
 	    "Ability5"        "demonhunter_metamorphosis"
-	    "Ability6"        ""
+	    "Ability6"        "demonhunter_roar"
 	    "Ability7"        ""
 	    "Ability8"        ""
 	    "Ability9"        ""
@@ -401,7 +401,7 @@
 			"Ability4"					"dreadlord_death_coil"	 //Reference: AUcs
 			"Ability5"					""	 //Reference: AUin
 			"Ability6"					"dreadlord_inferno"	 //Reference: AUcs
-			"Ability7"					""	 //Reference: AUin
+			"Ability7"					"dreadlord_sleep"	 //Reference: AUin
 	
 			// Armor
 			//----------------------------------------------------------------
@@ -473,7 +473,7 @@
 		"Ability3"					"dryad_trueshot_aura"
 		"Ability4"					"demonhunter_evasion"
 		"Ability5"					"dryad_endurance_aura"
-	    "Ability6"        			""
+	    "Ability6"        			"dryad_poison_weapons"
 	    "Ability7"        ""
 	    "Ability8"        ""
 	    "Ability9"        ""
@@ -528,7 +528,7 @@
 			"Ability2"					"jaina_sea_elemental"	 //Reference: AUav
 			"Ability3"					"jaina_life_mana_drain"	 //Reference: AUsl
 			"Ability4"					"jaina_elemental_wave"	 //Reference: AUcs
-			"Ability5"					""	 //Reference: AUin
+			"Ability5"					"jaina_mana_shield"	 //Reference: AUin
 			"Ability6"					"jaina_frost_paralysis_aura"	 //Reference: AUcs
 	
 			// Armor
@@ -605,7 +605,7 @@
 	    "Ability3"        "lich_frost_arrows"
 	    "Ability4"        "lich_frost_shield"
 	    "Ability5"        "lich_summon_frost_beast"
-	    "Ability6"        ""
+	    "Ability6"        "lich_frost_frenzy"
 	    "Ability7"        ""
 	    "Ability8"        ""
 	    "Ability9"        ""
@@ -681,7 +681,7 @@
 		"Ability3"					"luna_split_lightning"
 		"Ability4"					"luna_elunes_armor"
 		"Ability5"					"luna_command_aura"
-	    "Ability6"        			""
+	    "Ability6"        			"luna_moon_glaive"
 	    "Ability7"        ""
 	    "Ability8"        ""
 	    "Ability9"        ""
@@ -736,7 +736,7 @@
 			"Ability3"					"marine_metal_armor"	 //Reference: Arsq
 			"Ability4"					"marine_life_regeneration_aura"	 //Reference: ANsb
 			"Ability5"					"marine_clone"	 //Reference: Arsp
-			"Ability6"					""	 //Reference: Aamk
+			"Ability6"					"marine_banish"	 //Reference: Aamk
 			
 			// Armor
 			//----------------------------------------------------------------
@@ -809,7 +809,7 @@
 		"Ability3"					"moon_priest_forked_lightning"
 		"Ability4"					"moon_priest_monsoon"
 		"Ability5"					"moon_priest_trueshot_aura"
-	    "Ability6"        			""
+	    "Ability6"        			"moon_priest_rejunivation"
 	    "Ability7"        ""
 	    "Ability8"        ""
 	    "Ability9"        ""
@@ -874,7 +874,7 @@
 		"Ability3"					"mountain_king_muradins_hammer"	 //Reference: AHtb
 		"Ability4"					"mountain_king_bash"	 //Reference: AHbh
 		"Ability5"					"mountain_king_avatar"	 //Reference: AHav
-		"Ability6"					""	 //Reference: AHav
+		"Ability6"					"mountain_king_thunderspirit"	 //Reference: AHav
 		
 		// Armor
 		//----------------------------------------------------------------
@@ -937,7 +937,7 @@
 			"Ability3"					"paladin_fan_of_light"	 //Reference: AHds
 			"Ability4"					"paladin_devotion_aura"	 //Reference: AHre
 			"Ability5"					"paladin_pure_light"	 //Reference: AHad
-			"Ability6"					""	 //Reference: AHad
+			"Ability6"					"paladin_taunt"	 //Reference: AHad
 			// Armor
 			//----------------------------------------------------------------
 			"ArmorPhysical"				"2"
@@ -1003,7 +1003,7 @@
 	        "Ability3"                  "panda_permanent_immolation"   //Reference: ANdh
 	        "Ability4"                  "panda_drunken_brawler"   //Reference: ANdb
 	        "Ability5"                  "panda_earthquake"   //Reference: ANef
-	        "Ability6"                  ""   //Reference: ANef
+	        "Ability6"                  "panda_ensnare"   //Reference: ANef
 	        // Armor
 	        //----------------------------------------------------------------
 	        "ArmorPhysical"             "1"
@@ -1062,7 +1062,7 @@
 	    "Ability3"        "dryad_endurance_aura"
 	    "Ability4"        "arthas_player_frostmourne"
 	    "Ability5"        "arthas_player_light_roar"
-	    "Ability6"        ""
+	    "Ability6"        "arthas_player_cleave"
 	    "Ability7"        ""
 	    "Ability8"        ""
 	    "Ability9"        ""
@@ -1127,7 +1127,7 @@
 	    "Ability3"        "bane_player_critical"
 	    "Ability4"        "dryad_endurance_aura"
 	    "Ability5"        "bane_player_stampede"
-	    "Ability6"        ""
+	    "Ability6"        "bane_player_command_aura"
 	    "Ability7"        ""
 	    "Ability8"        ""
 	    "Ability9"        ""
@@ -1188,7 +1188,7 @@
 			"Ability3"					"rexxar_summon_falcon"	 //Reference: Arsq
 			"Ability4"					"rexxar_aura_of_thorns"	 //Reference: ANsb
 			"Ability5"					"rexxar_stampede"	 //Reference: Arsp
-			"Ability6"					""	 //Reference: Aamk
+			"Ability6"					"rexxar_feral_spirit"	 //Reference: Aamk
 			
 			// Armor
 			//----------------------------------------------------------------
@@ -1252,7 +1252,7 @@
 			"Ability3"					"rifleman_shield"	 //Reference: AHfs
 			"Ability4"					"rifleman_trueshot_aura"	 //Reference: AHbn
 			"Ability5"					"rifleman_laser"	 //Reference: AHdr
-			"Ability6"					""	 //Reference: AHpx
+			"Ability6"					"rifleman_rage"	 //Reference: AHpx
 			"Ability7"					""	 //Reference: AHbn
 			"Ability8"					""	 //Reference: AHdr
 			"Ability9"					""	 //Reference: AHpx
@@ -1327,7 +1327,7 @@
 		"Ability2"					"shadow_hunter_serpentine_ward"	 //Reference: ANhw
 		"Ability3"					"shadow_hunter_feedback"	 //Reference: ANhx
 		"Ability4"					"shadow_hunter_vodoo_eyes"	 //Reference: Arsw
-		"Ability5"					""	 //Reference: AOls
+		"Ability5"					"shadow_hunter_healing_ward"	 //Reference: AOls
 		"Ability6"					"shadow_hunter_laser_trap"	 //Reference: Aamk
 		
 		// Armor
@@ -1393,7 +1393,7 @@
 			"Ability3"					"shandris_life_regeneration_aura"	 //Reference: AUsl
 			"Ability4"					"shandris_permanent_lightning"	 //Reference: AUcs
 			"Ability5"					"shandris_lightning_shock"	 //Reference: AUin
-			"Ability6"					""	 //Reference: AUcs
+			"Ability6"					"shandris_spell_resistance"	 //Reference: AUcs
 	
 			// Armor
 			//----------------------------------------------------------------
@@ -1457,7 +1457,7 @@
 	        "Ability3"                  "tauren_chieftain_pulverize"   //Reference: AOae
 	        "Ability4"                  "dryad_endurance_aura"   //Reference: AOre
 	        "Ability5"                  "tauren_chieftain_lightning_stroke"   //Reference: AOws
-	        "Ability6"                  ""   //Reference: AOre
+	        "Ability6"                  "tauren_chieftain_roar"   //Reference: AOre
 	        "Ability7"                  ""   //Reference: AOws
 	        // Armor
 	        //----------------------------------------------------------------
@@ -1535,7 +1535,7 @@
 	    "Ability1"        "warden_poison_dagger"
 	    "Ability2"        "warden_flurry_of_knives" 
 	    "Ability3"        "warden_silence"
-	    "Ability4"        ""
+	    "Ability4"        "blink"
 	    "Ability5"        "warden_attribute_bonus"
 	    "Ability6"        "warden_vengeance"
 	    "Ability7"        ""
@@ -1609,7 +1609,7 @@
 			"Ability2"					"windrunner_critical_arrows"	 
 			"Ability3"					"dryad_endurance_aura"	 
 			"Ability4"					"windrunner_innerfire"	 
-			"Ability5"					""	 
+			"Ability5"					"windrunner_healing"	 
 			"Ability6"					"windrunner_exploding_arrows"	
 			// Armor
 			//----------------------------------------------------------------

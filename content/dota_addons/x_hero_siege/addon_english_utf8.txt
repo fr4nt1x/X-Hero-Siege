@@ -3,6 +3,8 @@
 
 
 
+		
+
 
 
 "lang"
@@ -12,7 +14,9 @@
 	{		
 		"game_mode_15"				"X Hero Siege"
 		"addon_game_name"			"X Hero Siege"
-		
+		"player_name"				"Player Name"
+		"creep_kills"				"Creep Kills"
+		"wave_kills"				"Wave Kills"
 		// DOTA 2 MODKIT GENERATED TOOLTIPS FOR: x_hero_siege
 		// Keys already defined in addon_english.txt are not listed, nor are Modifiers with the property "IsHidden" "1".
 
@@ -38,6 +42,7 @@
 		"npc_dota_hero_omniknight"                                                        "Arthas"
 		"npc_dota_hero_elder_titan"                                                       "Tauren Chieftain"
 		"npc_dota_hero_beastmaster"                                                       "Rexxar"
+		"npc_dota_hero_tinker"                                                            "Marine"
 		// ******************** UNITS ********************
 		"npc_panda_tornado"                                                               "Tornado"
 		"npc_dota_hero_rexxar"                                                            "Rexxar"
@@ -65,6 +70,7 @@
 		"npc_dota_hero_player_banehallow"                                                 "Banehallow"
 		"npc_dota_hero_rifleman"                                                          "Rifleman"
 		"npc_dota_hero_shandris"                                                          "Shandris"
+		"npc_dota_hero_marine"                                                            "Marine"
 
 		// ******************** UNITS ********************
 		"npc_abomination"                                                                 "Abomination"
@@ -217,6 +223,9 @@
 		// ******************** ABILITY MODIFIERS ********************
 		"DOTA_Tooltip_modifier_terrorwolf"                                                "Terrorwolf"
 		"DOTA_Tooltip_modifier_terrorwolf_Description"                                    "Rexxar in his transformed state. He has critical, cleave evasion and bonus stats."
+		
+		"DOTA_Tooltip_modifier_banish"                                                    "Banish"
+		"DOTA_Tooltip_modifier_banish_Description"                                        "Unit is banished. It takes inreased magical damage and cannot attack."
 
 		"DOTA_Tooltip_modifier_rifleman_rage"                                             "Rage"
 		"DOTA_Tooltip_modifier_rifleman_rage_Description"                                 "This unit has increased movement and attack speed."
@@ -1175,6 +1184,43 @@
 		"DOTA_Tooltip_ability_magtheridon_thunderclap_Description"                        "Magtheridon slams the ground with his massive body, stunning all enemies in range."
 		"DOTA_Tooltip_ability_magtheridon_thunderclap_duration"                           "DURATION:"
 		"DOTA_Tooltip_ability_magtheridon_thunderclap_radius"                             "RADIUS:"
+		
+		"DOTA_Tooltip_ability_marine_banish"                                              "Banish"
+		"DOTA_Tooltip_ability_marine_banish_Description"                                  "Banishes a unit which cannot attack and takes increased magic damage."
+		"DOTA_Tooltip_ability_marine_banish_magic_armor_reduction"                        "MAGIC ARMOR REDUCTION:"
+		"DOTA_Tooltip_ability_marine_banish_duration"                                     "DURATION:"
+
+		"DOTA_Tooltip_ability_marine_clone"                                               "Clone"
+		"DOTA_Tooltip_ability_marine_clone_Description"                                   "The Jacky clones a friendly hero. This illusion deals extra damage and takes less damage."
+		"DOTA_Tooltip_ability_marine_clone_illusion_duration"                             "ILLUSION DURATION:"
+		"DOTA_Tooltip_ability_marine_clone_outgoing_damage_tooltip"                       "%OUTGOING DAMAGE:"
+		"DOTA_Tooltip_ability_marine_clone_incoming_damage"                               "%INCOMING DAMAGE:"
+
+		"DOTA_Tooltip_ability_marine_fan_of_rockets"                                      "Fan Of Rockets"
+		"DOTA_Tooltip_ability_marine_fan_of_rockets_Description"                          "The Marine sends a exploding rocket a each enemy in range dealing damage."
+		"DOTA_Tooltip_ability_marine_fan_of_rockets_radius"                               "RADIUS:"
+		"DOTA_Tooltip_ability_marine_fan_of_rockets_damage"                               "DAMAGE:"
+
+		"DOTA_Tooltip_ability_marine_hurl_bomb"                                           "Hurl Bomb"
+		"DOTA_Tooltip_ability_marine_hurl_bomb_Description"                               "Jacky hurls a bomb at an enemy damaging and stunning them."
+		"DOTA_Tooltip_ability_marine_hurl_bomb_duration"                                  "STUN DURATION:"
+
+		"DOTA_Tooltip_ability_marine_life_regeneration_aura"                              "Life Regeneration Aura"
+		"DOTA_Tooltip_ability_marine_life_regeneration_aura_Description"                  "Jackie's presence causes friendly units to have increased health regeneration."
+		"DOTA_Tooltip_ability_marine_life_regeneration_aura_health_regeneration"          "HEALTH REGENERATION:"
+
+		"DOTA_Tooltip_ability_marine_metal_armor"                                         "Metal Armor"
+		"DOTA_Tooltip_ability_marine_metal_armor_Description"                             "Jacky puts on metal armor increasing his phyisical defence."
+		"DOTA_Tooltip_ability_marine_metal_armor_armor_bonus"                             "ARMOR BONUS:"
+
+		"DOTA_Tooltip_ability_marine_rocketswarm_XX"                                      "Rocketswarm"
+		"DOTA_Tooltip_ability_marine_rocketswarm_XX_Description"                          "Releases a storm of missiles at an area damaging and stunning units on impact."
+		"DOTA_Tooltip_ability_marine_rocketswarm_XX_damage_per_unit"                      "DAMAGE:"
+		"DOTA_Tooltip_ability_marine_rocketswarm_XX_radius"                               "RADIUS:"
+		"DOTA_Tooltip_ability_marine_rocketswarm_XX_stun_duration"                        "STUN DURATION:"
+		"DOTA_Tooltip_ability_marine_rocketswarm_XX_radius_explosion"                     "RADIUS EXPLOSION:"
+		"DOTA_Tooltip_ability_marine_rocketswarm_XX_duration"                             "DURATION:"
+
 
 		"DOTA_Tooltip_ability_moon_priest_chain_lightning"                                "Chain Lightning"
 		"DOTA_Tooltip_ability_moon_priest_chain_lightning_Description"                    "The Priestress of the moon creates lightning, which jumps between units damaging them."

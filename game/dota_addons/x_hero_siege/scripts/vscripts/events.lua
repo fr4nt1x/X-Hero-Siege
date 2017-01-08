@@ -288,6 +288,7 @@ function GameMode:OnPlayerLevelUp(keys)
 
   local player = EntIndexToHScript(keys.player)
   local level = keys.level
+
   local hero = nil
 
   if player ~= nil then
@@ -298,7 +299,6 @@ function GameMode:OnPlayerLevelUp(keys)
   if level >= 19 then
     hero:SetAbilityPoints(hero:GetAbilityPoints()-1) 
   end
-
 if level == 20 then
     -- level up all abilities, that are not leveled up atm
 
@@ -315,7 +315,6 @@ if level == 20 then
     end
     for _,ability in pairs(AbilitiesHeroes_XX[hero:GetUnitName()]) do
       if ability ~= nil then
-
         Notifications:Top(hero:GetPlayerOwnerID(), {text="You reached level 20. You gained a new ability: ",duration=5})
         Notifications:Top(hero:GetPlayerOwnerID(), {ability=ability[1] ,continue=true})
         Notifications:Top(hero:GetPlayerOwnerID(), {text="It's in the slot of one of your passive abilities. You keep your passive effect. To see it use Alt-Click on your level 20 ability.", duration=5})

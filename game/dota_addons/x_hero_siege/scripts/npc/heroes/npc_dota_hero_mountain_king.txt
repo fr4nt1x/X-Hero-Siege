@@ -24,7 +24,7 @@
 		"Ability3"					"mountain_king_muradins_hammer"	 //Reference: AHtb
 		"Ability4"					"mountain_king_bash"	 //Reference: AHbh
 		"Ability5"					"mountain_king_avatar"	 //Reference: AHav
-		"Ability6"					""	 //Reference: AHav
+		"Ability6"					"mountain_king_thunderspirit"	 //Reference: AHav
 		
 		// Armor
 		//----------------------------------------------------------------

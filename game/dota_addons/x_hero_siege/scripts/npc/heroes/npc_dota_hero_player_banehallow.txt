@@ -14,7 +14,7 @@
     "Ability3"        "bane_player_critical"
     "Ability4"        "dryad_endurance_aura"
     "Ability5"        "bane_player_stampede"
-    "Ability6"        ""
+    "Ability6"        "bane_player_command_aura"
     "Ability7"        ""
     "Ability8"        ""
     "Ability9"        ""

@@ -17,9 +17,6 @@
     "SideShop"     "0" 
     "SecretShop"   "0"
 
-    "ItemShopTags"					"artifact"
-	"ItemQuality"					"artifact"
-    
     "ItemStackable" "0"
     "ItemPermanent" "1"
     "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"

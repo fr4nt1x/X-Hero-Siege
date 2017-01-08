@@ -12,7 +12,7 @@
 		"Ability3"					"marine_metal_armor"	 //Reference: Arsq
 		"Ability4"					"marine_life_regeneration_aura"	 //Reference: ANsb
 		"Ability5"					"marine_clone"	 //Reference: Arsp
-		"Ability6"					""	 //Reference: Aamk
+		"Ability6"					"marine_banish"	 //Reference: Aamk
 		
 		// Armor
 		//----------------------------------------------------------------

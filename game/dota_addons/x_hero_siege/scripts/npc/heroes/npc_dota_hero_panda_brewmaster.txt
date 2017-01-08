@@ -12,7 +12,7 @@
         "Ability3"                  "panda_permanent_immolation"   //Reference: ANdh
         "Ability4"                  "panda_drunken_brawler"   //Reference: ANdb
         "Ability5"                  "panda_earthquake"   //Reference: ANef
-        "Ability6"                  ""   //Reference: ANef
+        "Ability6"                  "panda_ensnare"   //Reference: ANef
         // Armor
         //----------------------------------------------------------------
         "ArmorPhysical"             "1"

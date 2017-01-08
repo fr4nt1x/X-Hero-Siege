@@ -22,7 +22,7 @@
 		"Ability3"					"moon_priest_forked_lightning"
 		"Ability4"					"moon_priest_monsoon"
 		"Ability5"					"moon_priest_trueshot_aura"
-	    "Ability6"        			""
+	    "Ability6"        			"moon_priest_rejunivation"
 	    "Ability7"        ""
 	    "Ability8"        ""
 	    "Ability9"        ""

@@ -13,7 +13,7 @@
 		"Ability3"					"rifleman_shield"	 //Reference: AHfs
 		"Ability4"					"rifleman_trueshot_aura"	 //Reference: AHbn
 		"Ability5"					"rifleman_laser"	 //Reference: AHdr
-		"Ability6"					""	 //Reference: AHpx
+		"Ability6"					"rifleman_rage"	 //Reference: AHpx
 		"Ability7"					""	 //Reference: AHbn
 		"Ability8"					""	 //Reference: AHdr
 		"Ability9"					""	 //Reference: AHpx

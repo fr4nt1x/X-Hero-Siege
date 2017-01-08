@@ -18,7 +18,7 @@
 		"Ability2"					"windrunner_critical_arrows"	 
 		"Ability3"					"dryad_endurance_aura"	 
 		"Ability4"					"windrunner_innerfire"	 
-		"Ability5"					""	 
+		"Ability5"					"windrunner_healing"	 
 		"Ability6"					"windrunner_exploding_arrows"	
 		// Armor
 		//----------------------------------------------------------------

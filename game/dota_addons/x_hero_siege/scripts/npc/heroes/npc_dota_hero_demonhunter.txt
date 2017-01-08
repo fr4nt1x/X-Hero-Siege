@@ -22,7 +22,7 @@
     "Ability3"        "demonhunter_evasion"
     "Ability4"        "demonhunter_vampiric_aura"
     "Ability5"        "demonhunter_metamorphosis"
-    "Ability6"        ""
+    "Ability6"        "demonhunter_roar"
     "Ability7"        ""
     "Ability8"        ""
     "Ability9"        ""

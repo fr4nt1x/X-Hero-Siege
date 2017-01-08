@@ -14,7 +14,7 @@
         "Ability3"                  "tauren_chieftain_pulverize"   //Reference: AOae
         "Ability4"                  "dryad_endurance_aura"   //Reference: AOre
         "Ability5"                  "tauren_chieftain_lightning_stroke"   //Reference: AOws
-        "Ability6"                  ""   //Reference: AOre
+        "Ability6"                  "tauren_chieftain_roar"   //Reference: AOre
         "Ability7"                  ""   //Reference: AOws
         // Armor
         //----------------------------------------------------------------

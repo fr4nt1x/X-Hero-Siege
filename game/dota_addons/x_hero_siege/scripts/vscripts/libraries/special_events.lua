@@ -82,8 +82,10 @@ function endSpecialEventRoshan()
       unit:RemoveModifierByName("modifier_invulnerable")
     end
   end
-  
-  FireGameEventLocal("make_base_towers_vulnerable", {})
+  Timers:CreateTimer(2,function()
+      FireGameEventLocal("make_base_towers_vulnerable", {})
+      end)
+
 
   local heroes = HeroList:GetAllHeroes()
 
@@ -212,7 +214,10 @@ function endSpecialArena()
     end
   end
 
-  FireGameEventLocal("make_base_towers_vulnerable", {})
+  Timers:CreateTimer(2,function()
+      FireGameEventLocal("make_base_towers_vulnerable", {})
+      end)
+
 
   FireGameEventLocal("teleport_all_units_to_hero",{stun_duration = 0.5})
 
@@ -316,8 +321,10 @@ function endKillEvent(event)
     unit:RemoveModifierByName("modifier_stunned")
     unit:RemoveModifierByName("modifier_invulnerable")
   end
-
-  FireGameEventLocal("make_base_towers_vulnerable", {})
+  
+  Timers:CreateTimer(2,function()
+      FireGameEventLocal("make_base_towers_vulnerable", {})
+      end)
 
   local hero = EntIndexToHScript(event.hero_index)
 
@@ -443,7 +450,10 @@ function endWaveKillEvent(event)
     unit:RemoveModifierByName("modifier_invulnerable")
   end
 
-  FireGameEventLocal("make_base_towers_vulnerable", {})
+  Timers:CreateTimer(2,function()
+      FireGameEventLocal("make_base_towers_vulnerable", {})
+      end)
+
   
   local hero = EntIndexToHScript(event.hero_index)
   

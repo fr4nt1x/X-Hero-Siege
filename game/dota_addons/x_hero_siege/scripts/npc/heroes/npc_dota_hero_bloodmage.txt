@@ -12,7 +12,7 @@
 		"Ability3"					"bloodmage_incinerate"	 //Reference: AHfs
 		"Ability4"					"bloodmage_fire_bolt"	 //Reference: AHbn
 		"Ability5"					"bloodmage_summon_phoenix"	 //Reference: AHdr
-		"Ability6"					""	 //Reference: AHpx
+		"Ability6"					"bloodmage_chains"	 //Reference: AHpx
 		"Ability7"					""	 //Reference: AHbn
 		"Ability8"					""	 //Reference: AHdr
 		"Ability9"					""	 //Reference: AHpx

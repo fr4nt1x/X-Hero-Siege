@@ -10,7 +10,7 @@
 		"Ability2"					"archmage_water_elemental"	 //Reference: AHbz
 		"Ability3"					"archmage_debilitation_aura"	 //Reference: AHab
 		"Ability4"					"archmage_frost_bolt"	 //Reference: AHwe
-		"Ability5"					""	 //Reference: AHmt
+		"Ability5"					"archmage_spell_shield"	 //Reference: AHmt
 		"Ability6"					"archmage_starfall"	 //Reference: AHmt
 		"Ability7"		""
 		"Ability8"		""

@@ -10,7 +10,7 @@
     "Ability3"        "dryad_endurance_aura"
     "Ability4"        "arthas_player_frostmourne"
     "Ability5"        "arthas_player_light_roar"
-    "Ability6"        ""
+    "Ability6"        "arthas_player_cleave"
     "Ability7"        ""
     "Ability8"        ""
     "Ability9"        ""

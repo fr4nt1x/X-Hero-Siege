@@ -13,7 +13,7 @@
 		"Ability3"					"shandris_life_regeneration_aura"	 //Reference: AUsl
 		"Ability4"					"shandris_permanent_lightning"	 //Reference: AUcs
 		"Ability5"					"shandris_lightning_shock"	 //Reference: AUin
-		"Ability6"					""	 //Reference: AUcs
+		"Ability6"					"shandris_spell_resistance"	 //Reference: AUcs
 
 		// Armor
 		//----------------------------------------------------------------

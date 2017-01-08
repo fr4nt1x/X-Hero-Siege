@@ -24,7 +24,7 @@
 		"Ability3"					"blademaster_war_drums_aura"	 //Reference: AOcr
 		"Ability4"					"blademaster_critical"	 //Reference: AOmi
 		"Ability5"					"blademaster_bladefury"	 //Reference: AOww
-		"Ability6"					""	 //Reference: AOww
+		"Ability6"					"blademaster_berserk"	 //Reference: AOww
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"0"

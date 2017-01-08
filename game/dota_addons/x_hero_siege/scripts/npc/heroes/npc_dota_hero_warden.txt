@@ -25,7 +25,7 @@
     "Ability1"        "warden_poison_dagger"
     "Ability2"        "warden_flurry_of_knives" 
     "Ability3"        "warden_silence"
-    "Ability4"        ""
+    "Ability4"        "blink"
     "Ability5"        "warden_attribute_bonus"
     "Ability6"        "warden_vengeance"
     "Ability7"        ""

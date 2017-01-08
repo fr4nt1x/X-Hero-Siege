@@ -14,7 +14,7 @@
 		"Ability2"					"shadow_hunter_serpentine_ward"	 //Reference: ANhw
 		"Ability3"					"shadow_hunter_feedback"	 //Reference: ANhx
 		"Ability4"					"shadow_hunter_vodoo_eyes"	 //Reference: Arsw
-		"Ability5"					""	 //Reference: AOls
+		"Ability5"					"shadow_hunter_healing_ward"	 //Reference: AOls
 		"Ability6"					"shadow_hunter_laser_trap"	 //Reference: Aamk
 		
 		// Armor

@@ -22,7 +22,7 @@
 		"Ability3"					"luna_split_lightning"
 		"Ability4"					"luna_elunes_armor"
 		"Ability5"					"luna_command_aura"
-	    "Ability6"        			""
+	    "Ability6"        			"luna_moon_glaive"
 	    "Ability7"        ""
 	    "Ability8"        ""
 	    "Ability9"        ""

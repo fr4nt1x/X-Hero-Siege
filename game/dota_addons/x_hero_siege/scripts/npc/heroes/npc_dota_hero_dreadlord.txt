@@ -14,7 +14,7 @@
 		"Ability4"					"dreadlord_death_coil"	 //Reference: AUcs
 		"Ability5"					""	 //Reference: AUin
 		"Ability6"					"dreadlord_inferno"	 //Reference: AUcs
-		"Ability7"					""	 //Reference: AUin
+		"Ability7"					"dreadlord_sleep"	 //Reference: AUin
 
 		// Armor
 		//----------------------------------------------------------------

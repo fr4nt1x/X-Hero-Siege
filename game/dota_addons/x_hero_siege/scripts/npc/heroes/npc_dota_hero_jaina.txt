@@ -12,7 +12,7 @@
 		"Ability2"					"jaina_sea_elemental"	 //Reference: AUav
 		"Ability3"					"jaina_life_mana_drain"	 //Reference: AUsl
 		"Ability4"					"jaina_elemental_wave"	 //Reference: AUcs
-		"Ability5"					""	 //Reference: AUin
+		"Ability5"					"jaina_mana_shield"	 //Reference: AUin
 		"Ability6"					"jaina_frost_paralysis_aura"	 //Reference: AUcs
 
 		// Armor
